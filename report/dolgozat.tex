@@ -1,0 +1,49 @@
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt,a4paper]{report}
+
+\usepackage{dolgozat}
+
+\usepackage{hyperref}
+
+\usepackage{listings}
+\usepackage{python}
+\usepackage{cpp}
+% TODO javascript code highlighting environment \usepackage{js}  
+\usepackage{enumitem}
+
+\usepackage{subcaption}
+\usepackage{tikz}
+\usepackage{gensymb}
+
+%\linespread{1.2}
+
+\begin{document}
+
+\include{cimlap/cimlap}
+
+\pagestyle{empty}
+\include{feladatkiiras/feladatkiiras}
+
+\cleardoublepage
+\pagenumbering{gobble}
+\tableofcontents
+\cleardoublepage
+\pagenumbering{arabic}
+
+\newpage
+
+% \linespread{1.2}
+\pagestyle{fancy}
+
+\include{fejezetek/1_bevezetes}
+% TODO include fejezetek
+% \include{fejezetek/2_elmelet}
+% \include{fejezetek/3_gyakorlat}
+% \include{fejezetek/4_osszegzes}
+
+\include{irodalomjegyzek/irodalom}
+
+\include{hasznalat/hasznalat}
+
+\end{document}

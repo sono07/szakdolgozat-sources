@@ -1,0 +1,14 @@
+bevezetés, összegzés a legvégén megír 
+
+fejezetek
+bevezetés(1)
+elméleti fejezet grafikus keretrendszerekről (2)
+grafikus keretrendszerek összehasonlítás és egy kiválasztása (javascript, HTML5) (3)
+alkalmazás elkészítése a kiválasztott grafikus keretrendszerrel (4)
+- cél kitűzése
+- alkalmazás tervezése
+- implementáció
+- eredmények
+összegzés (5)
+
+

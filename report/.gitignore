@@ -1,0 +1,14 @@
+*.aux
+*.bbl
+*.blg
+*.gz
+*.log
+*.out
+*.pdf
+*.pdf_tex
+*.toc
+*.nav
+*.snm
+*.vrb
+*.dvi
+*.thm
