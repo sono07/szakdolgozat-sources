@@ -1,0 +1,101 @@
+\begin{MyChapter}{Játékfejlesztés általánosan}
+	% TODO 	- mi lesz a fejezetben
+
+	\begin{MySection}{Története}
+		% TODO - honnan indult a játékfejlesztés 
+		% TODO 	- fontosabb játékok megemlíteni
+		% TODO 	- fejlődési mérföldkövek (új effektek, megjelenítés, fizika stb, mi mikortól jelent meg, esetleg mire/miért jó)
+		
+		A játékfejlesztés történelme egészen az 1950-es évekre nyúlik vissza, amikor már egyes informatikusok az egyetemeken elkezdtek egyszerűbb játékokat, valamint szimulációkat készíteni a kutatásaik egy részeként, azonban ezek nem lettek bemutatva a nyilvánosságnak, nem voltak elérhetőek mindenki számára.
+		
+		Az első videojátékok közé sorolhatjuk a "Tennis for Two"-t, amelyet William Higinbotham amerikai fizikus készített egy Donner Model 30 típusú analóg számítógépre. Ez egy oldalnézetes asztalitenisz szimulátor volt, az első olyan játék, amely grafikus kijelzőt használt.
+		Ide sorolható még például a Sandy Douglas brit informatikus által fejlesztett "OXO", amelyben a 3x3 darab mezőbe a számítógép és a játékos felváltva teszik a szimbólumokat, mindaddig, amíg valamelyiüknek nem sikerül 3 darab egy vonalban álló mezőbe azonos szimbólumokat tenni.
+		Hasonlóan az előzőekhez, a "Spacewar!" nevű játék is az első játékok közé tehető, amit 1962-ben az MIT-n (Massachusetts Institute of Technology) Stephen Russel amerikai informatikus néhány diáktársával együtt alkotott. A Spacewar! két játékos között szimulált egy űrbéli harcot.
+		
+		% Tennis for Two / OXO / Spacewar! fotó(k)??
+		
+		Egészen az 1970-es évekig még nem értek el nagy népszerűséget a videojátékok, csak ekkor kezdtek el olyan játékokat fejleszteni, amiket a nyilvánosság számára is elérhetővé tettek. Ekkor kezdték el árulni a konzolok első generációját is, például a Magnavox Odyssey-t, valamint a Color TV-Game-t.
+		
+		Az első konzol grafikája fehér pontokból és vonalakból állt. A játékoknak nem volt háttérgrafikájuk, hanem a rendszer 2 szett különböző méretű áttetsző képernyő átfedéseket használt. Néhány játék számára nem volt szükség háttérre, míg más játékoknál kötelező volt. Tartalmazott többek között foci, kísértetház, tenisz, hoki, és egyéb átfedéseket. Itt még nem volt memória amibe eltárolhatta volna a pontszámokat a konzol, így külön ponttáblát kellett hozzá használni, illetve játékkártyákat, melyek behelyezésével indult el a rendszer. Viszont ezeket a kiegészítőket gyakran elhagyták a használók, így manapság már egy komplett Magnavox Odyssey rendszert szinte lehetetlen lenne találni.
+		
+		% kép az első konzolról(?)
+		
+		Körülbelül ekkor kezdtek el hatalmas népszerűségnek örvendeni az árkád játékok. Különösképpen a "Space Invaders" kiadása után, 1978-ban volt ez megfigyelhető, ami egy egyszerű, mégis addiktív és adrenalindús játék volt, melynek célja, hogy a játékos megmentse a Földet az alien-ektől. Érdekesség, hogy eredetileg sokkal lassabb játékmenetet tervezett a készítője, azonban problémába ütközött az állandó tempó megtartásában, így végül folyamatosan növekszik a sebesség, egyre nehezítve a játékmenetet, a játékosok pedig pont így szerették meg a játékot. Az árkád játékok közül még érdemes megemlíteni a "Pac-Man"-t, mely szintén nagyon közkedvelt lett. Azonban egyre többen szerettek volna bevételt szerezni a játékokból, így a piac telített lett, ezenkívül pedig a rengeteg számítógépes játék megjelenése is jelentősen csökkentette a fogyasztói érdeklődést az árkád játékokra.
+	
+		A számítógépes játékok első generációjánál gyakoriak voltak a szöveg alapú kalandjátékok, amelyekben a játékosok billentyűzeten keresztüli rövid parancsok által tudták irányítani a játékmenetet. Egyik legfontosabb ilyen játék például a "Colossal Cave Adventure", melyet Will Crowther, barlangász és programozó alkotott 1976-ban, egy évvel később pedig Don Woods segítségével kibővült a játék. A kalandjátékban egy rejtélyes barlangot fedezhet fel a játékos, melyben aranyat, kincset találhat, a cél pedig minél több pontot gyűjtve, élve kijutni a barlangból.
+
+		%konzolokról / Colossal Cave Adventure-ről kép?
+		
+		Az 1970-es évek végén egyes étteremláncok elkezdtek videojáték gépeket betelepíteni üzleteikbe, ez tulajdonképpen a többszereplős játékok gyökere volt. Ez akkoriban azt jelentette, hogy akik ugyanazon a gépen játszottak, a többi játékos pontszámát láthatták a toplistán, így tudtak versenyezni egymással.
+		
+		A korai 1980-as években játékmagazinok és hobbiból programozók által jött létre és került nyilvánosságra rengeteg játék. Ezekhez a forráskódot is mellékelték, ezáltal kedvükre módosíthatták a játékosok. Fontosabb játék volt ekkoriban a "Microchess", mely az egyik első olyan játék volt, amit mikroszámítógépekre gyártottak.
+		
+		% TODO NES -> SNES -> PlayStation (?)
+		
+		Ahogy a hardvergyártók egyre inkább felismerték a rengeteg potenciális üzleti lehetőséget, amik a multimédiás alkalmazásokban, videojátékokban rejlettek, rájöttek, hogy ezeken a területeken nagyobb teljesítményű hardverekre volt igény. A CPU (processzor) gyártók 2005 körülre már egyenesen a több magos processzorok felé haladtak. Egy 3D játékhoz többnyire szükség van egy erős GPU-ra (videokártya) is, amely a valósidejű komplex kép kirajzolását gyorsítja.
+		A hardvergyártás fejlődésének köszönhetően a videojátékok egyre valósághűbbek és komplexebbek lettek, egyre inkább eladhatóvá váltak. Ezzel a korábbi, hobbiból programozott játékok helyett jelentősen megnőtt az igény a modernebb, magasabb színvonalú játékfejlesztésre. Így tehát a számítástechnika fejlődésével, valamint az internet elterjedésével egyre inkább jelentős részévé váltak a számítógépes játékok a szórakoztatóiparnak.
+		
+	\end{MySection}
+
+	\begin{MySection}{Játékfejlesztés menete} 
+		% TODO 	- játékfejlesztés alapjai
+		% TODO 	- játékfejlesztés menete
+		% TODO 	- pc
+		% TODO 	- konzol
+		% TODO 	- mobil
+		
+		A mobilos játékok a 2000 körüli években kezdtek népszerűvé válni, azonban még csekély közönségük volt, egészen 2008-ig amikor az Apple elindította az App Store-t. Akkor még körülbelül 500 alkalmazást lehetett letölteni a telefonokra, mely mára már közel 2 millió applikációra bővült.
+		
+		% TODO 	-sokan: mobil app-nak álcáznak weboldalakat (ma már számos- html5 js ts) de valójában html alapú, csak egy app-ba van becsomagolva <- ezekről pár oldal	(ionic, react native, etc)
+		% TODO 	-webes(általánosan, később részletezve) 
+		% TODO 	-hardveres gyorsítós böngészős játékok
+		% TODO 	-html5
+		% TODO 	-webgl
+		% TODO 	-elérhető technológiák / irányok
+		% TODO 	-Jövő: a javascript mert az futtatható mindenhol (ha nem túl erőforrás igényes az alkalmazás)
+		
+		
+	\end{MySection}
+
+	\begin{MySection}{Játékfejlesztés keretrendszerek nélkül}
+		% TODO 	- előny
+		% TODO  - hátrány
+		% TODO 	- c++, low-level
+		% TODO 	- példa ilyenre
+	\end{MySection}
+
+	\begin{MySection}{Játékfejlesztés keretrendszerekkel}
+		% TODO 	- game-engine mit tartalmaz
+		
+		A keretrendszerek avagy játékmotorok használata a 2000 körüli években vált kimondottan gyakorivá.
+		
+		% TODO 	- előny
+		% TODO 	- hátrány
+		% TODO 	- game-engine-k
+		% TODO 	- opengl
+		% TODO 	- unity
+		% TODO 	- unreal engine
+		% TODO 	- példák ilyenekre
+		% TODO 	- telepítésük
+		% TODO 	- használatuk
+		% TODO 	- tapasztalatok (kipróbálás ha lehet)
+		% TODO 	(- összehasonlítás, konklúzió)
+		
+		
+		
+		\end{MySection}
+	
+\end{MyChapter}
+		
+% TODO használt linkek hozzáadása az irodalomjegyzékhez
+% https://en.wikipedia.org/wiki/Video_game_development
+% https://en.wikipedia.org/wiki/Steve_Russell_(computer_scientist)
+% https://en.wikipedia.org/wiki/PC_game
+% https://en.wikipedia.org/wiki/History_of_video_games
+% https://en.wikipedia.org/wiki/OXO
+% https://en.wikipedia.org/wiki/Colossal_Cave_Adventure
+% https://en.wikipedia.org/wiki/App_Store_(iOS/iPadOS)
+% https://techcrunch.com/2015/10/31/the-history-of-gaming-an-evolving-community/
+% https://hu.wikipedia.org/wiki/Tennis_for_Two
+% https://www.gamedesigning.org/gaming/history/
+% https://www.lifewire.com/magnavox-odyssey-the-first-gaming-console-729587
