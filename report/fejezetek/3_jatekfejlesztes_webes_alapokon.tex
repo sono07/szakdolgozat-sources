@@ -5,31 +5,61 @@
 	\begin{MySection}{Webes fejlesztés}
 		% TODO 	- kialakulása, néhánya általános dolog
 		
-		Az internet fejlődésével a böngészőkben játszható játékok nem csak helyet kaptak, de szinte a legnagyobb közönséghez jutottak el. A hozzáférésük sokkal könnyebb, mint a boltokban megvásárolt játékoknak, hiszen szimplán csak egy webcímre szükséges ellátogatni, majd magában a böngészőben zajlik a játékmenet. Ezen felül a szociális hálózatok elterjedése szintén felgyorsította a böngészős játékok egyre több emberhez való eljutását.
+		Az internet fejlődésével a böngészőkben játszható játékok nem csak helyet kaptak, de szinte a legnagyobb közönséghez jutottak el. A hozzáférésük sokkal könnyebb, mint a boltokban megvásárolt játékoknak, hiszen szimplán csak egy webcímre szükséges ellátogatni, majd magában a böngészőben zajlik a játékmenet. Napjainkban pedig az eszközeink nagy részén már rendelkezésre áll egy böngésző. Ezen felül a szociális hálózatok elterjedése szintén felgyorsította a böngészős játékok egyre több emberhez való eljutását.
+		
+		% TODO irodalomjegyz.->
+ 		% https://en.wikipedia.org/wiki/Browser_game
+		% https://www.awwwards.com/current-state-and-the-future-of-html5-games.html
+		% https://docs.microsoft.com/en-us/archive/msdn-magazine/2015/march/game-development-a-web-game-in-an-hour
 		
 		Azonban a böngészők erőforrásai kifejezetten korlátozottak voltak, komplexebb alkalmazásokhoz már nem biztosítottak elég funkciót. Ezért a fejlesztők különböző cégek által készített plug-in-eket, programokat használtak, mint például a Microsoft Silverlight, vagy az Adobe Flash. Ezek a kiegészítések már komolyabb grafikus tartalom megjelenítésére voltak képesek, viszont az összes használónak szükséges telepítenie a megfelelő plug-in-t.  
 		
-		% használt linkek:
-		% https://en.wikipedia.org/wiki/Browser_game
-		% https://www.awwwards.com/current-state-and-the-future-of-html5-games.html
-
+		% TODO a webes fejl. fejezet végére:
+		Mint a későbbi fejezetekből majd részletesebben ki fog derülni, a mai modern kornak és a webes szabványoknak köszönhetően, ma már böngészőbe épülő plug-in-ok nélkül is képesek vagyunk modern hardveresen gyorsított számítógépes grafika, illetve megfelelő szintű játékok készítésére.
+		
 	\end{MySection}
 
 	\begin{MySection}{HTML5}
-		% TODO 	- mi ez, miért jobb mint ami eddig volt
+		% TODO	- mi ez, miért jobb mint ami eddig volt
 		
-		A HTML5 fő célja a fentebb említett funkcióknak az egységesítése volt, anélkül, hogy a felhasználóknak különböző plug-in-eket kellene használniuk ahhoz, hogy megfelelően működjenek az egyes elemek a böngészőben. A funkciók szabványosítása folyamatosan zajlik, így bár már most is megfelelő platformot nyújt a webes játékok, alkalmazások számára, a jövőben még ennél is népszerűbbé válhat.
+		Korábban már szó volt róla, hogy a HTML5 fő célja a fentebb említett funkcióknak az egységesítése volt, anélkül, hogy a felhasználóknak különböző plug-in-eket kellene használniuk ahhoz, hogy megfelelően működjenek az egyes elemek a böngészőben.
+		A funkciók szabványosítása folyamatosan zajlik, így bár már most is megfelelő platformot nyújt a webes játékok, alkalmazások számára, a jövőben még ennél is népszerűbbé válhat.
 		
 	\end{MySection}
 
-	\begin{MySection}{Javascript}
+	\begin{MySection}{JavaScript}
 		% TODO 	- mi ez, miért jó
 		% TODO 	- kialakulása
+		A JavaScript egy kis erőforrás-igényű, objektumorientált programozási nyelv, mely lehetőséget nyújt a fejlesztők számára a weboldalaikba való komplexebb dolgok implementálására. Amennyiben olyan weblapról beszélünk, amely nem statikus tartalommal rendelkezik, hanem interaktív tartalom is megtalálható rajta, akár 2D-s vagy 3D-s animáció, stb., abban az esetben valószínűsíthető, hogy JavaScriptet is tartalmaz az oldal. Ezenkívül, bár webes tartalmaknál használják a leggyakrabban, számos webböngészőn kívüli környezetben is alkalmazható. A nyelvet eredetileg 1996-ban fejlesztették ki, azóta sokat változott, a szintaxisa közelebb került a Java programozási nyelvhez. Az ECMA (Európai informatikai és kommunikációs rendszerek szabványosítási szövetsége) először 1997 és 1999 között szabványosította ECMAScript néven.
+		% TODO irodalom ->
+		% https://developer.mozilla.org/en-US/docs/Learn/JavaScript
+		% https://hu.wikipedia.org/wiki/JavaScript
+		% https://developer.mozilla.org/hu/docs/Web/JavaScript
+		% https://hu.wikipedia.org/wiki/Ecma_International
+		% https://wiki.prog.hu/wiki/JavaScript
+		% https://data-flair.training/blogs/advantages-disadvantages-javascript/
+		A JavaScript főbb jellemzői:
+		\begin{itemize}
+			\item A futási környezete többnyire egy webböngésző.
+			\item Interaktív. (Ezalatt a felhasználó által megvalósított események kezelhetőségére gondoljunk)
+			\item A legtöbb böngészővel kompatibilis, emiatt népszerű is.
+			\item A kiszolgáló tehermentesítését is elősegíti: Űrlapküldés esetén küldéskor megvizsgálhatja, hogy az összes űrlapmező ki van-e töltve. Amennyiben nincs, a kliens oldalon fel tudja hívni a felhasználó figyelmét erre.
+			\item Sokoldalú, mivel alkalmas front-end és backend fejlesztésre is.
+		\end{itemize}
+		Összességében elmondhatjuk, hogy a JavaScript szinte mindenhol futtatható, rengeteg helyen alkalmazzák, és ezalatt a front-end valamint a back-end mellett a mobil, az asztali, illetve a hibrid alkalmazásokat is érthetjük. A nyelv kifejezetten népszerű, folyamatosan fejlődik, a webfejlesztés egyik vezető programnyelve és feltehetőleg még hosszú ideig így is marad.
+		% TODO irodalomjegyzék ->
+		% https://www.creative-tim.com/blog/web-development/javascript-future-learn-javascript/
+		% TODO megnézni h van e vmi hasznos ebben https://www.freecodecamp.org/news/future-of-javascript
 	\end{MySection}
 
-	\begin{MySection}{Typescript}
+	\begin{MySection}{TypeScript}
 		% TODO 	- mi ez, miért jó
 		% TODO 	- kialakulása
+		% TODO átírni -> 
+		A TypeScript tulajdonképpen a JavaScript típusokkal, osztályokkal, és egyéb hasznos funkciókkal kibővített változata. Tehát minden, amit JavaScript-ben megtehetünk, az TypeScript-ben is lehetséges, illetve egy működő JavaScript kódot is átvihetünk TypeScript kódba, az ott is le fog futni, a futási időben való viselkedés pedig nem fog változni, még akkor sem, ha a TypeScript úgy érzékeli, hogy a kód típushibákat tartalmaz. Fordítás során a TypeScript fájlok JavaScripté alakulnak át. Érdemes észrevennünk, hogy a TypeScript-ben található típusok, osztályok, privát illetve publikus elérhetőségek, stb. ellenőrzése csak fordítási időben történik meg, futásidőben nem garantáltak.
+		A TypeScript megjelenése előtt a JavaScript programozók gyakran követtek el típushibákat, még akár szimpla elgépelések miatt is. Ezen hibák kiküszöbölésével azonban a TypeScript hatékonyabbá teheti a JavaScript fejlesztést.
+		
+		% https://www.typescriptlang.org/
 	\end{MySection}
 
 	\begin{MySection}{Általános célú javascript keretrendszerek}
