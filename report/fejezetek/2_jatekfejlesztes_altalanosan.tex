@@ -58,7 +58,7 @@
 		\end{MySubSection}
 		
 		\begin{MySubSection}{A videojátékok további fejlődése}
-		Korábban volt szó, az online játékokról, ennek elérésével többször próbálkoztak a fejlesztők, viszont hosszú ideig sikertelenül. Az első igazán népszerű online szerepjáték az 1997-es MMORPG (Massively Multiplayer Online Role-Playing Game) az Ultima Online volt, chat funkcióval, lehetővé téve a játékosok közötti interakciót és kommunikációt. Konzolok terén 2000-ben a Sega Dreamcast megjelentette első internetre-kész konzolját, egy igazán forradalmi rendszert, és az első internetes eszközt ami népszerűséget is szerzett. Azonban még ez is bukásra volt ítélve, tekintve, hogy még ekkor is kifejezetten költséges volt az internethozzáférés, így a Sega a felhasználók általi játék után hatalmas összegű számlákat kapott. A Sega kudarcának következtében a konkurens konzol-gyártók tanultak a negatívumokból, és a fejlesztéseiknek köszönhetően a 2000 körüli években az online funkcionalitás már nélkülözhetetlenné vált a játékiparban.
+		Korábban volt szó, az online játékokról, ennek elérésével többször próbálkoztak a fejlesztők, viszont hosszú ideig sikertelenül. Az első igazán népszerű online szerepjáték az 1997-es Massively Multiplayer Online Role-Playing Game (röviden: MMORPG) az Ultima Online volt, chat funkcióval, lehetővé téve a játékosok közötti interakciót és kommunikációt. Konzolok terén 2000-ben a Sega Dreamcast megjelentette első internetre-kész konzolját, egy igazán forradalmi rendszert, és az első internetes eszközt ami népszerűséget is szerzett. Azonban még ez is bukásra volt ítélve, tekintve, hogy még ekkor is kifejezetten költséges volt az internethozzáférés, így a Sega a felhasználók általi játék után hatalmas összegű számlákat kapott. A Sega kudarcának következtében a konkurens konzol-gyártók tanultak a negatívumokból, és a fejlesztéseiknek köszönhetően a 2000 körüli években az online funkcionalitás már nélkülözhetetlenné vált a játékiparban.
 		
 		A hardvergyártók egyre inkább felismerték a rengeteg potenciális üzleti lehetőséget, amik a multimédiás alkalmazásokban, videojátékokban rejlettek, rájöttek, hogy ezeken a területeken nagyobb teljesítményű hardverekre volt igény.
 		A CPU (processzor) gyártók 2005 körülre már egyenesen a több magos processzorok felé haladtak. 
@@ -162,9 +162,7 @@
 		% https://gadget-info.com/66728-15-best-android-tv-games-you-should-play
 		% https://www.origo.hu/techbazis/20150826-android-tv-sony-bravia-4k-google-operacios-rendszer-alkalmazasok-uj-orulet.html
 		% https://www.cnet.com/how-to/unified-remote-turns-your-android-into-a-pc-controller/
-		
 		% TODO 	-sokan: mobil app-nak álcáznak weboldalakat (ma már számos- html5 js ts) de valójában html alapú, csak egy app-ba van becsomagolva <- ezekről pár oldal	(ionic, react native, etc)
-		
 		\end{MySubSection}
 
 		% TODO 	-webes(általánosan, később részletezve)		
@@ -186,7 +184,7 @@
 	
 		% TODO 	-webgl
 		\begin{MySubSection}{WebGL-ről röviden}
-			A WebGL (Web Graphics Library, magyarul: webalapú grafikus könyvtár) egy JavaScript API (Application Programming Interface rövidítése, magyarul alkalmazásprogramozási felületet jelent, gyakorlatilag megkönnyíti a fejlesztők munkáját azzal, hogy adott programok vagy programrendszerek szolgáltatásainak dokumentációjához, utasításkészletéhez nyújtanak hozzáférést) amely interaktív 2D illetve 3D grafikát tud ábrázolni bármely kompatibilis webböngészőben, plug-in-ok használata nélkül.
+			A WebGL (Web Graphics Library, magyarul: webalapú grafikus könyvtár) egy JavaScript API (Application Programming Interface rövidítése, magyarul alkalmazásprogramozási felületet jelent, gyakorlatilag megkönnyíti a fejlesztők munkáját azzal, hogy adott programok vagy programrendszerek szolgáltatásainak dokumentációjához, utasításkészletéhez nyújtanak hozzáférést) amely interaktív két dimenziós (röviden: 2D) illetve három dimenziós (röviden: 3D) grafikát tud ábrázolni bármely kompatibilis webböngészőben, plug-in-ok használata nélkül.
 			% TODO irodalom->
 			% https://matebalazs.hu/api-application-programming-interface.html
 			% https://hu.wikipedia.org/wiki/Alkalmaz%C3%A1sprogramoz%C3%A1si_fel%C3%BClet
@@ -204,7 +202,6 @@
 				\item Egy olyan környezet, amelyben a 3D grafika ellenőrzése egyszerű, könnyen debug-olható.
 				% TODO irodalom->
 				% https://www.quora.com/What-are-the-pros-and-cons-of-WebGL
-				
 			\end{itemize}
 		\end{MySubSection}
 		% TODO 	-elérhető technológiák / irányok
@@ -213,31 +210,86 @@
 
 	\begin{MySection}{Játékfejlesztés keretrendszerek nélkül}
 		% TODO 	- előny
+		A keretrendszerek nélküli játékfejlesztésnek számos előnye lehet a használatukkal szemben, főleg tapasztaltabb fejlesztők számára, többek között:
+		\begin{itemize}
+			\item Itt mindent saját magának készít el a fejlesztő, ezért ez a fejlesztési módszer kevésbé kötött, nagyobb rugalmasságot ad.
+			\item Egy idő után, ha sokat fejlesztünk játékmotorok használata nélkül, kialakul egy általunk fejlesztett "keretrendszer". Ez persze nem biztos, hogy valóban egy komplett játékmotor, viszont azon amit tartalmaz könnyedén kiigazodhatunk, mert egyből tudjuk, mit hol kell keresnünk a kódban.
+			\item Főleg az előző ok miatt, ha hibát ejtük valahol, könnyebb kijavítani.
+		\end{itemize}
 		% TODO  - hátrány
+		Kezdő, tapasztalatlanabb játékfejlesztők számára azonban ez a folyamat sokkal lassabb, időigényesebb lehet, mint egy már kész motor használatával elkészített alkalmazás.
 		% TODO 	- c++, low-level
 		% TODO 	- példa ilyenre
 	\end{MySection}
 
 	\begin{MySection}{Játékfejlesztés keretrendszerekkel}
 		% TODO 	- game-engine mit tartalmaz
+		A keretrendszerek, azaz a grafikus motorok és a játékmotorok használata a 2000 körüli években vált kimondottan gyakorivá, nagy lökést kaptak a grafikus processzorok megjelenése után.
 		
-		A keretrendszerek, azaz grafikus motorok vagy játékmotorok használata a 2000 körüli években vált kimondottan gyakorivá.
-		
-		A grafikus-, valamint a játékmotorok funkcionalitás szerint egyszerűen megkülönböztethetőek egymástól:
+		A grafikus-, valamint a játékmotorokat céljainktól függően fontos megkülönböztetnünk egymástól, ez funkcionalitásuk szerint egyszerűen kivitelezhető:
 		\begin{itemize}
 			\item Grafikus motorok csak képi megjelenítésben segítik a programozót.
 			\item Játékmotorok ennél bővebb, egy nagyobb eszközrendszert biztosítanak a fejlesztőknek.
 		\end{itemize}
 		% TODO 	- előny
-		A játékmotorok használata tehát előnyös lehet az effektívebb, gyorsabb játékfejlesztéshez. Mivel a számítógépes grafika magas szinten van, szükség lehet a motor komplex funkcionalitására. A technológia fejlődése által egyre szebb látványvilágot tudnak visszaadni mind a grafikus-, mind a játékmotorok. Azonban egy modern motor vásárlása, az előbbi tényezők miatt, valamint a több éves szakértelem - implementált algoritmusok formájában - nagy költséget jelenthet a fejlesztők számára. 
+		Mivel játékfejlesztéshez egy játékmotor használata a célszerűbb, mint a grafikus motoré, ezért a fejezetben főleg a játékmotorokról lesz szó bővebben.
+		A játékmotorok használata tehát előnyös lehet az effektívebb, gyorsabb játékfejlesztéshez. Mivel a számítógépes grafika magas szinten van, szükség lehet a motor komplex funkcionalitására. A technológia fejlődése által egyre szebb látványvilágot tudnak visszaadni mind a grafikus-, mind a játékmotorok. Használatukkal viszont rengeteg erőforrás megspórolható azzal, hogy nem a fejlesztő feladata megvalósítani például a fizikai alrendszert, ütközésvizsgálatot, a megjelenítésért felelős rendszert, stb.
+		Nem csak az egész játékmotort egyben, hanem önmagában csak egy-egy alrendszert is lehetőségünk van megvásárolni, mely abban az esetben lehet például kifizetődő, ha egy már kipróbált, megfelelő alrendszert beszerezni olcsóbb, mint egy saját, új alrendszer kifejlesztése.
 		% TODO irodalom -> 
 		% https://users.iit.uni-miskolc.hu/~mileff/grafika/Grafika_programozasa_jegyzet_v0.66_Mileff_P.pdf
+		A mobilok megjelenésével új terület nyílt meg a keretrendszerek számára, több ismert játékmotort forgalmazó cég hordozható eszközökre elérhető változatot is adott ki.
+		Keretrendszert használhatunk számítógépre, konzolra, valamint mobil eszközre való fejlesztésre egyaránt, a célplatformtól függően számos motor közül válogathatunk. Létezik külön 2D-s valamint 3D-s alkalmazás fejlesztéséhez megfelelő játékmotor, illetve van, amelyik mindkettőre alkalmas.
+		
 		% TODO 	- hátrány
+		A fentebb említett főbb előnyei miatt, egy modern motor vásárlása nagy költséget jelenthet a fejlesztők számára, ami nem meglepő, mert nagyon sok munka van az elkészítésében.
+		Az esetlegesen magas áron felül, hátránya lehet még, hogy a fejlesztésben kevesebb rugalmasság, szabadság van, illetve nehezebb kijavítani az esetleges hibákat fejlesztés közben.
+		
+		\begin{MySubSection}{Mai ismertebb keretrendszerek}
 		% TODO 	- game-engine-k
+		Napjainkban számos játékfejlesztésre (és egyéb alkalmazások fejlesztésére) alkalmas keretrendszer megtalálható a piacon, mint már szó volt róla, több platform terén is.
+		Ezek közül néhány közkedvelt például a:
+		\begin{itemize}
+			\item CryEngine
+			\item Unity
+			\item Unreal Engine
+			\item Source
+		\end{itemize}
+		Természetesen ennél sokkal több játékmotor létezik, melyeket az interneten könnyedén megtalálhatunk, és néhányat akár ingyenesen is letölthetünk.
+		Például a következő linken: https://en.wikipedia.org/wiki/List\_of\_game\_engines találhatunk a Wikipédián egy listát rengeteg keretrendszerről (a teljesség igénye nélkül), ahol a nevüket, az elsődleges programozási nyelvüket, a célplatformjukat, az adott játékmotor közreműködésével elkészült játékok listáját, valamint egyéb tényezőket is megtekinthetünk.
+		\end{MySubSection}
 		% TODO 	- opengl
 		% TODO 	- unity
+		
+		\begin{MySubSection}{Unreal Engine}
 		% TODO 	- unreal engine
-		% TODO 	- példák ilyenekre
+		Mint fentebb szó volt róla, az egyik népszerű, modern játékmotor az Unreal Engine. A motort 1995-ben kezdte el írni az Epic Games (amerikai játék-, illetve szoftverfejlesztő és kiadó cég) alapítója. Eredetileg azzal a céllal, hogy elősegítse egy játék fejlesztési folyamatát, amely Unreal névvel jelent meg, több év után, 1998-ban. Az Unreal nevű játék egy First-Person Shooter (röviden: FPS, ez a műfaj magyarul belső nézetű lövöldözős játékot jelent), kezdetben tehát a motor FPS játékok fejlesztéséhez íródott. Azóta viszont rengeteget fejlődött, és már számos népszerű játék készült el a segítségével, nem csak FPS, hanem egyéb kategóriákban is, például MMORPG (azaz a már korábban említett többszereplős online szerepjátékműfaj), vagy platformer játékok (ide sorolható minden olyan játék, melynek nagy részét képezi a platformokon való ugrálás). A keretrendszer fejlődésén jelenleg is dolgoznak, a következő verziójából, az Unreal Engine 5-ből már nyilvánosságra is hoztak egy kis ízelítőt, a teljes verziót pedig a 2021-es év végére tervezik kiadni.
+		% TODO irodalom ->
+		% https://en.wikipedia.org/wiki/Unreal_Engine
+		% https://www.unrealengine.com/en-US/blog/a-first-look-at-unreal-engine-5
+		% https://en.wikipedia.org/wiki/Epic_Games
+		% https://hu.wikipedia.org/wiki/First-person_shooter
+		% https://www.google.com/search?tbm=bks&q=isbn:9780429560576
+		
+		% TODO 	- példák
+		Összehasonlításként mellékelek egy-egy fotót a motor régebbi verziójával készült, 2001-ben PlayStationre kiadott Harry Potter és a bölcsek köve játékról (lásd: \myref{fig:unrealEngine:harry-potter-and-the-sorcerer-s-stone-ps} ábra), valamint az Unreal Engine 5 által készített PlayStation 5-ön futó demóról, mely 2020-ban látott napvilágot (lásd: \myref{fig:unrealEngine:First-look-at-Unreal_Engine_5} ábra). A platform tehát mindkét esetben konzol volt, viszont a technológia fejlődése kifejezetten szembetűnő, a 2001-es, illetve a majdnem 20 évvel későbbi fénykép között.
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[scale=0.4]{kepek/unrealEngine/harry-potter-and-the-sorcerer-s-stone-ps.jpeg}
+			\caption{Harry Potter és a bölcsek köve PlayStation játék (2001)}
+			\label{fig:unrealEngine:harry-potter-and-the-sorcerer-s-stone-ps}
+		\end{figure}
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[scale=0.16]{kepek/unrealEngine/First-look-at-Unreal_Engine_5.jpg}
+			\caption{Unreal Engine 5 demó (2020)}
+			\label{fig:unrealEngine:First-look-at-Unreal_Engine_5}
+		\end{figure}
+	
+		A képeket szemügyre véve tisztán látható a különbség, hogy az újabb változata a keretrendszernek mennyivel filmszerűbb, részlegtagazdabb látványvilágot képes nyújtani.
+		% TODO forrás->
+		% https://tcrf.net/Prerelease:Harry_Potter_and_the_Sorcerer%27s_Stone_(PlayStation)
+		% https://www.unrealengine.com/en-US/blog/a-first-look-at-unreal-engine-5
+		\end{MySubSection}
 		% TODO 	- telepítésük
 		% TODO 	- használatuk
 		% TODO 	- tapasztalatok (kipróbálás ha lehet)
