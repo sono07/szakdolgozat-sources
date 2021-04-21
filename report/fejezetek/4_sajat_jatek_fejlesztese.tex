@@ -5,8 +5,8 @@
 	
 	\begin{MySection}{Célok meghatározása}
 		% TODO - vázolni mit szeretnél elérni a programmal/játékkal, miről fog szólni, tehát az elképzelés (vízió dokumentum :) )
-		Mint ahogy fentebb is szó volt róla, amellett döntöttem, hogy egy játékmotor használatával készítek el egy játékot. A választásom a Phaser 3 keretrendszerre esett. % TODO erről /Phaser/ később konkrétabban is lesz szó / korábban vhol? leírni az ezzel kapcsolatos tapasztalatokat(általánosan h erre a célra mennyire felel meg, ajánlanám-e ezt ilyen jellegű program készítésére) ilyen kellhet?
-		A célom egy HTML5 alapú játék megtervezése és fejlesztése, konkrétabban egy tower defense (magyarul: toronyvédő, röviden: TD) műfajú játék elkészítése. A TD játékok lényege, hogy a játékos tornyok, vagy egyéb objektumok építésével megakadályozza, hogy az ellenfelek, vagy szörnyek egy előre meghatározott ponton túljussanak. Egy ilyen műfajú játék egy felhasználó számára egyszerűen megtanulható, azonban igényel némi stratégiát, gondolkodást, ahogy egyre nehezedik. 
+		Mint ahogy fentebb is szó volt róla, amellett döntöttem, hogy egy játékmotor használatával készítek el egy játékot. A választásom a Phaser 3 keretrendszerre esett, mint korábban már említettem.
+		A szakdolgozatomban egy HTML5 alapú játék megtervezése és fejlesztése a célom, konkrétabban egy tower defense (magyarul: toronyvédő, röviden: TD) műfajú játék elkészítése. A TD játékok lényege, hogy a játékos tornyok, vagy egyéb objektumok építésével megakadályozza, hogy az ellenfelek, vagy szörnyek egy előre meghatározott ponton túljussanak. Egy ilyen műfajú játék egy felhasználó számára egyszerűen megtanulható, azonban igényel némi stratégiát, gondolkodást, ahogy egyre nehezedik. 
 		% TODO irodalom ->
 		% https://www.loopinsight.com/2010/03/30/understanding-tower-defense-games/
 		% https://en.wikipedia.org/wiki/Tower_defense
@@ -14,6 +14,8 @@
 		Azért választottam ezt a műfajt, mert egyrészt magam is szeretem az ilyesfajta stílusú játékokat, így amikor a tervezésén gondolkodtam, például azon, hogy milyen elemek legyenek benne, vagy hogyan haladjon a játékmenet, akkor rengeteg ötlet merült fel bennem, többek között emiatt is, hogy korábban már játszottam hasonló témájú játékokkal, és a korábbi tower defensekkel kapcsolatos tapasztalataim alapján pedig sokkal könnyebb volt eldönteni, hogy melyek azok a tulajdonságok, amiket egy efféle játékban fontosnak tartok. Ugyanakkor még kifejezetten segítségemre voltak ezek a játékélmények abban, hogy jobban meg tudjam határozni, hogy összességében milyen végeredményt szeretnék látni a saját játékomban, mind grafikai, mind pedig játékmenet szempontjából. Másrészt, mint már említettem, még nem igazán volt tapasztalatom játékok készítése terén, ezért egy egyszerűbb játékon keresztül szerettem volna megismerni a játékfejlesztést.
 		
 		Mindezek mellett a TD egy olyan játékműfaj, amely meglehetősen illeszkedik ahhoz az elképzelésemhez, hogy egy felülnézetes, két dimenziós játékot szeretnék készíteni. Vizualizációs forma terén pedig a Tile-Map alapú megjelenítési technikára esett a választásom, amely mint korábban már írtam is, kimondottan népszerű 2D-s grafika esetén. Az oka annak, hogy a két dimenziós grafikát preferálom szintén amiatt van, amit említettem nemrégiben, hogy egy visszafogottabb, egyszerűbb program készítésén keresztül szeretnék tapasztalatokat gyűjteni a játékfejlesztésről, ehhez pedig kevésbé lett volna alkalmas a 3D-s grafika.
+		
+		A játék alapkoncepciója az lenne, hogy az elején a főmenüből elindítunk egy pályát. Ezután betölt a pálya, ahol van egy meghatározott útvonal, amely egyik oldalán beérkeznek ellenfelek, a másik végén pedig ha túl sokan túljutnak, tehát nem sikerül őket megállítanunk, elpusztítanunk, akkor veszítünk. Az útvonalon kívül a pálya tartalmazna még egyáb objektumokat, tájelemeket, hogy ne legyen egyhangú a játék kinézete. Az ellenségek kiiktatásához tornyokat lehetne letenni amelyek támadják a szörnyeket. Az alapja ez lenne a játéknak, picit részletesebben a célok meghatározásáról pedig a továbbiakban fogok beszélni.
 		
 		Az elérendő célok közé sorolnám azt, hogy nem csak egy toronyfajtát szeretnék elérhetővé tenni, hanem többfélét, kinézetben és sebzési módban egyaránt különbözőeket. Ez utóbbit úgy kell érteni, hogy az tornyok, amiket elhelyezhetünk, amelyek támadni fogják az ellenfeleket, ne csak például egy golyót lőjenek ki, hanem szeretnék lézert, vagy rakétavetőt, stb. Fontos lehet még, hogy némelyik torony akár több szörnyet is tudjon egyszerre sebezni, például adott területre irányuló támadással, legfőképpen a játék későbbi szakaszában, amikor már különösen sok az ellenség. Mindenképp szeretnék effekteket is tenni a játékba, mondjuk olyat, ami lassítja az ellenfelet, ez segíthet főleg játék későbbi időszakában, hogy több ellenség legyen egy helyen, ezáltal még több szörnyet képesek lennénk támadni egyszerre, területi sebzéssel.
 		Úgy gondolom, hogy az is hasznos lenne, hogy ha egyszer leteszünk egy tornyot, akkor nem feltétlenül kellene ott maradnia örökre, hanem akár lerombolhatnánk, ezzel valamennyi pénzt visszakapva, majd újat építhetnénk a helyére, ami erősebb, jobban illik oda az érkező ellenfelekhez. 
@@ -23,15 +25,26 @@
 		
 		Mint ahogy az előző mondatból kiderülhet, szeretnék még valamiféle pénzrendszert, erőforrást vinni a játékba, amelyből megvásárolhatóak a tornyok a védekezéshez. A pénzt minden megölt szörnyeteg után kapja majd a játékos, és ide kerülne vissza az a pénz is amit visszakapnánk ha mondjuk lerombolunk egy tornyot. Bizonyos összegért esetleg el lehetne pusztítani egyes tájelemeket is, hogy ha nagyon rossz helyen vannak, a helyükre tudjunk tornyot tenni a védelem érdekében.
 		
-		A felhasználó számára láthatóvá szeretném tenni, hogy aktuálisan mennyi élete van, ezt növelni nem lehetne, viszont ezáltal egyértelmű lenne a játékosnak, hogy ha nem sikerült kiiktatni egy-egy ellenfelet, illetve, hogy esetlegesen hány darab ellenség átengedése után veszítene.
+		A felhasználó számára láthatóvá szeretném tenni, hogy aktuálisan mennyi élete van, ezt növelni nem lehetne, viszont ezáltal egyértelmű lenne a játékosnak, hogy ha nem sikerült kiiktatnia egy-egy ellenfelet, ami így sikeresen végigment az egész útvonalon, illetve ebből az is világossá válik, hogy esetlegesen hány darab ellenség átengedése után veszítene.
 		
 		Emellett szeretnék még egy pontrendszert készíteni, minden megölt ellenfél után járna adott mennyiségű pont, csakúgy, mint a pénzgyűjtés esetében. A játékos természetesen ezt is látná, hogy az adott pályán a játék közben aktuálisan mennyi pontja van éppen, ezért ha esetleg valakiben túlteng a versenyszellem, akkor később javítani is tudna az eredményein.
 		
 		Mint az előző mondataimból kiderülhet, szeretném, hogy egy pályát akár többször is meg lehessen próbálni, viszont mindenképpen szükséges több pálya is, különféle útvonalakkal, mert különben hamar unalmassá, megszokássá válna főleg a játék eleje, ahogy mindig ugyanoda tehetnénk le csak a tornyokat, és folyton azonos útvonalon haladnának a szörnyek. Ezt elkerülendő tehát fontosnak tartom, hogy több pálya is legyen, például véletlenszerűen, vagy pedig a játékos által valamilyen bemenettel generálva. Ezáltal változatosabb útvonalak lehetnének, illetve a tájelemek sem mindig ugyanott helyezkednének el. A felhasználó számára feltétlenül módosíthatónak kellene lennie a generálásnak, vagy pedig a legutóbb alkotott pályát elérhetővé tenni, hogy ha ugyanazon az pályán szeretne játszani, például a magasabb ponszám elérése miatt, az megoldható legyen.
+		
+		% TODO meddig szeretnék eljutni a játék készítésével - ide nem igazán tudom h kéne megfogalmazni
+		Elsődlegesen azt szeretném elérni, hogy az alap funkcionalitás meglegyen, majd ha ez kész, csak ezután szeretném a fentebbi tulajdonságokkal kibővíteni a játékot. Ami még a célom, hogy a továbbiakban is lehetőség legyen bővítésre, illetve hogy az esetleges továbbfejlesztési lehetőségeket viszonylag könnyen intergálni tudjuk a programba a későbbiekben.
 	\end{MySection}
 		
-	\begin{MySection}{Felhasznált eszközök/technológiák}
+	\begin{MySection}{Felhasznált eszközök, technológiák}
 		% TODO - bármi (IDE, nyelv, OS, build-tool, git)
+		A játék elkészítéséhez az alábbi technológiákat választottam, használtam:
+		\begin{itemize} % TODO WIP
+			\item Phaser 3 játékmotor - % TODO ide ezt le kell írni, vagy mivel a 3. fejezet legvégén le fogom írni illetve az előző alfejezetben leírtam h ezt választottam már nem kell??
+			% TODO ez neked bele volt írva, nekem is kellhet az oprendszer amin írom?		\item Windows 10
+			\item JavaScript - ezen belül TypeScript % TODO itt a JS-t leírom aztán pedig h javascript egy változatát, a ts-t használom, vagy a ts-t külön pontba kellene?
+			\item Git - A program készítéséhez, főleg a nagysága miatt kétségkívül érdemes volt valamilyen verziókövető szoftvert alkalmazni. Azért a Git-et választottam erre a célra, mert a kisebb és nagyobb projektekhez egyaránt megfelelő, gyors, hatékony, kifejezetten jó a támogatottsága, és végül, de nem utolsósorban ingyenes. Mindezek mellett könnyen használható, a tanulmányaim során pedig egyébként is kellett már alkalmaznom korábban, így nem volt teljesen ismeretlen számomra a használata.
+			% TODO WIP
+		\end{itemize}
 	\end{MySection}
 		
 	\begin{MySection}{Tervezés}
