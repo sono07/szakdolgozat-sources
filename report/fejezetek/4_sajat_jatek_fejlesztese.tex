@@ -41,16 +41,22 @@
 		\begin{itemize} % TODO WIP
 			\item Phaser 3 - HTML5 alapú játékmotor.
 			\item Windows 10 - Alapvetően a mindennapokban is Windows operációs rendszert használok elsősorban, emiatt azzal kapcsolatosan több tapasztalattal is rendelkezem, úgyhogy szinte természetes volt, hogy a játék fejlesztésekor is ezt az operációs rendszert szeretném használni.
-			\item JavaScript - alapvetően a programozási nyelvként a js-t választottam hiszen a választott játékmotor is ezt támogatja. % TODO erről még írni vmit, hogy miért ezt választom ezenkívül?
-			\item TypeScript - Mivel a Js alapvetően nem tartalmaz típusokat, pedig az megkönnyíti a fejlesztő dolgát, így a ts-t is használom, ahol lehetőség van rá. De mint mondtam a játékmotor nem teljesen kompatibilis ezzel, így nem lehet csak ts-sel megoldani.
-			% TODO JS TS-t tartalmilag átírni !!
+			\item JavaScript - Alapjában véve a JavaScript mellett döntöttem, hiszen a programozási nyelv meghatározásánál lényeges volt szem előtt tartani, hogy a fejlesztéshez választott játékmotor mely nyelveket támogatja. % TODO erről még írni vmit, hogy miért ezt választom ezenkívül?
+			\item TypeScript - A JavaScript alapvetően nem tartalmaz típusokat, pedig az valójában rendkívül megkönnyíti a fejlesztő dolgát, ennélfogva úgy határoztam, hogy a TypeScriptet is használom, ahol csak lehetőség van rá. Azonban mint írtam, a játékmotor nem teljesen kompatibilis a TypeScripttel, ebből kifolyólag nem lehet pusztán TS-t használni.
 			\item Git - A program készítéséhez, főleg a nagysága miatt kétségkívül érdemes volt valamilyen verziókövető szoftvert alkalmazni. Azért a Git-et választottam erre a célra, mert a kisebb és nagyobb projektekhez egyaránt megfelelő, gyors, hatékony, kifejezetten jó a támogatottsága, és végül, de nem utolsósorban ingyenes. Mindezek mellett könnyen használható, a tanulmányaim során pedig egyébként is kellett már alkalmaznom korábban, így nem volt teljesen ismeretlen számomra a használata.
-			\item Visual Studio Code
 			% TODO WIP ->
-			% NPM csomagkezelő(?)
-			% Webpack bundler (ami lefordítja a Typescript kódot Javascriptre, majd egy fájllá alakítja, hogy azt lehessen használni a HTML oldalon.)
+			\item Visual Studio Code
+			\item NPM csomagkezelő
+			\item Webpack bundler % (ami lefordítja a Typescript kódot Javascriptre, majd egy fájllá alakítja, hogy azt lehessen használni a HTML oldalon.)
 			% NPM package-k pl Jest
-			% https://plantuml.com/
+			\item PlantUML - A PlantUML használatával sokkal hatékonyabban tudunk a program egyes részeiről UML diagramokat készíteni, így rengeteg időt lehet spórolni vele. Online elérhető az alábbi linken: https://plantuml.com/ % TODO ellenőrizni a leírást h valóban ezt csinálja-e vagy mást kellene ide írnom
+			\item  https://www.photopea.com/ % (photoshop klón), a képek, assetek módosításához, vágásához
+			\item Free Sprite Sheet Packer - Az önálló képekből való sprite sheetek készítéséhez volt szükség a használatára. Azért is erre esett a választás, mert a Phaserrel kompatibilis, ezenkívül az önmagában álló képek (spriteok) kombinálása egy nagyobb képbe (sprite sheet) javítja a játék teljesítményét, hatékonyabbá teszi a memóriahasználatot, gyorsabb töltési időt eredményez. % TODO ez ide kell, vagy pedig másik résznél kellene részletezni esetleg?
+			% TODO forrás: https://www.codeandweb.com/what-is-a-sprite-sheet
+			Amit használtam, az tulajdonképpen a TexturePacker online alternatívája, a következő linken érhető el: https://www.codeandweb.com/free-sprite-sheet-packer
+			% TODO ellenőrizni a leírást h valóban ezt csinálja-e
+			\item Sprite sheet cutter - Az internetről felhasznált ingyenes sprite sheeteken található spriteok nem mindegyikére volt szükségem a játékhoz, így ennek a programnak % TODO program/ szoftver? mi ez?
+			a segítségével szét tudtam darabolni őket önálló képekre, ezáltal lehetőségem volt rá, hogy csak a szükségeseket használjam fel a későbbiekben. Ezen a linken érhető el online: https://ezgif.com/sprite-cutter/ % TODO ellenőrizni a leírást h valóban ezt csinálja-e
 		\end{itemize}
 	\end{MySection}
 		
