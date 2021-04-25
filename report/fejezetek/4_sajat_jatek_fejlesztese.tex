@@ -17,7 +17,7 @@
 		
 		A játék alapkoncepciója az lenne, hogy az elején a főmenüből elindítunk egy pályát. Ezután betölt a pálya, ahol van egy meghatározott útvonal, amely egyik oldalán beérkeznek ellenfelek, a másik végén pedig ha túl sokan túljutnak, tehát nem sikerül őket megállítanunk, elpusztítanunk, akkor veszítünk. Az útvonalon kívül a pálya tartalmazna még egyéb objektumokat, tájelemeket, hogy ne legyen egyhangú a játék kinézete. Az ellenségek kiiktatásához tornyokat lehetne letenni amelyek támadják a szörnyeket. Az alapja ez lenne a játéknak, picit részletesebben a célok meghatározásáról pedig a továbbiakban fogok beszélni.
 		
-		Az elérendő célok közé sorolnám azt, hogy nem csak egy toronyfajtát szeretnék elérhetővé tenni, hanem többfélét, kinézetben és sebzési módban egyaránt különbözőeket. Ez utóbbit úgy kell érteni, hogy a tornyok, amiket elhelyezhetünk, amelyek támadni fogják az ellenfeleket, ne csak például egy golyót lőjenek ki, hanem szeretnék lézert, esetleg rakétavetőt, vagy más egyéb lövedékfajtát is. Fontos lehet még, hogy némelyik torony akár több szörnyet is tudjon egyszerre sebezni, például adott területre irányuló támadással, legfőképpen a játék későbbi szakaszában, amikor már különösen sok az ellenség. Mindenképp szeretnék effekteket is tenni a játékba, mondjuk olyat, ami lassítja az ellenfelet, ez segíthet főleg játék későbbi időszakában, hogy több ellenség legyen egy helyen, ezáltal még több szörnyet képesek lennénk támadni egyszerre, területi sebzéssel.
+		Az elérendő célok közé sorolnám azt, hogy nem csak egy toronyfajtát szeretnék elérhetővé tenni, hanem többfélét, kinézetben és sebzési módban egyaránt különbözőeket. Ez utóbbit úgy kell érteni, hogy a tornyok, amiket elhelyezhetünk, amelyek támadni fogják az ellenfeleket, ne csak például egy golyót lőjenek ki, hanem szeretnék lézert, esetleg rakétavetőt, vagy más egyéb lövedékfajtát is. Fontos lehet még, hogy némelyik torony akár több szörnyet is tudjon egyszerre sebezni, például adott területre irányuló támadással, legfőképpen a játék későbbi szakaszában, amikor már különösen sok az ellenség. Mindenképp szeretnék effekteket is tenni a játékba, mondjuk olyat, ami lassítja az ellenfelet, ez segíthet főleg játék későbbi időszakában, hogy több ellenség legyen egy helyen, ezáltal még több szörnyet képesek lennénk támadni egyszerre, területi sebzéssel. Ezen effekteket esetleg vizuálisan is megkülönböztethetővé lehetne tenni, például lassítás esetén a szörny ami elszenvedi az effektet fagyos lenne, ha tűzzel kapcsolatos sebzést kap akkor pedig például lángolna egy darabig.
 		Úgy gondolom, hogy az is hasznos lenne, hogy ha egyszer leteszünk egy tornyot, akkor nem feltétlenül kellene ott maradnia örökre, hanem akár lerombolhatnánk, ezzel valamennyi pénzt visszakapva, majd újat építhetnénk a helyére, ami erősebb, jobban illik oda az érkező ellenfelekhez. 
 		
 		Az szörnyek tömegben jönnének, bizonyos darabszám először, majd fokozatosan egyre több érkezne egy hullámmal. Minden új csoportnyi ellenség között egy kis időt szeretnék hagyni a legyőzésükre, és minden legyőzött csapat után nem csak több, de erősebb ellenfelek lennének a következő hordában. A felhasználó számára szeretném elérhetővé tenni azt, hogy éppen hanyadik hullám érkezik, valamint azt is, hogy hány szörnyből áll majd a következő csoportnyi ellenfél.
@@ -32,37 +32,54 @@
 		Az előző mondataimból már kiderülhet, hogy szeretném, hogy egy pályát akár többször is meg lehessen próbálni, viszont mindenképpen szükséges több pálya is, különféle útvonalakkal, mert különben hamar unalmassá, megszokássá válna főleg a játék eleje, ahogy mindig ugyanoda tehetnénk le csak a tornyokat, és folyton azonos útvonalon haladnának a szörnyek. Ezt elkerülendő tehát fontosnak tartom, hogy több pálya is legyen, például véletlenszerűen, vagy pedig a játékos által valamilyen bemenettel generálva. Ezáltal változatosabb útvonalak lehetnének, illetve a tájelemek sem mindig ugyanott helyezkednének el. A felhasználó számára feltétlenül módosíthatónak kellene lennie a generálásnak, vagy pedig a legutóbb alkotott pályát elérhetővé tenni, hogy ha ugyanazon az pályán szeretne játszani, például a magasabb pontszám elérése miatt, az megoldható legyen.
 		
 		% TODO meddig szeretnék eljutni a játék készítésével - ide nem igazán tudom h kéne megfogalmazni
-		Elsődlegesen azt szeretném elérni, hogy az alap funkcionalitás meglegyen, majd amikor az kész lesz, csak azután szeretném a fentebbi tulajdonságokkal kibővíteni a játékot. Ami még a célom, hogy a továbbiakban is lehetőség legyen bővítésre, illetve hogy az esetleges továbbfejlesztési lehetőségeket viszonylag könnyen intergálni tudjuk a programba a későbbiekben.
+		Elsődlegesen azt szeretném elérni, hogy az alap funkcionalitás meglegyen, majd amikor az kész lesz, csak azután szeretném a fentebbi tulajdonságokból a lehető legtöbbet megvalósítani, kibővíteni a játékot. Gondolok itt arra, hogy például a vizuális effektek nem élveznek annyira prioritást. Ami még a célom, hogy a továbbiakban is lehetőség legyen bővítésre, illetve hogy az esetleges továbbfejlesztési lehetőségeket viszonylag könnyen intergálni tudjuk a programba a későbbiekben.
 	\end{MySection}
 		
 	\begin{MySection}{Felhasznált eszközök, technológiák}
 		% TODO - bármi (IDE, nyelv, OS, build-tool, git)
 		A játék elkészítéséhez az alábbi technológiákat választottam, használtam:
+		
 		\begin{itemize} % TODO WIP
 			\item Phaser 3 - HTML5 alapú játékmotor.
+			
 			\item Windows 10 - Alapvetően a mindennapokban is Windows operációs rendszert használok elsősorban, emiatt azzal kapcsolatosan több tapasztalattal is rendelkezem, úgyhogy szinte természetes volt, hogy a játék fejlesztésekor is ezt az operációs rendszert szeretném használni.
+			
 			\item JavaScript - Alapjában véve a JavaScript mellett döntöttem, hiszen a programozási nyelv meghatározásánál lényeges volt szem előtt tartani, hogy a fejlesztéshez választott játékmotor mely nyelveket támogatja. % TODO erről még írni vmit, hogy miért ezt választom ezenkívül?
+			
 			\item TypeScript - A JavaScript alapvetően nem tartalmaz típusokat, pedig az valójában rendkívül megkönnyíti a fejlesztő dolgát, ennélfogva úgy határoztam, hogy a TypeScriptet is használom, ahol csak lehetőség van rá. Azonban mint írtam, a játékmotor nem teljesen kompatibilis a TypeScripttel, ebből kifolyólag nem lehet pusztán TS-t használni.
+			
 			\item Git - A program készítéséhez, főleg a nagysága miatt kétségkívül érdemes volt valamilyen verziókövető szoftvert alkalmazni. Azért a Git-et választottam erre a célra, mert a kisebb és nagyobb projektekhez egyaránt megfelelő, gyors, hatékony, kifejezetten jó a támogatottsága, és végül, de nem utolsósorban ingyenes. Mindezek mellett könnyen használható, a tanulmányaim során pedig egyébként is kellett már alkalmaznom korábban, így nem volt teljesen ismeretlen számomra a használata.
+			
 			% TODO WIP ->
-			\item Visual Studio Code
+			\item Visual Studio Code % IDE , kis erőforrásigénye van, de jól customizálható,  minden szükséges funkciót tudunk benne használni különféle pluginek segítségével, ingyenes
+			
 			\item NPM csomagkezelő
-			\item Webpack bundler % (ami lefordítja a Typescript kódot Javascriptre, majd egy fájllá alakítja, hogy azt lehessen használni a HTML oldalon.)
-			% NPM package-k pl Jest
-			\item PlantUML - A PlantUML használatával sokkal hatékonyabban tudunk a program egyes részeiről UML diagramokat készíteni, így rengeteg időt lehet spórolni vele. Online elérhető az alábbi linken: https://plantuml.com/ % TODO ellenőrizni a leírást h valóban ezt csinálja-e vagy mást kellene ide írnom
-			\item  https://www.photopea.com/ % (photoshop klón), a képek, assetek módosításához, vágásához
+			
+			\item Webpack bundler - Ez egy olyan program, mely egyrészt lefordítja a TypeScript kódot JavaScriptre, másrészt az így kapott forrásfájlokat egy fájlba csomagolja, tömöríti, optimalizálja, és az egyéb szükséges statikus fájlokkal, mint a HTML vagy képek, összelinkeli. Tehát röviden a kész alkalmazást rakja össze a forrásfájlokból.
+			
+			\item Jest - A manuális tesztelésen kívül még ezt az NPM packaget % TODO magyarul kell v jó így?
+			használtam, alapvetően sok időt spórolhat meg. % TODO leírni hogy nem teljesen komatibilis a phaser meg ez ? 
+			
+			\item PlantUML - A PlantUML használatával sokkal hatékonyabban tudunk a program egyes részeiről UML diagramokat készíteni, így rengeteg időt lehet spórolni vele. Online elérhető az alábbi linken: \url{https://plantuml.com/}
+			
+			\item  \url{https://www.photopea.com/} % (photoshop klón), a képek, assetek módosításához, vágásához
+			
 			\item Free Sprite Sheet Packer - Az önálló képekből való sprite sheetek készítéséhez volt szükség a használatára. Azért is erre esett a választás, mert a Phaserrel kompatibilis, ezenkívül az önmagában álló képek (spriteok) kombinálása egy nagyobb képbe (sprite sheet) javítja a játék teljesítményét, hatékonyabbá teszi a memóriahasználatot, gyorsabb töltési időt eredményez. % TODO ez ide kell, vagy pedig másik résznél kellene részletezni esetleg?
 			% TODO forrás: https://www.codeandweb.com/what-is-a-sprite-sheet
-			Amit használtam, az tulajdonképpen a TexturePacker online alternatívája, a következő linken érhető el: https://www.codeandweb.com/free-sprite-sheet-packer
-			% TODO ellenőrizni a leírást h valóban ezt csinálja-e
-			\item Sprite sheet cutter - Az internetről felhasznált ingyenes sprite sheeteken található spriteok nem mindegyikére volt szükségem a játékhoz, így ennek a programnak % TODO program/ szoftver? mi ez?
-			a segítségével szét tudtam darabolni őket önálló képekre, ezáltal lehetőségem volt rá, hogy csak a szükségeseket használjam fel a későbbiekben. Ezen a linken érhető el online: https://ezgif.com/sprite-cutter/ % TODO ellenőrizni a leírást h valóban ezt csinálja-e
+			Amit használtam, az tulajdonképpen a TexturePacker online alternatívája, a következő linken érhető el: \url{https://www.codeandweb.com/free-sprite-sheet-packer}
+			
+			\item Sprite sheet cutter - Az internetről felhasznált ingyenes sprite sheeteken található spriteok nem mindegyikére volt szükségem a játékhoz, így ennek a programnak a segítségével szét tudtam darabolni őket önálló képekre, ezáltal lehetőségem volt rá, hogy csak a szükségeseket használjam fel a későbbiekben. Ezen a linken érhető el online: \url{https://ezgif.com/sprite-cutter/}
 		\end{itemize}
 	\end{MySection}
 		
 	\begin{MySection}{Tervezés}
 		% TODO -uml?
-		% TODO A tervezés azt jelenti, hogy elmondod, és bemutatod valahogy azt, amit szerettél volna készíteni. Tehát szövegesen leírni, hogy milyen típusú játékot készítettél, miért olyat. Működés szempontjából hogyan gondolod, milyen főbb részekre tudod esetleg bontani logikai és esetleg programozás szintjén. Tehát magas távlatból jutunk, haladunk az implementációs szint felé. Ez után jöhet egy-két UML ábra. Ami biztosan kell, az egy osztálydiagram. De lehet még bármi más is mellette. Az osztály azért jó, mert abból lehet látni megfelelő munka van-e benne. Nyilván érdemes minél több osztályt felírni, esetleg alrendzserekre bontani. Az is lehetséges, hogy a leírt terv részletesebb, mint ami majd a valóságban elkészült. Az osztályokat célszerű leírni 1-1 mondattal, hogy mire valók.
+		% TODO A tervezés azt jelenti, hogy elmondod, és bemutatod valahogy azt, amit szerettél volna készíteni. Tehát szövegesen leírni, hogy milyen típusú játékot készítettél, miért olyat. Működés szempontjából hogyan gondolod, milyen főbb részekre tudod esetleg bontani logikai és esetleg programozás szintjén. Tehát magas távlatból jutunk, haladunk az implementációs szint felé. Ez után jöhet egy-két UML ábra. Ami biztosan kell, az egy osztálydiagram. De lehet még bármi más is mellette. Az osztály azért jó, mert abból lehet látni megfelelő munka van-e benne. Nyilván érdemes minél több osztályt felírni, esetleg alrendszerekre bontani. Az is lehetséges, hogy a leírt terv részletesebb, mint ami majd a valóságban elkészült. Az osztályokat célszerű leírni 1-1 mondattal, hogy mire valók.
+		% milyen típusú játékot készítettem - miért?
+		% működés szempontjából főbb részekre bontani logikai / programozás szintjén
+		% uml ábrák, osztálydiagram
+		% minél több osztályt felírni, esetleg alrendszerek
+		% osztályokat 1-1 mondattal bemutatni mire való
 	\end{MySection}
 		
 	\begin{MySection}{Megvalósítás}
@@ -71,7 +88,67 @@
 	\end{MySection}
 		
 	\begin{MySection}{Tesztelés}
-		% TODO - Tesztfuttatások. Le lehet írni a futási időket, memória és tárigényt.
+		A tesztelés egy fontos folyamat, mind alkalmazások készítésénél, mind pedig játékfejlesztés esetében. 
+		A szakdolgozatom részeként készített játékban elsődlegesen a Jest NPM package segítségével próbáltam megvalósítani a tesztelés nagy részét, azonban ez elég nehézkes volt, mert a Phaser és a Jest nem teljesen kompatibilis egymással.
+				
+		% TODO leírni hogy hogy működik a jest, jest.mock(), jest.fn(), mock.reset() clear(), expect(...) toBeCalled, toBe, stb fvkről pár szót, 
+		
+		A keretrendszer miatt alapjában véve szinte lehetetlen mindent lefedni a tesztekkel, mert bizonyos dolgok tesztelését határozottan megnehezíti.
+		Gondolok itt például arra, hogy a Phasert lényegében nem lehet automatikusan mockolni, mert ilyen esetben hibára fut a Jest, tehát ekkor csak manuálisan van erre lehetőségünk, a keretrendszer minden szükséges részét megfelelően implementálva.
+		
+		További problémát jelentett még, hogy a Phaser alapvetően csak egyetlen helyen volt beimportálva, konkrétan a main osztályban, így a Jest csak ott tudta volna kicserélni az implementációját, ez viszont lehetetlenné tette volna a többi osztálynak a main-től független tesztelését. Ez, hogy csak egy helyen legyen beimportálva a Phaser, a weboldalukon \cite{phaser_official_website} található tutoriálokban, példakódokban, dokumentumokban, valamint a \url{https://blog.ourcade.co/} blogon lévő leírásokban kifejezetten fel volt tüntetve, mert problémákat okozhat, ha véletlenül kétszer is importálásra kerül a framework. Ezt megoldandó, készítettem egy úgy nevezett wrapper osztályt, ami pontosan egyszer importálja be a Phaser-t, amit így akár több helyen is biztonsággal lehet használni a Phaser használatára.
+		
+		% TODO jest issue: functions which are modifies input parameters cannot be tested properly, the original input valueas are not kept during tests
+			
+		Nehézség volt még, hogy az ES6-os osztályok mockolása kicsit problémás a Jest-tel, ezért készítettem egy \texttt{MockHelper} nevezetű osztályt, ami ezt orvosolja. A probléma abból fakadt, hogy a \texttt{jest.mock(...)} metódusba jelen állás szerint nem lehet külső váltózokat használni, tehát itt előre meg kell adni az osztály implementációját, viszont valamiért utólag (a konkrét teszt során) már nem lehet módosítani ezt az implementációt. Ezt úgy tudtam megkerülni, hogy közvetlenül az osztály prototype-ját módosítom ideiglenesen, és ennek az egyszerű és biztonságos kezelésére készült el az említett helper osztály.		
+		% TODO helper osztály használata bemutat, konstruktor, setup, reset
+			% boot.scene.test egész jó hozzá, onnan vegyél ki pár sort hogyan kell használni
+
+		% TODO hogyan teszteltél leírni
+			% -(itt csak akkor teszteltem ha a bonyolultsága miatt szükségesnek érződött, a tesztek nagy része a játék elkészülte után íródott) és integráltam a már kész kódhoz.
+			% - manuális teszelést: vagyis hogy kipróbűltad kézzel hogy jól működnek a funkciók, ez volt nagyrészt a fejlesztés folyamán
+			% inkább a fontosabb, több gondolkodost igénylő részek lefedése volt a cél, például pályagenerálás, hogy helyesen működik-e a UI-t/megjelenítést mivel könnyen módosíthatónak kellene lennie a jövőben így nincs értelme pixelre pontosan letesztelni, ahol érdemesnek tartottam ott nagyvonalakban néhány dolgot lefedtem, épp ezért nem túl tökéletes a tesz lefedettség de ez nem is volt cél.
+			A lefedés tekintetében inkább a lényegesebb, több gondolkodást igénylő részek lefedése volt a célom.
+			Ezalatt értem például a pályagenerálást, pontosabban azt, hogy az helyesen működik-e. 
+			%	
+			A felhasználói felület (User Interface röviden: UI), illetve a megjelenítés viszont könnyen módosítható kell, hogy legyen a jövőben is, ezért nem feltétlenül lett volna értelme részletesen, akár pixelre pontosan letesztelni. 
+			% TODO ez a mondat kicsit hülyén hangzik, szükséges átíni?-->
+			Ebből kifolyólag a teljesség igénye nélkül, ahol érdemesebbnek tartottam, ott nagyvonalakban néhány dolgot lefedtem, ezáltal tehát nem teljesen tökéletes a teszt lefedettség, de nem is feltétlenül ez volt a cél. 
+			
+	
+		% TODO példa teszt + kód + leírás
+			%- pályageneráls teszteket érdemes megemlíteni hogy miket feedett le (egyediség, azonos random-seed esetén u.a generálja-e)
+			% a rosszul működő pályagenerálásról a képet valahova ide
+			% 
+			%\begin{javascript}
+				% TODO latex környezet
+				% TODO generate map tesz bemutat, teljes forráskóddal
+			%\end{javascript}
+		
+		%Coverage
+			% jest teszt lefedettség belerak 1-2 kép akár az egészről, akár 1-1 részéről a programnak
+			Az összességében elért teszt lefedettség \aref{tab:teszt_lefedettseg}. táblázatban látható. Az objektumok nagyrészt nem lettek letesztelve, mert sajnos már nem jutott rá idő, így ez rontja az összességében elért eredményt, ezt az "All files" sorban találjuk. Éppen ezért a táblázatba belefoglaltam az objektumok tesztelési lefedettsége nélküli végeredményeket is, melyek pedig a "Without objects" sorban láthatóak, így lényegesen nagy különbség figyelhető meg az értékek között. A "Lines" oszlop azt tartalmazza, hogy a programban szereplő soroknak hány százaléka lett letesztelve, a "Functions" a játékban használatos függvények tesztelésének lefedettségét jelzi.
+			% TODO branches és statements leírás!
+			%
+			% TODO - jest teszt lefedettség - 1-2 kép  -> npm test -- --coverage
+			%
+		% összes teszt kép (npm test végeredmény kép)
+		% teszt futásidő
+			% - abból is látható, hogy mennyire nem kifejezetten tesztelhetően készítették el a Phaser-t, hogy az a pár viszonylag eygszerű teszt is x /* TODO idő */ másodperc alatt futtott.
+			
+		\begin{table}[h]
+			\centering
+			\caption{Teszt lefedettség az összes fájllal, majd az objektumokat nem számítva.}
+			\label{tab:teszt_lefedettseg}
+			\begin{tabular}{l|c|c|c|c|}
+				\cline{2-5}
+				& Statements & Branches & Functions & Lines \\ \hline
+				\multicolumn{1}{|l|}{All files} & 66.67\% & 48.8\% & 52.22\% & 66.89\% \\ \hline
+				\multicolumn{1}{|l|}{Without objects} & 85.89\% & 73.4\% & 72.22\% & 86.2\% \\ \hline
+			\end{tabular}
+			
+		\end{table}
+		
 	\end{MySection}
 
 	\begin{MySection}{Végeredmény}
