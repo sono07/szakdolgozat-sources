@@ -143,24 +143,54 @@
 			
 			\begin{itemize}
 				\item \textit{ImpactJS}, \url{https://impactjs.com/}
-				\item \textit{Phaser}, \url{https://phaser.io/}
 				\item \textit{Modd.io}, \url{https://www.modd.io/}
-				\item \textit{GDevelop}, \url{https://gdevelop-app.com/}
+				\item \textit{Construct 2}, \url{https://www.construct.net/en/construct-2/download}
+				\item \textit{Phaser}, \url{https://phaser.io/}
 			\end{itemize}
 		\end{MySubSection}
 	
 		\begin{MySubSection}{ImpactJS Engine}
+			Az ImpactJS egy olyan JavaScript játékmotor, amivel mobil és számítógép böngészőjében használható alkalmazásokat készíthetünk főképp 2D-s játékokat. A legtöbb népszerű böngészőt támogatja.
+			% TODO irodalom ->
+			% https://impactjs.com/
+			Az motor egy saját level-editorral (magyarul: pályaszerkesztő) rendelkezik, aminek Weltmeister a neve, ennek a használatához egy saját webszerver működésére van szükség. Elsőre kissé bonyolultnak tűnt kezdőként, mert nincs nagy tapasztalatom webszerver használatával, és a funkciók nem működtek megfelelően az első pár próbálkozásnál. Pozitívum, hogy az ImpactJS oldalán és fórumain rengeteg kérdésre választ találtam. Node.js-el, valamint annak az impact-node package-ével sikerült működtetni az editort, a kisebb problémák leküzdése után, viszont ennél egyszerűbb megoldást találva, végül az EasyPHP Webszervert használtam, aminek a grafikus felülete felhasználóbarát, egyszerű. Az editor alapvetően egy üres pályát tölt be, egyetlen réteggel, amiben az entitások találhatóak (például az ellenfelek, NPC-k stb) ezután pedig új pályákat készíthetünk, és el is tudjuk menteni azokat. Az engine oldalán találhatók demo játékok, letölthető forráskódokkal, valamint tutoriál videó is, ezekben a nagyon alapokat találhatjuk meg. Emellett több olyan dokumentum is található, mely kifejezetten kezdőknek lehet segítség, egy-egy egész játék fejlesztésén vezetnek végig, azonban ezek már fizetősek. Alapvetően nem tűnik rossznak, viszont több, mint 6 éve nem volt semmilyen frissítés a keretrendszerhez, emiatt is vált pár éve ingyenessé maga a motor. Öszességében szimpatikus, és könnyen tanulhatónak tűnik, ami ellenben nem tetszik benne, hogy nem túl naprakész.
+		\end{MySubSection}
+			
+		\begin{MySubSection}{Modd.io}
+			A következő motor a Modd.io, amely böngészőből használható, letöltés nem szükséges, csak egy regisztráció, ezáltal a saját projektekhez, valamint az editorhoz is hozzáférést nyerünk. A játékokat, amit készítünk könnyedén publikálhatjuk, vagy továbbíthatjuk másnak, mivel gyorsan készíthető egy instant link, amit megnyitva más is kipróbálhatja az alkotást, ezt a „publikálást” természetesen bármikor leállíthatjuk. Ahhoz, hogy az alapokat elsajátítsuk, viszonylag rövid, lényegre törő oktató videók vannak fent a Modd.io honlapján, melyeket egyszerű követni, és ezáltal megtanulni velük a fontosabb alapvető dolgokat, persze a komplexebb problémák megoldásához már nem feltétlenül elegendő ez. Amikor elkezdünk készíteni egy új projektet, lehetőség van kiválasztani, hogy kezdőként vagy haladóként vagyunk ott, ettől függ, hogy az editorban minden tulajdonságot elérünk-e, mert kezdőként például leegyszerűsíti a felhasználói felületet. Azt is megadhatjuk, hogy milyen típusú játékot készítünk (például PVP, Tower defense, stb.), valamint az alap pálya kinézetét, stílusát, és csak ezek után kerülünk az editorba, ott pedig már kedvünkre alakíthatjuk a dolgokat.
+			% TODO irodalom ->
+			% https://www.modd.io/
+			Ha több segítségre van szükségünk, Discord-on viszonylag gyorsan válaszolnak a kérdésekre, akár más felhasználók is készséggel segítenek, amennyiben tudnak.
+			A motor elég naprakésznek tűnik, és felhasználóbarátnak, azonban az utóbbi miatt kissé korlátozottnak is érződnek számomra a lehetőségeink a fejlesztés során.
+			Emellett a felhő-alapú technológia miatt, főleg biztonsági szempontokat figyelembe véve nem feltétlenül szimpatikus számomra, hiszen akár csak véletlenül egy biztonségi rés által, vagy pedig szándékosan is eltulajdoníthatják az egész munkánkat, vagy akár csak az ötleteinket.
 		\end{MySubSection}
 	
+		\begin{MySubSection}{Construct 2}
+			A Construct 2 egy különösképp 2D-s játékok fejlesztéséhez ajánlott keretrendszer, eseményalapú működésű. A motornak van egy ingyenes verziója, ami kevesebb lehetőséggel rendelkezik, mint a fizetős, de kezdésnek megfelelő, egyszerű, és részletes oktató anyagot mellékelnek hozzá, amit szintén ingyenesen elérhetünk. Felhasználóbarát megjelenése van, és ugyancsak számos platformon működik a kód változtatása nélkül.
+			A Construct 2 már előre elkészített úgynevezett "viselkedésekkel" rendelkezik. Például található benne viselkedés mozgáshoz a billentyűzeten lévő nyilakkal, vagy egy adott elem (pl. a játékos) mozgásának követése is ilyen viselkedés, illetve annak a megoldását is tartalmazza, hogy ne tudjunk lemenni a pályáról, avagy az adott layer-ről. Mi magunk is elkészíthetnénk ezeket, viszont hasznos, hogy van lehetőség már előre elkészített viselkedések alkalmazására is.
+			Mint ahogy fentebb már említettem, eseményalapú, így nem kell túl sokat kódolni egy alkalmazás elkészítéséhez, így kezdő programozók számára például sokkal egyszerűbb, átláthatóbb a használata.
+			Létezik egyébként már a fejlettebb, újabb, Construct 3 is, viszont az már csak előfizetéses verzióval rendelkezik, valamint letölteni már nem feltétlenül kell, hanem böngészőn belül is lehet vele alkotni.
+			A Construct 2-t azonban már nem fejlesztik tovább, hanem a Construct 3-vel dolgoznak csak, így egyre kevésbé modern az elődje.
+			A szakdolgozatomhoz végeredményben nem szeretném használni, mert viszonylag korlátozottak benne a lehetőségek, főleg az ingyenes verziójában, illetve a dokumentációja sem annyira kimagasló, emellett mint korábban írtam ez sem kifejezetten naprakész motor. 
+			
+		\end{MySubSection}
+			
 		\begin{MySubSection}{Phaser}
+			A Phaser 3 egy teljesen ingyenesen használható játékmotor, nyílt forráskódú, kifejezetten két dimenziós játékok készítésére alkalmas. A fejlesztés JavaScripttel és TypeScripttel is kivitelezhető a motorral. Számomra ez azért lényeges, mert amennyiben lehetséges, TypeScriptet támogató keretrendszert szeretnék használni, mivel a típusok használata sok esetben megkönnyítheti a fejlesztést.
+			A felhasználói vélemények nagyrészt pozitívak róla, amivel azok alapján kivetnivalók lehetnek, hogy egyes pluginok fizetősek az ingyenes motor mellé. Ezzel szemben, eddig számomra úgy tűnik, hogy a fontosabbakat tartalmazza az ingyenes verzió is, így lehetségesnek tartom, hogy a pluginokkal kapcsolatos negatív vélemények oka az, hogy egy régebbi verzióhoz íródhattak.
+			Egyszerűen tanulhatónak tűnik első benyomás alapján, rengeteg tutorial, útmutató van hozzá, apróbb példák, és egy-egy komplett játék fejlesztésén végigvezető könyvszerű dokumentumok egyaránt, magyarázatokkal. Azonban komplexebb példákat nem igazán mellékeltek hozzá.
+			A hivatalos honlapjukon szereplő tutorialok közül kettőt végigcsináltam, egyet JavaScriptben, egyet pedig TypeScriptben (ez gyakorlatilag 2 köny: 69 és 102 oldalakkal). 
+			A kipróbálás után úgy gondolom, kezdők számára könnyen elsajátíthatóak az alapok, a telepítése egyszerű, nem igényel semmilyen külön beállítást, gyakorlatilag pár perc előkészület után már használható is.
+			Szerintem kisebb projektek aránylag egyszerűen megvalósíthatóak vele.
+			Viszonylag gyakran frissítik, így naprakésznek tűnik, és kifejezetten népszerűnek is.
+			A dokumentációját azonban nem mondanám annyira jónak, mert csak az alapokra tér ki, bonyolultabb témákban szinte semmi útmutató nincs, és úgy általánosságban sem különösen részletezi a dolgokat. Az osztályokat leírja, hogy mire valók, de nincs összetettebb összefoglaló, hogy ha egy-egy adott dolgot szeretnénk csinálni, mit érdemes használni hozzá, illetve néhány metódus nincs is kifejtve, hogy hogyan használható, hanem csak fel van sorolva, hogy egy adott osztályban mely metódusok találhatóak. Így ha komplexebb, nehezebb dolgokat szeretnénk megvalósítani benne, más fórumokon nagyobb eséllyel találhatunk segítséget, vagy magunknak kell kikísérleteznünk a megoldást.
 		\end{MySubSection}
-		
-		\begin{MySubSection}{Modd.io}
+			
+		\begin{MySubSection}{A fejlesztéshez kiválasztott játékmotor}		
+			Összességében a fentebb felsorolt keretrendszereket összevetve számomra a Phaser tűnik a legszimpatikusabbnak, ezért a szakdolgozatom részeként elkészítendő játékot ennek a játékmotornak a segítségével fogom elkészíteni. Természetesen ezzel nem azt szeretném mondani, hogy a többi motort nem is érdemes használni, hiszen csak felületesen próbáltam ki őket, ha mindegyikben egy egész, hasonló projektet lefejlesztenénk, meglehet, hogy más eredményre jutottam volna.
+			Az esetlegesen felmerülő problémákat, negatív vagy épp pozitív véleményeket melyek a fejlesztés során felmerülnek, megfogalmazódnak bennem, a későbbiekben részletezni fogom. Ezenkívül a játék elkészülte után azt is leírom, hogy javasolnám-e másnak ilyen jellegű projekthez a válaszott motort, vagy sem.
 		\end{MySubSection}
-		
-		\begin{MySubSection}{GDevelop}
-		\end{MySubSection}
-		
+
 	\end{MySection}
 	
 \end{MyChapter}
