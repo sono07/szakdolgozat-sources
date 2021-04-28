@@ -116,7 +116,6 @@
 			Ezalatt értem például a pályagenerálást, pontosabban azt, hogy az helyesen működik-e. 
 			%	
 			A felhasználói felület (User Interface röviden: UI), illetve a megjelenítés viszont könnyen módosítható kell, hogy legyen a jövőben is, ezért nem feltétlenül lett volna értelme részletesen, akár pixelre pontosan letesztelni. 
-			% TODO ez a mondat kicsit hülyén hangzik, szükséges átíni?-->
 			Ebből kifolyólag a teljesség igénye nélkül, ahol érdemesebbnek tartottam, ott nagyvonalakban néhány dolgot lefedtem, ezáltal tehát nem teljesen tökéletes a teszt lefedettség, de nem is feltétlenül ez volt a cél. 
 			
 	
@@ -186,15 +185,16 @@
 			\label{fig:jatekHasznalat:game_scene}
 		\end{figure}
 		
-		Az úton szörnyek (lásd: \myref{fig:jatekHasznalat:szorny} ábra) fognak elindulni, pár másodperccel a játék elindítása után, és megpróbálnak végigmenni rajta. A feladatunk az, hogy megakadályozzuk őket ebben. Ezt úgy tudjuk megtenni, hogy különféle tornyokat helyezünk le, ezek fogják sebezni a szörnyeket.
-		Az ellenségek feje fölött egy-egy zöld csík látható, amikor megjelennek, ez az életüket szimbolizálja. Amennyiben sebzést szenvednek el, a zöld rész egyre kisebb lesz, amikor pedig teljesen elfogy, a szörny meghal. Az ellenfelek hullámokban, avagy hordaként érkeznek. Minden hullámmal egyre több, és erősebb ellenség fog érkezni.
-		
-		\begin{figure}[h!]
-			\centering
-			\includegraphics[scale=1.6]{kepek/jatekHasznalat/szorny}
+		\begin{wrapfigure}{r}{0.4\textwidth}
+			\begin{center}
+				\includegraphics[width=0.23\textwidth]{kepek/jatekHasznalat/szorny}
+			\end{center}
 			\caption{A legyőzendő ellenség}
 			\label{fig:jatekHasznalat:szorny}
-		\end{figure}
+		\end{wrapfigure}
+		Az úton szörnyek (lásd: \myref{fig:jatekHasznalat:szorny} ábra) fognak elindulni, pár másodperccel a játék elindítása után, és megpróbálnak végigmenni rajta.
+		A feladatunk az, hogy megakadályozzuk őket ebben. Ezt úgy tudjuk megtenni, hogy különféle tornyokat helyezünk le, ezek fogják sebezni a szörnyeket.
+		Az ellenségek feje fölött egy-egy zöld csík látható, amikor megjelennek, ez az életüket szimbolizálja. Amennyiben sebzést szenvednek el, a zöld rész egyre kisebb lesz, amikor pedig teljesen elfogy, a szörny meghal. Az ellenfelek hullámokban, avagy hordaként érkeznek. Minden hullámmal egyre több, és erősebb ellenség fog érkezni.
 		
 		Tornyokat csak üres, füves területekre tudunk építeni. Amennyiben nincs már hely ahova tudnánk tenni, le is rombolhatunk előzőleg épülteket, vagy pedig a tájelemeket is. Ezt a jobb oldalt látható felület által tehetjük meg (lásd: \myref{fig:jatekHasznalat:game_scene} ábra jobb oldala).		
 		A játék kezdetekor az egér ikont ábrázoló gomb van kijelölve, ekkor ha egy már megépült toronyra rávisszük a kurzort, akkor látni fogunk egy kört körülötte. Ezen a körön belüli távolságra lévő ellenfeleket képes elérni a torony. Ez az egér ikonnal ellátott gomb tehát az úgynevezett "kijelölés mód", ha ezen a módon belül vagyunk, tehát ez a gomb van bekeretezve fehér színnel, akkor egyes objektumokra kattintva a játékon belül nem történik semmi, szimplán amelyik mező felett van a kurzorunk, az lesz kijelölve.
@@ -205,10 +205,8 @@
 		
 		Az egyes tornyok tulajdonságairól részletes leírás alább, a fejezet végén lévő táblázatokban olvasható.(lásd: \myref{tab:torony_tipus_0}, \myref{tab:torony_tipus_1}, \myref{tab:torony_tipus_2}, \myref{tab:torony_tipus_3}, \myref{tab:torony_tipus_4})
 		
-		% TODO mindegyik torony - táblázat, a torony képével, képességeivel, árával stb.
-		% TODO Tűzgyorsaság (lövés/sec) a lövés / sec az nem igazán hangzik érthetőnek mert több száz az érték és alig lő 2-t  ->2 lövés között 1000/firerate-nyit vár 
-		% TODO effekt képességhez - Beletenni a PENETRATION-t  -> átütőképesség
-		
+		% mindegyik torony - táblázat, a torony képével, képességeivel, árával stb.
+		% Tűzgyorsaság helyett-> lövés/sec -> 2 lövés között 1000/firerate-nyit vár 
 	
 		A felső felhasználói felületen (lásd \myref{fig:jatekHasznalat:felso_ui} ábra) balról jobbra haladva, a következőket láthatjuk:
 		
