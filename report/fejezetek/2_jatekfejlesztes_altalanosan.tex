@@ -66,7 +66,7 @@
 		
 		Ezt megelőzően, amikor a számítógépek még nem tartalmaztak speciális, grafikai számítások gyorsítására használt feldolgozó egységet, még minden számítási feladatot a CPU végzett. Ezt a korai megjelenítési formát szoftveres raszterizációnak nevezzük. Ezzel a módszerrel tulajdonképpen a programozó teljes mértékben képes volt kezelni a megjelenítési folyamatokat, ami elég nagy rugalmasságot jelentett.
 		Azonban a szoftveres raszterizáció hátránya, hogy nagyobb adathalmaz mozgatása és kezelése lassabban kivitelezhető a módszerrel, mint a grafikai processzorokkal.
-		Ez azért fontos, mert a számítógépes grafikában lényeges célkitűzés volt a részletes, valósághű ábrázolás elérése, ami viszont nagy energiaforrásigényű, így a textúra szűréseket nem alkalmazó szoftveres megjelenítés, kimondottan egy 3D játék esetén lényeges eltérést mutatott már az első GPU-khoz képest is.
+		Ez azért fontos, mert a számítógépes grafikában lényeges célkitűzés volt a részletes, valósághű ábrázolás elérése, ami viszont nagy energiaforrásigényű, így a textúra szűréseket nem alkalmazó szoftveres megjelenítés, kimondottan egy 3D játék esetén lényeges eltérést mutatott már az első GPU-khoz képest is. \cite{mileff}
 		% TODO irodalom -> 
 		% https://users.iit.uni-miskolc.hu/~mileff/grafika/Grafika_programozasa_jegyzet_v0.66_Mileff_P.pdf
 		
@@ -91,8 +91,7 @@
 			Azonban még ha ezekkel a lehetőséggekkel nem is élnek a fejlesztők, még mindig valószínűbb, hogy a számítógépen nagyobb képernyőfelbontáson, illetve jobb képfrissítés mellett tud futni ugyan az a játék.
 			Ahogy már az előzőekből kikövetkeztethető, a számítógépeknél elsődlegesen az egér-billentyűzet kombinációt használják, de manapság már elterjedtek a joypadok vagy kontrollerek, illetve rendelkezésére állnak érintőképernyők és a mozgásvezérlők is. Ez a flexibilitás, melyet más platform nem (vagy csak részben) tudhat a magáénak szintén a PC előnyére válik. 
 		\end{MySubSection}
-		
-		% TODO 	- konzol ?
+	
 		% mobil
 		% TODO mobilhoz irodalom:
 		% https://en.wikipedia.org/wiki/App_Store_(iOS/iPadOS)
@@ -165,60 +164,27 @@
 		% TODO 	-sokan: mobil app-nak álcáznak weboldalakat (ma már számos- html5 js ts) de valójában html alapú, csak egy app-ba van becsomagolva <- ezekről pár oldal	(ionic, react native, etc) js-es alkalmazást weben/androidon ios-en akár windowson is futtathatóvá teszi PL discord
 		\end{MySubSection}
 
-		% TODO 	-webes(általánosan, később részletezve)		
+		% ->végül nem ide lesz írva -webes(általánosan, később részletezve)		
 		% TODO 	-hardveres gyorsítós böngészős játékok
-		% TODO 	-html5
-		\begin{MySubSection}{HTML5-ről röviden}
-			A HTML5 egy új, átdolgozott változata a HTML (Hypertext Markup Language) régebbi verzióinak. Létrehozásának a fő oka, hogy ne kelljen plug-in-okat feltelepíteni a webes applikációkhoz. A HTML5 nem csak egy átdolgozott változat, hanem új elemekkel, tulajdonságokkal is bővült, valamint egyes elemek új funkciók elérését is biztosítják.
-			A HTML5 néhány főbb jellemzője, előnye:
-			\begin{itemize}
-				\item Pluginoktól való függetlenséget nyújt, így a felhasználók számára sokkal könnyebben hozzáférhető.
-				\item Reszponzív, hasonló felhasználói élményt nyújt különböző típusú eszközökön.
-				\item Mobilokon kevesebb sávszélesség használat szükséges hozzá, mint a sima HTML-hez, ezáltal a mobilok akkumlátora is tovább tarthat.
-				\item Egyéb különféle technológiák is könnyedén használhatóak együtt a HTML5-tel. (Például: PHP, MySQL)
-			\end{itemize}
-			% TODO irodalom ->
-			% https://www.topnotchdezigns.com/reasons-html5-future/
-			% https://en.wikipedia.org/wiki/HTML5  
-		\end{MySubSection}
-	
-		% TODO 	-webgl
-		\begin{MySubSection}{WebGL-ről röviden}
-			A WebGL (Web Graphics Library, magyarul: webalapú grafikus könyvtár) egy JavaScript API (Application Programming Interface rövidítése, magyarul alkalmazásprogramozási felületet jelent, gyakorlatilag megkönnyíti a fejlesztők munkáját azzal, hogy adott programok vagy programrendszerek szolgáltatásainak dokumentációjához, utasításkészletéhez nyújtanak hozzáférést) amely interaktív két dimenziós (röviden: 2D) illetve három dimenziós (röviden: 3D) grafikát tud ábrázolni bármely kompatibilis webböngészőben, plug-in-ok használata nélkül.
-			% TODO irodalom->
-			% https://matebalazs.hu/api-application-programming-interface.html
-			% https://hu.wikipedia.org/wiki/Alkalmaz%C3%A1sprogramoz%C3%A1si_fel%C3%BClet
-			% https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API
-			% https://en.wikipedia.org/wiki/WebGL
-			% https://en.wikipedia.org/wiki/Cross-platform_software
-			% https://www.khronos.org/webgl/wiki/Getting_Started
-			Számos előnyt felsorolhatunk, hogy miért lehet érdemes használnunk a WebGL-t, a teljesség igénye nélkül megemlítenék párat közülük:
-			\begin{itemize}
-				\item Ingyenes a használata.
-				\item Az OpenGL szolgált alapjául, emiatt azon fejlesztőknek, akik OpenGL-t használtak már, ismerős, egyszerű lehet a WebGL alkalmazása. 
-				\item Cross-platform, avagy platformfüggetlen, többféle platformra is implementálható.
-				\item Lehetővé teszi a hardveres gyorsítós böngészős játékokat (a felhasználó eszközétől függően).
-				\item Nincs szükség plug-in-ok használatára.
-				\item Egy olyan környezet, amelyben a 3D grafika ellenőrzése egyszerű, könnyen debug-olható.
-				% TODO irodalom->
-				% https://www.quora.com/What-are-the-pros-and-cons-of-WebGL
-			\end{itemize}
-		\end{MySubSection}
 		% TODO 	-elérhető technológiák / irányok
 		% TODO 	-Jövő: a javascript mert az futtatható mindenhol (ha nem túl erőforrás igényes az alkalmazás)
 	\end{MySection}
 
 	\begin{MySection}{Játékfejlesztés keretrendszerek nélkül}
+		% c++, low-level 
+		Keretrendszerek nélküli fejlesztés esetén rendszerint inkább alacsonyabb szintű programozási nyelveken fejlesztenek, mint pédéul a C++, mert általában eleve a sebesség miatt nem alkalmaznak keretrendszert, ezért feltehetően olyan programozási nyelvet használnak mellé, ami elősegíti azt, hogy gyorsan futó kódot tudjunk írni.
+		
 		% előny
-		A keretrendszerek nélküli játékfejlesztésnek számos előnye lehet a használatukkal szemben, főleg tapasztaltabb fejlesztők számára, többek között:
+		A keretrendszerek nélküli játékfejlesztésnek a sebességen kívül is számos előnye lehet a használatukkal szemben, főleg tapasztaltabb fejlesztők számára, többek között:
 		\begin{itemize}
 			\item Itt mindent saját magának készít el a fejlesztő, ezért ez a fejlesztési módszer kevésbé kötött, nagyobb rugalmasságot ad.
 			\item Egy idő után, ha sokat fejlesztünk játékmotorok használata nélkül, kialakul egy általunk fejlesztett "keretrendszer". Ez persze nem biztos, hogy valóban egy komplett játékmotor, viszont azon amit tartalmaz könnyedén kiigazodhatunk, mert egyből tudjuk, mit hol kell keresnünk a kódban.
-			\item Főleg az előző ok miatt, ha hibát ejtük valahol, könnyebb kijavítani.
+			\item Főleg az előző ok miatt, ha hibát ejtünk valahol, könnyebb kijavítani.
 		\end{itemize}
+	
 		% hátrány
 		Kezdő, tapasztalatlanabb játékfejlesztők számára azonban hátrány lehet, hogy ez a folyamat sokkal lassabb, időigényesebb lehet, mint egy már meglévő motor használatával elkészített alkalmazás.
-		% TODO 	- c++, low-level
+
 		% TODO 	- példa ilyenre
 	\end{MySection}
 
@@ -244,10 +210,18 @@
 		A fentebb említett főbb előnyei miatt, egy modern motor vásárlása nagy költséget jelenthet a fejlesztők számára, ami nem meglepő, mert nagyon sok munka van az elkészítésében.
 		Az esetlegesen magas áron felül, hátránya lehet még, hogy a fejlesztésben kevesebb rugalmasság, szabadság van, illetve nehezebb kijavítani az esetleges hibákat fejlesztés közben.
 		
+		% TODO 	- opengl
+		% Megemlítendő az OpenGL, mert ez az egyik legrégebbi, tulajdonképpen azért fontos megemlíteni mert egy alap motor.
+		%- open-source, - platformfüggetlen, bármilyen oprendszeren működik az opengl-es alkalmazás, leginkább a videokártya határozza meg h milyen funkciókat lehet vele használni. 
+		% opengl bonyolult használat, kevésbé népszerű, már jobb és gyorsabb megoldások is vannak
+		% nem feltétlenül szokták játékfejlesztéshez használni, mert bonyolultabb dolgokat nehéz benne összerakni, de egyszerűbb játékokhoz, vagy akár csak szemléltetéshez példákhoz ezt is lehet használni.
+		% már van modernebb verziója is, aminek már jobb a teljesítménye, de még továbbra sem terjedt el eléggé ahhoz, hogy nagyobb projekthez érdemes legyen számításba venni.		-> még ha ugyan olyan jó is lenne mint a többi, mivel kevesen használják, ha problémába ütközöl feltehetően magadtól kell megoldanod, mert nem feltétlenül találsz rá megoldást az interneten
+		
 		\begin{MySubSection}{Mai ismertebb keretrendszerek}
-		% TODO 	- game-engine-k
+		% game-engine-k
 		Napjainkban számos játékfejlesztésre (és egyéb alkalmazások fejlesztésére) alkalmas keretrendszer megtalálható a piacon, mint már szó volt róla, több platform terén is.
-		Ezek közül néhány közkedvelt például a:
+		\newline \newline
+		Ezek közül példaként néhány közkedvelt:
 		\begin{itemize}
 			\item CryEngine
 			\item Unity
@@ -257,12 +231,11 @@
 		Természetesen ennél sokkal több játékmotor létezik, melyeket az interneten könnyedén megtalálhatunk, és néhányat akár ingyenesen is letölthetünk.
 		Például a következő linken: \url{https://en.wikipedia.org/wiki/List\_of\_game\_engines} találhatunk a Wikipédián egy listát rengeteg keretrendszerről (a teljesség igénye nélkül), ahol a nevüket, az elsődleges programozási nyelvüket, a célplatformjukat, az adott játékmotor közreműködésével elkészült játékok listáját, valamint egyéb tényezőket is megtekinthetünk.
 		\end{MySubSection}
-		% TODO 	- opengl
 		% TODO 	- unity
 		
 		\begin{MySubSection}{Unreal Engine}
-		% TODO 	- unreal engine
-		Egy példa tehát az egyik népszerű, modern játékmotorra az Unreal Engine. A motort 1995-ben kezdte el írni az Epic Games (amerikai játék-, illetve szoftverfejlesztő és kiadó cég) alapítója. Eredetileg azzal a céllal, hogy elősegítse egy játék fejlesztési folyamatát, amely Unreal névvel jelent meg, több év után, 1998-ban. Az Unreal nevű játék egy First-Person Shooter (röviden: FPS, ez a műfaj magyarul belső nézetű lövöldözős játékot jelent), kezdetben tehát a motor FPS játékok fejlesztéséhez íródott. Azóta viszont rengeteget fejlődött, és már számos népszerű játék készült el a segítségével, nem csak FPS, hanem egyéb kategóriákban is, például MMORPG (azaz a már korábban említett többszereplős online szerepjátékműfaj), vagy platformer játékok (ide sorolható minden olyan játék, melynek nagy részét képezi a platformokon való ugrálás). A keretrendszer fejlődésén jelenleg is dolgoznak, a következő verziójából, az Unreal Engine 5-ből már nyilvánosságra is hoztak egy kis ízelítőt, a teljes verziót pedig a 2021-es év végére tervezik kiadni.
+		% unreal engine
+		Vegyük példának az egyik népszerű, modern játékmotorra az Unreal Enginet. A motort 1995-ben kezdte el írni az Epic Games (amerikai játék-, illetve szoftverfejlesztő és kiadó cég) alapítója, név szerint Tim Sweeney. Eredetileg azzal a céllal, hogy elősegítse egy játék fejlesztési folyamatát, amely Unreal névvel jelent meg, több év után, 1998-ban. Az Unreal nevű játék egy First-Person Shooter (röviden: FPS, ez a műfaj magyarul belső nézetű lövöldözős játékot jelent), kezdetben tehát a motor FPS játékok fejlesztéséhez íródott. Azóta viszont rengeteget fejlődött, és már számos népszerű játék készült el a segítségével, nem csak FPS, hanem egyéb kategóriákban is, például MMORPG (azaz a már korábban említett többszereplős online szerepjátékműfaj), vagy platformer játékok (ide sorolható minden olyan játék, melynek nagy részét képezi a platformokon való ugrálás). A keretrendszer fejlődésén jelenleg is dolgoznak, a következő verziójából, az Unreal Engine 5-ből már nyilvánosságra is hoztak egy kis ízelítőt, a teljes verziót pedig a 2021-es év végére tervezik kiadni.
 		% TODO irodalom ->
 		% https://en.wikipedia.org/wiki/Unreal_Engine
 		% https://www.unrealengine.com/en-US/blog/a-first-look-at-unreal-engine-5
@@ -290,6 +263,7 @@
 		% https://tcrf.net/Prerelease:Harry_Potter_and_the_Sorcerer%27s_Stone_(PlayStation)
 		% https://www.unrealengine.com/en-US/blog/a-first-look-at-unreal-engine-5
 		\end{MySubSection}
+		
 		% TODO 	- telepítésük
 		% TODO 	- használatuk
 		% TODO 	- tapasztalatok (kipróbálás ha lehet)
