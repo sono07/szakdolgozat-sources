@@ -172,7 +172,16 @@
 
 	\begin{MySection}{Játékfejlesztés keretrendszerek nélkül}
 		% c++, low-level 
-		Keretrendszerek nélküli fejlesztés esetén rendszerint inkább alacsonyabb szintű programozási nyelveken fejlesztenek, mint pédéul a C++, mert általában eleve a sebesség miatt nem alkalmaznak keretrendszert, ezért feltehetően olyan programozási nyelvet használnak mellé, ami elősegíti azt, hogy gyorsan futó kódot tudjunk írni.
+		Keretrendszerek nélküli fejlesztés esetén rendszerint inkább alacsonyabb szintű programozási nyelveken fejlesztenek, mint például a C++, mert általában eleve a sebesség miatt nem alkalmaznak keretrendszert, ezért feltehetően olyan programozási nyelvet használnak mellé, ami elősegíti azt, hogy gyorsan futó kódot tudjunk írni.
+		
+		Keretrendszer nélküli fejlesztéskor a megjelenítéshez használhatunk API-kat (Application Programming Interface rövidítése, ez gyakorlatilag megkönnyíti a fejlesztők munkáját azzal, hogy adott programok vagy programrendszerek szolgáltatásainak dokumentációjához, utasításkészletéhez nyújtanak hozzáférést), mint például az OpenGL (Open Graphics Library). Az OpenGL egy platformfüggetlen, alacsony szintű API, melyet 1992-ben fejlesztett ki egy amerikai cég, a Silicon Graphics. Segítségével szinte közvetlenül vezérelhetjük a grafikus kártyát, programozhatjuk a 3D-s grafikát, 3 dimenziós alakzatokat rajzolhatunk ki. 
+		Manapság inkább tervezésben, gépészetben, valamint gyártásban használják, játékokban már kevésbé, főképp a viszonylag bonyolult használata miatt. Azonban fontosnak tartottam megemlíteni itt, mivel egy időben még ez volt az egyik legnépszerűbb megjelenítéshez használatos API játékok terén is, illetve a mai modernebb technológiák közül is rengetegnek az OpenGL szolgált alapjául.
+		% TODO 	-a fentebb leírt opengl-es cucc jó így??
+		% Megemlítendő az OpenGL, mert ez az egyik legrégebbi, tulajdonképpen azért fontos megemlíteni mert egy alap motor.
+		%- open-source, - platformfüggetlen, bármilyen oprendszeren működik az opengl-es alkalmazás, leginkább a videokártya határozza meg h milyen funkciókat lehet vele használni. 
+		% opengl bonyolult használat, kevésbé népszerű, már jobb és gyorsabb megoldások is vannak
+		% nem feltétlenül szokták játékfejlesztéshez használni, mert bonyolultabb dolgokat nehéz benne összerakni, de egyszerűbb játékokhoz, vagy akár csak szemléltetéshez példákhoz ezt is lehet használni.
+		% már van modernebb verziója is, aminek már jobb a teljesítménye, de még továbbra sem terjedt el eléggé ahhoz, hogy nagyobb projekthez érdemes legyen számításba venni.		-> még ha ugyan olyan jó is lenne mint a többi, mivel kevesen használják, ha problémába ütközöl feltehetően magadtól kell megoldanod, mert nem feltétlenül találsz rá megoldást az interneten
 		
 		% előny
 		A keretrendszerek nélküli játékfejlesztésnek a sebességen kívül is számos előnye lehet a használatukkal szemben, főleg tapasztaltabb fejlesztők számára, többek között:
@@ -209,18 +218,6 @@
 		% hátrány
 		A fentebb említett főbb előnyei miatt, egy modern motor vásárlása nagy költséget jelenthet a fejlesztők számára, ami nem meglepő, mert nagyon sok munka van az elkészítésében.
 		Az esetlegesen magas áron felül, hátránya lehet még, hogy a fejlesztésben kevesebb rugalmasság, szabadság van, illetve nehezebb kijavítani az esetleges hibákat fejlesztés közben.
-		
-		%\begin{MySubSection}{OpenGL}
-		%	
-		%\end{MySubSection}
-		
-		% TODO 	- opengl
-		% TODO Actually you cannot compare OpenGL and game engines. OpenGL is just a graphics programming API.. ennek ellenére is ideírjam?
-		% Megemlítendő az OpenGL, mert ez az egyik legrégebbi, tulajdonképpen azért fontos megemlíteni mert egy alap motor.
-		%- open-source, - platformfüggetlen, bármilyen oprendszeren működik az opengl-es alkalmazás, leginkább a videokártya határozza meg h milyen funkciókat lehet vele használni. 
-		% opengl bonyolult használat, kevésbé népszerű, már jobb és gyorsabb megoldások is vannak
-		% nem feltétlenül szokták játékfejlesztéshez használni, mert bonyolultabb dolgokat nehéz benne összerakni, de egyszerűbb játékokhoz, vagy akár csak szemléltetéshez példákhoz ezt is lehet használni.
-		% már van modernebb verziója is, aminek már jobb a teljesítménye, de még továbbra sem terjedt el eléggé ahhoz, hogy nagyobb projekthez érdemes legyen számításba venni.		-> még ha ugyan olyan jó is lenne mint a többi, mivel kevesen használják, ha problémába ütközöl feltehetően magadtól kell megoldanod, mert nem feltétlenül találsz rá megoldást az interneten
 		
 		\begin{MySubSection}{Mai ismertebb keretrendszerek}
 		% game-engine-k

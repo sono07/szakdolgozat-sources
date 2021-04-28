@@ -199,28 +199,23 @@
 		Az ettől jobbra található, sárga buldózer ábrával ellátott gombra kattintva pedig az "eltávolító mód"-ba kerülünk. Ha ebben a módban vagyunk, és odamozgatjuk a kurzort (kattintás nélkül) egy-egy tárgyra a játékfelületen belül, akkor amíg az adott tárgy fölött van az egerünk, addig az előbb említett gombok feletti rubrikában látható, hogy amennyiben le szeretnénk rombolni az adott objektumot, milyen összeggel változna a pénzünk, avagy aranyunk. Az objektum tényleges eltávolítása kattintásra történik meg.
 		Abban az esetben, ha egy korábban megépített tornyot szeretnénk megsemmisíteni, a torony eredeti értékének 60\%-át kapjuk vissza, tehát például ha egy toronyért 1000 aranyat fizettünk, amikor rávisszük a kurzort eltávolító módban, "+600"-at fogunk látni a rubrikában, tehát 600 aranyat kapunk vissza, a rombolás után. Ellenben kráter, vagy fa eltávolításához fizetnünk kell a rombolásért, tehát egy mínusz jel után fog megjelenni az összeg, amennyibe kerül.
 		A két gomb alatti felületen különféle tornyok helyezkednek el, 5 különböző típusú toronyot tudunk építeni, és mind az 5 típusból létezik 3 különböző erősségű.
-		A tornyok balról jobbra vannak sorbarendezve, tehát adott típusú toronynak először a leggyengébb változát láthatjuk, a végén pedig a legerősebbet. Az azonos típusú tornyok hasonló megjelenéssel rendelkeznek, hogy látható legyen az, hogy egy ugyanazon típuson belül helyezkednek el, az áruk azonban különböző.
+		A tornyok balról jobbra vannak sorbarendezve, tehát adott típusú toronynak először a leggyengébb változát láthatjuk, a végén pedig a legerősebbet, de összességében szituációfüggő is, hogy épp melyik az, amit a legjobban megéri építenünk. Az azonos típusú tornyok hasonló megjelenéssel rendelkeznek, hogy látható legyen az, hogy egy ugyanazon típuson belül helyezkednek el, az áruk azonban különböző.
+		
+		Az egyes tornyok tulajdonságairól részletes leírás alább, a fejezet végén lévő táblázatokban olvasható.(lásd: \myref{tab:torony_tipus_0}, \myref{tab:torony_tipus_1}, \myref{tab:torony_tipus_2}, \myref{tab:torony_tipus_3}, \myref{tab:torony_tipus_4})
 		
 		% TODO mindegyik torony - táblázat, a torony képével, képességeivel, árával stb.
+		% TODO Tűzgyorsaság (lövés/sec) a lövés / sec az nem igazán hangzik érthetőnek mert több száz az érték és alig lő 2-t  ->2 lövés között 1000/firerate-nyit vár 
+		% TODO effekt képességhez - Beletenni a PENETRATION-t  -> átütőképesség
 		
-		%\begin{table}[h]
-		%	\centering
-		%	\caption{Első típusú torony tulajdonságai}
-		%	\label{tab:torony_tipus_0}
-		%	\begin{tabular}{|l|c|c|c|}
-		%		\hline
-		%		Torony szintje, erőssége & 1 & 2 & 3 \\ \hline
-		%		Kinézet & \includegraphics[scale=1.4]{kepek/jatekHasznalat/torony_01} & \includegraphics[scale=1.4]{kepek/jatekHasznalat/torony_02} & \includegraphics[scale=1.4]{kepek/jatekHasznalat/torony_03} \\ \hline
-		%		Ár &  &  &  \\ \hline
-		%		Maximum lövéstávolság &  &  &  \\ \hline
-		%		Tűzgyorsaság (lövés/sec) &  &  &  \\ \hline
-		%		Sebzés &  &  &  \\ \hline
-		%		Százalékos sebzés &  &  &  \\ \hline
-		%		Képesség, effekt &  &  &  \\ \hline
-		%	\end{tabular}
-		%\end{table}
-		
+	
 		A felső felhasználói felületen (lásd \myref{fig:jatekHasznalat:felso_ui} ábra) balról jobbra haladva, a következőket láthatjuk:
+		
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[scale=0.575]{kepek/jatekHasznalat/felso_ui}
+			\caption{A felülső felhasználói felület (UI) }
+			\label{fig:jatekHasznalat:felso_ui}
+		\end{figure}
 		
 		\begin{itemize}
 			\item Piros szív ábra: Az itt látható szám az aktuális életünket jelzi. Ez csökkenni fog, ha egy szörnyet engedünk végigmenni az egész úton. Amikor teljesen elfogy, akkor veszítünk, az adott játék véget ér.
@@ -233,20 +228,13 @@
 			
 			\item Szellem ikon: A szörnyeket jelképezi. Azt jelzi a játékos számra, hogy az adott hullámban mennyi ellenség érkezik.
 		\end{itemize}
-		
-		\begin{figure}[h!]
-			\centering
-			\includegraphics[scale=0.575]{kepek/jatekHasznalat/felso_ui}
-			\caption{A felülső felhasználói felület (UI) }
-			\label{fig:jatekHasznalat:felso_ui}
-		\end{figure}
 	
 		A fentieken kívül még megemlítendő, hogy amennyiben olyan tevékenységet kívánunk tenni, amely nem lehetséges az adott mezőben, (például nincs elég pénzünk, hogy megvegyük a jobb oldali menüből kiválasztott tornyot, vagy mondjuk ha az utat próbáljuk meg eltávolítani), úgy a mező pirosas színre vált, ha pedig lehetséges az akció végrehajtása, akkor élénk zöldes árnyalatot kap. (\Aref{fig:jatekHasznalat:kijeloles_minta}. ábrán bal oldalt az előbbi, jobb oldalt pedig az utóbbi látható.)
 		
 		\begin{figure}[h!]
 			\centering
-			\includegraphics[scale=0.898]{kepek/jatekHasznalat/minta_rossz_kijeloles}
-			\includegraphics[scale=0.9]{kepek/jatekHasznalat/minta_jo_kijeloles}
+			\includegraphics[scale=0.848]{kepek/jatekHasznalat/minta_rossz_kijeloles}
+			\includegraphics[scale=0.85]{kepek/jatekHasznalat/minta_jo_kijeloles}
 			\caption{Minta kijelölésekre - lehetetlen, illetve teljesíthető akciók esetén}
 			\label{fig:jatekHasznalat:kijeloles_minta}
 		\end{figure}
@@ -258,10 +246,90 @@
 		
 		\begin{figure}[h!]
 			\centering
-			\includegraphics[scale=0.65]{kepek/jatekHasznalat/game_over_scene}
+			\includegraphics[scale=0.6]{kepek/jatekHasznalat/game_over_scene}
 			\caption{Részlet a Game Over képernyőről}
 			\label{fig:jatekHasznalat:game_over_scene}
 		\end{figure}
+	
+		\begin{table}[h]
+			\centering
+			\caption{Első toronytípus tulajdonságai}
+			\label{tab:torony_tipus_0}
+			\begin{tabular}{|l|c|c|c|}
+				\hline
+				Kinézet & \includegraphics[scale=1.1]{kepek/jatekHasznalat/torony_01} & \includegraphics[scale=1.1]{kepek/jatekHasznalat/torony_02} & \includegraphics[scale=1.1]{kepek/jatekHasznalat/torony_03} \\ \hline
+				Ár (arany) & 500 & 1200 & 3000 \\ \hline
+				Maximum lövéstávolság & 220 & 250 & 280 \\ \hline
+				Lövés/sec & 2 & 1.6 & 1.4 \\ \hline
+				Sebzés & 25 & 25 & 25 \\ \hline
+				Százalékos sebzés & Nincs & Nincs & Nincs \\ \hline
+				Képesség, effekt & 1 lövedéket lő ki. & \begin{tabular}{@{}c@{}}Egy lövésnél \\ 2 lövedéket lő ki.\end{tabular} & \begin{tabular}{@{}c@{}}Egy lövésnél \\ 3 lövedéket lő ki.\end{tabular} \\ \hline
+			\end{tabular}
+		\end{table}
+		
+		\begin{table}[h]
+			\centering
+			\caption{Második toronytípus tulajdonságai}
+			\label{tab:torony_tipus_1}
+			\begin{tabular}{|l|c|c|c|}
+				\hline
+				Kinézet &  &  &  \\ \hline
+				Ár (arany) & 800 & 1600 & 3200 \\ \hline
+				Maximum lövéstávolság & 220 & 250 & 280 \\ \hline
+				Lövés/sec & 1.4 & 1.4 & 1.4 \\ \hline
+				Sebzés & 10 & 10 & 10 \\ \hline
+				Százalékos sebzés & Nincs & Nincs & Nincs \\ \hline
+				Képesség, effekt & \begin{tabular}{@{}c@{}}Lassító \\ lövedéket lő ki.\end{tabular} & \begin{tabular}{@{}c@{}}1-es átütő- \\ képességű lassító \\ lövedéket lő ki.\end{tabular} & \begin{tabular}{@{}c@{}}2-es átütő- \\ képességű lassító \\ lövedéket lő ki.\end{tabular} \\ \hline
+			\end{tabular}
+		\end{table}
+	
+		\begin{table}[h]
+			\centering
+			\caption{Harmadik toronytípus tulajdonságai}
+			\label{tab:torony_tipus_2}
+			\begin{tabular}{|l|c|c|c|}
+				\hline
+				Kinézet &  &  &  \\ \hline
+				Ár (arany) & 800 & 1600 & 3200 \\ \hline
+				Maximum lövéstávolság & 220 & 250 & 280 \\ \hline
+				Lövés/sec & 1.4 & 1.4 & 1.4 \\ \hline
+				Sebzés & 10 & 10 & 10 \\ \hline
+				Százalékos sebzés & Nincs & Nincs & Nincs \\ \hline
+				Képesség, effekt & \begin{tabular}{@{}c@{}}Lassító \\ lövedéket lő ki.\end{tabular} & \begin{tabular}{@{}c@{}}1-es átütő- \\ képességű lassító \\ lövedéket lő ki.\end{tabular} & \begin{tabular}{@{}c@{}}2-es átütő- \\ képességű lassító \\ lövedéket lő ki.\end{tabular} \\ \hline
+			\end{tabular}
+		\end{table}
+	
+		\begin{table}[h]
+			\centering
+			\caption{Negyedik toronytípus tulajdonságai}
+			\label{tab:torony_tipus_3}
+			\begin{tabular}{|l|c|c|c|}
+				\hline
+				Kinézet &  &  &  \\ \hline
+				Ár (arany) & 800 & 1600 & 3200 \\ \hline
+				Maximum lövéstávolság & 220 & 250 & 280 \\ \hline
+				Lövés/sec & 1.4 & 1.4 & 1.4 \\ \hline
+				Sebzés & 10 & 10 & 10 \\ \hline
+				Százalékos sebzés & Nincs & Nincs & Nincs \\ \hline
+				Képesség, effekt & \begin{tabular}{@{}c@{}}Lassító \\ lövedéket lő ki.\end{tabular} & \begin{tabular}{@{}c@{}}1-es átütő- \\ képességű lassító \\ lövedéket lő ki.\end{tabular} & \begin{tabular}{@{}c@{}}2-es átütő- \\ képességű lassító \\ lövedéket lő ki.\end{tabular} \\ \hline
+			\end{tabular}
+		\end{table}
+	
+		\begin{table}[h]
+			\centering
+			\caption{Ötödik toronytípus tulajdonságai}
+			\label{tab:torony_tipus_4}
+			\begin{tabular}{|l|c|c|c|}
+				\hline
+				Kinézet &  &  &  \\ \hline
+				Ár (arany) & 800 & 1600 & 3200 \\ \hline
+				Maximum lövéstávolság & 220 & 250 & 280 \\ \hline
+				Lövés/sec & 1.4 & 1.4 & 1.4 \\ \hline
+				Sebzés & 10 & 10 & 10 \\ \hline
+				Százalékos sebzés & Nincs & Nincs & Nincs \\ \hline
+				Képesség, effekt & \begin{tabular}{@{}c@{}}Lassító \\ lövedéket lő ki.\end{tabular} & \begin{tabular}{@{}c@{}}1-es átütő- \\ képességű lassító \\ lövedéket lő ki.\end{tabular} & \begin{tabular}{@{}c@{}}2-es átütő- \\ képességű lassító \\ lövedéket lő ki.\end{tabular} \\ \hline
+			\end{tabular}
+		\end{table}
 	
 	\end{MySection}
 
