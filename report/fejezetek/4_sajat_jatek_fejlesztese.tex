@@ -77,16 +77,18 @@
 	\begin{MySection}{Tervezés}
 		% TODO -uml?
 		% TODO A tervezés azt jelenti, hogy elmondod, és bemutatod valahogy azt, amit szerettél volna készíteni. Tehát szövegesen leírni, hogy milyen típusú játékot készítettél, miért olyat. Működés szempontjából hogyan gondolod, milyen főbb részekre tudod esetleg bontani logikai és esetleg programozás szintjén. Tehát magas távlatból jutunk, haladunk az implementációs szint felé. Ez után jöhet egy-két UML ábra. Ami biztosan kell, az egy osztálydiagram. De lehet még bármi más is mellette. Az osztály azért jó, mert abból lehet látni megfelelő munka van-e benne. Nyilván érdemes minél több osztályt felírni, esetleg alrendszerekre bontani. Az is lehetséges, hogy a leírt terv részletesebb, mint ami majd a valóságban elkészült. Az osztályokat célszerű leírni 1-1 mondattal, hogy mire valók.
-		% milyen típusú játékot készítettem - miért?
-		% működés szempontjából főbb részekre bontani logikai / programozás szintjén
-		% uml ábrák, osztálydiagram
-		% minél több osztályt felírni, esetleg alrendszerek
-		% osztályokat 1-1 mondattal bemutatni mire való
 	\end{MySection}
 		
 	\begin{MySection}{Megvalósítás}
-		% TODO - osztályok bemutatása
-		% TODO Ez után pedig az implemenációt kellene valahogy leírni. Hogy érted el a célod. Na ez teljesen egyedi, ki hogy szeretui leírni. Ebben a részben általában a program valamelyik pontjáról elkezdik bemutatni az egészet. sok mintakód szerepelhet a dokumentumban, azokat highligh-olva érdemes beletenni, úgy lesz szép. 
+		
+		% TODO Ez után pedig az implemenációt kellene valahogy leírni. Hogy érted el a célod. Na ez teljesen egyedi, ki hogy szeretui leírni. Ebben a részben általában a program valamelyik pontjáról elkezdik bemutatni az egészet. sok mintakód szerepelhet a dokumentumban, azokat highligh-olva érdemes beletenni, úgy lesz szép.
+		
+		% TODO a megvalósítás lépései:
+		%	- esetlegesen előforduló technikai nehézségeket említeni.
+		%	- Be lehet már mutatni a program elkészült részeit.
+		%	- Meg lehet mutatni az elkészített programkód érdekesebb részeit.
+		% (Az érdekesebb részek bemutatására kellene szorítkozni. Többségében a szöveges leírásnak kellene benne lennie. Abból lehet kiindulni, hogy a forráskód a dolgozathoz elérhető, azt nem kell magába a dolgozatba bemásolni, elegendő csak behivatkozni.)
+		
 	\end{MySection}
 		
 	\begin{MySection}{Tesztelés}
@@ -259,7 +261,7 @@
 				\hline
 				Kinézet & \includegraphics[scale=1.1]{kepek/jatekHasznalat/torony_01} & \includegraphics[scale=1.1]{kepek/jatekHasznalat/torony_02} & \includegraphics[scale=1.1]{kepek/jatekHasznalat/torony_03} \\ \hline
 				Ár (arany) & 500 & 1200 & 3000 \\ \hline
-				Maximum lövéstávolság & 220 & 250 & 280 \\ \hline
+				Maximum lőtávolság & 220 & 250 & 280 \\ \hline
 				Lövés/sec & 2 & 1.6 & 1.4 \\ \hline
 				Sebzés & 25 & 25 & 25 \\ \hline
 				% Százalékos sebzés & Nincs & Nincs & Nincs \\ \hline
@@ -273,9 +275,9 @@
 			\label{tab:torony_tipus_1}
 			\begin{tabular}{|l|c|c|c|}
 				\hline
-				Kinézet &  &  &  \\ \hline
+				Kinézet & \includegraphics[scale=1.1]{kepek/jatekHasznalat/torony_11} & \includegraphics[scale=1.1]{kepek/jatekHasznalat/torony_12} & \includegraphics[scale=1.1]{kepek/jatekHasznalat/torony_13} \\ \hline
 				Ár (arany) & 800 & 1600 & 3200 \\ \hline
-				Maximum lövéstávolság & 220 & 250 & 280 \\ \hline
+				Maximum lőtávolság & 220 & 250 & 280 \\ \hline
 				Lövés/sec & 1.4 & 1.4 & 1.4 \\ \hline
 				Sebzés & 10 & 10 & 10 \\ \hline
 				% Százalékos sebzés & Nincs & Nincs & Nincs \\ \hline
@@ -287,11 +289,11 @@
 			\centering
 			\caption{Harmadik toronytípus tulajdonságai}
 			\label{tab:torony_tipus_2}
-			\begin{tabular}{|l|c|c|c|}
+			\begin{tabular}{|L{3.75cm}|c|c|c|}
 				\hline
-				Kinézet &  &  &  \\ \hline
+				Kinézet & \includegraphics[scale=1.1]{kepek/jatekHasznalat/torony_21} & \includegraphics[scale=1.1]{kepek/jatekHasznalat/torony_22} & \includegraphics[scale=1.1]{kepek/jatekHasznalat/torony_23} \\ \hline
 				Ár (arany) & 800 & 1600 & 3200 \\ \hline
-				Maximum lövéstávolság & 220 & 250 & 280 \\ \hline
+				Maximum lőtávolság & 220 & 250 & 280 \\ \hline
 				Lövés/sec & 1.4 & 1.4 & 1.4 \\ \hline
 				Sebzés & 10 & 10 & 10 \\ \hline
 				% Százalékos sebzés & Nincs & Nincs & Nincs \\ \hline
@@ -308,11 +310,11 @@
 			\centering
 			\caption{Negyedik toronytípus tulajdonságai}
 			\label{tab:torony_tipus_3}
-			\begin{tabular}{|l|c|c|c|}
+			\begin{tabular}{|L{3.75cm}|C{2.8cm}|C{2.8cm}|C{2.8cm}|}
 				\hline
-				Kinézet &  &  &  \\ \hline
+				Kinézet & \includegraphics[scale=1.15]{kepek/jatekHasznalat/torony_31} & \includegraphics[scale=1.15]{kepek/jatekHasznalat/torony_32} & \includegraphics[scale=1.15]{kepek/jatekHasznalat/torony_33} \\ \hline
 				Ár (arany) & 700 & 1400 & 2800 \\ \hline
-				Maximum lövéstávolság & 220 & 250 & 280 \\ \hline
+				Maximum lőtávolság & 220 & 250 & 280 \\ \hline
 				Lövés/sec & 1.4 & 1.6 & 2.0 \\ \hline
 				% Sebzés & 0 & 0 & 0 \\ \hline
 				Százalékos sebzés & 20 \% & 20 \% & 20 \% \\ \hline
@@ -324,15 +326,15 @@
 			\centering
 			\caption{Ötödik toronytípus tulajdonságai}
 			\label{tab:torony_tipus_4}
-			\begin{tabular}{|l|c|c|c|}
+			\begin{tabular}{{|L{3.88cm}|C{2.8cm}|C{2.8cm}|C{2.8cm}|}}
 				\hline
-				Kinézet &  &  &  \\ \hline
+				Kinézet & \includegraphics[scale=1.2]{kepek/jatekHasznalat/torony_41} & \includegraphics[scale=1.2]{kepek/jatekHasznalat/torony_42} & \includegraphics[scale=1.2]{kepek/jatekHasznalat/torony_43} \\ \hline
 				Ár (arany) & 1000 & 2500 & 4000 \\ \hline
-				Maximum lövéstávolság & 220 & 250 & 280 \\ \hline
+				Maximum lőtávolság & 220 & 250 & 280 \\ \hline
 				Lövés/sec & 1.0 & 1.05 & 1.1 \\ \hline
 				Sebzés & 10 & 10 & 10 \\ \hline
 				Százalékos sebzés & 10 \% & 10 \% & 10 \% \\ \hline
-				Képesség, effekt & \multicolumn{3}{c|}{\begin{tabular}{@{}c@{}}Rakétát lő ki, becsapódáskor a robbanás \\ hatósugarában tartózkodó összes ellenfelet sebzi.\end{tabular}} \\ \hline
+				Képesség, effekt & \multicolumn{3}{C{8.8cm}|}{Rakétát lő ki, becsapódáskor a robbanás hatósugarában tartózkodó összes ellenfelet sebzi.} \\ \hline
 				Robbanás hatósugara & 50 & 75 & 100 \\ \hline
 			\end{tabular}
 		\end{table}
