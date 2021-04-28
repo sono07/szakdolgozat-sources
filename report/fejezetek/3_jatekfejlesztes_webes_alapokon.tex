@@ -43,8 +43,8 @@
 	\end{MySection}
 
 	\begin{MySection}{JavaScript}
-		% TODO 	- mi ez, miért jó
-		% TODO 	- kialakulása
+		%  mi ez, miért jó
+		%  kialakulása
 		A JavaScript (röviden: JS) egy kis erőforrás-igényű, dinamikus, objektum-orientált programozási nyelv, mely lehetőséget nyújt a fejlesztők számára a weboldalaikba való komplexebb dolgok implementálására. Amennyiben olyan weblapról beszélünk, amely nem statikus tartalommal rendelkezik, hanem interaktív tartalom is megtalálható rajta, akár 2D-s vagy 3D-s animáció, stb., abban az esetben valószínűsíthető, hogy JavaScriptet is tartalmaz az oldal. Ezenkívül, bár webes tartalmaknál használják a leggyakrabban, számos webböngészőn kívüli környezetben is alkalmazható. A nyelvet eredetileg 1996-ban fejlesztették ki, azóta sokat változott, a szintaxisa közelebb került a Java programozási nyelvhez. Az ECMA (Európai informatikai és kommunikációs rendszerek szabványosítási szövetsége) először 1997 és 1999 között szabványosította ECMAScript néven.
 		% TODO irodalom ->
 		% https://developer.mozilla.org/en-US/docs/Learn/JavaScript
@@ -122,14 +122,15 @@
 	\end{MySection}
 
 	\begin{MySection}{Webes játékfejlesztés}
-		% TODO itt a címet esetleg módosítani?
-		% TODO 	- szükséges egyéb dolgok pl.: grafikai pakkok (al-al-fejezetek), hangok, texturák, objektumok
+		% TODO a címet esetleg módosítani?
+		%  szükséges egyéb dolgok pl.: grafikai pakkok (al-al-fejezetek), hangok, texturák, objektumok
+		% TODO ide még másról szükséges lenne írnom?
 		
 		Webes játékkészítéskor szükségünk lehet bizonyos plusz elemekre a játékunk elkészítéséhez, gondolhatunk itt textúrákra, felhasználói felülethez (GUI) szükséges elemekre, animációkra, audióra, stb. Amennyiben nem saját magunk szeretnénk elkészíteni ezeket a plusz dolgokat, az interneten rengeteg megfelelő grafikai pakk, asset (magyarul: forrás) található meg, rendelkezésünkre állnak mind fizetősek, mind ingyenesek. Ezek tehát lehetnek textúrák, hangok, animációk, sprite-ok, stb., két- és három dimenziós alkalmazásokhoz egyaránt. 
 		
 		A dimenziók száma meghatározó szerepet játszik abban, hogy milyen vizualizációs formát választunk a játékunk megjelenítéséhez. Mint később szó lesz róla, a szakdolgozat részeként egy 2D-s játékot készítek el, emiatt a három dimenziós grafikai megjelenítésekre most nem igazán fogok kitérni a fejezetben.
 		
-		% TODO a tile maphez külön fejezet esetleg? - mivel nem írok más megjelenítésről nem tűnik túl jónak ha csak emiatt alfejezet van
+		% Tile-map
 		Két dimenziós grafika esetén kimondottan elterjedt a Tile-Map alapú megjelenítési technika. Egyébként ehhez a módszerhez is számos asset lehet a segítségünkre az internetről. Az eljárás lényege, hogy kijelzőt virtuálisan azonos méretű úgynevezett Tile-okra bontjuk, és mivel ezeket a mezőket újra és újra felhasználjuk a felhasználó számára megjelenítendő háttérhez, ezért a memóriában helyet spórolhatunk meg azzal, hogy csak egyszer töltjük be az egyes tile-okat. A vizualizációs forma előnyei között tudható még, hogy akár nagyobb távolságra is valós időben lehetséges az útkeresés és az útvonal elaborálása, valamint (amennyiben az adott alkalmazáshoz elegendő a kisebb szintű vizuális komplexitás) viszonylag könnyedén kivitelezhető vele az ütközésvizsgálat.
 		% TODO irodalom ->
 		% https://users.iit.uni-miskolc.hu/~mileff/grafika/Grafika_programozasa_jegyzet_v0.66_Mileff_P.pdf
@@ -163,7 +164,7 @@
 		A \myref{Játékfejlesztés keretrendszerek nélkül} fejezetben leírtak természetesen webes fejlesztésnél is érvényesek.
 		Alapvetően keretrendszerek nélküli játékfeljesztés alatt az úgynevezett "pure JavaScript"-et értjük. (A pure angol szó jelentése magyarul: tiszta.)
 		Tehát ideértendő az, amikor csak JavaScriptet használunk a fejlesztéshez. 
-		% TODO wip - átfogalmazni
+		% TODO wip - átfogalmazni??
 		Webes játékfejlesztés esetében a webböngészőben való grafikus megjelenítéshez API-kat használhatunk. Ezek közül két ismertebb a Canvas, valamint a WebGL, melyekről alább láthatunk egy-egy rövid ismertetőt.
 		
 		% TODO canvas
