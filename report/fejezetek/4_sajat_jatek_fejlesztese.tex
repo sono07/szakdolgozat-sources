@@ -1,10 +1,10 @@
 \begin{MyChapter}{Saját játék fejlesztése}
-	% TODO - mi lesz a fejezeteben
-	A most következő fejezetben az általam fejlesztett alkalmazásról, avagy játékról lesz részletekbe menően szó. Mint már korábban említettem, egy program, alkalmazás vagy játék fejlesztésekor rengeteg opciónk van, mind a programozási nyelvet, mind pedig a felhasználandó technológiákat tekintve. Az én választásom végül arra esett, hogy egy keretrendszer segítségével készítek el egy játékot. Mivel még kifejezetten új számomra ez a terület, így jobbnak láttam, ha elsőként ezzel a módszerrel próbálkozom egy játék fejlesztésével, rengeteg ismeretet, tapasztalatot gyűjtve, azonban még nem saját játékmotor készítésével együttesen.
+	% mi lesz a fejezeteben
+	A most következő fejezetben az általam fejlesztett alkalmazásról, avagy játékról lesz részletekbe menően szó. Mint már korábban említettem, egy program, alkalmazás vagy játék fejlesztésekor rengeteg opciónk van, mind a programozási nyelvet, mind pedig a felhasználandó technológiákat tekintve. Az én választásom végül arra esett, hogy egy keretrendszer segítségével készítek el egy játékot. A választott játékmotorral a \myref{Phaser} fejezetben találkoztunk már. Mivel még kifejezetten új számomra ez a terület, így jobbnak láttam, ha elsőként ezzel a módszerrel próbálkozom egy játék fejlesztésével, rengeteg ismeretet, tapasztalatot gyűjtve, azonban még nem saját motor készítésével együttesen.
 	Tehát ebben a fejezetben elsőként ismertetem a céljaimat, azt, hogy mit is szeretnék majd elérni a játékkal, illetve hogy milyen elképzeléseim vannak a végeredményre vonatkozóan. Majd pedig be fogom mutatni, hogy hogyan indultam neki az elkészítésnek, valamint a felhasznált technológiákat, a tervezési, illetve a megvalósítási folyamatokat, stb. egyszóval részletezem az egész fejlesztési eljárást.
 	
 	\begin{MySection}{Célok meghatározása}
-		% TODO - vázolni mit szeretnél elérni a programmal/játékkal, miről fog szólni, tehát az elképzelés (vízió dokumentum :) )
+		% vázolni mit szeretnél elérni a programmal/játékkal, miről fog szólni, tehát az elképzelés (vízió dokumentum :) )
 		Mint ahogy fentebb is szó volt róla, amellett döntöttem, hogy egy játékmotor használatával készítek el egy játékot. A választásom a Phaser 3 keretrendszerre esett, ahogy ez már az előző fejezetből kiderült.
 		A szakdolgozatomban egy HTML5 alapú játék megtervezése és fejlesztése a célom, konkrétabban egy tower defense (magyarul: toronyvédő, röviden: TD) műfajú játék elkészítése. A TD játékok lényege, hogy a játékos tornyok, vagy egyéb objektumok építésével megakadályozza, hogy az ellenfelek, vagy szörnyek egy előre meghatározott ponton túljussanak. Egy ilyen műfajú játék egy felhasználó számára egyszerűen megtanulható, azonban igényel némi stratégiát, gondolkodást, ahogy egyre nehezedik. 
 		% TODO irodalom ->
@@ -31,29 +31,28 @@
 		
 		Az előző mondataimból már kiderülhet, hogy szeretném, hogy egy pályát akár többször is meg lehessen próbálni, viszont mindenképpen szükséges több pálya is, különféle útvonalakkal, mert különben hamar unalmassá, megszokássá válna főleg a játék eleje, ahogy mindig ugyanoda tehetnénk le csak a tornyokat, és folyton azonos útvonalon haladnának a szörnyek. Ezt elkerülendő tehát fontosnak tartom, hogy több pálya is legyen, például véletlenszerűen, vagy pedig a játékos által valamilyen bemenettel generálva. Ezáltal változatosabb útvonalak lehetnének, illetve a tájelemek sem mindig ugyanott helyezkednének el. A felhasználó számára feltétlenül módosíthatónak kellene lennie a generálásnak, vagy pedig a legutóbb alkotott pályát elérhetővé tenni, hogy ha ugyanazon az pályán szeretne játszani, például a magasabb pontszám elérése miatt, az megoldható legyen.
 		
-		% TODO meddig szeretnék eljutni a játék készítésével - ide nem igazán tudom h kéne megfogalmazni
+		% meddig szeretnék eljutni a játék készítésével
 		Elsődlegesen azt szeretném elérni, hogy az alap funkcionalitás meglegyen, majd amikor az kész lesz, csak azután szeretném a fentebbi tulajdonságokból a lehető legtöbbet megvalósítani, kibővíteni a játékot. Gondolok itt arra, hogy például a vizuális effektek nem élveznek annyira prioritást. Ami még a célom, hogy a továbbiakban is lehetőség legyen bővítésre, illetve hogy az esetleges továbbfejlesztési lehetőségeket viszonylag könnyen intergálni tudjuk a programba a későbbiekben.
 	\end{MySection}
 		
 	\begin{MySection}{Felhasznált eszközök, technológiák}
-		% TODO - bármi (IDE, nyelv, OS, build-tool, git)
+		% bármi (IDE, nyelv, OS, build-tool, git)
 		A játék elkészítéséhez az alábbi technológiákat választottam, használtam:
 		
-		\begin{itemize} % TODO WIP
-			\item Phaser 3 - HTML5 alapú játékmotor.
+		\begin{itemize}
+			\item Phaser 3 - HTML5 alapú játékmotor (lásd: \myref{Phaser}).
 			
 			\item Windows 10 - Alapvetően a mindennapokban is Windows operációs rendszert használok elsősorban, emiatt azzal kapcsolatosan több tapasztalattal is rendelkezem, úgyhogy szinte természetes volt, hogy a játék fejlesztésekor is ezt az operációs rendszert szeretném használni.
 			
-			\item JavaScript - Alapjában véve a JavaScript mellett döntöttem, hiszen a programozási nyelv meghatározásánál lényeges volt szem előtt tartani, hogy a fejlesztéshez választott játékmotor mely nyelveket támogatja. % TODO erről még írni vmit, hogy miért ezt választom ezenkívül?
+			\item JavaScript - Alapjában véve a JavaScript mellett döntöttem, hiszen a programozási nyelv meghatározásánál lényeges volt szem előtt tartani, hogy a fejlesztéshez választott játékmotor mely nyelveket támogatja.
 			
 			\item TypeScript - A JavaScript alapvetően nem tartalmaz típusokat, pedig az valójában rendkívül megkönnyíti a fejlesztő dolgát, ennélfogva úgy határoztam, hogy a TypeScriptet is használom, ahol csak lehetőség van rá. Azonban mint írtam, a játékmotor nem teljesen kompatibilis a TypeScripttel, ebből kifolyólag nem lehet pusztán TS-t használni.
 			
 			\item Git - A program készítéséhez, főleg a nagysága miatt kétségkívül érdemes volt valamilyen verziókövető szoftvert alkalmazni. Azért a Git-et választottam erre a célra, mert a kisebb és nagyobb projektekhez egyaránt megfelelő, gyors, hatékony, kifejezetten jó a támogatottsága, és végül, de nem utolsósorban ingyenes. Mindezek mellett könnyen használható, a tanulmányaim során pedig egyébként is kellett már alkalmaznom korábban, így nem volt teljesen ismeretlen számomra a használata.
 			
-			% TODO WIP ->
 			\item Visual Studio Code - A Microsoft által fejlesztett, nyílt forráskódú kódszerkesztőt, a Visual Studio Code-ot (rövidítve VSCode, vagy VS Code) választottam integrált fejlesztői környezetként. A választásom okai közé tartozik, hogy a VSCode ingyenes, kis erőforrásigényű, de jól személyre szabható, és minden szükséges funkciót tudunk benne használni különféle plugin-ek segítségével.
 			
-			\item NPM csomagkezelő
+			\item Node Package Manager - Röviden NPM, ez egy JavaScript csomagkezelő, melynek segítségével telepíthetjük, valamint kezelhetjük a csomagjainkat az alkalmazásunkhoz. % TODO Ez így jó, vagy átírni?
 			
 			\item Webpack bundler - Ez egy olyan program, mely egyrészt lefordítja a TypeScript kódot JavaScriptre, másrészt az így kapott forrásfájlokat egy fájlba csomagolja, tömöríti, optimalizálja, és az egyéb szükséges statikus fájlokkal, mint a HTML vagy képek, összelinkeli. Tehát röviden a kész alkalmazást rakja össze a forrásfájlokból.
 			
@@ -61,14 +60,18 @@
 			
 			\item PlantUML - A PlantUML használatával sokkal hatékonyabban tudunk a program egyes részeiről UML diagramokat készíteni, így rengeteg időt lehet spórolni vele. Online elérhető az alábbi linken: \url{https://plantuml.com/}
 			
-			\item  \url{https://www.photopea.com/} % (photoshop klón), a képek, assetek módosításához, vágásához
+			\item Photophea - Egy ingyenes, webalapú grafikus szerkesztő, mely az Adobe Photoshop-hoz hasonló. Alkalmas képek szerkesztésére, illusztrációk készítésére, különböző képformátumok közötti konvertálására, satöbbi.
+			Számomra a képek, assetek módosítása, vágása miatt volt rá szükség.
+			A következő linken érhetjük el: \url{https://www.photopea.com/} % TODO Ez így jó, vagy átírni?
 			
-			\item Free Sprite Sheet Packer - Az önálló képekből való sprite sheetek készítéséhez volt szükség a használatára. Azért is erre esett a választás, mert a Phaserrel kompatibilis, ezenkívül az önmagában álló képek (spriteok) kombinálása egy nagyobb képbe (sprite sheet) javítja a játék teljesítményét, hatékonyabbá teszi a memóriahasználatot, gyorsabb töltési időt eredményez. % TODO ez ide kell, vagy pedig másik résznél kellene részletezni esetleg?
+			\item Free Sprite Sheet Packer - Az önálló képekből való sprite sheetek készítéséhez volt szükség a használatára. Azért is erre esett a választás, mert a Phaserrel kompatibilis, ezenkívül az önmagában álló képek (spriteok) kombinálása egy nagyobb képbe (sprite sheet) javítja a játék teljesítményét, hatékonyabbá teszi a memóriahasználatot, gyorsabb töltési időt eredményez. % TODO esetleg másik résznél kellene részletezni?
 			% TODO forrás: https://www.codeandweb.com/what-is-a-sprite-sheet
 			Amit használtam, az tulajdonképpen a TexturePacker online alternatívája, a következő linken érhető el: \url{https://www.codeandweb.com/free-sprite-sheet-packer}
 			
 			\item Sprite sheet cutter - Az internetről felhasznált ingyenes sprite sheeteken található spriteok nem mindegyikére volt szükségem a játékhoz, így ennek a programnak a segítségével szét tudtam darabolni őket önálló képekre, ezáltal lehetőségem volt rá, hogy csak a szükségeseket használjam fel a későbbiekben. Ezen a linken érhető el online: \url{https://ezgif.com/sprite-cutter/}
+			
 		\end{itemize}
+	
 	\end{MySection}
 		
 	\begin{MySection}{Tervezés}
@@ -154,9 +157,8 @@
 	\end{MySection}
 
 	\begin{MySection}{Végeredmény}
-		% TODO - játék/program bemutatása
-		% TODO - használata
-		% TODO - Felhasználói kézikönyv jellegű leírás. Kifejezetten a végfelhasználó szempontjából lehet azt bemutatni, hogy mit hogy lehet majd használni.
+		% játék/program bemutatása
+		% Felhasználói kézikönyv jellegű leírás. Kifejezetten a végfelhasználó szempontjából lehet azt bemutatni, hogy mit hogy lehet majd használni.
 		A továbbiakban az elkészült játékot fogom bemutatni, részletesen leírom a használatát a végfelhasználó szempontjából, képekkel mellékelve.
 		
 		A játék elindításakor, miután minden betöltődött, a főmenübe kerülünk. (A töltés haladását a töltő képernyőn nyomon követhetjük.)
@@ -198,10 +200,27 @@
 		Abban az esetben, ha egy korábban megépített tornyot szeretnénk megsemmisíteni, a torony eredeti értékének 60\%-át kapjuk vissza, tehát például ha egy toronyért 1000 aranyat fizettünk, amikor rávisszük a kurzort eltávolító módban, "+600"-at fogunk látni a rubrikában, tehát 600 aranyat kapunk vissza, a rombolás után. Ellenben kráter, vagy fa eltávolításához fizetnünk kell a rombolásért, tehát egy mínusz jel után fog megjelenni az összeg, amennyibe kerül.
 		A két gomb alatti felületen különféle tornyok helyezkednek el, 5 különböző típusú toronyot tudunk építeni, és mind az 5 típusból létezik 3 különböző erősségű.
 		A tornyok balról jobbra vannak sorbarendezve, tehát adott típusú toronynak először a leggyengébb változát láthatjuk, a végén pedig a legerősebbet. Az azonos típusú tornyok hasonló megjelenéssel rendelkeznek, hogy látható legyen az, hogy egy ugyanazon típuson belül helyezkednek el, az áruk azonban különböző.
-		% TODO mindegyik tornyot egyesével le írjam, hogy mit csinál??
-		% esetleg kézzel készíteni egy táblázatot, a torony képével, képességeivel, árával - ha lesz idő
 		
-		A fenti felhasználói felületen (lásd \myref{fig:jatekHasznalat:felso_ui} ábra) balról jobbra haladva, a következőket láthatjuk:
+		% TODO mindegyik torony - táblázat, a torony képével, képességeivel, árával stb.
+		
+		%\begin{table}[h]
+		%	\centering
+		%	\caption{Első típusú torony tulajdonságai}
+		%	\label{tab:torony_tipus_0}
+		%	\begin{tabular}{|l|c|c|c|}
+		%		\hline
+		%		Torony szintje, erőssége & 1 & 2 & 3 \\ \hline
+		%		Kinézet & \includegraphics[scale=1.4]{kepek/jatekHasznalat/torony_01} & \includegraphics[scale=1.4]{kepek/jatekHasznalat/torony_02} & \includegraphics[scale=1.4]{kepek/jatekHasznalat/torony_03} \\ \hline
+		%		Ár &  &  &  \\ \hline
+		%		Maximum lövéstávolság &  &  &  \\ \hline
+		%		Tűzgyorsaság (lövés/sec) &  &  &  \\ \hline
+		%		Sebzés &  &  &  \\ \hline
+		%		Százalékos sebzés &  &  &  \\ \hline
+		%		Képesség, effekt &  &  &  \\ \hline
+		%	\end{tabular}
+		%\end{table}
+		
+		A felső felhasználói felületen (lásd \myref{fig:jatekHasznalat:felso_ui} ábra) balról jobbra haladva, a következőket láthatjuk:
 		
 		\begin{itemize}
 			\item Piros szív ábra: Az itt látható szám az aktuális életünket jelzi. Ez csökkenni fog, ha egy szörnyet engedünk végigmenni az egész úton. Amikor teljesen elfogy, akkor veszítünk, az adott játék véget ér.
