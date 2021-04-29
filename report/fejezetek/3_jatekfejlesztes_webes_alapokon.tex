@@ -89,7 +89,7 @@
 			\item Operációsrendszer független valamint böngészőfüggetlen.
 			\item Egy már meglévő JS kódot fel tudunk használni TypeScriptben, tehát felülről kompatibilis a JavaScript nyelvvel.
 		\end{itemize}
-		% TODO ESLint TSLint (PMD, Chechstyle Java esetén)
+		% ESLint TSLint (PMD, Chechstyle Java esetén)
 	\end{MySection}
 
 	\begin{MySection}{Általános célú JavaScript keretrendszerek}
@@ -100,7 +100,7 @@
 		% TODO irodalom --->
 		% https://www.lambdatest.com/blog/best-javascript-framework-2020/
 		
-		% TODO angular, vue.js, react, egyéb
+		% TODO angular, react esetleg leírni
 		Néhány kimondottan elterjedt keretrendszer például a Vue.js, React és az Angular. Ezek egyébként ebben a sorrendben 2017-ben az akkori év első három leghasználtabb JS keretrendszerei voltak a weboldal alapján, melyről fentebb szó volt.
 		Az említett keretrendszerek közül az egyikről, konkrétabban a Vue.js-ről egy rövid bemutatást is olvashatunk alább.
 		
@@ -257,6 +257,19 @@
 			Szerintem kisebb projektek aránylag egyszerűen megvalósíthatóak vele.
 			Viszonylag gyakran frissítik, így naprakésznek tűnik, és kifejezetten népszerűnek is.
 			A dokumentációját azonban nem mondanám annyira jónak, mert csak az alapokra tér ki, bonyolultabb témákban szinte semmi útmutató nincs, és úgy általánosságban sem különösen részletezi a dolgokat. Az osztályokat leírja, hogy mire valók, de nincs összetettebb összefoglaló, hogy ha egy-egy adott dolgot szeretnénk csinálni, mit érdemes használni hozzá, illetve néhány metódus nincs is kifejtve, hogy hogyan használható, hanem csak fel van sorolva, hogy egy adott osztályban mely metódusok találhatóak. Így ha komplexebb, nehezebb dolgokat szeretnénk megvalósítani benne, más fórumokon nagyobb eséllyel találhatunk segítséget, vagy magunknak kell kikísérleteznünk a megoldást.
+			
+			% TODO ### phaser alapvető dolgait leírni: ###
+			%mi az a scene (itt lenne a logika + a ui)
+			%game
+			%config
+			%group
+			%gameobject, sprite, image, +physics enabled versions
+			%arcade / mattejs physics
+			%spritesheet/imageatlas
+			%- miért jó, miért jobb mint ha egyesével töltenénk be a képeket
+			%-  gondolj itt a 4k*4k-s videókártya buffer méretere, amibe ha betöltünk egy ilyen pont beleillő képet amin több különböző dolog is van, sokkal gyorsabb csak az adott memóriában lévő képen pozíciót ugrani, mintsem külön másik képet betölteni a memóriába, főleg animációknál fontos ez a gyorsaság miatt.
+			%fizika overlap vs collision különbség ütközés vizsgálatkor
+			%- overlap átefdést néz, nem tolja el egymástól az objektumokat, a collision igen, így nekünk érdemesebb az overlapot használni hiszen a lövedékeinknek nem kellene eltolni az ellenfelet, leglaábbis nem volt cél, ez viszotn felvet egy másik poblémát, hogy kezelni kell ha egyszerre több dologgal kerül "átfedésbe" a lövedék, illetve kezelni kell, hogy ha ugyan azzal a dologgal kerül többször is átefedésbe, pl egy lövedék ha van penetration-je ne tudja ugyan azt az ellenfelete többször is sebezni.
 		\end{MySubSection}
 			
 		\begin{MySubSection}{A fejlesztéshez kiválasztott játékmotor}		
