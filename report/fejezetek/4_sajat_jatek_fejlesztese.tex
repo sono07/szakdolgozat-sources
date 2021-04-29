@@ -75,8 +75,312 @@
 	\end{MySection}
 		
 	\begin{MySection}{Tervezés}
-		% TODO -uml?
-		% TODO A tervezés azt jelenti, hogy elmondod, és bemutatod valahogy azt, amit szerettél volna készíteni. Tehát szövegesen leírni, hogy milyen típusú játékot készítettél, miért olyat. Működés szempontjából hogyan gondolod, milyen főbb részekre tudod esetleg bontani logikai és esetleg programozás szintjén. Tehát magas távlatból jutunk, haladunk az implementációs szint felé. Ez után jöhet egy-két UML ábra. Ami biztosan kell, az egy osztálydiagram. De lehet még bármi más is mellette. Az osztály azért jó, mert abból lehet látni megfelelő munka van-e benne. Nyilván érdemes minél több osztályt felírni, esetleg alrendszerekre bontani. Az is lehetséges, hogy a leírt terv részletesebb, mint ami majd a valóságban elkészült. Az osztályokat célszerű leírni 1-1 mondattal, hogy mire valók.
+		A játék tervezése során először is megpróbáltam összeállítani nagyvonalakban a játék felépítését és rögzítettem a különböző részeit a programnak. Megvizsgáltam mit és hogyan lehet, illetve hogyan érdemes megvalósítani a Phaser és a Javascript esetében.
+		Ezután a elkészítettem a szükséges interfaceket, amelyek a későbbiek során még finomításra kerültek, tehát ekkor még csak a legfontosabb dolgok kerültek bele. Ezek és a későbbi interface-ek az \texttt{api} mappában találhatóak meg. Majd ezek alapján modulokra bontottam az alkalmazást. A konkrért modulok és kapcsolataik a \aref{fig:uml:module} ábrán láthatóak. Ezután a további fejlesztés iteratív módon folyt, mindig egy-egy modult elkészítve. Egy adott modul fejlesztése több részből tevődött össze. Először mindig felülvizsgáltam a létrehozott interface-ket és ha szükséges volt módosítottam is azokat. Majd implementáltam a modult. Ezután ha a komplexitás alapán szükségesnek tűnt, írtam teszteket is a kódhoz. További teszteket a későbbiek folyamán készítettem még, de erről részletesebb szó lesz \aref{Tesztelés} fejezetben. Végezetül, a meglévő kóddal integráltam a kész modult és kipróbáltam megfelelően működik-e minden. Megjegyzendő, hogy már a tervezési fázisban figyelembe vettem, hogy az OOP szerint készítsem el a kódot, habár erre se a Phaser se a Javascript nem nyújt teljeskörű támogatást, viszont a kód duplikálást elkerülendő számos absztrakciós réteget hoztam létre, melyre egy nagyon jó példa az effektek modulja.
+		
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[scale=0.8]{kepek/uml/modules.png}
+			\caption{Az alkalmazás moduljai és azok kapcsolati viszonya}
+			\label{fig:uml:module}
+		\end{figure}
+		
+		%TODO modulok uml képeinek pozíciója, ahol van overflow az jó-e?
+		%TODO kimaradt uml képek mellékletbe
+		
+		\begin{MySubSection}{Entry modul}
+			Az alkalmazás általános osztályai kaptak itt helyet.
+			A modul osztálydiagramja \aref{fig:uml:entry} ábrán látható.
+			
+			\begin{figure}[h!]
+				\centering
+				\includegraphics[scale=0.8]{kepek/uml/entry/entry.png}
+				\caption{Az Entry modul osztálydiagramja}
+				\label{fig:uml:entry}
+			\end{figure}
+		
+			A modul osztályai az alábbi felsorolásban láthatóak:
+			\begin{itemize}
+				\item \texttt{App} - Az alkalmazás belépési pontját tartalmazó osztály, feladata a játékmotor (GameEngine)  megfelelő paraméterekkel való inicializálása.
+				
+				\item \texttt{GameEngine} - A Phaser játékmotorának kibővítése, jelenleg nem tartalmaz semmilyen funkciót. A jövőbeli bővíthetőség végett került létrehozásra.
+				
+				\item \texttt{PhaserConfig} - A Phaser-hez szükséges beállításokat tartalmazza, mint például: renderelő motor típusa, képrenyő méretei, fizikai motor típusa és konfigurációja, valamint a megjelenítendő Scene-ket (képernyőket).
+				
+				\item \texttt{GameConfig} - A játékhoz használt konfigurálandó értékeket tartalmazza, mint  a pályaméretet, tornyok sebzéseit, valamint árait.
+				
+				\item \texttt{GameConstants} - A játékhoz felhasznált konstans értékeket tárolja. Például a UI elemek z-index (mélység) értékeit, illetve a tilemap mezőinek értékeit.
+			\end{itemize}
+		\end{MySubSection}
+	
+		\begin{MySubSection}{Scenes modul}
+			A különböző képernyőkkel kapcsolatos osztályok kaptak itt helyet.
+			A modul osztálydiagramja \aref{fig:uml:scene} ábrán látható.
+			
+			\begin{figure}[h!]
+				\centering
+				\includegraphics[scale=0.8]{kepek/uml/scenes/scene-pt1.png}
+				\caption{A Scenes modul osztálydiagramja}
+				\label{fig:uml:scene}
+			\end{figure}
+			
+			A modul osztályai az alábbi felsorolásban láthatóak:
+			\begin{itemize}
+				\item \texttt{IScene} - Interface a Scene-k átlal implementálandó metódusok megadására. A Phaser Scene implementációja megengedi ezen metódusok elhagyását, viszont az egységes kód érdekében inkább kötelezővé tettem őket.
+				
+				\item \texttt{BaseScene} - Absztrakt ősosztály melynek egyetlen feladata, hogy a konstruktorban megkapott azonosítót megfelelő formában továbbadja a Phaser-nek.
+				
+				\item \texttt{BootScene} - A legelső képernyő. Feladata a töltőkérnyő hátterének betöltése, majd továbbnavigálás a \texttt{PreloadScene}-re.
+				
+				\item \texttt{PreloadScene} - A töltöképernyő osztálya. Feladata a szükséges fájlok, mint például képek, html oldalak betöltése, valamint a töltése állapotának kijelzése. A betöltés után átnavigál a \texttt{MainMenuScene}-re.
+				
+				\item \texttt{MainMenuScene} - A főmenü osztálya. Megjelenít egy bevíteli mezőt, ahol a felhasználó megadhatja a pályageneráláshoz felhasználandó seed-et, egy gombot az előbbi érték randomizálásához, valamint még egy gombot a játék elindításához.
+				
+				\item \texttt{GameScene} - A legfontosabb képernyője a játéknak, ez tartalmazza magát a játékot. A játék logika nagy része viszont nem itt hanem a \texttt{MapHandlers} modulba lett elhelyezve. Az osztály feladatai az előbb említett modul segítségével a pálya generálása és megjelenítése, valamit a felhasználói felület létrehozása és kezelése. Vagyis csak a kifejezetten a megjelenítéshez köthető részek kerültek ide, például a belső logika már nem.
+				
+				\item \texttt{GameOverScene} - A játék vége után ez a képernyő jeleníti meg a játékos által elért pontszámot, illetve egy gombbal lehetőséget is ad visszatérni a főmenübe.
+			\end{itemize}
+			
+			Az UML ábráról lemaradt osztályok megtalálhatóak a mellékletek között.
+			%TODO extra képek scene-2 -> scene-6
+		\end{MySubSection}
+	
+		\begin{MySubSection}{Actions modul}
+			A felhasználói interakcióval kapcsolatos események osztályai kaptak itt helyet.
+			A modul osztálydiagramja \aref{fig:uml:action} ábrán látható.
+			
+			\begin{figure}[h!]
+				\centering
+				\includegraphics[width=1\textwidth]{kepek/uml/actions/action-pt1.png}
+				\caption{Az Actions modul osztálydiagramja}
+				\label{fig:uml:action}
+			\end{figure}
+			
+			A modul osztályai az alábbi felsorolásban láthatóak:
+			\begin{itemize}
+				\item \texttt{IAction} - Interface ami a UI-nál és a pályakezelésnél szükséges metódusokat tartalmazza. Ezek a metódusok határozzák meg a megjelenítendő árat (getPriceForTile), a kijelölés színét (getSelectorColorForTile), hogy mi történjen ha kattintunk az egérrel (onTileClick) és hogy mi történjen ha új helyre mozgatjuk az egeret (onTileHover).
+				
+				\item \texttt{SelectAction} - A pálya mezőinek kijelőlését valósítja meg. Különböző színekkel jelzi, ha egy mező kijelölhető vagy sem, illetve plusz információt mutat a mezőről ha ki van jelölve.
+				
+				\item \texttt{RemoveAction} - A feladata a pályán lévő objektumok eltávolítása. Az előzőhöz hasonlóan különböző színnel jelzi, ha a mezőn van eltávolítható objektum, vagy sem. Jelzi továbbá a művelet költéségét, kattintás esetén eltávolítja az objektumot a mezőről, illetve jóváírja az összeget a játékosnak.
+				
+				\item \texttt{PlaceAction} - Absztrakt osztály, a tornyok lerakását szolgálja. A többihez hasonló módon jelzi az aktuális árat és a lerakhatóságot. Kattintásra elhelyezi a tornyot, illetve levonja az összeget a játékostól. A torony konkrét típusát a leszármazottak határozzák majd meg.
+				
+				\item \texttt{Place<T>Action} - Ezek az osztályok a \texttt{PlaceAction}-t bővítik ki. Egyetlen feladatuk a lerakandó torony típusának meghatározása. Példa: PlaceTurretBulletMk1Action.
+			\end{itemize}
+			
+			Az UML ábráról lemaradt osztályok megtalálhatóak a mellékletek között.
+			%TODO extra képek action-2 -> action-6
+		\end{MySubSection}
+	
+		\begin{MySubSection}{MapHandlers modul}
+			A pályával és annak kezelésével kapcsolatos osztályok kaptak itt helyet.
+			A modul osztálydiagramja \aref{fig:uml:map} ábrán látható.
+			
+			\begin{figure}[h!]
+				\centering
+				%includegraphics[width=1.1\textwidth]{kepek/uml/maphandlers/map.png}
+				\makebox[1.05\textwidth][c]{\includegraphics[width=1.1\textwidth]{kepek/uml/maphandlers/map.png}}
+				\caption{A MapHandlers modul osztálydiagramja}
+				\label{fig:uml:map}
+			\end{figure}
+			
+			A modul osztályai az alábbi felsorolásban láthatóak:
+			\begin{itemize}
+				\item \texttt{IMapGenerator} - Interface, ami a pálya generálásához szükséges metódust definiálja. A többi osztályban nem a konkrét implementáció, hanem ez az interface van használva.
+				
+				\item \texttt{MapGenerator} - A pálya generálását megoldó osztály. Fontos, hogy adott kezdőértékhez (úgy nevezett "seed"-hez) ugyan azt a pályát generálja mindig. A pálya generálás során egy útvonalat is generál, amin az ellenségek fognak majd haladni. A pálya mezőinek lehetséges értékei előre meghatározottak, melyek a \texttt{GameConstants} osztályban lettek definiálva.
+				
+				\item \texttt{IEnemySpawner} - Interface, ami az ellenségek létrehozásához, és a játék köreinek kezeléséhez szükséges metódusokat definiálja. Ezeket, az \texttt{update} metódus kivételével, főként a UI használja.
+				
+				\item \texttt{EnemySpawner} - Elsődlegesen az ellenségek létrehozásáért felel, de feladata még a körök kezelése, az ellenségek számának és erejének fokozatos növelése is. Működése közvetelenül a \texttt{GameStateStore}-al van összefüggésben.
+				
+				\item \texttt{IGameStateStore} - Talán a legtöbbet használt interface az alkalmazásban. Számos metódust definiál a UI és a többi modul felé.
+				
+				\item \texttt{GameStateStore} - Ebbe az osztályba került a logika nagy része. Ez kezeli az objektum-csoportokat, az életerőt, a pénzt, a pontszámot, a pályát és az útvonalat. A \texttt{EnemySpawner}-en keresztül az ellenségeket és a köröket is ez kezeli. Számos úgy nevezett "callback" metódust is tartalmaz melyek segítségével a UI frissíteni tudja a megjelenített adatokat.
+			\end{itemize}
+		\end{MySubSection}
+	
+		\begin{MySubSection}{Groups modul}
+			Az objektum-csoportokkal kapcsolatos osztályok kaptak itt helyet.
+			A modul osztálydiagramja \aref{fig:uml:group} ábrán látható.
+	
+			\begin{figure}[h!]
+				\centering
+				\includegraphics[width=1\textwidth]{kepek/uml/groups/group-pt1.png}
+				\caption{A Groups modul osztálydiagramja}
+				\label{fig:uml:group}
+			\end{figure}
+			
+			A modul osztályai az alábbi felsorolásban láthatóak:
+			\begin{itemize}
+				\item \texttt{IGroup} - Interface ami az objektum-csoportok által nyújtott legszűkségesebb metódusokat tartalmazza. Gyakorlatilag a Phaser által definiált metódusokat írja felül, mivel azok nem megfelelő típussal rendelkeznek (nem generikusak).
+				
+				\item \texttt{BaseGroup} - Az \texttt{IGroup} interface implementációja, az ott említett dolgokat valósítja meg. A Phaser \texttt{Group} osztályának a kibővétése.
+				
+				\item \texttt{ITurretGroup} - Az \texttt{IGroup} interface kibővítése a tornyoknál egyedileg szükséges dolgokkal, melyek a torony ára és a mező értéke.
+				
+				\item \texttt{BaseTurretGroup} - Absztrakt osztály mely az \texttt{ITurretGroup} interface-t valósítja meg. A konkrét árat és mező értéket a leszármazottak fogják meghatározni.
+				
+				\item \texttt{<T>Group} - A lövedékek és az ellenségek konkrét csoportjai. Az ősosztály felé a kezelendő objektum osztályát határozzák meg. Példa: \texttt{BulletGroup}
+				
+				\item \texttt{Turret<T>Group} - A tornyok konkrét csoportjai. Az ősosztály felé a kezelendő torony osztályát, árát és mezőértékét határozzák meg. Példa: \texttt{TurretBulletMk1Group}
+				
+			\end{itemize}
+			
+			Az UML ábráról lemaradt osztályok megtalálhatóak a mellékletek között.
+			%TODO extra képek group-2 -> group-7
+		\end{MySubSection}
+	
+		\begin{MySubSection}{Objects modul}
+			Az objektumokkal kapcsolatos osztályok egy része kapott itt helyet.
+			A modul osztálydiagramja \aref{fig:uml:object} ábrán látható.
+			
+			\begin{figure}[h!]
+				\centering
+				\includegraphics[width=0.7\textwidth]{kepek/uml/objects/object.png}
+				\caption{Az Objects modul osztálydiagramja}
+				\label{fig:uml:object}
+			\end{figure}
+			
+			A modul osztályai az alábbi felsorolásban láthatóak:
+			\begin{itemize}
+				\item \texttt{IObject} - Interface ami az objektumok életciklus metódosait (init, update, remove), és alapvetően tagjait (position, active) határozza meg.
+				
+				\item \texttt{BaseObject} - Absztrakt osztály ami az előző interface tagjainak inicializálását, frissítését, és resetelését végzi el oly módon, hogy az tovább bővíthető legyen a későbbiekben. Ez a bővítés az \texttt{Enemies}, a \texttt{Projectiles} és a \texttt{Turrets} modulokban történik meg.
+				
+			\end{itemize}
+		\end{MySubSection}
+	
+		\begin{MySubSection}{Effects modul}
+			Az effektekkel kapcsolatos osztályok kaptak itt helyet.
+			A modul osztálydiagramja \aref{fig:uml:effect} ábrán látható.
+			
+			\begin{figure}[h!]
+				\centering
+				\includegraphics[width=1\textwidth]{kepek/uml/effects/effect.png}
+				\caption{Az Effects modul osztálydiagramja}
+				\label{fig:uml:effect}
+			\end{figure}
+			
+			A modul osztályai az alábbi felsorolásban láthatóak:
+			\begin{itemize}
+				\item \texttt{IEffect} - Az effektek használatához szükséges tagokat és metódusokat definiálja, melyek az update és az isDestroyed. Ezeket a tornyok a lövedékek és az ellenségeknél fogjuk használni.
+				
+				\item \texttt{ICloneable} - A klonózáshoz szükséges metódusokat definiáló interface. Alapvetően azért van a klónozásra szükség, mert a tornyoknak valahogy át kell adniuk a lövedékek számára az effekteket, anélkül, hogy az eredeti változat módosulhasson.
+
+				\item \texttt{BaseCloneable} - Az előző interface-t félig megvalósító osztály. Implementálja a clone metódust a copy metódus használatával melyet a leszármazottaknak kell majd implementálni.
+
+				\item \texttt{BaseEffect} - Absztrak osztály, mely az effektek ellenségre való alkalmazását, levételét, és frissítését valósítja meg oly módon, hogy az a leszármazottak által bővíthető legyen.
+
+				\item \texttt{BaseInstantEffect} - Absztrakt osztály, amely olyan effektet valósít meg, ami azonnali hatású, vagyis amint felkerül az ellenségre azonnal el is kerül róla.
+
+				\item \texttt{FlatDamageEffect} - A \texttt{BaseInstantEffect} egyik leszármazott osztálya. Azonnali hatású, fix értékű sebzést alkalmaz az ellenségre.
+
+				\item \texttt{PercentageDamageEffect} - A \texttt{BaseInstantEffect} egyik leszármazott osztálya. Azonnali hatású, százalékos értékű sebzést alkalmaz az ellenségre. A sebzés mindig az ellenség aktuális éltereje alapján történik.
+
+				\item \texttt{BaseActiveEffect} - Absztrak osztály, amely olyan effektet valósít meg, ami fix ideig érvényes.
+
+				\item \texttt{FlatSlowEffect} - A \texttt{BaseActiveEffect} egyik leszármazott osztálya. Pár másodpercig tartó fix értékű lassítást alkalmaz az ellenségre.
+
+				\item \texttt{PerncetageSlowEffect} - A \texttt{BaseActiveEffect} egyik leszármazott osztálya. Pár másodpercig tartó százalékos értékű lassítást alkalmaz az ellenségre. A lassítás mindig az ellenség aktuális sebessége alapján történik. (A játékban nem használt)
+
+				\item \texttt{BaseActiveOverTimeEffect} - Absztrak osztály, amely olyan effektet valósít meg, ami fix ideig érvényes, emelett adott időközönként alkalmaz az ellenségre hatásokat.
+
+				\item \texttt{FlatFireEffect} - A \texttt{BaseActiveOverTimeEffect} egyik leszármazott osztálya. A tűzsebzést hivatott modellezni. Pár másodpercig tartó fix értékű sebzést alkalmaz az ellenségre minden időközben.
+				
+				\item \texttt{PercentageFireEffect} - A \texttt{BaseActiveOverTimeEffect} egyik leszármazott osztálya. A tűzsebzést hivatott modellezni. Pár másodpercig tartó százalékos értékű sebzést alkalmaz az ellenségre minden időközben. A sebzés mindig az ellenség aktuális éltereje alapján történik. (A játékban nem használt)
+			\end{itemize}
+		\end{MySubSection}
+	
+		\begin{MySubSection}{Projectiles modul}
+			A lövedékekkel kapcsolatos osztályok kaptak itt helyet.
+			A modul osztálydiagramja \aref{fig:uml:projectile} ábrán látható.
+		
+			\begin{figure}[h!]
+				\centering
+				%\includegraphics[width=1.1\textwidth]{kepek/uml/projectiles/projectile.png}
+				\makebox[1.05\textwidth][c]{\includegraphics[width=1.15\textwidth]{kepek/uml/projectiles/projectile.png}}
+				\caption{A Projectiles modul osztálydiagramja}
+				\label{fig:uml:projectile}
+			\end{figure}
+			
+			A modul osztályai az alábbi felsorolásban láthatóak:
+			\begin{itemize}
+				\item \texttt{IProjectile} - Interface, ami a lövedékek általános inicializáló paramétereit határozza meg. Kibővíti az \texttt{IObject} interface-t.
+
+				\item \texttt{BaseProjectile} - Abasztrak osztály, ami az \texttt{IProjectile}-nak megfelelően implementálja a lövedékek általános funkcióit és tulajdonságait oly módon, hogy az később bővíthető legyen.
+
+				\item \texttt{LaserObject} - Lézersugarat reprezentáló osztály. Ez egy nem mozgó és azonnal sebző lövedék típus, mely pontosan egy konkrét ellenfelet sebezhet csak. Megjelenítéshez animációt is tartalmaz. A \texttt{BaseProjectile}-ból származik le.
+
+				\item \texttt{IMovingProjectile} - Interface, ami a mozgó lövedékek plusz inicializáló paramétereivel bővíti ki az \texttt{IProjectile} interfacet.
+
+				\item \texttt{BaseMovingProjectile} - Absztrakt osztály, ami \texttt{BaseProjectile}-t bővíti ki a mozgó lövdékek tulajdonságainak megfelelően. Ez az osztály is a későbbi bővíthetőséget figyelembe készült.
+
+				\item \texttt{IAOEMovingProjectile} - Interface, ami a területi sebzést okozó lövedékeknél használatos paraméterekkel bővíti ki a \texttt{IMovingProjectile}-t.
+
+				\item \texttt{RocketObject} - Rakétát megtestesítő osztály. A \texttt{NaseMovingProjectile}-ból származik le. Feladata a rakétákra jellemző területi sebzés megvalósítása, és animáció kezelése.
+
+				\item \texttt{IPenetratingMovingProjectile} - Interface, ami kibővíti a \texttt{IMovingProjectile} interfacet, az átütőképességgel rendelkező lövedékekhez szükséges paraméterekkel.
+
+				\item \texttt{BasePenetratingMovingProjectile} - Absztrakt osztály, ami a \texttt{BaseMovingProjectile}-ből származik le. Feladata az átütőképességgel rendelkező lövedékek számára egy közös ős biztosítása. Kezeli a lövedék élettartamát, illetve metódusokat szolgáltat az eltalált ellenségek nyomonkövetésére.
+
+				\item \texttt{BulletObject} - Az egyszerű lövedéket megvalósító osztály. A \texttt{BasePenetratingMovingProjectile}-ból származik le. Feladatai az egyedi animáció és megjelenés biztosítása.
+
+				\item \texttt{EnergyBallBlueObject} - Az kék színű energia-lövedéket megvalósító osztály. A \texttt{BasePenetratingMovingProjectile}-ból származik le. Feladatai az egyedi animáció és megjelenés biztosítása.
+
+				\item \texttt{EnergyBallOrangeObject} - Az sárga színű energia-lövedéket megvalósító osztály. A \texttt{BasePenetratingMovingProjectile}-ból származik le. Feladatai az egyedi animáció és megjelenés biztosítása.
+							
+			\end{itemize}
+		\end{MySubSection}
+
+		\begin{MySubSection}{Turrets modul}
+			A tornyokkal kapcsolatos osztályok kaptak itt helyet.
+			A modul osztálydiagramja \aref{fig:uml:turret} ábrán látható.
+			
+			\begin{figure}[h!]
+				\centering
+				\includegraphics[width=0.65\textwidth]{kepek/uml/turrets/turret-pt1.png}
+				\caption{A Turrets modul osztálydiagramja}
+				\label{fig:uml:turret}
+			\end{figure}
+			
+			A modul osztályai az alábbi felsorolásban láthatóak:
+			\begin{itemize}
+				\item \texttt{ITurretObject} - Interface, ami a tornyok használatához szükséges metódusokat definiálja, mint például a hatótáv indikátor megjelenítése és elrejtése. Az \texttt{IObject} interfacet bővíti ki.
+				
+				\item \texttt{BaseTurretObject} - Absztrakt osztály, ami a tornyok logikájának nagyrészét tartalmazza. Kezeli a torony létrehozását, eltávolítását, az ellenségek kiválasztását, illetve megtámadását, valamint a hatótáv jelölő megjelenítését és eltávolítását. A konkrét lövedék típusokat az alosztályok fogják meghatározni.
+				
+				\item \texttt{Turret<T>Object} - Ezek az osztályok a konkrét torony típusokat valósítják meg. Közös ősük a \texttt{BaseTurretObject}-t. Feladatuk a torony tulajdonságainak (hatótáv, tűzgyorsaság), a megjelenítésének és a konkrét lövedék típusainak a meghatározása.
+				
+			\end{itemize}
+			
+			Az UML ábráról lemaradt osztályok megtalálhatóak a mellékletek között.
+			%TODO extra képek turret-2 -> turret-6
+		\end{MySubSection}
+
+		\begin{MySubSection}{Enemies modul}
+			Az ellenségekkel kapcsolatos osztályok kaptak itt helyet.
+			A modul osztálydiagramja \aref{fig:uml:enemy} ábrán látható.
+				
+			\begin{figure}[h]
+				\centering
+				\includegraphics[width=0.85\textwidth]{kepek/uml/enemies/enemy.png}
+				\caption{Az Enemies modul osztálydiagramja}
+				\label{fig:uml:enemy}
+			\end{figure}
+			
+			A modul osztályai az alábbi felsorolásban láthatóak:
+			\begin{itemize}			
+				\item \texttt{IEnemy} - Interface, ami a többi osztály számára fontos metódusokat és tulajdonságokat definiálja az ellenségekhez. Kapcsolatban van az \texttt{Effects} modullal is.
+				
+				\item \texttt{EnemyObject} - Esetünkben az egyetlen konkrét ellenfelet reprezentáló osztály. Feladatai az ellenség életének és egyéb tulajdonságainak a számontartása, az effektet kezelése, a megjelenítés és animációk meghatározása, illetve az ellenség mozgatása az útvonalon. Szoros kapcsolatban áll a \texttt{HealthBarObject} osztállyal.
+				
+				\item \texttt{HealthBarObject} - Az ellenségek életerejét megjelenítő osztály. Létrehozása után követnie szükséges az adott ellenfelet, mely az egyik feladata. Feldata még az életerő megfelelő megjelenítése, melyet kívülről testreszabható módon végez.
+				
+			\end{itemize}
+		\end{MySubSection}
+
 	\end{MySection}
 		
 	\begin{MySection}{Megvalósítás}
