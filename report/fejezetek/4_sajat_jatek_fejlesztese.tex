@@ -59,8 +59,8 @@
 			\item Jest - A manuális tesztelésen kívül még ezt a keretrendszert használtam teszteléshez.
 			
 			\item PlantUML - A PlantUML használatával sokkal hatékonyabban tudunk a program egyes részeiről UML diagramokat készíteni, így rengeteg időt lehet spórolni vele. Online elérhető az alábbi linken: \url{https://plantuml.com/}
-			
-			\item Photophea - Egy ingyenes, webalapú grafikus szerkesztő, mely az Adobe Photoshop-hoz hasonló. Alkalmas képek szerkesztésére, illusztrációk készítésére, különböző képformátumok közötti konvertálására, satöbbi.
+			                                                                                 
+			\item Photophea - Egy ingyenes, webalapú grafikus szerkesztő, mely az Adobe Photo\-shop-hoz hasonló. Alkalmas képek szerkesztésére, illusztrációk készítésére, különböző képformátumok közötti konvertálására, satöbbi.
 			Számomra a képek, assetek módosítása, vágása miatt volt rá szükség.
 			A következő linken érhetjük el: \url{https://www.photopea.com/}
 			
@@ -76,11 +76,11 @@
 		
 	\begin{MySection}{Tervezés}
 		A játék tervezése során először is megpróbáltam összeállítani nagyvonalakban a játék felépítését és rögzítettem a különböző részeit a programnak. Megvizsgáltam mit és hogyan lehet, illetve hogyan érdemes megvalósítani a Phaser és a Javascript esetében.
-		Ezután a elkészítettem a szükséges interfaceket, amelyek a későbbiek során még finomításra kerültek, tehát ekkor még csak a legfontosabb dolgok kerültek bele. Ezek és a későbbi interface-ek az \texttt{api} mappában találhatóak meg. Majd ezek alapján modulokra bontottam az alkalmazást. A konkrért modulok és kapcsolataik a \aref{fig:uml:module} ábrán láthatóak. Ezután a további fejlesztés iteratív módon folyt, mindig egy-egy modult elkészítve. Egy adott modul fejlesztése több részből tevődött össze. Először mindig felülvizsgáltam a létrehozott interface-ket és ha szükséges volt módosítottam is azokat. Majd implementáltam a modult. Ezután ha a komplexitás alapán szükségesnek tűnt, írtam teszteket is a kódhoz. További teszteket a későbbiek folyamán készítettem még, de erről részletesebb szó lesz \aref{Tesztelés} fejezetben. Végezetül, a meglévő kóddal integráltam a kész modult és kipróbáltam megfelelően működik-e minden. Megjegyzendő, hogy már a tervezési fázisban figyelembe vettem, hogy az OOP szerint készítsem el a kódot, habár erre se a Phaser se a Javascript nem nyújt teljeskörű támogatást, viszont a kód duplikálást elkerülendő számos absztrakciós réteget hoztam létre, melyre egy nagyon jó példa az effektek modulja.
+		Ezután elkészítettem a szükséges interface-eket, amelyek a későbbiek során még finomítva lettek, tehát ekkor még csak a legfontosabb dolgok kerültek bele. Ezek és a későbbi interface-ek az \texttt{api} mappában találhatóak meg. Majd ezek alapján modulokra bontottam az alkalmazást. A konkrét modulok és kapcsolataik a \myref{fig:uml:module} ábrán láthatóak. Ezután a további fejlesztés iteratív módon folyt, mindig egy-egy modult elkészítve. Egy adott modul fejlesztése több részből tevődött össze. Először mindig felülvizsgáltam a létrehozott interface-eket és ha szükséges volt módosítottam is azokat. Majd implementáltam a modult. Ezután ha a komplexitás alapán szükségesnek tűnt, teszteket is írtam a kódhoz. További teszteket a későbbiek folyamán készítettem még, erről részletesebben szó lesz a \myref{Tesztelés} fejezetben. Végezetül, a meglévő kóddal integráltam a kész modult és kipróbáltam megfelelően működik-e minden. Megjegyzendő, hogy már a tervezési fázisban figyelembe vettem, hogy az OOP szerint készítsem el a kódot, habár erre se a Phaser se a Javascript nem nyújt teljeskörű támogatást, viszont a kód duplikálást elkerülendő számos absztrakciós réteget hoztam létre, melyre egy nagyon jó példa az effektek modulja.
 		
 		\begin{figure}[h!]
 			\centering
-			\includegraphics[scale=0.8]{kepek/uml/modules.png}
+			\includegraphics[width=1\textwidth]{kepek/uml/modules.png}
 			\caption{Az alkalmazás moduljai és azok kapcsolati viszonya}
 			\label{fig:uml:module}
 		\end{figure}
@@ -101,13 +101,13 @@
 		
 			A modul osztályai az alábbi felsorolásban láthatóak:
 			\begin{itemize}
-				\item \texttt{App} - Az alkalmazás belépési pontját tartalmazó osztály, feladata a játékmotor (GameEngine)  megfelelő paraméterekkel való inicializálása.
+				\item \texttt{App} - Az alkalmazás belépési pontját tartalmazó osztály, feladata a játékmotor (GameEngine) megfelelő paraméterekkel való inicializálása.
 				
 				\item \texttt{GameEngine} - A Phaser játékmotorának kibővítése, jelenleg nem tartalmaz semmilyen funkciót. A jövőbeli bővíthetőség végett került létrehozásra.
 				
-				\item \texttt{PhaserConfig} - A Phaser-hez szükséges beállításokat tartalmazza, mint például: renderelő motor típusa, képrenyő méretei, fizikai motor típusa és konfigurációja, valamint a megjelenítendő Scene-ket (képernyőket).
+				\item \texttt{PhaserConfig} - A Phaserhez szükséges beállításokat tartalmazza, mint például: renderelő motor típusa, képrenyő méretei, fizikai motor típusa és konfigurációja, valamint a megjelenítendő Scene-ket (képernyőket).
 				
-				\item \texttt{GameConfig} - A játékhoz használt konfigurálandó értékeket tartalmazza, mint  a pályaméretet, tornyok sebzéseit, valamint árait.
+				\item \texttt{GameConfig} - A játékhoz használt konfigurálandó értékeket tartalmazza, mint a pályaméretet, tornyok sebzéseit, valamint árait.
 				
 				\item \texttt{GameConstants} - A játékhoz felhasznált konstans értékeket tárolja. Például a UI elemek z-index (mélység) értékeit, illetve a tilemap mezőinek értékeit.
 			\end{itemize}
@@ -128,15 +128,15 @@
 			\begin{itemize}
 				\item \texttt{IScene} - Interface a Scene-k átlal implementálandó metódusok megadására. A Phaser Scene implementációja megengedi ezen metódusok elhagyását, viszont az egységes kód érdekében inkább kötelezővé tettem őket.
 				
-				\item \texttt{BaseScene} - Absztrakt ősosztály melynek egyetlen feladata, hogy a konstruktorban megkapott azonosítót megfelelő formában továbbadja a Phaser-nek.
+				\item \texttt{BaseScene} - Absztrakt ősosztály melynek egyetlen feladata, hogy a konstruktorban megkapott azonosítót megfelelő formában továbbadja a Phasernek.
 				
-				\item \texttt{BootScene} - A legelső képernyő. Feladata a töltőkérnyő hátterének betöltése, majd továbbnavigálás a \texttt{PreloadScene}-re.
+				\item \texttt{BootScene} - A legelső képernyő. Feladata a töltőképernyő hátterének betöltése, majd továbbnavigálás a \texttt{PreloadScene}-re.
 				
-				\item \texttt{PreloadScene} - A töltöképernyő osztálya. Feladata a szükséges fájlok, mint például képek, html oldalak betöltése, valamint a töltése állapotának kijelzése. A betöltés után átnavigál a \texttt{MainMenuScene}-re.
+				\item \texttt{PreloadScene} - A töltöképernyő osztálya. Feladata a szükséges fájlok, mint például képek, html oldalak betöltése, valamint a töltés állapotának kijelzése. A betöltés után átnavigál a \texttt{MainMenuScene}-re.
 				
-				\item \texttt{MainMenuScene} - A főmenü osztálya. Megjelenít egy bevíteli mezőt, ahol a felhasználó megadhatja a pályageneráláshoz felhasználandó seed-et, egy gombot az előbbi érték randomizálásához, valamint még egy gombot a játék elindításához.
+				\item \texttt{MainMenuScene} - A főmenü osztálya. Megjelenít egy beviteli mezőt, ahol a felhasználó megadhatja a pályageneráláshoz felhasználandó seed-et, egy gombot az előbbi érték randomizálásához, valamint még egy gombot a játék elindításához.
 				
-				\item \texttt{GameScene} - A legfontosabb képernyője a játéknak, ez tartalmazza magát a játékot. A játék logika nagy része viszont nem itt hanem a \texttt{MapHandlers} modulba lett elhelyezve. Az osztály feladatai az előbb említett modul segítségével a pálya generálása és megjelenítése, valamit a felhasználói felület létrehozása és kezelése. Vagyis csak a kifejezetten a megjelenítéshez köthető részek kerültek ide, például a belső logika már nem.
+				\item \texttt{GameScene} - A legfontosabb képernyője a játéknak, ez tartalmazza magát a játékot. A játék logika nagy része viszont nem itt, hanem a \texttt{MapHandlers} modulba lett elhelyezve. Az osztály feladatai az előbb említett modul segítségével a pálya generálása és megjelenítése, valamint a felhasználói felület létrehozása és kezelése. Vagyis csak a kifejezetten a megjelenítéshez köthető részek kerültek ide, például a belső logika már nem.
 				
 				\item \texttt{GameOverScene} - A játék vége után ez a képernyő jeleníti meg a játékos által elért pontszámot, illetve egy gombbal lehetőséget is ad visszatérni a főmenübe.
 			\end{itemize}
@@ -147,7 +147,7 @@
 	
 		\begin{MySubSection}{Actions modul}
 			A felhasználói interakcióval kapcsolatos események osztályai kaptak itt helyet.
-			A modul osztálydiagramja \aref{fig:uml:action} ábrán látható.
+			A modul osztálydiagramja a \myref{fig:uml:action} ábrán látható.
 			
 			\begin{figure}[h!]
 				\centering
@@ -160,9 +160,9 @@
 			\begin{itemize}
 				\item \texttt{IAction} - Interface ami a UI-nál és a pályakezelésnél szükséges metódusokat tartalmazza. Ezek a metódusok határozzák meg a megjelenítendő árat (getPriceForTile), a kijelölés színét (getSelectorColorForTile), hogy mi történjen ha kattintunk az egérrel (onTileClick) és hogy mi történjen ha új helyre mozgatjuk az egeret (onTileHover).
 				
-				\item \texttt{SelectAction} - A pálya mezőinek kijelőlését valósítja meg. Különböző színekkel jelzi, ha egy mező kijelölhető vagy sem, illetve plusz információt mutat a mezőről ha ki van jelölve.
+				\item \texttt{SelectAction} - A pálya mezőinek kijelölését valósítja meg. Különböző színekkel jelzi, ha egy mező kijelölhető vagy sem, illetve plusz információt mutat a mezőről ha ki van jelölve.
 				
-				\item \texttt{RemoveAction} - A feladata a pályán lévő objektumok eltávolítása. Az előzőhöz hasonlóan különböző színnel jelzi, ha a mezőn van eltávolítható objektum, vagy sem. Jelzi továbbá a művelet költéségét, kattintás esetén eltávolítja az objektumot a mezőről, illetve jóváírja az összeget a játékosnak.
+				\item \texttt{RemoveAction} - A feladata a pályán lévő objektumok eltávolítása. Az előzőhöz hasonlóan különböző színnel jelzi, ha a mezőn van eltávolítható objektum, vagy sem. Jelzi továbbá a művelet költségét, kattintás esetén eltávolítja az objektumot a mezőről, illetve jóváírja az összeget a játékosnak.
 				
 				\item \texttt{PlaceAction} - Absztrakt osztály, a tornyok lerakását szolgálja. A többihez hasonló módon jelzi az aktuális árat és a lerakhatóságot. Kattintásra elhelyezi a tornyot, illetve levonja az összeget a játékostól. A torony konkrét típusát a leszármazottak határozzák majd meg.
 				
@@ -175,7 +175,7 @@
 	
 		\begin{MySubSection}{MapHandlers modul}
 			A pályával és annak kezelésével kapcsolatos osztályok kaptak itt helyet.
-			A modul osztálydiagramja \aref{fig:uml:map} ábrán látható.
+			A modul osztálydiagramja a \myref{fig:uml:map} ábrán látható.
 			
 			\begin{figure}[h!]
 				\centering
@@ -189,7 +189,7 @@
 			\begin{itemize}
 				\item \texttt{IMapGenerator} - Interface, ami a pálya generálásához szükséges metódust definiálja. A többi osztályban nem a konkrét implementáció, hanem ez az interface van használva.
 				
-				\item \texttt{MapGenerator} - A pálya generálását megoldó osztály. Fontos, hogy adott kezdőértékhez (úgy nevezett "seed"-hez) ugyan azt a pályát generálja mindig. A pálya generálás során egy útvonalat is generál, amin az ellenségek fognak majd haladni. A pálya mezőinek lehetséges értékei előre meghatározottak, melyek a \texttt{GameConstants} osztályban lettek definiálva.
+				\item \texttt{MapGenerator} - A pálya generálását megoldó osztály. Fontos, hogy adott kezdőértékhez (úgy nevezett "seed"-hez) ugyan azt a pályát generálja mindig. A pályagenerálás során egy útvonalat is generál, amin az ellenségek fognak majd haladni. A pálya mezőinek lehetséges értékei előre meghatározottak, melyek a \texttt{GameConstants} osztályban lettek definiálva.
 				
 				\item \texttt{IEnemySpawner} - Interface, ami az ellenségek létrehozásához, és a játék köreinek kezeléséhez szükséges metódusokat definiálja. Ezeket, az \texttt{update} metódus kivételével, főként a UI használja.
 				
@@ -203,7 +203,7 @@
 	
 		\begin{MySubSection}{Groups modul}
 			Az objektum-csoportokkal kapcsolatos osztályok kaptak itt helyet.
-			A modul osztálydiagramja \aref{fig:uml:group} ábrán látható.
+			A modul osztálydiagramja a \myref{fig:uml:group} ábrán látható.
 	
 			\begin{figure}[h!]
 				\centering
@@ -214,9 +214,9 @@
 			
 			A modul osztályai az alábbi felsorolásban láthatóak:
 			\begin{itemize}
-				\item \texttt{IGroup} - Interface ami az objektum-csoportok által nyújtott legszűkségesebb metódusokat tartalmazza. Gyakorlatilag a Phaser által definiált metódusokat írja felül, mivel azok nem megfelelő típussal rendelkeznek (nem generikusak).
+				\item \texttt{IGroup} - Interface ami az objektum-csoportok által nyújtott legszükségesebb metódusokat tartalmazza. Gyakorlatilag a Phaser által definiált metódusokat írja felül, mivel azok nem megfelelő típussal rendelkeznek (nem generikusak).
 				
-				\item \texttt{BaseGroup} - Az \texttt{IGroup} interface implementációja, az ott említett dolgokat valósítja meg. A Phaser \texttt{Group} osztályának a kibővétése.
+				\item \texttt{BaseGroup} - Az \texttt{IGroup} interface implementációja, az ott említett dolgokat valósítja meg. A Phaser \texttt{Group} osztályának a kibővítése.
 				
 				\item \texttt{ITurretGroup} - Az \texttt{IGroup} interface kibővítése a tornyoknál egyedileg szükséges dolgokkal, melyek a torony ára és a mező értéke.
 				
@@ -224,8 +224,7 @@
 				
 				\item \texttt{<T>Group} - A lövedékek és az ellenségek konkrét csoportjai. Az ősosztály felé a kezelendő objektum osztályát határozzák meg. Példa: \texttt{BulletGroup}
 				
-				\item \texttt{Turret<T>Group} - A tornyok konkrét csoportjai. Az ősosztály felé a kezelendő torony osztályát, árát és mezőértékét határozzák meg. Példa: \texttt{TurretBulletMk1Group}
-				
+				\item \texttt{Turret<T>Group} - A tornyok konkrét csoportjai. Az ősosztály felé a kezelendő torony osztályát, árát és mezőértékét határozzák meg. Példa: \texttt{Turret\-Bullet\-Mk1\-Group}
 			\end{itemize}
 			
 			Az UML ábráról lemaradt osztályok megtalálhatóak a mellékletek között.
@@ -234,7 +233,7 @@
 	
 		\begin{MySubSection}{Objects modul}
 			Az objektumokkal kapcsolatos osztályok egy része kapott itt helyet.
-			A modul osztálydiagramja \aref{fig:uml:object} ábrán látható.
+			A modul osztálydiagramja a \myref{fig:uml:object} ábrán látható.
 			
 			\begin{figure}[h!]
 				\centering
@@ -254,7 +253,7 @@
 	
 		\begin{MySubSection}{Effects modul}
 			Az effektekkel kapcsolatos osztályok kaptak itt helyet.
-			A modul osztálydiagramja \aref{fig:uml:effect} ábrán látható.
+			A modul osztálydiagramja a \myref{fig:uml:effect} ábrán látható.
 			
 			\begin{figure}[h!]
 				\centering
@@ -265,13 +264,13 @@
 			
 			A modul osztályai az alábbi felsorolásban láthatóak:
 			\begin{itemize}
-				\item \texttt{IEffect} - Az effektek használatához szükséges tagokat és metódusokat definiálja, melyek az update és az isDestroyed. Ezeket a tornyok a lövedékek és az ellenségeknél fogjuk használni.
+				\item \texttt{IEffect} - Az effektek használatához szükséges tagokat és metódusokat definiálja, melyek az update és az isDestroyed. Ezeket a tornyok, a lövedékek és az ellenségek fogják használni.
 				
 				\item \texttt{ICloneable} - A klonózáshoz szükséges metódusokat definiáló interface. Alapvetően azért van a klónozásra szükség, mert a tornyoknak valahogy át kell adniuk a lövedékek számára az effekteket, anélkül, hogy az eredeti változat módosulhasson.
 
 				\item \texttt{BaseCloneable} - Az előző interface-t félig megvalósító osztály. Implementálja a clone metódust a copy metódus használatával melyet a leszármazottaknak kell majd implementálni.
 
-				\item \texttt{BaseEffect} - Absztrak osztály, mely az effektek ellenségre való alkalmazását, levételét, és frissítését valósítja meg oly módon, hogy az a leszármazottak által bővíthető legyen.
+				\item \texttt{BaseEffect} - Absztrakt osztály, mely az effektek ellenségre való alkalmazását, levételét, és frissítését valósítja meg oly módon, hogy az a leszármazottak által bővíthető legyen.
 
 				\item \texttt{BaseInstantEffect} - Absztrakt osztály, amely olyan effektet valósít meg, ami azonnali hatású, vagyis amint felkerül az ellenségre azonnal el is kerül róla.
 
@@ -279,17 +278,17 @@
 
 				\item \texttt{PercentageDamageEffect} - A \texttt{BaseInstantEffect} egyik leszármazott osztálya. Azonnali hatású, százalékos értékű sebzést alkalmaz az ellenségre. A sebzés mindig az ellenség aktuális éltereje alapján történik.
 
-				\item \texttt{BaseActiveEffect} - Absztrak osztály, amely olyan effektet valósít meg, ami fix ideig érvényes.
+				\item \texttt{BaseActiveEffect} - Absztrakt osztály, amely olyan effektet valósít meg, ami fix ideig érvényes.
 
 				\item \texttt{FlatSlowEffect} - A \texttt{BaseActiveEffect} egyik leszármazott osztálya. Pár másodpercig tartó fix értékű lassítást alkalmaz az ellenségre.
 
-				\item \texttt{PerncetageSlowEffect} - A \texttt{BaseActiveEffect} egyik leszármazott osztálya. Pár másodpercig tartó százalékos értékű lassítást alkalmaz az ellenségre. A lassítás mindig az ellenség aktuális sebessége alapján történik. (A játékban nem használt)
+				\item \texttt{PerncetageSlowEffect} - A \texttt{BaseActiveEffect} egyik leszármazott osztálya. Pár másodpercig tartó százalékos értékű lassítást alkalmaz az ellenségre. A lassítás mindig az ellenség aktuális sebessége alapján történik. (A játékban végül nem használt.)
 
-				\item \texttt{BaseActiveOverTimeEffect} - Absztrak osztály, amely olyan effektet valósít meg, ami fix ideig érvényes, emelett adott időközönként alkalmaz az ellenségre hatásokat.
+				\item \texttt{BaseActiveOverTimeEffect} - Absztrakt osztály, amely olyan effektet valósít meg, ami fix ideig érvényes, emellett adott időközönként alkalmaz az ellenségre hatásokat.
 
 				\item \texttt{FlatFireEffect} - A \texttt{BaseActiveOverTimeEffect} egyik leszármazott osztálya. A tűzsebzést hivatott modellezni. Pár másodpercig tartó fix értékű sebzést alkalmaz az ellenségre minden időközben.
 				
-				\item \texttt{PercentageFireEffect} - A \texttt{BaseActiveOverTimeEffect} egyik leszármazott osztálya. A tűzsebzést hivatott modellezni. Pár másodpercig tartó százalékos értékű sebzést alkalmaz az ellenségre minden időközben. A sebzés mindig az ellenség aktuális éltereje alapján történik. (A játékban nem használt)
+				\item \texttt{PercentageFireEffect} - A \texttt{BaseActiveOverTimeEffect} egyik leszármazott osztálya. A tűzsebzést hivatott modellezni. Pár másodpercig tartó százalékos értékű sebzést alkalmaz az ellenségre minden időközben. A sebzés mindig az ellenség aktuális éltereje alapján történik. (A játékban nem használt.)
 			\end{itemize}
 		\end{MySubSection}
 	
@@ -309,34 +308,34 @@
 			\begin{itemize}
 				\item \texttt{IProjectile} - Interface, ami a lövedékek általános inicializáló paramétereit határozza meg. Kibővíti az \texttt{IObject} interface-t.
 
-				\item \texttt{BaseProjectile} - Abasztrak osztály, ami az \texttt{IProjectile}-nak megfelelően implementálja a lövedékek általános funkcióit és tulajdonságait oly módon, hogy az később bővíthető legyen.
+				\item \texttt{BaseProjectile} - Abasztrakt osztály, ami az \texttt{IProjectile}-nak megfelelően implementálja a lövedékek általános funkcióit és tulajdonságait oly módon, hogy az később bővíthető legyen.
 
 				\item \texttt{LaserObject} - Lézersugarat reprezentáló osztály. Ez egy nem mozgó és azonnal sebző lövedék típus, mely pontosan egy konkrét ellenfelet sebezhet csak. Megjelenítéshez animációt is tartalmaz. A \texttt{BaseProjectile}-ból származik le.
 
-				\item \texttt{IMovingProjectile} - Interface, ami a mozgó lövedékek plusz inicializáló paramétereivel bővíti ki az \texttt{IProjectile} interfacet.
+				\item \texttt{IMovingProjectile} - Interface, ami a mozgó lövedékek plusz inicializáló paramétereivel bővíti ki az \texttt{IProjectile} interface-t.
 
-				\item \texttt{BaseMovingProjectile} - Absztrakt osztály, ami \texttt{BaseProjectile}-t bővíti ki a mozgó lövdékek tulajdonságainak megfelelően. Ez az osztály is a későbbi bővíthetőséget figyelembe készült.
+				\item \texttt{BaseMovingProjectile} - Absztrakt osztály, ami a \texttt{BaseProjectile}-t bővíti ki a mozgó lövdékek tulajdonságainak megfelelően. Ez az osztály is a későbbi bővíthetőséget figyelembe véve készült.
 
 				\item \texttt{IAOEMovingProjectile} - Interface, ami a területi sebzést okozó lövedékeknél használatos paraméterekkel bővíti ki a \texttt{IMovingProjectile}-t.
 
-				\item \texttt{RocketObject} - Rakétát megtestesítő osztály. A \texttt{NaseMovingProjectile}-ból származik le. Feladata a rakétákra jellemző területi sebzés megvalósítása, és animáció kezelése.
+				\item \texttt{RocketObject} - Rakétát megtestesítő osztály. A \texttt{BaseMovingProjectile}-ból származik le. Feladata a rakétákra jellemző területi sebzés megvalósítása, és animáció kezelése.
 
-				\item \texttt{IPenetratingMovingProjectile} - Interface, ami kibővíti a \texttt{IMovingProjectile} interfacet, az átütőképességgel rendelkező lövedékekhez szükséges paraméterekkel.
+				\item \texttt{IPenetratingMovingProjectile} - Interface, ami kibővíti a \texttt{IMovingProjectile} interface-t, az átütőképességgel rendelkező lövedékekhez szükséges paraméterekkel.
 
-				\item \texttt{BasePenetratingMovingProjectile} - Absztrakt osztály, ami a \texttt{BaseMovingProjectile}-ből származik le. Feladata az átütőképességgel rendelkező lövedékek számára egy közös ős biztosítása. Kezeli a lövedék élettartamát, illetve metódusokat szolgáltat az eltalált ellenségek nyomonkövetésére.
+				\item \texttt{BasePenetratingMovingProjectile} - Absztrakt osztály, ami a \texttt{Base\-Moving\-Projectile}-ból származik le. Feladata az átütőképességgel rendelkező lövedékek számára egy közös ős biztosítása. Kezeli a lövedék élettartamát, illetve metódusokat szolgáltat az eltalált ellenségek nyomonkövetésére.
 
-				\item \texttt{BulletObject} - Az egyszerű lövedéket megvalósító osztály. A \texttt{BasePenetratingMovingProjectile}-ból származik le. Feladatai az egyedi animáció és megjelenés biztosítása.
+				\item \texttt{BulletObject} - Az egyszerű lövedéket megvalósító osztály. A \texttt{Base\-Penetrating\-Moving\-Projectile}-ból származik le. Feladatai az egyedi animáció és megjelenés biztosítása.
 
-				\item \texttt{EnergyBallBlueObject} - Az kék színű energia-lövedéket megvalósító osztály. A \texttt{BasePenetratingMovingProjectile}-ból származik le. Feladatai az egyedi animáció és megjelenés biztosítása.
+				\item \texttt{EnergyBallBlueObject} - Az kék színű energia-lövedéket megvalósító osztály. A \texttt{Base\-Penetrating\-Moving\-Projectile}-ból származik le. Feladatai az egyedi animáció és megjelenés biztosítása.
 
-				\item \texttt{EnergyBallOrangeObject} - Az sárga színű energia-lövedéket megvalósító osztály. A \texttt{BasePenetratingMovingProjectile}-ból származik le. Feladatai az egyedi animáció és megjelenés biztosítása.
+				\item \texttt{EnergyBallOrangeObject} - Az sárga színű energia-lövedéket megvalósító osztály. A \texttt{Base\-Penetrating\-Moving\-Projectile}-ból származik le. Feladatai az egyedi animáció és megjelenés biztosítása.
 							
 			\end{itemize}
 		\end{MySubSection}
 
 		\begin{MySubSection}{Turrets modul}
 			A tornyokkal kapcsolatos osztályok kaptak itt helyet.
-			A modul osztálydiagramja \aref{fig:uml:turret} ábrán látható.
+			A modul osztálydiagramja a \myref{fig:uml:turret} ábrán látható.
 			
 			\begin{figure}[h!]
 				\centering
@@ -347,7 +346,7 @@
 			
 			A modul osztályai az alábbi felsorolásban láthatóak:
 			\begin{itemize}
-				\item \texttt{ITurretObject} - Interface, ami a tornyok használatához szükséges metódusokat definiálja, mint például a hatótáv indikátor megjelenítése és elrejtése. Az \texttt{IObject} interfacet bővíti ki.
+				\item \texttt{ITurretObject} - Interface, ami a tornyok használatához szükséges metódusokat definiálja, mint például a hatótáv indikátor megjelenítése és elrejtése. Az \texttt{IObject} interface-t bővíti ki.
 				
 				\item \texttt{BaseTurretObject} - Absztrakt osztály, ami a tornyok logikájának nagyrészét tartalmazza. Kezeli a torony létrehozását, eltávolítását, az ellenségek kiválasztását, illetve megtámadását, valamint a hatótáv jelölő megjelenítését és eltávolítását. A konkrét lövedék típusokat az alosztályok fogják meghatározni.
 				
@@ -361,7 +360,7 @@
 
 		\begin{MySubSection}{Enemies modul}
 			Az ellenségekkel kapcsolatos osztályok kaptak itt helyet.
-			A modul osztálydiagramja \aref{fig:uml:enemy} ábrán látható.
+			A modul osztálydiagramja a \myref{fig:uml:enemy} ábrán látható.
 				
 			\begin{figure}[h]
 				\centering
@@ -374,7 +373,7 @@
 			\begin{itemize}			
 				\item \texttt{IEnemy} - Interface, ami a többi osztály számára fontos metódusokat és tulajdonságokat definiálja az ellenségekhez. Kapcsolatban van az \texttt{Effects} modullal is.
 				
-				\item \texttt{EnemyObject} - Esetünkben az egyetlen konkrét ellenfelet reprezentáló osztály. Feladatai az ellenség életének és egyéb tulajdonságainak a számontartása, az effektet kezelése, a megjelenítés és animációk meghatározása, illetve az ellenség mozgatása az útvonalon. Szoros kapcsolatban áll a \texttt{HealthBarObject} osztállyal.
+				\item \texttt{EnemyObject} - Esetünkben az egyetlen konkrét ellenfelet reprezentáló osztály. Feladatai az ellenség életének és egyéb tulajdonságainak a számontartása, az effektek kezelése, a megjelenítés és animációk meghatározása, illetve az ellenség mozgatása az útvonalon. Szoros kapcsolatban áll a \texttt{HealthBarObject} osztállyal.
 				
 				\item \texttt{HealthBarObject} - Az ellenségek életerejét megjelenítő osztály. Létrehozása után követnie szükséges az adott ellenfelet, mely az egyik feladata. Feldata még az életerő megfelelő megjelenítése, melyet kívülről testreszabható módon végez.
 				
@@ -473,35 +472,35 @@
 		A seed a pályák egyediségéért felel, amennyiben ugyanazt a seed-et használjuk többször, azonos pályát fog generálni az alkalmazás, így ugyanazon a pályán játszhatunk újra meg újra. Ha viszont különböző bemenetet adunk meg seed-ként, akkor mindig más pályát kapunk végeredményként. 
 		Amennyiben beírtuk, vagy legeneráltuk a használni kívánt seed-et, a "Play" gombra kattintva tudjuk elindítani a játékot.
 		
-		\begin{figure}[h!]
+		\begin{figure}[H]
 			\centering
-			\includegraphics[scale=0.8]{kepek/jatekHasznalat/fomenu}
+			\includegraphics[scale=0.68]{kepek/jatekHasznalat/fomenu}
 			\caption{Illusztráció a játék főmenüjéből}
 			\label{fig:jatekHasznalat:fomenu}
 		\end{figure}
 		
-		A játék megkezdése után egy másik képernyőn találjuk magunkat, amelyen különféle elemeket láthatunk. Egy példát erre \aref{fig:jatekHasznalat:game_scene} ábrán tekinthetünk meg. Itt különböző tájelemek helyezkednek el, kráterek, fák, és sima fűvel borított területek, ezenkívül pedig egy útvonal. 
+		A játék megkezdése után egy másik képernyőn találjuk magunkat, amelyen különféle elemeket láthatunk. Egy példát erre a \myref{fig:jatekHasznalat:game_scene} ábrán tekinthetünk meg. Itt különböző tájelemek helyezkednek el, kráterek, fák, és sima fűvel borított területek, ezenkívül pedig egy útvonal. 
 		
-		\begin{figure}[h!]
+		\begin{figure}[H]
 			\centering
-			\includegraphics[scale=0.57]{kepek/jatekHasznalat/game_scene}
+			\includegraphics[scale=0.47]{kepek/jatekHasznalat/game_scene}
 			\caption{A játék közvetlenül elindítás után}
 			\label{fig:jatekHasznalat:game_scene}
 		\end{figure}
 		
-		\begin{wrapfigure}{r}{0.25\textwidth}
-			\begin{center}
-				\includegraphics[width=0.16\textwidth]{kepek/jatekHasznalat/szorny}
-			\end{center}
-			\caption{Az ellenfél}
-			\label{fig:jatekHasznalat:szorny}
-		\end{wrapfigure}
 		Az úton szörnyek (lásd: \myref{fig:jatekHasznalat:szorny} ábra) fognak elindulni, pár másodperccel a játék elindítása után, és megpróbálnak végigmenni rajta.
 		A feladatunk az, hogy megakadályozzuk őket ebben. Ezt úgy tudjuk megtenni, hogy különféle tornyokat helyezünk le, ezek fogják sebezni a szörnyeket.
 		Az ellenségek feje fölött egy-egy zöld csík látható, amikor megjelennek, ez az életüket szimbolizálja. Amennyiben sebzést szenvednek el, a zöld rész egyre kisebb lesz, amikor pedig teljesen elfogy, a szörny meghal. Az ellenfelek hullámokban, avagy hordaként érkeznek. Minden hullámmal egyre több, és erősebb ellenség fog érkezni.
 		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.15\textwidth]{kepek/jatekHasznalat/szorny}
+			\caption{Az ellenfél}
+			\label{fig:jatekHasznalat:szorny}
+		\end{figure}
+		
 		Tornyokat csak üres, füves területekre tudunk építeni. Amennyiben nincs már hely ahova tudnánk tenni, le is rombolhatunk előzőleg épülteket, vagy pedig a tájelemeket is. Ezt a jobb oldalt látható felület által tehetjük meg (lásd: \myref{fig:jatekHasznalat:game_scene} ábra jobb oldala).		
-		A játék kezdetekor az egér ikont ábrázoló gomb van kijelölve, ekkor ha egy már megépült toronyra rávisszük a kurzort, akkor látni fogunk egy kört körülötte. Ezen a körön belüli távolságra lévő ellenfeleket képes elérni a torony. Ez az egér ikonnal ellátott gomb tehát az úgynevezett "kijelölés mód", ha ezen a módon belül vagyunk, tehát ez a gomb van bekeretezve fehér színnel, akkor egyes objektumokra kattintva a játékon belül nem történik semmi, szimplán amelyik mező felett van a kurzorunk, az lesz kijelölve.
+		A játék kezdetekor az egér ikont ábrázoló gomb van kijelölve. Ez az úgynevezett "kijelölés mód" gomb, ha ezen a módon belül vagyunk, tehát ez a gomb van bekeretezve fehér színnel, akkor ha egy már megépült toronyra rávisszük a kurzort, látni fogjuk a hatótáv jelölő kört körülötte. Ezen a körön belüli távolságra lévő ellenfeleket képes elérni a torony. % A "kijelölés mód"-ban az egyes objektumokra kattintva a játékon belül nem történik semmi, szimplán amelyik mező felett van a kurzorunk, az lesz kijelölve.
 		Az ettől jobbra található, sárga buldózer ábrával ellátott gombra kattintva pedig az "eltávolító mód"-ba kerülünk. Ha ebben a módban vagyunk, és odamozgatjuk a kurzort (kattintás nélkül) egy-egy tárgyra a játékfelületen belül, akkor amíg az adott tárgy fölött van az egerünk, addig az előbb említett gombok feletti rubrikában látható, hogy amennyiben le szeretnénk rombolni az adott objektumot, milyen összeggel változna a pénzünk, avagy aranyunk. Az objektum tényleges eltávolítása kattintásra történik meg.
 		Abban az esetben, ha egy korábban megépített tornyot szeretnénk megsemmisíteni, a torony eredeti értékének 60\%-át kapjuk vissza, tehát például ha egy toronyért 1000 aranyat fizettünk, amikor rávisszük a kurzort eltávolító módban, "+600"-at fogunk látni a rubrikában, tehát 600 aranyat kapunk vissza, a rombolás után. Ellenben kráter, vagy fa eltávolításához fizetnünk kell a rombolásért, tehát egy mínusz jel után fog megjelenni az összeg, amennyibe kerül.
 		A két gomb alatti felületen különféle tornyok helyezkednek el, 5 különböző típusú toronyot tudunk építeni, és mind az 5 típusból létezik 3 különböző erősségű.
@@ -526,7 +525,7 @@
 			\item Szellem ikon: A szörnyeket jelképezi. Azt jelzi a játékos számra, hogy az adott hullámban mennyi ellenség érkezik.
 		\end{itemize}
 	
-		\begin{figure}[h!]
+		\begin{figure}[H]
 			\centering
 			\includegraphics[scale=0.575]{kepek/jatekHasznalat/felso_ui}
 			\caption{A felülső felhasználói felület (UI) }
@@ -535,7 +534,7 @@
 	
 		A fentieken kívül még megemlítendő, hogy amennyiben olyan tevékenységet kívánunk tenni, amely nem lehetséges az adott mezőben, (például nincs elég pénzünk, hogy megvegyük a jobb oldali menüből kiválasztott tornyot, vagy mondjuk ha az utat próbáljuk meg eltávolítani), úgy a mező pirosas színre vált, ha pedig lehetséges az akció végrehajtása, akkor élénk zöldes árnyalatot kap. (\Aref{fig:jatekHasznalat:kijeloles_minta}. ábrán bal oldalt az előbbi, jobb oldalt pedig az utóbbi látható.)
 		
-		\begin{figure}[h!]
+		\begin{figure}[H]
 			\centering
 			\includegraphics[scale=0.848]{kepek/jatekHasznalat/minta_rossz_kijeloles}
 			\includegraphics[scale=0.85]{kepek/jatekHasznalat/minta_jo_kijeloles}
@@ -548,60 +547,60 @@
 		Most, hogy elolvastuk az előbbieket, már mindent tudunk a játékmenetről. Ami tehát még hátravan, az az, hogy mi történik akkor, amikor esetlegesen elveszítjük az összes életünket, ezáltal a játékot is.
 		Ekkor egy új felület jelenik meg előttünk (lásd: \myref{fig:jatekHasznalat:game_over_scene} ábra), amelyen egy "Game Over" felirat taláható, emellett itt megtekinthetjük a játék során elért összpontszámunkat, valamint a "Back to Main Menu" gombra kattintva pedig újra a főmenübe navigálhatjuk magunkat, hogy belekezdhessünk egy új játékmenetbe.
 		
-		\begin{figure}[h!]
+		\begin{figure}[H]
 			\centering
-			\includegraphics[scale=0.6]{kepek/jatekHasznalat/game_over_scene}
+			\includegraphics[scale=0.438]{kepek/jatekHasznalat/game_over_scene}
 			\caption{Részlet a Game Over képernyőről}
 			\label{fig:jatekHasznalat:game_over_scene}
 		\end{figure}
 	
 		% TODO ahol nagyobb a sorok közti kihagyás azt korrigálni a táblázatokban
 	
-		\begin{table}[h]
+		\begin{table}[H]
 			\centering
 			\caption{Első toronytípus tulajdonságai}
 			\label{tab:torony_tipus_0}
-			\begin{tabular}{|l|c|c|c|}
+			\begin{tabular}{|l|C{2.9cm}|C{2.9cm}|C{2.9cm}|}
 				\hline
-				Kinézet & \includegraphics[scale=1.1]{kepek/jatekHasznalat/torony_01} & \includegraphics[scale=1.1]{kepek/jatekHasznalat/torony_02} & \includegraphics[scale=1.1]{kepek/jatekHasznalat/torony_03} \\ \hline
+				Kinézet & \includegraphics[scale=0.76]{kepek/jatekHasznalat/torony_01} & \includegraphics[scale=0.76]{kepek/jatekHasznalat/torony_02} & \includegraphics[scale=0.76]{kepek/jatekHasznalat/torony_03} \\ \hline
 				Ár (arany) & 500 & 1200 & 3000 \\ \hline
 				Maximum lőtávolság & 220 & 250 & 280 \\ \hline
 				Lövés/sec & 2 & 1.6 & 1.4 \\ \hline
 				Sebzés & 25 & 25 & 25 \\ \hline
 				% Százalékos sebzés & Nincs & Nincs & Nincs \\ \hline
-				Képesség, effekt & \begin{tabular}{@{}c@{}}Egy lövésnél \\ 1 lövedéket lő ki.\end{tabular} & \begin{tabular}{@{}c@{}}Egy lövésnél \\ 2 lövedéket lő ki.\end{tabular} & \begin{tabular}{@{}c@{}}Egy lövésnél \\ 3 lövedéket lő ki.\end{tabular} \\ \hline
+				Képesség, effekt & Egy lövésnél 1 lövedéket lő ki. & Egy lövésnél 2 lövedéket lő ki. & Egy lövésnél 3 lövedéket lő ki. \\ \hline
 			\end{tabular}
 		\end{table}
 		
-		\begin{table}[h]
+		\begin{table}[H]
 			\centering
 			\caption{Második toronytípus tulajdonságai}
 			\label{tab:torony_tipus_1}
-			\begin{tabular}{|l|c|c|c|}
+			\begin{tabular}{|l|C{2.85cm}|C{3.06cm}|C{3.06cm}|}
 				\hline
-				Kinézet & \includegraphics[scale=1.1]{kepek/jatekHasznalat/torony_11} & \includegraphics[scale=1.1]{kepek/jatekHasznalat/torony_12} & \includegraphics[scale=1.1]{kepek/jatekHasznalat/torony_13} \\ \hline
+				Kinézet & \includegraphics[scale=0.78]{kepek/jatekHasznalat/torony_11} & \includegraphics[scale=0.78]{kepek/jatekHasznalat/torony_12} & \includegraphics[scale=0.78]{kepek/jatekHasznalat/torony_13} \\ \hline
 				Ár (arany) & 800 & 1600 & 3200 \\ \hline
 				Maximum lőtávolság & 220 & 250 & 280 \\ \hline
 				Lövés/sec & 1.4 & 1.4 & 1.4 \\ \hline
 				Sebzés & 10 & 10 & 10 \\ \hline
 				% Százalékos sebzés & Nincs & Nincs & Nincs \\ \hline
-				Képesség, effekt & \begin{tabular}{@{}c@{}}Lassító \\ lövedéket lő ki.\end{tabular} & \begin{tabular}{@{}c@{}}1-es átütő- \\ képességű lassító \\ lövedéket lő ki.\end{tabular} & \begin{tabular}{@{}c@{}}2-es átütő- \\ képességű lassító \\ lövedéket lő ki.\end{tabular} \\ \hline
+				Képesség, effekt & Lassító lövedéket lő ki. & 1-es átütő- képességű lassító lövedéket lő ki. & 2-es átütő- képességű lassító lövedéket lő ki. \\ \hline
 			\end{tabular}
 		\end{table}
 	
-		\begin{table}[h]
+		\begin{table}[H]
 			\centering
 			\caption{Harmadik toronytípus tulajdonságai}
 			\label{tab:torony_tipus_2}
-			\begin{tabular}{|L{3.75cm}|c|c|c|}
+			\begin{tabular}{|L{3.75cm}|C{3.07cm}|C{3.06cm}|C{3.06cm}|}
 				\hline
-				Kinézet & \includegraphics[scale=1.1]{kepek/jatekHasznalat/torony_21} & \includegraphics[scale=1.1]{kepek/jatekHasznalat/torony_22} & \includegraphics[scale=1.1]{kepek/jatekHasznalat/torony_23} \\ \hline
+				Kinézet & \includegraphics[scale=0.63]{kepek/jatekHasznalat/torony_21} & \includegraphics[scale=0.63]{kepek/jatekHasznalat/torony_22} & \includegraphics[scale=0.63]{kepek/jatekHasznalat/torony_23} \\ \hline
 				Ár (arany) & 800 & 1600 & 3200 \\ \hline
 				Maximum lőtávolság & 220 & 250 & 280 \\ \hline
 				Lövés/sec & 1.4 & 1.4 & 1.4 \\ \hline
 				Sebzés & 10 & 10 & 10 \\ \hline
 				% Százalékos sebzés & Nincs & Nincs & Nincs \\ \hline
-				Képesség, effekt & \begin{tabular}{@{}c@{}}Tüzes lövedéket \\ lő ki. (DOT-ként)\end{tabular} & \begin{tabular}{@{}c@{}}1-es átütő- \\ képességű tüzes \\ lövedéket lő ki.\end{tabular} & \begin{tabular}{@{}c@{}}2-es átütő- \\ képességű tüzes \\ lövedéket lő ki.\end{tabular} \\ \hline
+				Képesség, effekt & Tüzes lövedéket lő ki.(DOT-ként) & 1-es átütő- képességű tüzes lövedéket lő ki. & 2-es átütő- képességű tüzes lövedéket lő ki. \\ \hline
 			\end{tabular}
 		\end{table}
 	
@@ -610,13 +609,13 @@
 		%\end{remark}
 		%\footnotetext{DOT: Damage Over Time, magyarul olyan sebzésforma, amely nem egyszer sebez, hanem bizonyos időn keresztül folyamatosan sebzi az ellenfelet.}
 	
-		\begin{table}[h]
+		\begin{table}[H]
 			\centering
 			\caption{Negyedik toronytípus tulajdonságai}
 			\label{tab:torony_tipus_3}
-			\begin{tabular}{|L{3.75cm}|C{2.8cm}|C{2.8cm}|C{2.8cm}|}
+			\begin{tabular}{|L{3.75cm}|C{2.9cm}|C{2.9cm}|C{2.9cm}|}
 				\hline
-				Kinézet & \includegraphics[scale=1.15]{kepek/jatekHasznalat/torony_31} & \includegraphics[scale=1.15]{kepek/jatekHasznalat/torony_32} & \includegraphics[scale=1.15]{kepek/jatekHasznalat/torony_33} \\ \hline
+				Kinézet & \includegraphics[scale=0.63]{kepek/jatekHasznalat/torony_31} & \includegraphics[scale=0.63]{kepek/jatekHasznalat/torony_32} & \includegraphics[scale=0.63]{kepek/jatekHasznalat/torony_33} \\ \hline
 				Ár (arany) & 700 & 1400 & 2800 \\ \hline
 				Maximum lőtávolság & 220 & 250 & 280 \\ \hline
 				Lövés/sec & 1.4 & 1.6 & 2.0 \\ \hline
@@ -626,13 +625,13 @@
 			\end{tabular}
 		\end{table}
 	
-		\begin{table}[h]
+		\begin{table}[H]
 			\centering
 			\caption{Ötödik toronytípus tulajdonságai}
 			\label{tab:torony_tipus_4}
-			\begin{tabular}{{|L{3.88cm}|C{2.8cm}|C{2.8cm}|C{2.8cm}|}}
+			\begin{tabular}{{|L{3.88cm}|C{2.7cm}|C{2.7cm}|C{2.7cm}|}}
 				\hline
-				Kinézet & \includegraphics[scale=1.2]{kepek/jatekHasznalat/torony_41} & \includegraphics[scale=1.2]{kepek/jatekHasznalat/torony_42} & \includegraphics[scale=1.2]{kepek/jatekHasznalat/torony_43} \\ \hline
+				Kinézet & \includegraphics[scale=0.65]{kepek/jatekHasznalat/torony_41} & \includegraphics[scale=0.65]{kepek/jatekHasznalat/torony_42} & \includegraphics[scale=0.65]{kepek/jatekHasznalat/torony_43} \\ \hline
 				Ár (arany) & 1000 & 2500 & 4000 \\ \hline
 				Maximum lőtávolság & 220 & 250 & 280 \\ \hline
 				Lövés/sec & 1.0 & 1.05 & 1.1 \\ \hline
