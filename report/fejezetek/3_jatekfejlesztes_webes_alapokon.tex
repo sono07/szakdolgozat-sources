@@ -5,17 +5,19 @@
 	Miután röviden ismertetem a JavaScript programnyelvet, írni fogok a JavaScriptet támogató keretrendszerekről is, ezenkívül olvashatunk majd a keretrendszer nélküli játékfejlesztésről, az ahhoz használatos API-kat is beleértve. A fejezet végén pedig a játékmotorok közül néhányat picit részletesebben ismertetni fogok.
 
 	\begin{MySection}{Webes fejlesztés}
-		% kialakulása, néhánya általános dolog
+		% kialakulása, néhány általános dolog
 		Az internet fejlődésével a böngészőkben játszható játékok nem csak helyet kaptak, de szinte a legnagyobb közönséghez jutottak el. A hozzáférésük sokkal könnyebb, mint a boltokban megvásárolt játékoknak, hiszen szimplán csak egy webcímre szükséges ellátogatni, majd magában a böngészőben zajlik a játékmenet. Napjainkban pedig az eszközeink nagy részén már rendelkezésre áll egy böngésző. Ezen felül a szociális hálózatok elterjedése szintén felgyorsította a böngészős játékok egyre több emberhez való eljutását.
-		
-		% TODO irodalomjegyz.->
+		\cite{browser_games}
+		\cite{html5_games}
+		% irodalomjegyz.->
  		% https://en.wikipedia.org/wiki/Browser_game
 		% https://www.awwwards.com/current-state-and-the-future-of-html5-games.html
+		% irodalomjegyz.->
 		% https://docs.microsoft.com/en-us/archive/msdn-magazine/2015/march/game-development-a-web-game-in-an-hour
 		
-		Azonban a böngészők erőforrásai kifejezetten korlátozottak voltak, komplexebb alkalmazásokhoz már nem biztosítottak elég funkciót. Ezért a fejlesztők különböző cégek által készített plug-in-eket, programokat használtak, mint például a Microsoft Silverlight, vagy az Adobe Flash. Ezek a kiegészítések már komolyabb grafikus tartalom megjelenítésére voltak képesek, viszont az összes használónak szükséges telepítenie a megfelelő plug-in-t. 
+		Azonban a böngészők erőforrásai kifejezetten korlátozottak voltak, komplexebb alkalmazásokhoz már nem biztosítottak elég funkciót. Ezért a fejlesztők különböző cégek által készített plug-in-eket, programokat használtak, mint például a Microsoft Silverlight, vagy az Adobe Flash. Ezek a kiegészítések már komolyabb grafikus tartalom megjelenítésére voltak képesek, viszont az összes használónak szükséges telepítenie a megfelelő plugin-t. 
 		
-		Kijelenthetjük tehát, hogy a mai modern kornak és a webes szabványoknak köszönhetően, ma már böngészőbe épülő plug-in-ok nélkül is képesek vagyunk modern hardveresen gyorsított számítógépes grafika, illetve a felhasználói elvárásokat kielégítő szintű játékok készítésére.
+		Kijelenthetjük tehát, hogy a mai modern kornak és a webes szabványoknak köszönhetően, ma már böngészőbe épülő plugin-ek nélkül is képesek vagyunk modern hardveresen gyorsított számítógépes grafika, illetve a felhasználói elvárásokat kielégítő szintű játékok készítésére.
 	\end{MySection}
 
 	\begin{MySection}{HTML5}
@@ -34,19 +36,23 @@
 			\item Mobilokon kevesebb sávszélesség használat szükséges hozzá, mint a sima HTML-hez, ezáltal a mobilok akkumlátora is tovább tarthat.
 			\item Egyéb különféle technológiák is könnyedén használhatóak együtt a HTML5-tel. (Például: PHP, MySQL)
 		\end{itemize}
-		% TODO irodalom ->
-		% https://www.topnotchdezigns.com/reasons-html5-future/
-		% https://en.wikipedia.org/wiki/HTML5 
 
 		A HTML5 és JavaScript alapú technológiák előkelő helyet foglalnak el platformfüggetlenség terén, viszont fontosnak tartom megjegyezni, hogy ezzel a technológiával egy összetettebb, nagyobb adattartalommal rendelkező játékot (ma még legalábbis) nem feltétlenül érdemes elkészíteni, mert könnyedén megizzaszthatja nem csak az átalgos felhasználók számítógépeit, hanem akár a modernebb gépeket is.
-	
+		\cite{html5_future}
+		\cite{html5}
+		% irodalom ->
+		% https://www.topnotchdezigns.com/reasons-html5-future/
+		% https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5
 	\end{MySection}
 
 	\begin{MySection}{JavaScript}
 		%  mi ez, miért jó
 		%  kialakulása
 		A JavaScript (röviden: JS) egy kis erőforrás-igényű, dinamikus, objektum-orientált programozási nyelv, mely lehetőséget nyújt a fejlesztők számára a weboldalaikba való komplexebb dolgok implementálására. Amennyiben olyan weblapról beszélünk, amely nem statikus tartalommal rendelkezik, hanem interaktív tartalom is megtalálható rajta, akár 2D-s vagy 3D-s animáció, stb., abban az esetben valószínűsíthető, hogy JavaScriptet is tartalmaz az oldal. Ezenkívül, bár webes tartalmaknál használják a leggyakrabban, számos webböngészőn kívüli környezetben is alkalmazható. A nyelvet eredetileg 1996-ban fejlesztették ki, azóta sokat változott, a szintaxisa közelebb került a Java programozási nyelvhez. Az ECMA (Európai informatikai és kommunikációs rendszerek szabványosítási szövetsége) először 1997 és 1999 között szabványosította ECMAScript néven.
-		% TODO irodalom ->
+		\cite{javascript_prog_wiki}
+		\cite{javascript_oktatoanyag}
+		\cite{javascript_pros_cons}
+		% irodalom ->
 		% https://developer.mozilla.org/en-US/docs/Learn/JavaScript
 		% https://hu.wikipedia.org/wiki/JavaScript
 		% https://developer.mozilla.org/hu/docs/Web/JavaScript
@@ -68,7 +74,8 @@
 		A játékipar tekintetében egyik legnépszerűbb alkalmazása, az összepárosítása a HTML5 canvas elemével. Rengeteg játékmotor készült ennek a segítségével.
 		
 		Összességében elmondhatjuk, hogy a JavaScript szinte mindenhol futtatható, rengeteg helyen alkalmazzák, és ezalatt a front-end valamint a back-end mellett a mobil, az asztali, illetve a hibrid alkalmazásokat is érthetjük. A nyelv kifejezetten népszerű, folyamatosan fejlődik, a webfejlesztés egyik vezető programnyelve és ez feltehetőleg még hosszú ideig így is marad.
-		% TODO irodalomjegyzék ->
+		\cite{javascript_future}
+		% irodalomjegyzék ->
 		% https://www.creative-tim.com/blog/web-development/javascript-future-learn-javascript/
 		% TODO megnézni h van e vmi hasznos ebben https://www.freecodecamp.org/news/future-of-javascript
 	\end{MySection}
@@ -78,7 +85,8 @@
 		% kialakulása
 		A TypeScript szintén egy objektum-orientált nyelv, tulajdonképpen a JavaScript típusokkal, osztályokkal, és egyéb hasznos funkciókkal kibővített változata. Tehát minden, amit JavaScript-ben megtehetünk, az TypeScript-ben is lehetséges, továbbá egy működő JavaScript kódot átvihetünk TypeScript kódba, az ott is le fog futni, a futási időben való viselkedés pedig nem fog változni, még akkor sem, ha a TypeScript úgy érzékeli, hogy a kód típushibákat tartalmaz. Fordítás során a TypeScript fájlok JavaScripté konvertálódnak át. A nyelvet a Microsoft készítette. Érdemes észrevennünk, hogy a TypeScript-ben található típusok, osztályok, privát illetve publikus láthatóságok, stb. ellenőrzése csak fordítási időben történik meg, futásidőben nem garantált.
 		A TypeScript megjelenése előtt a JavaScript programozók gyakran követtek el típushibákat, még akár szimpla elgépelések miatt is. Ezen hibák kiküszöbölésével azonban a TypeScript hatékonyabbá teheti a JavaScript fejlesztést, nagyobb projektek esetében is.
-		% TODO irodalom->
+		\cite{typescript}
+		% irodalom->
 		% https://www.typescriptlang.org/
 		\newline \newline
 		A nyelv főbb jellemzői tehát a következők:
@@ -95,9 +103,10 @@
 	\begin{MySection}{Általános célú JavaScript keretrendszerek}
 		% nem játékfejlesztéshez használatos keretrendszerek
 		Korábban már volt szó a keretrendszerekről, melyeket játékfejlesztésre használhatunk, azonban természetesen léteznek ezeken túl is keretrendszerek. A JavaScript úgymond "beépített" funkcióinak alkalmazása nem elég effektív, ezért előbb-utóbb szükségünk lehet valamilyen libraryre vagy keretrendszerre. A továbbiakban általános célú JavaScript keretrendszerekről lesz szó.
-		Ha úgy döntünk, hogy használni szeretnénk például egy JS keretrendszert, rengeteg széles körben elterjedt, népszerű opció áll a rendelkezésünkre, és mindnek megvan a saját előnye, valamint hátránya, attól függően, hogy mi a fő célunk vele: például front-end, backend fejlesztés, vagy tesztelés. Emiatt nehéz lehet eldönteni, hogy vajon melyik is lenne tökéletes választás számunkra. A döntésben esetlegesen segítségünkre lehetnek a különféle keretrendszerek népszerűségével kapcsolatos statisztikák. Ehhez rendelkezésünkre állhatnak különböző források az interneten (például a következő weboldal: https://bestofjs.org/)
+		Ha úgy döntünk, hogy használni szeretnénk például egy JS keretrendszert, rengeteg széles körben elterjedt, népszerű opció áll a rendelkezésünkre, és mindnek megvan a saját előnye, valamint hátránya, attól függően, hogy mi a fő célunk vele: például front-end, backend fejlesztés, vagy tesztelés. Emiatt nehéz lehet eldönteni, hogy vajon melyik is lenne tökéletes választás számunkra. A döntésben esetlegesen segítségünkre lehetnek a különféle keretrendszerek népszerűségével kapcsolatos statisztikák. Ehhez rendelkezésünkre állhatnak különböző források az interneten (például a következő weboldal: \url{https://bestofjs.org/})
 		Az említett weblapon nyomon követhetjük a felhasználók általi használat alapján a napi, heti, havi vagy akár az éves legnépszerűbb keretrendszereket.
-		% TODO irodalom --->
+		\cite{best_js_framework}
+		% irodalom --->
 		% https://www.lambdatest.com/blog/best-javascript-framework-2020/
 		
 		% TODO angular, react esetleg leírni
@@ -106,17 +115,20 @@
 		
 		\begin{MySubSection}{Vue.js}
 			A Vue.js egy nyílt forráskódú JavaScript keretrendszer, amely 2014-ben látott napvilágot, és azóta is az egyik legkedveltebb keretrendszerek közé tartozik. A nyílt forráskódúság azért lehet fontos szempont, mert ilyen esetben a keretrendszerek az elterjedt operációs rendszereken szinte biztosan elérhetőek. A frontend, illetve a fullstack fejlesztői pályára készülőknek hasznos lehet megismerkedniük a Vue-val.
-			% TODO irodalom --->
+			\cite{js_framework}
+			% irodalom --->
 			% https://skillcrush.com/blog/what-is-a-javascript-framework/
-			%
 			A keretrendszert Vue-ként is emlegetik, kiejtésének hangzása az angol "view", azaz magyarul "nézet" szóra hasonlít, ez akár utalhat is arra, hogy MVVM (modell-nézet-nézetmodell) mintát követ, tehát lényegében szétválasztja a grafikus felhaszálói felületet (vagy rövidebben a megjelenítést), valamint az üzleti logikát.
 			A Vue képességei közül érdemes megjegyeznünk az újrafelhasználható komponensek építését, illeve azoknak a kommunikációját.
-			% TODO irodalom ->
+			\cite{vue_bevezetes}
+			\cite{vue_pros_cons}
+			% irodalom ->
 			% https://www.altexsoft.com/blog/engineering/pros-and-cons-of-vue-js/
 			% https://ithub.hu/blog/post/Bevezetes-a-Vuejs-keretrendszerbe
 			Ezenkívül mellette szól még, hogy a Vue fokozatosan implementálható a kódunkba, tehát ha egy már létező projektben például más technológiával oldottunk meg valamit, akkor ezeket kis részenként is lecserélhetjük. Azonban az sem feltétlenül gond, ha nem szeretnénk teljes mértékben lecserélni, képes együttműködni például jQuery-vel, vagy más egyéb JS könyvtárakkal.
 			Összességében, a Vue.js szépen felépített, könnyedén megtanulható keretrendszer, amit szerintem mindenképp ajánlatos kipróbálni.
-			% TODO irodalom ->
+			\cite{vue_alapozo}
+			% irodalom ->
 			% https://thebojda.medium.com/vue-js-alapoz%C3%B3-8be3a4db812d
 		\end{MySubSection}
 	\end{MySection}
@@ -132,10 +144,12 @@
 		
 		% Tile-map
 		Két dimenziós grafika esetén kimondottan elterjedt a Tile-Map alapú megjelenítési technika. Egyébként ehhez a módszerhez is számos asset lehet a segítségünkre az internetről. Az eljárás lényege, hogy kijelzőt virtuálisan azonos méretű úgynevezett Tile-okra bontjuk, és mivel ezeket a mezőket újra és újra felhasználjuk a felhasználó számára megjelenítendő háttérhez, ezért a memóriában helyet spórolhatunk meg azzal, hogy csak egyszer töltjük be az egyes tile-okat. A vizualizációs forma előnyei között tudható még, hogy akár nagyobb távolságra is valós időben lehetséges az útkeresés és az útvonal elaborálása, valamint (amennyiben az adott alkalmazáshoz elegendő a kisebb szintű vizuális komplexitás) viszonylag könnyedén kivitelezhető vele az ütközésvizsgálat.
-		% TODO irodalom ->
+		\cite{mileff}
+		% irodalom ->
 		% https://users.iit.uni-miskolc.hu/~mileff/grafika/Grafika_programozasa_jegyzet_v0.66_Mileff_P.pdf
 		A már elkészített és szétdarabolt tile-ok összességét Tileset-nek nevezzük. A Tileset-et leggyakrabban egy külön képben szokás tárolni. (Például így: \myref{fig:tileMap:tileSet} ábra)
-		% TODO irodalom ->
+		\cite{tileset}
+		% irodalom ->
 		% http://higherorderfun.com/blog/2012/05/20/the-guide-to-implementing-2d-platformers/
 		\begin{figure}[H]
 			\centering
@@ -145,18 +159,20 @@
 		\end{figure}
 	
 		A Tile-Map alapú megjelenítésre a legalkalmasabb játéktípusok között vannak a felülnézetes, a puzzle, vagy például a platformer játékok. (A fentebbi tileset és egyéb elemek használatával példa a megjelenítési technikára: \myref{fig:tileMap:tileMapPreview} ábra)
+		
 		\begin{figure}[H]
 			\centering
 			\includegraphics[scale=0.35]{kepek/tileMap/TileMapPreview.png}
 			\caption{Példa tilesettel létrehozott platform játékra}
 			\label{fig:tileMap:tileMapPreview}
 		\end{figure}
-		% TODO irodalom ->
+		% irodalom ->
 		% https://bayat.itch.io/platform-game-assets
 		
 		% keretrendszerrel vagy nélküle
 		A fentebb említettek mellett, egy játék elkészítése előtt még az a feladat is vár ránk, hogy eldöntsük azt, hogy keretrendszerrel vagy pedig anélkül fogunk fejleszteni. 
 		Mindkét módnak megvan a saját előnye és hátránya, a mi dolgunk, hogy mérlegeljünk, számunkra az adott projekthez melyik lenne alkalmasabb.
+		\cite{tile_map}
 	\end{MySection}
 
 	\begin{MySection}{Webes játékfejlesztés keretrendszerek nélkül}
@@ -166,15 +182,29 @@
 		Tehát ideértendő az, amikor csak JavaScriptet használunk a fejlesztéshez. 
 		A webes játékfejlesztés esetében a webböngészőben való grafikus megjelenítéshez alapvetően két API-t használhatunk: a Canvast, valamint a WebGL-t, melyekről alább láthatunk egy-egy rövid ismertetőt.
 		
-		% TODO canvas
+		% canvas
 		\begin{MySubSection}{Canvas-ról röviden}
-		%	A Canvas 
+			A Canvas API tehát egy grafikai rajzoló módszert biztosít JavaScript, és a html canvas elemével. Nagyrészt 2D-s grafikára fókuszál.
+			Rengeteg dologra használhatjuk, melyek között szerepelnek a következők:
+			\cite{canvas_api}
+			% irodalom ->
+			% https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API
+			\begin{itemize}
+				\item Animáció
+				\item Játék grafika
+				\item Adatok szemléltetése
+				\item Fotószerkesztés
+				\item Valós idejű videófeldolgozás
+			\end{itemize}
+			% TODO átolvasni h a canvas jó-e így
 		\end{MySubSection}
 		
 		% webgl
 		\begin{MySubSection}{WebGL-ről röviden}
 			A WebGL (Web Graphics Library, magyarul: webalapú grafikus könyvtár) tehát egy JavaScript API, amely interaktív két dimenziós (röviden: 2D), illetve három dimenziós (röviden: 3D) grafikát tud ábrázolni bármely kompatibilis webböngészőben, plugin-ek használata nélkül.
-			% TODO irodalom->
+			\cite{webgl01}
+			\cite{webgl02}
+			% irodalom->
 			% https://matebalazs.hu/api-application-programming-interface.html
 			% https://hu.wikipedia.org/wiki/Alkalmaz%C3%A1sprogramoz%C3%A1si_fel%C3%BClet
 			% https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API
@@ -190,7 +220,7 @@
 				\item Lehetővé teszi a hardveres gyorsítós böngészős játékokat (a felhasználó eszközétől függően).
 				\item Nincs szükség plugin-ek használatára.
 				\item Egy olyan környezet, amelyben a 3D grafika ellenőrzése egyszerű, könnyen debug-olható.
-				% TODO irodalom->
+				% irodalom->
 				% https://www.quora.com/What-are-the-pros-and-cons-of-WebGL
 			\end{itemize}
 		\end{MySubSection}
@@ -224,14 +254,16 @@
 	
 		\begin{MySubSection}{ImpactJS Engine}
 			Az ImpactJS egy olyan JavaScript játékmotor, amivel mobil és számítógép böngészőjében használható alkalmazásokat készíthetünk főképp 2D-s játékokat. A legtöbb népszerű böngészőt támogatja.
-			% TODO irodalom ->
-			% https://impactjs.com/
 			Az motor egy saját level-editorral (magyarul: pályaszerkesztő) rendelkezik, aminek Weltmeister a neve, ennek a használatához egy saját webszerver működésére van szükség. Elsőre kissé bonyolultnak tűnt kezdőként, mert nincs nagy tapasztalatom webszerver használatával, és a funkciók nem működtek megfelelően az első pár próbálkozásnál. Pozitívum, hogy az ImpactJS oldalán és fórumain rengeteg kérdésre választ találtam. Node.js-el, valamint annak az impact-node package-ével sikerült működtetni az editort, a kisebb problémák leküzdése után, viszont ennél egyszerűbb megoldást találva, végül az EasyPHP Webszervert használtam, aminek a grafikus felülete felhasználóbarát, egyszerű. Az editor alapvetően egy üres pályát tölt be, egyetlen réteggel, amiben az entitások találhatóak (például az ellenfelek, NPC-k stb) ezután pedig új pályákat készíthetünk, és el is tudjuk menteni azokat. Az engine oldalán találhatók demo játékok, letölthető forráskódokkal, valamint tutoriál videó is, ezekben a nagyon alapokat találhatjuk meg. Emellett több olyan dokumentum is található, mely kifejezetten kezdőknek lehet segítség, egy-egy egész játék fejlesztésén vezetnek végig, azonban ezek már fizetősek. Alapvetően nem tűnik rossznak, viszont több, mint 6 éve nem volt semmilyen frissítés a keretrendszerhez, emiatt is vált pár éve ingyenessé maga a motor. Öszességében szimpatikus, és könnyen tanulhatónak tűnik, ami ellenben nem tetszik benne, hogy nem túl naprakész.
+			\cite{impactjs}
+			% irodalom ->
+			% https://impactjs.com/
 		\end{MySubSection}
 			
 		\begin{MySubSection}{Modd.io}
 			A következő motor a Modd.io, amely böngészőből használható, letöltés nem szükséges, csak egy regisztráció, ezáltal a saját projektekhez, valamint az editorhoz is hozzáférést nyerünk. A játékokat, amit készítünk könnyedén publikálhatjuk, vagy továbbíthatjuk másnak, mivel gyorsan készíthető egy instant link, amit megnyitva más is kipróbálhatja az alkotást, ezt a „publikálást” természetesen bármikor leállíthatjuk. Ahhoz, hogy az alapokat elsajátítsuk, viszonylag rövid, lényegre törő oktató videók vannak fent a Modd.io honlapján, melyeket egyszerű követni, és ezáltal megtanulni velük a fontosabb alapvető dolgokat, persze a komplexebb problémák megoldásához már nem feltétlenül elegendő ez. Amikor elkezdünk készíteni egy új projektet, lehetőség van kiválasztani, hogy kezdőként vagy haladóként vagyunk ott, ettől függ, hogy az editorban minden tulajdonságot elérünk-e, mert kezdőként például leegyszerűsíti a felhasználói felületet. Azt is megadhatjuk, hogy milyen típusú játékot készítünk (például PVP, Tower defense, stb.), valamint az alap pálya kinézetét, stílusát, és csak ezek után kerülünk az editorba, ott pedig már kedvünkre alakíthatjuk a dolgokat.
-			% TODO irodalom ->
+			\cite{modd.io_official_website}
+			% irodalom ->
 			% https://www.modd.io/
 			Ha több segítségre van szükségünk, Discord-on viszonylag gyorsan válaszolnak a kérdésekre, akár más felhasználók is készséggel segítenek, amennyiben tudnak.
 			A motor elég naprakésznek tűnik, és felhasználóbarátnak, azonban az utóbbi miatt kissé korlátozottnak is érződnek számomra a lehetőségeink a fejlesztés során.
@@ -243,16 +275,19 @@
 			A Construct 2 már előre elkészített úgynevezett "viselkedésekkel" rendelkezik. Például található benne viselkedés mozgáshoz a billentyűzeten lévő nyilakkal, vagy egy adott elem (pl. a játékos) mozgásának követése is ilyen viselkedés, illetve annak a megoldását is tartalmazza, hogy ne tudjunk lemenni a pályáról, avagy az adott layer-ről. Mi magunk is elkészíthetnénk ezeket, viszont hasznos, hogy van lehetőség már előre elkészített viselkedések alkalmazására is.
 			Mint ahogy fentebb már említettem, eseményalapú, így nem kell túl sokat kódolni egy alkalmazás elkészítéséhez, így kezdő programozók számára például sokkal egyszerűbb, átláthatóbb a használata.
 			Létezik egyébként már a fejlettebb, újabb, Construct 3 is, viszont az már csak előfizetéses verzióval rendelkezik, valamint letölteni már nem feltétlenül kell, hanem böngészőn belül is lehet vele alkotni.
-			A Construct 2-t azonban már nem fejlesztik tovább, hanem a Construct 3-vel dolgoznak csak, így egyre kevésbé modern az elődje.
-			A szakdolgozatomhoz végeredményben nem szeretném használni, mert viszonylag korlátozottak benne a lehetőségek, főleg az ingyenes verziójában, illetve a dokumentációja sem annyira kimagasló, emellett mint korábban írtam ez sem kifejezetten naprakész motor. 
-			
+			A Construct 2-t azonban már nem fejlesztik tovább, hanem a Construct 3-mal dolgoznak csak, így egyre kevésbé modern az elődje.
+			A szakdolgozatomhoz végeredményben nem szeretném használni, mert viszonylag korlátozottak benne a lehetőségek, főleg az ingyenes verziójában, illetve a dokumentációja sem annyira kimagasló, emellett mint korábban írtam ez sem kifejezetten naprakész motor.
+			\cite{construct_2_manual}
+			\cite{construct_2_javascript_sdk}
 		\end{MySubSection}
 			
 		\begin{MySubSection}{Phaser}
 			A Phaser 3 egy teljesen ingyenesen használható cross-platform játékmotor, nyílt forráskódú, kifejezetten két dimenziós játékok készítésére alkalmas. A fejlesztés JavaScripttel és TypeScripttel is kivitelezhető a motorral. Számomra ez azért lényeges, mert amennyiben lehetséges, TypeScriptet támogató keretrendszert szeretnék használni, mivel a típusok használata sok esetben megkönnyítheti a fejlesztést.
 			A felhasználói vélemények nagyrészt pozitívak róla, amivel azok alapján kivetnivalók lehetnek, hogy bár a plugin támogatottsága nagyon jó, egyes pluginok fizetősek az ingyenes motor mellé. Ezzel szemben, eddig számomra úgy tűnik, hogy a fontosabbakat tartalmazza az ingyenes verzió is, így lehetségesnek tartom, hogy a pluginokkal kapcsolatos negatív vélemények oka az, hogy egy régebbi verzióhoz íródhattak.
 			Egyszerűen tanulhatónak tűnik első benyomás alapján, rengeteg tutorial, útmutató van hozzá, apróbb példák, és egy-egy komplett játék fejlesztésén végigvezető könyvszerű dokumentumok egyaránt, magyarázatokkal. Azonban komplexebb példákat nem igazán mellékeltek hozzá.
-			A hivatalos honlapjukon szereplő tutorialok közül kettőt végigcsináltam, egyet JavaScriptben, egyet pedig TypeScriptben (ez gyakorlatilag 2 köny: 69 és 102 oldalakkal). 
+			A hivatalos honlapjukon szereplő tutorialok közül kettőt elolvastam, illetve végigcsináltam, egyet JavaScriptben, egyet pedig TypeScriptben (ez gyakorlatilag 2 könyv: 69 és 102 oldalakkal). \cite{infinite_jumper} \cite{infinite_runner}
+			% http://assets.ourcade.co/books/Infinite_Jumper_Phaser3_Modern_JavaScript.pdf
+			% http://assets.ourcade.co/books/Infinite_Runner_Phaser3_TypeScript.pdf
 			A kipróbálás után úgy gondolom, kezdők számára könnyen elsajátíthatóak az alapok, a telepítése egyszerű, nem igényel semmilyen külön beállítást, gyakorlatilag pár perc előkészület után már használható is.
 			Szerintem kisebb projektek aránylag egyszerűen megvalósíthatóak vele.
 			Viszonylag gyakran frissítik, így naprakésznek tűnik, és kifejezetten népszerűnek is.
