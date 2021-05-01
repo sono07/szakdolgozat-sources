@@ -191,7 +191,7 @@
 			\begin{itemize}
 				\item \texttt{IMapGenerator} - Interface, ami a pálya generálásához szükséges metódust definiálja. A többi osztályban nem a konkrét implementáció, hanem ez az interface van használva.
 				
-				\item \texttt{MapGenerator} - A pálya generálását megoldó osztály. Fontos, hogy adott kezdőértékhez (úgy nevezett "seed"-hez) ugyan azt a pályát generálja mindig. A pályagenerálás során egy útvonalat is generál, amin az ellenségek fognak majd haladni. A pálya mezőinek lehetséges értékei előre meghatározottak, melyek a \texttt{GameConstants} osztályban lettek definiálva.
+				\item \texttt{MapGenerator} - A pálya generálását megoldó osztály. Fontos, hogy adott kezdőértékhez (úgy nevezett ``seed''-hez) ugyan azt a pályát generálja mindig. A pályagenerálás során egy útvonalat is generál, amin az ellenségek fognak majd haladni. A pálya mezőinek lehetséges értékei előre meghatározottak, melyek a \texttt{GameConstants} osztályban lettek definiálva.
 				
 				\item \texttt{IEnemySpawner} - Interface, ami az ellenségek létrehozásához, és a játék köreinek kezeléséhez szükséges metódusokat definiálja. Ezeket, az \texttt{update} metódus kivételével, főként a UI használja.
 				
@@ -199,7 +199,7 @@
 				
 				\item \texttt{IGameStateStore} - Talán a legtöbbet használt interface az alkalmazásban. Számos metódust definiál a UI és a többi modul felé.
 				
-				\item \texttt{GameStateStore} - Ebbe az osztályba került a logika nagy része. Ez kezeli az objektum-csoportokat, az életerőt, a pénzt, a pontszámot, a pályát és az útvonalat. A \texttt{EnemySpawner}-en keresztül az ellenségeket és a köröket is ez kezeli. Számos úgy nevezett "callback" metódust is tartalmaz melyek segítségével a UI frissíteni tudja a megjelenített adatokat.
+				\item \texttt{GameStateStore} - Ebbe az osztályba került a logika nagy része. Ez kezeli az objektum-csoportokat, az életerőt, a pénzt, a pontszámot, a pályát és az útvonalat. A \texttt{EnemySpawner}-en keresztül az ellenségeket és a köröket is ez kezeli. Számos úgynevezett ``callback'' metódust is tartalmaz melyek segítségével a UI frissíteni tudja a megjelenített adatokat.
 			\end{itemize}
 		\end{MySubSection}
 	
@@ -415,7 +415,7 @@
 
 		% TODO hogyan teszteltél leírni
 			% -(itt csak akkor teszteltem ha a bonyolultsága miatt szükségesnek érződött, a tesztek nagy része a játék elkészülte után íródott) és integráltam a már kész kódhoz.
-			% - manuális teszelést: vagyis hogy kipróbűltad kézzel hogy jól működnek a funkciók, ez volt nagyrészt a fejlesztés folyamán
+			% - manuális teszelés: vagyis hogy kipróbáltam kézzel hogy jól működnek a funkciók, ez volt nagyrészt a fejlesztés folyamán
 			% inkább a fontosabb, több gondolkodost igénylő részek lefedése volt a cél, például pályagenerálás, hogy helyesen működik-e a UI-t/megjelenítést mivel könnyen módosíthatónak kellene lennie a jövőben így nincs értelme pixelre pontosan letesztelni, ahol érdemesnek tartottam ott nagyvonalakban néhány dolgot lefedtem, épp ezért nem túl tökéletes a tesz lefedettség de ez nem is volt cél.
 			A lefedés tekintetében inkább a lényegesebb, több gondolkodást igénylő részek lefedése volt a célom.
 			Ezalatt értem például a pályagenerálást, pontosabban azt, hogy az helyesen működik-e. 
@@ -427,6 +427,14 @@
 		% TODO példa teszt + kód + leírás
 			%- pályageneráls teszteket érdemes megemlíteni hogy miket feedett le (egyediség, azonos random-seed esetén u.a generálja-e)
 			% a rosszul működő pályagenerálásról a képet valahova ide
+			
+			% \begin{figure}[H]
+			% 	\centering
+			% 	\includegraphics[scale=0.5]{kepek/teszt/tesztPelda1}
+			% 	\caption{Rosszul működő pályagenerálás}
+			% 	\label{fig:teszt:tesztPelda1}
+			% \end{figure}
+			
 			% 
 			%\begin{javascript}
 				% TODO latex környezet
@@ -435,17 +443,17 @@
 		
 		%Coverage
 			% jest teszt lefedettség belerak 1-2 kép akár az egészről, akár 1-1 részéről a programnak
-			Az összességében elért teszt lefedettség \aref{tab:teszt_lefedettseg}. táblázatban látható. Az objektumok nagyrészt nem lettek letesztelve, mert sajnos már nem jutott rá idő, így ez rontja az összességében elért eredményt, ezt az "All files" sorban találjuk. Éppen ezért a táblázatba belefoglaltam az objektumok tesztelési lefedettsége nélküli végeredményeket is, melyek pedig a "Without objects" sorban láthatóak, így lényegesen nagy különbség figyelhető meg az értékek között.
-			A "Lines" oszlop azt tartalmazza, hogy a programban szereplő soroknak hány százaléka lett letesztelve, a "Functions" a játékban használatos függvények tesztelésének lefedettségét jelzi.
-			A "Statemens" oszlopban a program logikailag legkisebb futtatható egységeinek teszeltségét láthatjuk.
+			Az összességében elért teszt lefedettség \aref{tab:teszt_lefedettseg}. táblázatban látható. Az objektumok nagyrészt nem lettek letesztelve, mert sajnos már nem jutott rá idő, így ez rontja az összességében elért eredményt, ezt az ``All files'' sorban találjuk. Éppen ezért a táblázatba belefoglaltam az objektumok tesztelési lefedettsége nélküli végeredményeket is, melyek pedig a ``Without objects'' sorban láthatóak, így lényegesen nagy különbség figyelhető meg az értékek között.
+			A ``Lines'' oszlop azt tartalmazza, hogy a programban szereplő soroknak hány százaléka lett letesztelve, a ``Functions'' a játékban használatos függvények tesztelésének lefedettségét jelzi.
+			A ``Statemens'' oszlopban a program logikailag legkisebb futtatható egységeinek teszeltségét láthatjuk.
 			% pl fgv hívás amiben van 1 változó ami meg van szorozva 2-vel pl, több sorban lehet tagolva de egy futtatható egység, itt a szorzás pedig egy kifejezés(expression)
-			A "Branches" alatt pedig az elágazások ágainak lefedettségét értjük.
+			A ``Branches'' alatt pedig az elágazások ágainak lefedettségét értjük.
 			%
 			% TODO - jest teszt lefedettség - 1-2 kép  -> npm test -- --coverage
 			%
 		% összes teszt kép (npm test végeredmény kép)
 		% teszt futásidő
-			% - abból is látható, hogy mennyire nem kifejezetten tesztelhetően készítették el a Phaser-t, hogy az a pár viszonylag eygszerű teszt is x /* TODO idő */ másodperc alatt futtott.
+			% TODO Abból is látható, hogy mennyire nem kifejezetten tesztelhetően készítették el a Phaser-t, hogy az a pár viszonylag egyszerű teszt is x /* TODO idő */ másodperc alatt futtott le.
 			
 		\begin{table}[h]
 			\centering
@@ -469,10 +477,10 @@
 		
 		A játék elindításakor, miután minden betöltődött, a főmenübe kerülünk. (A töltés haladását a töltő képernyőn nyomon követhetjük.)
 
-		A menüben egy "Generate map" feliratot láthatunk elsőként, alatta egy szövegdobozzal, melyben a következő szöveg található: "seed". Ezek pontos kinézetét a \myref{fig:jatekHasznalat:fomenu} ábrán láthatjuk. Felhasználóként itt van lehetőségünk beírni akármilyen karaktert, szöveget de akár üresen is hagyhatjuk. Ezzel a bemeneti értékkel tudjuk változtatni a generált pályát, amelyen majd játszani fogunk.
+		A menüben egy ``Generate map'' feliratot láthatunk elsőként, alatta egy szövegdobozzal, melyben a következő szöveg található: ``seed''. Ezek pontos kinézetét a \myref{fig:jatekHasznalat:fomenu} ábrán láthatjuk. Felhasználóként itt van lehetőségünk beírni akármilyen karaktert, szöveget de akár üresen is hagyhatjuk. Ezzel a bemeneti értékkel tudjuk változtatni a generált pályát, amelyen majd játszani fogunk.
 		Ennek jobb oldalán egy gomb helyezkedik el, rajta dobókocka ábrákkal. Amennyiben nem szeretnénk gondolkodni, hogy mit írjunk be a szövegdobozba, erre kattintva az alkalmazás véletlenszerűen generálni fog nekünk egy úgynevezett seed-et.
 		A seed a pályák egyediségéért felel, amennyiben ugyanazt a seed-et használjuk többször, azonos pályát fog generálni az alkalmazás, így ugyanazon a pályán játszhatunk újra meg újra. Ha viszont különböző bemenetet adunk meg seed-ként, akkor mindig más pályát kapunk végeredményként. 
-		Amennyiben beírtuk, vagy legeneráltuk a használni kívánt seed-et, a "Play" gombra kattintva tudjuk elindítani a játékot.
+		Amennyiben beírtuk, vagy legeneráltuk a használni kívánt seed-et, a ``Play'' gombra kattintva tudjuk elindítani a játékot.
 		
 		\begin{figure}[H]
 			\centering
@@ -502,9 +510,9 @@
 		\end{figure}
 		
 		Tornyokat csak üres, füves területekre tudunk építeni. Amennyiben nincs már hely ahova tudnánk tenni, le is rombolhatunk előzőleg épülteket, vagy pedig a tájelemeket is. Ezt a jobb oldalt látható felület által tehetjük meg (lásd: \myref{fig:jatekHasznalat:game_scene} ábra jobb oldala).		
-		A játék kezdetekor az egér ikont ábrázoló gomb van kijelölve. Ez az úgynevezett "kijelölés mód" gomb, ha ezen a módon belül vagyunk, tehát ez a gomb van bekeretezve fehér színnel, akkor ha egy már megépült toronyra rávisszük a kurzort, látni fogjuk a hatótáv jelölő kört körülötte. Ezen a körön belüli távolságra lévő ellenfeleket képes elérni a torony. % A "kijelölés mód"-ban az egyes objektumokra kattintva a játékon belül nem történik semmi, szimplán amelyik mező felett van a kurzorunk, az lesz kijelölve.
-		Az ettől jobbra található, sárga buldózer ábrával ellátott gombra kattintva pedig az "eltávolító mód"-ba kerülünk. Ha ebben a módban vagyunk, és odamozgatjuk a kurzort (kattintás nélkül) egy-egy tárgyra a játékfelületen belül, akkor amíg az adott tárgy fölött van az egerünk, addig az előbb említett gombok feletti rubrikában látható, hogy amennyiben le szeretnénk rombolni az adott objektumot, milyen összeggel változna a pénzünk, avagy aranyunk. Az objektum tényleges eltávolítása kattintásra történik meg.
-		Abban az esetben, ha egy korábban megépített tornyot szeretnénk megsemmisíteni, a torony eredeti értékének 60\%-át kapjuk vissza, tehát például ha egy toronyért 1000 aranyat fizettünk, amikor rávisszük a kurzort eltávolító módban, "+600"-at fogunk látni a rubrikában, tehát 600 aranyat kapunk vissza, a rombolás után. Ellenben kráter, vagy fa eltávolításához fizetnünk kell a rombolásért, tehát egy mínusz jel után fog megjelenni az összeg, amennyibe kerül.
+		A játék kezdetekor az egér ikont ábrázoló gomb van kijelölve. Ez az úgynevezett ``kijelölés mód'' gomb, ha ezen a módon belül vagyunk, tehát ez a gomb van bekeretezve fehér színnel, akkor ha egy már megépült toronyra rávisszük a kurzort, látni fogjuk a hatótáv jelölő kört körülötte. Ezen a körön belüli távolságra lévő ellenfeleket képes elérni a torony. % A "kijelölés mód"-ban az egyes objektumokra kattintva a játékon belül nem történik semmi, szimplán amelyik mező felett van a kurzorunk, az lesz kijelölve.
+		Az ettől jobbra található, sárga buldózer ábrával ellátott gombra kattintva pedig az ``eltávolító mód''-ba kerülünk. Ha ebben a módban vagyunk, és odamozgatjuk a kurzort (kattintás nélkül) egy-egy tárgyra a játékfelületen belül, akkor amíg az adott tárgy fölött van az egerünk, addig az előbb említett gombok feletti rubrikában látható, hogy amennyiben le szeretnénk rombolni az adott objektumot, milyen összeggel változna a pénzünk, avagy aranyunk. Az objektum tényleges eltávolítása kattintásra történik meg.
+		Abban az esetben, ha egy korábban megépített tornyot szeretnénk megsemmisíteni, a torony eredeti értékének 60\%-át kapjuk vissza, tehát például ha egy toronyért 1000 aranyat fizettünk, amikor rávisszük a kurzort eltávolító módban, ``+600''-at fogunk látni a rubrikában, tehát 600 aranyat kapunk vissza, a rombolás után. Ellenben kráter, vagy fa eltávolításához fizetnünk kell a rombolásért, tehát egy mínusz jel után fog megjelenni az összeg, amennyibe kerül.
 		A két gomb alatti felületen különféle tornyok helyezkednek el, 5 különböző típusú toronyot tudunk építeni, és mind az 5 típusból létezik 3 különböző erősségű.
 		A tornyok balról jobbra vannak sorbarendezve, tehát adott típusú toronynak először a leggyengébb változát láthatjuk, a végén pedig a legerősebbet, de összességében szituációfüggő is, hogy épp melyik az, amit a legjobban megéri építenünk. Az azonos típusú tornyok hasonló megjelenéssel rendelkeznek, hogy látható legyen az, hogy egy ugyanazon típuson belül helyezkednek el, az áruk azonban különböző.
 		
@@ -518,7 +526,7 @@
 		\begin{itemize}
 			\item Piros szív ábra: Az itt látható szám az aktuális életünket jelzi. Ez csökkenni fog, ha egy szörnyet engedünk végigmenni az egész úton. Amikor teljesen elfogy, akkor veszítünk, az adott játék véget ér.
 			
-			\item Sárga érme "\$" jellel: Ebben a rubrikában az aktuális aranyunk jelenik meg. Ez az érték többször is változhat a játék során. Például toronyépítéskor levonódik a torony összege, ellenben amikor megölünk egy szörnyet akkor kapunk érte adott aranymennyiséget.
+			\item Sárga érme ``\$'' jellel: Ebben a rubrikában az aktuális aranyunk jelenik meg. Ez az érték többször is változhat a játék során. Például toronyépítéskor levonódik a torony összege, ellenben amikor megölünk egy szörnyet akkor kapunk érte adott aranymennyiséget.
 			
 			\item Csillag ikon: A pillanatnyi összpontszámunkat mutatja. Minden ellenfél megölése után kapunk adott mennyiségű pontot. A végeredményként elért összpontszámot a játék vége után is megtekinthetjuk, mielőtt visszalépünk a főmenübe.
 			
@@ -547,7 +555,7 @@
 		% game over scene
 		
 		Most, hogy elolvastuk az előbbieket, már mindent tudunk a játékmenetről. Ami tehát még hátravan, az az, hogy mi történik akkor, amikor esetlegesen elveszítjük az összes életünket, ezáltal a játékot is.
-		Ekkor egy új felület jelenik meg előttünk (lásd: \myref{fig:jatekHasznalat:game_over_scene} ábra), amelyen egy "Game Over" felirat taláható, emellett itt megtekinthetjük a játék során elért összpontszámunkat, valamint a "Back to Main Menu" gombra kattintva pedig újra a főmenübe navigálhatjuk magunkat, hogy belekezdhessünk egy új játékmenetbe.
+		Ekkor egy új felület jelenik meg előttünk (lásd: \myref{fig:jatekHasznalat:game_over_scene} ábra), amelyen egy ``Game Over'' felirat taláható, emellett itt megtekinthetjük a játék során elért összpontszámunkat, valamint a ``Back to Main Menu'' gombra kattintva pedig újra a főmenübe navigálhatjuk magunkat, hogy belekezdhessünk egy új játékmenetbe.
 		
 		\begin{figure}[H]
 			\centering
