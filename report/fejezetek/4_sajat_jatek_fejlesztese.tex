@@ -1,11 +1,10 @@
 \begin{MyChapter}{Saját játék fejlesztése}
 	% mi lesz a fejezeteben
 	A most következő fejezetben az általam fejlesztett alkalmazásról, avagy játékról lesz részletekbe menően szó. Mint már korábban említettem, egy program, alkalmazás vagy játék fejlesztésekor rengeteg opciónk van, mind a programozási nyelvet, mind pedig a felhasználandó technológiákat tekintve. Az én választásom végül arra esett, hogy egy keretrendszer segítségével készítek el egy játékot. A választott játékmotorral a \myref{Phaser} fejezetben találkoztunk már. Mivel még kifejezetten új számomra ez a terület, így jobbnak láttam, ha elsőként ezzel a módszerrel próbálkozom egy játék fejlesztésével, rengeteg ismeretet, tapasztalatot gyűjtve, azonban még nem saját motor készítésével együttesen.
-	Tehát ebben a fejezetben elsőként ismertetem a céljaimat, azt, hogy mit is szeretnék majd elérni a játékkal, illetve hogy milyen elképzeléseim vannak a végeredményre vonatkozóan. Majd pedig be fogom mutatni, hogy hogyan indultam neki az elkészítésnek, valamint a felhasznált technológiákat, a tervezési, illetve a megvalósítási folyamatokat, stb. egyszóval részletezem az egész fejlesztési eljárást.
+	Tehát ebben a fejezetben elsőként ismertetem a céljaimat, azt, hogy mit is szeretnék majd elérni a játékkal, illetve hogy milyen elképzeléseim vannak a végeredményre vonatkozóan. Majd pedig be fogom mutatni, hogy hogyan indultam neki az elkészítésnek, valamint a felhasznált technológiákat, a tervezési, illetve a megvalósítási folyamatokat, stb., egyszóval részletezem az egész fejlesztési eljárást.
 	
 	\begin{MySection}{Célok meghatározása}
 		% vázolni mit szeretnél elérni a programmal/játékkal, miről fog szólni, tehát az elképzelés (vízió dokumentum :) )
-		Mint ahogy fentebb is szó volt róla, amellett döntöttem, hogy egy játékmotor használatával készítek el egy játékot. A választásom a Phaser 3 keretrendszerre esett, ahogy ez már az előző fejezetből kiderült.
 		A szakdolgozatomban egy HTML5 alapú játék megtervezése és fejlesztése a célom, konkrétabban egy tower defense (magyarul: toronyvédő, röviden: TD) műfajú játék elkészítése. A TD játékok lényege, hogy a játékos tornyok, vagy egyéb objektumok építésével megakadályozza, hogy az ellenfelek, vagy szörnyek egy előre meghatározott ponton túljussanak. Egy ilyen műfajú játék egy felhasználó számára egyszerűen megtanulható, azonban igényel némi stratégiát, gondolkodást, ahogy egyre nehezedik. 
 		% irodalom ->
 		% https://www.loopinsight.com/2010/03/30/understanding-tower-defense-games/
@@ -46,7 +45,7 @@
 			
 			\item JavaScript - Alapjában véve a JavaScript mellett döntöttem, hiszen a programozási nyelv meghatározásánál lényeges volt szem előtt tartani, hogy a fejlesztéshez választott játékmotor mely nyelveket támogatja.
 			
-			\item TypeScript - A JavaScript alapvetően nem tartalmaz típusokat, pedig az valójában rendkívül megkönnyíti a fejlesztő dolgát, ennélfogva úgy határoztam, hogy a TypeScriptet is használom, ahol csak lehetőség van rá. Azonban mint írtam, a játékmotor nem teljesen kompatibilis a TypeScripttel, ebből kifolyólag nem lehet pusztán TS-t használni.
+			\item TypeScript - A JavaScript alapvetően nem tartalmaz típusokat, pedig az valójában rendkívül megkönnyíti a fejlesztő dolgát, ennélfogva úgy határoztam, hogy a TypeScriptet is használom, ahol csak lehetőség van rá. Azonban mint kiderült, a játékmotor nem teljesen kompatibilis a TypeScripttel, ebből kifolyólag nem lehet pusztán TS-t használni.
 			
 			\item Git - A program készítéséhez, főleg a nagysága miatt kétségkívül érdemes volt valamilyen verziókövető szoftvert alkalmazni. Azért a Git-et választottam erre a célra, mert a kisebb és nagyobb projektekhez egyaránt megfelelő, gyors, hatékony, kifejezetten jó a támogatottsága, és végül, de nem utolsósorban ingyenes. Mindezek mellett könnyen használható, a tanulmányaim során pedig egyébként is kellett már alkalmaznom korábban, így nem volt teljesen ismeretlen számomra a használata.
 			
@@ -66,7 +65,6 @@
 			
 			\item Free Sprite Sheet Packer - Az önálló képekből való sprite sheetek készítéséhez volt szükség a használatára. Azért is erre esett a választás, mert a Phaserrel kompatibilis, ezenkívül az önmagában álló képek (spriteok) kombinálása egy nagyobb képbe (sprite sheet) javítja a játék teljesítményét, hatékonyabbá teszi a memóriahasználatot, gyorsabb töltési időt eredményez.
 			\cite{spritesheet}
-			% TODO esetleg másik résznél kellene részletezni?
 			% forrás: https://www.codeandweb.com/what-is-a-sprite-sheet
 			Amit használtam, az tulajdonképpen a TexturePacker online alternatívája, a következő linken érhető el: \url{https://www.codeandweb.com/free-sprite-sheet-packer}
 			
@@ -77,8 +75,8 @@
 	\end{MySection}
 	
 	\begin{MySection}{Tervezés}
-		A játék tervezése során először is megpróbáltam összeállítani nagyvonalakban a játék felépítését és rögzítettem a különböző részeit a programnak. Megvizsgáltam mit és hogyan lehet, illetve hogyan érdemes megvalósítani a Phaser és a Javascript esetében.
-		Ezután elkészítettem a szükséges interface-eket, amelyek a későbbiek során még finomítva lettek, tehát ekkor még csak a legfontosabb dolgok kerültek bele. Ezek és a későbbi interface-ek az \texttt{api} mappában találhatóak meg. Majd ezek alapján modulokra bontottam az alkalmazást. A konkrét modulok és kapcsolataik a \myref{fig:uml:module} ábrán láthatóak. Ezután a további fejlesztés iteratív módon folyt, mindig egy-egy modult elkészítve. Egy adott modul fejlesztése több részből tevődött össze. Először mindig felülvizsgáltam a létrehozott interface-eket és ha szükséges volt módosítottam is azokat. Majd implementáltam a modult. Ezután ha a komplexitás alapán szükségesnek tűnt, teszteket is írtam a kódhoz. További teszteket a későbbiek folyamán készítettem még, erről részletesebben szó lesz a \myref{Tesztelés} fejezetben. Végezetül, a meglévő kóddal integráltam a kész modult és kipróbáltam megfelelően működik-e minden. Megjegyzendő, hogy már a tervezési fázisban figyelembe vettem, hogy az OOP szerint készítsem el a kódot, habár erre se a Phaser se a Javascript nem nyújt teljeskörű támogatást, viszont a kód duplikálást elkerülendő számos absztrakciós réteget hoztam létre, melyre egy nagyon jó példa az effektek modulja.
+		A játék tervezése során először is megpróbáltam összeállítani nagyvonalakban a játék felépítését és rögzítettem a különböző részeit a programnak. Megvizsgáltam mit és hogyan lehet, illetve hogyan érdemes megvalósítani a Phaser és a JavaScript esetében.
+		Ezután elkészítettem a szükséges interface-eket, amelyek a későbbiek során még finomítva lettek, tehát ekkor még csak a legfontosabb dolgok kerültek bele. Ezek és a későbbi interface-ek az \texttt{api} mappában találhatóak meg. Majd ezek alapján modulokra bontottam az alkalmazást. A konkrét modulok és kapcsolataik a \myref{fig:uml:module} ábrán láthatóak. Ezután a további fejlesztés iteratív módon folyt, mindig egy-egy modult elkészítve. Egy adott modul fejlesztése több részből tevődött össze. Először mindig felülvizsgáltam a létrehozott interface-eket és ha szükséges volt módosítottam is azokat. Majd implementáltam a modult. Ezután ha a komplexitás alapán szükségesnek tűnt, teszteket is írtam a kódhoz. További teszteket a későbbiek folyamán készítettem még, erről részletesebben szó lesz a \myref{Tesztelés} fejezetben. Végezetül, a meglévő kóddal integráltam a kész modult és kipróbáltam megfelelően működik-e minden. Megjegyzendő, hogy már a tervezési fázisban figyelembe vettem, hogy az OOP szerint készítsem el a kódot, habár erre se a Phaser, se a JavaScript nem nyújt teljeskörű támogatást, viszont a kód duplikálást elkerülendő számos absztrakciós réteget hoztam létre, melyre egy nagyon jó példa mondjuk az effektek modulja.
 		
 		\begin{figure}[h!]
 			\centering
@@ -108,9 +106,9 @@
 				
 				\item \texttt{GameEngine} - A Phaser játékmotorának kibővítése, jelenleg nem tartalmaz semmilyen funkciót. A jövőbeli bővíthetőség végett került létrehozásra.
 				
-				\item \texttt{PhaserConfig} - A Phaserhez szükséges beállításokat tartalmazza, mint például: renderelő motor típusa, képrenyő méretei, fizikai motor típusa és konfigurációja, valamint a megjelenítendő Scene-ket (képernyőket).
+				\item \texttt{PhaserConfig} - A Phaserhez szükséges beállításokat tartalmazza, mint például: renderelő motor típusa, képernyő méretei, fizikai motor típusa és konfigurációja, valamint a megjelenítendő Scene-eket (képernyőket).
 				
-				\item \texttt{GameConfig} - A játékhoz használt konfigurálandó értékeket tartalmazza, mint a pályaméretet, tornyok sebzéseit, valamint árait.
+				\item \texttt{GameConfig} - A játékhoz használt konfigurálandó értékeket tartalmazza, mint például a pályaméretet, a tornyok sebzéseit, valamint árait.
 				
 				\item \texttt{GameConstants} - A játékhoz felhasznált konstans értékeket tárolja. Például a UI elemek z-index (mélység) értékeit, illetve a tilemap mezőinek értékeit.
 			\end{itemize}
@@ -118,7 +116,7 @@
 	
 		\begin{MySubSection}{Scenes modul}
 			A különböző képernyőkkel kapcsolatos osztályok kaptak itt helyet.
-			A modul osztálydiagramja \aref{fig:uml:scene} ábrán látható.
+			A modul osztálydiagramja a \myref{fig:uml:scene} ábrán látható.
 			
 			\begin{figure}[h!]
 				\centering
@@ -192,7 +190,7 @@
 			\begin{itemize}
 				\item \texttt{IMapGenerator} - Interface, ami a pálya generálásához szükséges metódust definiálja. A többi osztályban nem a konkrét implementáció, hanem ez az interface van használva.
 				
-				\item \texttt{MapGenerator} - A pálya generálását megoldó osztály. Fontos, hogy adott kezdőértékhez (úgy nevezett ``seed''-hez) ugyan azt a pályát generálja mindig. A pályagenerálás során egy útvonalat is generál, amin az ellenségek fognak majd haladni. A pálya mezőinek lehetséges értékei előre meghatározottak, melyek a \texttt{GameConstants} osztályban lettek definiálva.
+				\item \texttt{MapGenerator} - A pálya generálását megoldó osztály. Fontos, hogy adott kezdőértékhez (úgynevezett ``seed''-hez) ugyanazt a pályát generálja mindig. A pályagenerálás során egy útvonalat is generál, amin az ellenségek fognak majd haladni. A pálya mezőinek lehetséges értékei előre meghatározottak, melyek a \texttt{GameConstants} osztályban lettek definiálva.
 				
 				\item \texttt{IEnemySpawner} - Interface, ami az ellenségek létrehozásához, és a játék köreinek kezeléséhez szükséges metódusokat definiálja. Ezeket, az \texttt{update} metódus kivételével, főként a UI használja.
 				
@@ -247,7 +245,7 @@
 			
 			A modul osztályai az alábbi felsorolásban láthatóak:
 			\begin{itemize}
-				\item \texttt{IObject} - Interface ami az objektumok életciklus metódosait (init, update, remove), és alapvetően tagjait (position, active) határozza meg.
+				\item \texttt{IObject} - Interface ami az objektumok életciklus metódusait (init, update, remove), és alapvetően tagjait (position, active) határozza meg.
 				
 				\item \texttt{BaseObject} - Absztrakt osztály ami az előző interface tagjainak inicializálását, frissítését, és resetelését végzi el oly módon, hogy az tovább bővíthető legyen a későbbiekben. Ez a bővítés az \texttt{Enemies}, a \texttt{Projectiles} és a \texttt{Turrets} modulokban történik meg.
 				
@@ -297,7 +295,7 @@
 	
 		\begin{MySubSection}{Projectiles modul}
 			A lövedékekkel kapcsolatos osztályok kaptak itt helyet.
-			A modul osztálydiagramja \aref{fig:uml:projectile} ábrán látható.
+			A modul osztálydiagramja a \myref{fig:uml:projectile} ábrán látható.
 		
 			\begin{figure}[h!]
 				\centering
@@ -317,7 +315,7 @@
 
 				\item \texttt{IMovingProjectile} - Interface, ami a mozgó lövedékek plusz inicializáló paramétereivel bővíti ki az \texttt{IProjectile} interface-t.
 
-				\item \texttt{BaseMovingProjectile} - Absztrakt osztály, ami a \texttt{BaseProjectile}-t bővíti ki a mozgó lövdékek tulajdonságainak megfelelően. Ez az osztály is a későbbi bővíthetőséget figyelembe véve készült.
+				\item \texttt{BaseMovingProjectile} - Absztrakt osztály, ami a \texttt{BaseProjectile}-t bővíti ki a mozgó lövedékek tulajdonságainak megfelelően. Ez az osztály is a későbbi bővíthetőséget figyelembe véve készült.
 
 				\item \texttt{IAOEMovingProjectile} - Interface, ami a területi sebzést okozó lövedékeknél használatos paraméterekkel bővíti ki a \texttt{IMovingProjectile}-t.
 
@@ -386,46 +384,48 @@
 	\end{MySection}
 	
 	\begin{MySection}{Megvalósítás}	
-		Ebben a fejezetben a játék fejlesztéséről, a közben felmerült problémákról, illetve az érdeksebb kódrészletek bemutatásáról lesz szó.
+		Ebben a fejezetben a játék fejlesztéséről, a közben felmerült problémákról, illetve az érdekesebb kódrészletek bemutatásáról lesz szó.
 		
 		\begin{MySubSection}{A program struktúrája}
-			Mint említettem az alkalmazást a Webpack segítségével készítettem el. Az ezáltal használt forrásfájlok az \texttt{src} mappában kerültek elhelyezésre. Ezek között a forrásfájlok között találhatóak statikus és script fájlok is, melyek a típusuknak megfelelően további almappákba lettek csoportosítva. Ezek a következőek:
+			Mint említettem, az alkalmazást a Webpack segítségével készítettem el. Az ezáltal használt forrásfájlok az \texttt{src} mappában kerültek elhelyezésre. Ezek között a forrásfájlok között találhatóak statikus és script fájlok is, melyek a típusuknak megfelelően további almappákba lettek csoportosítva.
+			Ezek a következőek:
+			
 			\begin{itemize}
 				\item \texttt{html} - A HTML fájlok kerültek ide. Itt található az \texttt{index.html} is, ami az alkalmazás kiinduló pontja, ezt tölti be legelőször a böngésző és itt kerül belinkelésre magának a játéknak a kódja is. Az itt található többi fájl a Phaser által kerül megjelenítésre a játékon belül.
 				
 				\item \texttt{css} - A CSS (Cascading Style Sheet) fájlok kerültek ide, ezek tartalmazzák a HTML fájlokhoz esetlegesen szükséges stílusdefiníciókat.
 				
-				\item \texttt{fonts} - Az egyedi betűtkészlet fájloknak lenne a helye, mivel jelenleg nem használok ilyeneket ezért ez a mappa üres.
+				\item \texttt{fonts} - Az egyedi betűkészlet fájloknak lenne a helye, de jelenleg nem használok ilyeneket, ezért ez a mappa üres.
 				
-				\item \texttt{images} - Az alkalmazásban használt képek helye. Ide kerültek mind a HTML-ben és mind a Phaser által használt képek és spritesheetek. A spritesheetekhez szükséges JSON fájlok is ide kerültek, mivel azok szorosan hozzájuk köthetőek.
+				\item \texttt{images} - Az alkalmazásban használt képek helye. Ide kerültek mind a HTML-ben, mind a Phaser által használt képek és sprite sheetek. A sprite sheetekhez szükséges JSON fájlok is ide kerültek, mivel azok szorosan hozzájuk köthetőek.
 				
-				\item \texttt{scripts} - Itt találhatóak a tényleges kódot tartalmazó fájlok, vagyis a Javascript és Typescript állományok, melyek további almappákban lettek elhelyezve. Az almappák a következőek:
+				\item \texttt{scripts} - Itt találhatóak a tényleges kódot tartalmazó fájlok, vagyis a JavaScript és TypeScript állományok, melyek további almappákban lettek elhelyezve. Az almappák a következőek:
 				\begin{itemize}
-					\item \texttt{\_\_doc\_\_} - Az dokumentációs fájlok, vagyis a generált UML diagramok és forrásfájlaiknak a helye. Ezeket a \texttt{tplant} NPM-s csomag és a \url{www.plantuml.com} segítségével készítettem el.
+					\item \texttt{\_\_doc\_\_} - Az dokumentációs fájlok, vagyis a generált UML diagramok és forrásfájljaiknak a helye. Ezeket a \texttt{tplant} NPM-es csomag és a \url{www.plantuml.com} segítségével készítettem el.
 					
 					\item \texttt{\_\_test\_\_} - A tesztállományok helye.
 					
-					\item \texttt{api} - Az alkalmzásban felhasznált interface-k, illetve Typescript típusok helye.
+					\item \texttt{api} - Az alkalmzásban felhasznált interface-ek, illetve TypeScript típusok helye.
 					
-					\item \texttt{impl} - A tényleges implementáció helye. Tartalma az absztrakt és a konkrétok osztályok.
+					\item \texttt{impl} - A tényleges implementáció helye. Tartalma az absztrakt és a konkrét osztályok.
 				\end{itemize}
 			\end{itemize}
 		\end{MySubSection}
 		
 		\begin{MySubSection}{Az assetek}
-			Az assetek alatt a játékoknál, minden olyan fájlt értünk, ami bekerül a termékbe, de nem kifejezetten forrásfájl. Ilenyek például a képek, animációk, hangeffektek, térképek, satöbbi. Esetemben ezek meglepően nagy fejtörést jelentettek, több időt kellett rájuk szánnom mint reméltem. Ennek oka, hogy sok idő volt megfelelő képeket, animációkat találni a játékhoz, mivel kevés ingyenes és jól használható található az interneten. Legtöbbjük, vagy nem ingyenes, vagy hiányzik belőlük néhány rész (pl.: lövedékhez animáció), vagy egyszerűen nem kompatibilis másokkal. Éppen ezért végül amellett döntöttem, hogy több forrásból összeillesztve készítem el az alkalmazást. Ehhez természetesen elkerülhetetlen volt, hogy módosításokat kelljen végeznem a fájlokon, illetve néhány esetben még bizonyos részekett nekem kellett létrehoznom is (a rakétavető lövedékét). Az így elvégzett módosítások a következőek voltak: egységesíteni kellett a képek méreteit, formátumát, a spritesheetek elrendezését, kombinálni különöző részeket, a képen belül megfelelően pozicionálni az objektumokat, illetve a közel egységessé tenni a különböző elemek színvilágát, stílusát. Ezekben nagy segítségemre volt a \myref{Felhasznált eszközök, technológiák} fejezetben már említett ``\textit{Photopea}'', ``\textit{Free Sprite Sheet Packer}'' és a ``\textit{Sprite sheet cutter}'' alkalmazások.
-			%TODO cite https://unity.com/how-to/beginner/game-development-terms
+			Az assetek alatt a játékoknál minden olyan fájlt értünk, ami bekerül a termékbe, de nem kifejezetten forrásfájl. Ilyenek például a képek, animációk, hangeffektek, térképek, satöbbi. \cite{game_development_terms} Esetemben ezek meglepően nagy fejtörést jelentettek, több időt kellett rájuk szánnom, mint reméltem. Ennek oka, hogy sok idő volt megfelelő képeket, animációkat találni a játékhoz, mivel kevés ingyenes és egyben jól használható található az interneten. Legtöbbjük vagy nem ingyenes, vagy hiányzik belőlük néhány rész (pl.: lövedékhez animáció), vagy egyszerűen nem kompatibilis másokkal. Éppen ezért végül amellett döntöttem, hogy több forrásból összeillesztve készítem el az alkalmazást. Ehhez természetesen elkerülhetetlen volt, hogy módosításokat kelljen végeznem a fájlokon, illetve néhány esetben még bizonyos részeket nekem kellett létrehoznom is (a rakétavető lövedékét). Az így elvégzett módosítások a következőek voltak: egységesíteni kellett a képek méreteit, formátumát, a sprite sheetek elrendezését, kombinálni különböző részeket, a képen belül megfelelően pozicionálni az objektumokat, illetve közel egységessé tenni a különböző elemek színvilágát, stílusát. Ezekben nagy segítségemre voltak a \myref{Felhasznált eszközök, technológiák} fejezetben már említett ``\textit{Photopea}'', ``\textit{Free Sprite Sheet Packer}'' és a ``\textit{Sprite sheet cutter}'' alkalmazások.
+			% cite https://unity.com/how-to/beginner/game-development-terms
 		\end{MySubSection}
 		
 		\begin{MySubSection}{A Phaser fizikai motorjai}
-			A Phaser-ben két különböző fizikai motorból lehet választani, név szerint az \textit{Arcade} és a \textit{Matter} közül. A Phaser ajánlása szerint az \textit{Arcade} motort érdemes használni mindaddig, amíg valami miatt nincs szükségünk a másikra, mivel az állítólag sokkal gyorsabb és egyszerűbb kezelni. Ennek megfelelően én is az \textit{Arcade} motort használtam és tényleg egyszerűnek tűnt a kezelése mindaddig, amíg nem futottam bele egy komoly hiányosságba. Lényegében arról volt szó, hogy az \textit{Arcade} motor azért gyorsabb (és egyszerűbb) mint a másik, mivel ez csak az úgy nevezett AABB (koordináta tengelyekkel párhuzamos) befoglaló testekkel tud számolni. Ebből kifolyólag kiderült számomra, hogy a lövedékek kezelése íly módon nem fog működni, mivel ez azt jelentené, hogy nem lehetne elforgatni semmit, tehát a lövedékek nem mehetnének átlósan, vagy más koordináta tengelyekkel nem párhuzamos irányba. Ez elég sajnálatos volt, mivel ekkorra már a játék nagyrésze elkészült, és ezeket az elkészült részeket mind át kellett írni az új motor használatának megfelelően.
+			A Phaser-ben két különböző fizikai motorból lehet választani, név szerint az \textit{Arcade} és a \textit{Matter} közül. A Phaser ajánlása szerint az \textit{Arcade} motort érdemes használni mindaddig, amíg valami miatt nincs szükségünk a másikra, mivel az állítólag sokkal gyorsabb és egyszerűbb kezelni. Ennek megfelelően én is az \textit{Arcade} motort használtam és tényleg egyszerűnek tűnt a kezelése mindaddig, amíg nem futottam bele egy komoly hiányosságba. Lényegében arról volt szó, hogy az \textit{Arcade} motor azért gyorsabb (és egyszerűbb) mint a másik, mivel ez csak az úgynevezett AABB (koordináta tengelyekkel párhuzamos) befoglaló testekkel tud számolni. Ebből kifolyólag kiderült számomra, hogy a lövedékek kezelése ily módon nem fog működni, mivel ez azt jelentené, hogy nem lehetne elforgatni semmit, tehát a lövedékek nem mehetnének átlósan, vagy más koordináta tengelyekkel nem párhuzamos irányba. Ez elég sajnálatos volt, mivel ekkorra már a játék nagyrésze elkészült, és ezeket a részeket mind át kellett írni az új motor használatának megfelelően.
 			
-			További probléma volt, hogy a Phaser egyik frissen kiadott veziójába belekerült egy olyan hiba a \textit{Matter} motorral kapcsolatban, ami problémássá tette a használatát a csoportokkal (group-okkal). Itt arról volt szó, hogy optimalizáció gyanánt a fizikai motor számon tartotta az előző ütközéseket az adott objektumok között, és ezeket az előzményeket használta mindaddig, amíg bizonyos feltételek miatt mindenképp újra nem kellett számolni az értékeket. A probléma a csoportokban kezelt objektumoknál jelentkezett, mivel ezek az objektumok nem törlődnek ténylegesen, csak inaktív állapotba kerülnek egy esetleges eltávolítás esetén, és ebben inaktív állapotban nem törölődnek az előzményeik, így amikor újra aktiválva lett az adott objektum, immár új pozícióval és értékekkel, akkor az ütközésvizsgálat esetén a motor felhasználta ezeket az előzményeket, mely így könnyedén futásidejű hibát eredményezett a teljes alkalmazás összeomlásával egyetemben. Szerencsére miután fényt derítettem a hiba okára, megoldást is találtam rá: az aktiválás során a fizikai motor által használt testet újra létrehozom ezáltal törölve annak előzményeit. Remélhetőleg egy jövőbeni kiadásában a Phaser-nek ezt javítani fogják, de addig is ezzel az javítással megkerülhető a probléma.
+			További probléma volt, hogy a Phaser egyik frissen kiadott veziójába belekerült egy olyan hiba a \textit{Matter} motorral kapcsolatban, ami problémássá tette a használatát a csoportokkal (group-okkal). Itt arról volt szó, hogy optimalizáció gyanánt a fizikai motor számon tartotta az előző ütközéseket az adott objektumok között, és ezeket az előzményeket használta mindaddig, amíg bizonyos feltételek miatt mindenképp újra nem kellett számolni az értékeket. A probléma a csoportokban kezelt objektumoknál jelentkezett, mivel ezek az objektumok nem törlődnek ténylegesen, csak inaktív állapotba kerülnek egy esetleges eltávolítás esetén, és ebben az inaktív állapotban nem törölődnek az előzményeik, így amikor újra aktiválva lett az adott objektum, immár új pozícióval és értékekkel, akkor az ütközésvizsgálat esetén a motor felhasználta ezeket az előzményeket, mely így könnyedén futásidejű hibát eredményezett a teljes alkalmazás összeomlásával egyetemben. Szerencsére miután fényt derítettem a hiba okára, megoldást is találtam rá: az aktiválás során a fizikai motor által használt testet újra létrehozom ezáltal törölve annak előzményeit. Remélhetőleg egy jövőbeni kiadásában a Phaser-nek ezt javítani fogják, de addig is ezzel az javítással megkerülhető a probléma.
 		\end{MySubSection}
 		
 		\begin{MySubSection}{A pályagenerálás}
 			A pályagenerálás egy viszonylag bonyolult része a programnak, éppen ezért ehhez készítettem külön teszteket is a helyes működés biztosítása érdekében.
-			A koncepció az volt, hogy megadott seed (kezdő random érték) használatával fix méretű pályát és útvonalat tudjak generálni. A pályagenerálás része egyszerű volt. Egy seedelhető random generáló package-t használva minden mezőértékhez egy véletlenszerű értéket párosítottam $0$ és $1$ között. Ezt követően ahogy az az alábbi kódrészletben is látható, átkonvertáltam ezeket az értékeket a konkrét mezőértékekre.
+			A koncepció az volt, hogy megadott seed (kezdő random érték) használatával fix méretű pályát és útvonalat tudjak generálni. A pályagenerálás része egyszerű volt. Egy seed-elhető random generáló package-et használva minden mezőhöz egy véletlenszerű értéket párosítottam $0$ és $1$ között. Ezt követően, ahogy az az alábbi kódrészletben is látható, átkonvertáltam ezeket az értékeket a konkrét mezőértékekre.
 			\begin{javascript}
 for (let i = 0; i < gridWidth; i++) {
 	for (let j = 0; j < gridHeight; j++) {
@@ -441,13 +441,13 @@ for (let i = 0; i < gridWidth; i++) {
 			\end{javascript}
 			Esetünkben a $0.7$- nél kisebb értékek az üres mezők lesznek, a $0.7$ és $0.85$ közé esők a kráterek, a maradékok pedig erdők.
 			
-			A nehezebb rész az útvonal generálása volt, hiszen a gyakorlatilag hasznosításhoz több dolognak is meg kellett felelni az útvonalnak. Néhány ilyen kritérium a következő:
+			A nehezebb rész az útvonal generálása volt, hiszen a gyakorlati hasznosításhoz több dolognak is meg kell felelnie az útvonalnak. Néhány ilyen kritérium a következő:
 			\begin{itemize}
-				\item legyen változatos az útvonal,
-				\item ne legyenek kereszteződések,
-				\item lehetőség szerint legyen elegendő hely az útvonal mentén tornyok lerakására.
+				\item Legyen változatos az útvonal.
+				\item Ne legyenek kereszteződések.
+				\item Lehetőség szerint legyen elegendő hely az útvonal mentén tornyok lerakására.
 			\end{itemize}
-			A megvalósítás során az alábbi ötletet használtam fel: a kigenerált pálya értékeit (még a konvertálás előtt) fel lehetne használni súlyokként valamilyen útkereső algoritmushoz. Így is tettem és a dijkstra algoritmust felhasználva kerestem a legrövidebb utat a pálya bal felső sarkából a bal alsóba. Egy adottt él súlyát a két mezőérték különbsége határozta meg. Az algoritmust nem én implementáltam, helyette egy külső csomagot használtam mely ``node-dijkstra'' néven fut. Itt bele is futottam az első hibába, hiszen az algoritmus nem enged meg negatív súlyokat, ami esetünkben könnyedén előállhat, hiszen a véletlenül generált mezőértékek $0$ és $1$ közé kell esniük, így attól függően, hogy melyiket melyikből vonjuk ki legrosszabb esetben $+1$ és $-1$ lesz a végeredmény. Ezt egy túlzó $+5$-ös eltolással orvosoltam, amitől már $+4$ és $+6$ közé esett mindegyik súlyérték. Így már sikerült útvonalat generálni, de azt tapasztaltam, hogy dacára a véletlen értékeknek mégis túlságosan egysíkú az eredmény. Így hát úgy döntöttem ezt elkerülendő hozzáadok még fix érintendő pontokat az útvonalhoz, egyet a jobb felső negyedbe, egyet pedig a bal alsó negyedbe. 
+			A megvalósítás során az alábbi ötletet használtam fel: a kigenerált pálya értékeit (még a konvertálás előtt) fel lehetne használni súlyokként valamilyen útkereső algoritmushoz. Így is tettem és a Dijkstra algoritmust \cite{dijkstra} felhasználva kerestem a legrövidebb utat a pálya bal felső sarkából a bal alsóba. Egy adott él súlyát a két mezőérték különbsége határozta meg. Az algoritmust nem én implementáltam, helyette egy külső csomagot használtam mely ``node-dijkstra'' néven fut. Itt bele is futottam az első hibába, hiszen az algoritmus nem enged meg negatív súlyokat, ami esetünkben könnyedén előállhat, hiszen a véletlenül generált mezőértékek $0$ és $1$ közé kell esniük, így attól függően, hogy melyiket melyikből vonjuk ki legrosszabb esetben $+1$ és $-1$ lesz a végeredmény. Ezt egy túlzó $+5$-ös eltolással orvosoltam, amitől már $+4$ és $+6$ közé esett mindegyik súlyérték. Így már sikerült útvonalat generálni, de azt tapasztaltam, hogy dacára a véletlen értékeknek mégis túlságosan egysíkú az eredmény. Így hát úgy döntöttem ezt elkerülendő hozzáadok még fixen érintendő pontokat az útvonalhoz, egyet a jobb felső negyedbe, egyet pedig a bal alsó negyedbe. 
 			\begin{javascript}
 let path: §\color{jsType}string§[] = [];
 for (let i = 0; i < §\color{jsConst}fixPoints§.length - 1; i++) {
@@ -471,7 +471,7 @@ path = path.§\color{jsMethod}filter§(
 			\end{javascript}
 			A kódrészletben látható, ahogy a fix pontokon végighaladva páronként megkeresem a köztük lévő legrövidebb utat. Az is látható, hogy a már érintett pontokat eltávolítom a keresési gráfból, ezáltal megakadályozva a kereszteződések létrejöttét. Felmerült egy olyan probléma is, hogy ha az aktuális útszakasz pont a pálya szélén megy végig, akkor elképzelhető, hogy nem létezik útvonal a következő fix ponthoz. Ezt elkerülendő a közbenső 2 pont generálásakor a pálya szélét nem veszem figyelembe, illetve az útvonal keresésekor csak a két pont által meghatározott al-mátrixban keresesem az utat. Így már helyes eredményt kaptam, melyről 2 példa látható \myref{fig:map:generateExample} képen.
 			
-			\begin{figure}[ht!]
+			\begin{figure}[H]
 				\centering
 				\includegraphics[width=0.4\textwidth]{kepek/map/generate-example-1.png}
 				\hspace{5mm}
@@ -497,12 +497,12 @@ if (§\color{jsConst}d1§ == §\color{jsConst}SIDE\_DOWN§ && §\color{jsConst}d
 	tiles[§\color{jsConst}currentPoint§[0]][§\color{jsConst}currentPoint§[1]] = §\color{jsConst}TILE\_ROAD\_2WAY\_STRAIGHT§ + §\color{jsConst}ROTATION\_90§;
 }
 			\end{javascript}
-			Két esetet különzötettem meg, amikor vízszintesnek kell lennie az útnak és amikor függőlegesnek. A forgatás értékét a mező értékével együtt tárolom. Ez gyakorlatilag úgy valósul meg, hogy a lebegőpontos szám egész része adja meg a mező képét, a tört része pedig a forgatás értékét. Fontos megemlíteni, hogy a lebegőpontos számábrázolás következtében a törtrész csak a kettő hátványával megadható szám lehet, mert különben veszítünk a pontosságból és nem fog működni a program. Ennek a módszernek az előnye, hogy egy számként kezelve kevesebb memóriát igényel a tárolás és feltehetően gyorsítja a programot is.
+			Két esetet különböztettem meg, amikor vízszintesnek kell lennie az útnak, és amikor függőlegesnek. A forgatás értékét a mező értékével együtt tárolom. Ez gyakorlatilag úgy valósul meg, hogy a lebegőpontos szám egész része adja meg a mező képét, a tört része pedig a forgatás értékét. Fontos megemlíteni, hogy a lebegőpontos számábrázolás következtében a törtrész csak a kettő hátványával megadható szám lehet, mert különben veszítünk a pontosságból és nem fog működni a program. Ennek a módszernek az előnye, hogy egy számként kezelve kevesebb memóriát igényel a tárolás és feltehetően gyorsítja a programot is.
 		\end{MySubSection}
 		
 		\begin{MySubSection}{Az effektek}
-			Az effektek megvalósítása történt talán a leginkább az OOP elvei szerint, mivel itt nem voltam annyira korlátozva a keretrendszer által mint máshol. Működésükről annyit érdemes tudni, hogy kezdetben a tornyokon vannak létrehozva, innen továbbkerülnek lövedékekre, azok pedig végül az eltalált ellenségekre teszik, ahol végül aktiválódnak is. Miután az ellenségre kerültek, az adott ellenség minden ciklusban meghívja a rá került effektek update metódusát. Ebben az update metódusban az effekt megfelelő módon módosítja az ellenség tulajdonságait. Ezt úgy valósítottam meg, hogy a meghívott update metódust tovább bontottam egy ``init'', egy ``remove'' és egy másik ``update'' metódusra. Ezek a nevüknek megfelelően a legelső, legutolsó és az összes update ciklusban futnak le. Ezzel lehetőséget nyújtottam többféle effekt készítésére, mint például azonnali hatású, vagy tartós effektekre.
-			Implementáció szempontjából fontos volt még, hogy klónozhatóvá tegyük az effekteket, mivel ha nem így lenne, a torony a saját effekt-referenciáját adná továb az ellenségnek. Ezzel az lenne a probléma, hogy ha több ellenségen lenne ugyan az az effekt akkor felülírnák egymás értékeit, illetve az eredeti effektet is felül lehet írni így, ami nem várt erdeményeket okozhatna. A klónozás megvalósítása az alábbi kódrészletben látható:
+			Az effektek megvalósítása történt talán a leginkább az OOP elvei szerint, mivel itt nem voltam annyira korlátozva a keretrendszer által mint máshol. Működésükről annyit érdemes tudni, hogy kezdetben a tornyokon vannak létrehozva, innen továbbkerülnek a lövedékekre, azok pedig az eltalált ellenségekre teszik, ahol végül aktiválódnak is. Miután az ellenfélre kerültek, az adott ellenség minden ciklusban meghívja a rá került effektek update metódusát. Ebben az update metódusban az effekt megfelelő módon módosítja az ellenség tulajdonságait. Ezt úgy valósítottam meg, hogy a meghívott update metódust tovább bontottam egy ``init'', egy ``remove'', és egy másik ``update'' metódusra. Ezek a nevüknek megfelelően a legelső, legutolsó és az összes update ciklusban futnak le. Ezzel lehetőséget nyújtottam többféle effekt készítésére, mint például azonnali hatású, vagy tartós effektekre.
+			Implementáció szempontjából fontos volt még, hogy klónozhatóvá tegyük az effekteket, mivel ha nem így lenne, a torony a saját effekt-referenciáját adná tovább az ellenségnek. Ezzel az lenne a probléma, hogy ha több ellenségen lenne ugyanaz az effekt, akkor felülírnák egymás értékeit, illetve az eredeti effektet is felül lehet írni így, ami nem várt erdeményeket okozhatna. A klónozás megvalósítása az alábbi kódrészletben látható:
 			\begin{javascript}
 export abstract class §\color{jsType}BaseCloneable§ implements §\color{jsType}ICloneable§ {
 	public abstract §\color{jsMethod}copy§(obj: §\color{jsType}this§): §\color{jsType}this§;
@@ -515,8 +515,8 @@ export abstract class §\color{jsType}BaseCloneable§ implements §\color{jsType
 	}
 }
 			\end{javascript}
-			Az osztály csak a ``clone'' metódust implementálja, melyhez a ``copy'' metódust használja fel, melyet a leszármazottaknak kell majd megadniuk. Látható, hogy mennyire egyszerű is ez a kód a Javascript környezetben implementálva. Az Object.create() metódus egy adott prototype-nak, vagy osztálynak megfelelő objektumot hoz létre (Javascriptben az osztályok gyakorlatilag prototype-ok). Ebbe az objektumba pedig belemásoljuk a ``copy'' metódussal a adott példányban található változokat, vagyis a dinamukisan változó részét.
-			A következő kódrészletben egy egyszerűbb effektet a \texttt{FlatDamageEffect}-et láthatjuk. 
+			Az osztály csak a ``clone'' metódust implementálja, melyhez a ``copy'' metódust használja fel, melyet a leszármazottaknak kell majd megadniuk. Látható, hogy mennyire egyszerű is ez a kód a JavaScript környezetben implementálva. Az Object.create() metódus egy adott prototype-nak, vagy osztálynak megfelelő objektumot hoz létre (Javascriptben az osztályok gyakorlatilag prototype-ok). Ebbe az objektumba pedig belemásoljuk a ``copy'' metódussal az adott példányban található változókat, vagyis a dinamikusan változó részét.
+			A következő kódrészletben egy egyszerűbb effektet, a \texttt{FlatDamageEffect}-et láthatjuk. 
 			\begin{javascript}
 export class §\color{jsType}FlatDamageEffect§ extends §\color{jsType}BaseInstantEffect§ {
 	private flatAmount: §\color{jsType}number§;
@@ -540,14 +540,14 @@ export class §\color{jsType}FlatDamageEffect§ extends §\color{jsType}BaseInst
 	}
 }
 			\end{javascript}
-			Látható hogy a ``copy'' metódus az osztályban használt tagokat másolja át az új példányba. Ezután meghívja a szülő ugyan ilyen metódusát, hogy az is átmásolhassa a benne definiált tagokat és így tovább egészen amíg már nincs több szülő. Végeredményben egy teljes értékű másolatot kapunk.
+			Látható, hogy a ``copy'' metódus az osztályban használt tagokat másolja át az új példányba. Ezután meghívja a szülő ugyanilyen metódusát, hogy az is átmásolhassa a benne definiált tagokat és így tovább, egészen amíg már nincs több szülő. Végeredményben egy teljes értékű másolatot kapunk.
 			Az osztály többi része elég könnyedén értelmezhető: az effekt aktiválódása esetén, vagyis az ``init'' metódus lefutása esetén, a konstruktorban megkapott értékkel csökkenti az adott ellenség életerejét. Ha esetleg csak ideiglenesen szeretnénk módosítani az ellenség tulajdonságait, akkor azt a ``remove'' metódussal tudnánk megoldani, ahol vissza kellene állítanunk az eredeti értékeket.
 
 		\end{MySubSection}
 		
 		\begin{MySubSection}{A GameScene osztály}
-			Ez az egyik legfontosabb része a játéknak.  Az általános struktúráját követi a Scene osztályoknak vagyis van ``init'', ``preload'', ``create'' és ``update'' metódusa.
-			A Phaser ajánlása szerint az adott képernyőhöz tartozó objektumok megjelenítésének és a hozzá köthető logikának kellene itt szerepelnie, de mivel ez esetünkben nagyon komplex és terjedelmes osztályt eredményezett volna, ezért csak a megjelenítéshez szorosan köthető részeket raktam ide. Tehát itt csak az objektumok létrehozása és a megfelelő paraméterezés kapott helyett. A logikát a \texttt{GameStateStore}-ba helyeztem át. A felhasználói interakciókat az \texttt{Action} osztályok kezelik, a felhasználói felület frissítését pedig callback-ekkel oldottam meg. Az osztály metódusai közül említésre méltő ``create'', mely az alábbi kódrészletben látható.	
+			Ez az egyik legfontosabb része a játéknak. Az általános struktúráját követi a Scene osztályoknak, vagyis van ``init'', ``preload'', ``create'' és ``update'' metódusa.
+			A Phaser ajánlása szerint az adott képernyőhöz tartozó objektumok megjelenítésének és a hozzá köthető logikának kellene itt szerepelnie, de mivel ez esetünkben nagyon komplex és terjedelmes osztályt eredményezett volna, ezért csak a megjelenítéshez szorosan köthető részeket raktam ide. Tehát itt csak az objektumok létrehozása és a megfelelő paraméterezés kapott helyet. A logikát a \texttt{GameStateStore}-ba helyeztem át. A felhasználói interakciókat az \texttt{Action} osztályok kezelik, a felhasználói felület frissítését pedig callback-ekkel oldottam meg. Az osztály metódusai közül említésre méltó a ``create'', mely az alábbi kódrészletben látható.	
 			\begin{javascript}
 public §\color{jsMethod}create§(data: {seed: §\color{jsType}string§}): §\color{jsType}void§ {
 	const §\color{jsConst}windowSizes§ = this.§\color{jsMethod}getWindowSizes§();
@@ -565,7 +565,7 @@ public §\color{jsMethod}create§(data: {seed: §\color{jsType}string§}): §\co
 	this.§\color{jsMethod}createUIInputHandlers§();
 } 
 			\end{javascript}
-			Mint látható ebben a metódusban kerül sor pálya generálására, a ``GameStateStore'' létrehozására, a pálya mezőinek és egyéb részeinek létrehozására és megjelenítésére, valamint a felhasználói felület (UI) létrehozására. Ezek a metódusok nagyrészt csak a Phaser-es objektumokat hozzák létre a megfelelő paraméterekkel. Ami érdekesebb lehet az a felhasználói felületnél a frissítés és az interakció megoldása. Ezeket mint említettem callback-ekkel és az \texttt{Action} osztályok segítségével oldottam meg. Lehetett volna más megoldást is alkalmazni, például az ``update'' metódusban folyamatosan lehetett volna frissíteni a felületet és viszgálni az interakciókat, viszont ez teljesítményben sokkal rosszabb megoldás lett volna. Az alább látható 3 kódrészletben ezeket mutatom be.
+			Mint látható, ebben a metódusban kerül sor a pálya generálására, a ``GameStateStore'' létrehozására, a pálya mezőinek és egyéb részeinek létrehozására és megjelenítésére, valamint a felhasználói felület (UI) létrehozására. Ezek a metódusok nagyrészt csak a Phaser-es objektumokat hozzák létre a megfelelő paraméterekkel. Ami érdekesebb lehet, az a felhasználói felületnél a frissítés és az interakció megoldása. Ezeket mint említettem, callback-ekkel és az \texttt{Action} osztályok segítségével oldottam meg. Lehetett volna más megoldást is alkalmazni, például az ``update'' metódusban folyamatosan lehetett volna frissíteni a felületet és vizsgálni az interakciókat, viszont ez teljesítményben sokkal rosszabb megoldás lett volna. Az alább látható 3 kódrészletben ezeket mutatom be.
 			\begin{javascript}
 const §\color{jsConst}buttons§ = [
 	{
@@ -577,7 +577,7 @@ const §\color{jsConst}buttons§ = [
 	//...
 ]
 			\end{javascript}
-			Itt látható hogy a felületen megjelenő gombokat majd tömbösítve hozom létre, minden gombhoz megadva pozícióját, képét, méretét és a kattintáskor elvégzendő akciót.
+			Itt az látható, hogy a felületen megjelenő gombokat majd tömbösítve hozom létre, minden gombhoz megadva pozícióját, képét, méretét és a kattintáskor elvégzendő akciót.
 			\begin{javascript}
 for (const §\color{jsConst}button§ of §\color{jsConst}buttons§) {
 	//...
@@ -606,12 +606,12 @@ this.gameStateStore.actionChangedCallbacks.§\color{jsMethod}push§((action) => 
 	})
 })
 			\end{javascript}
-			Ebben a kódrészletben pedig az látható, ahogy hozzáadok a \texttt{GameStateStore}-hoz egy callback-et, ami akkor fog lefutni ha megváltozik a kiválaszott akció. Erre azért van szükség mert mindig az éppen aktuális akciónak megfelelő gombot jelenítjük meg másképp (kijelölve). Ezt a callback-es módszert egyébként is előszeretettel alkalmazzák más Javascript alapú alkalmazásoknál, illetve weboldalak készítésénél is.
+			Ebben a kódrészletben pedig az látható, ahogy hozzáadok a \texttt{GameStateStore}-hoz egy callback-et, ami akkor fog lefutni ha megváltozik a kiválaszott akció. Erre azért van szükség mert mindig az éppen aktuális akciónak megfelelő gombot jelenítjük meg másképp (kijelölve). Ezt a callback-es módszert egyébként is előszeretettel alkalmazzák más JavaScript alapú alkalmazásoknál, illetve weboldalak készítésénél is.
 		\end{MySubSection}
 		
 		\begin{MySubSection}{A finomhangolás}
-			A fejlesztés legutolsó szakasza volt ez, mely során az elkészült játék paramétereit módosítgattam a megfelelő nehézségi egyensúly eltalálásához. Ezt gyakorlatilag próba szerencse módon végeztem több-kevesebb sikerrel. A változtatott értékek többek között a tornyok sebzése, tűzgyorsasága, ára, az ellenségek ereje, pénzértéke, stb. volt. Mivel ez egy sokváltozós feladat és nehezen megfogható objektívan mi számít kellően nehéznek, de még élvezetesnek egyesek számára, így nem is törekedtem a tökéletességre.
-			A kezdetben jónak tűnő értékek nagyon könnyű játékot eredményeztek, konkrétan 1-2 rakétavetős torony lerakásával végtelenségig játszható lett volna a játék, szóval ezen mindeképp javítani kellett. A végeredményben számomra még mindig könnyűnek tűnő játékot kaptam, de az előzőekhez képest már érezhető a javulás.
+			A fejlesztés legutolsó szakasza volt ez, mely során az elkészült játék paramétereit módosítgattam a megfelelő nehézségi egyensúly eltalálásához. Ezt gyakorlatilag próba-szerencse módon végeztem több-kevesebb sikerrel. A változtatott értékek többek között a tornyok sebzése, tűzgyorsasága, ára, az ellenségek ereje, pénzértéke, stb. volt. Mivel ez egy sokváltozós feladat és nehezen megfogható objektívan mi számít kellően nehéznek, de még élvezetesnek egyesek számára, így nem is törekedtem a tökéletességre.
+			A kezdetben jónak tűnő értékek nagyon könnyű játékot eredményeztek, konkrétan 1-2 rakétavetős torony lerakásával végtelenségig játszható lett volna a játék, szóval ezen mindenképp javítani kellett. A végeredményben számomra még mindig könnyűnek tűnő játékot kaptam, de az előzőekhez képest már érezhető volt a javulás.
 		\end{MySubSection}
 			
 	\end{MySection}
@@ -619,61 +619,65 @@ this.gameStateStore.actionChangedCallbacks.§\color{jsMethod}push§((action) => 
 	\begin{MySection}{Tesztelés}
 		A tesztelés egy fontos folyamat, mind alkalmazások készítésénél, mind pedig játékfejlesztés esetében. 
 		A szakdolgozatom részeként készített játékban elsődlegesen a Jest NPM package segítségével próbáltam megvalósítani a tesztelés nagy részét, azonban ez elég nehézkes volt, mert a Phaser és a Jest nem teljesen kompatibilis egymással.
-				
-		% TODO leírni hogy hogy működik a jest, jest.mock(), jest.fn(), mock.reset() clear(), expect(...) toBeCalled, toBe, stb fvkről pár szót, 
 		
-		A keretrendszer miatt alapjában véve szinte lehetetlen mindent lefedni a tesztekkel, mert bizonyos dolgok tesztelését határozottan megnehezíti.
+		A Jest működéséhez fontos megemlíteni a \textit{jest.mock(...)}, \textit{jest.fn()}, \textit{mock.clear()}, \textit{mock.reset()} és \textit{expect(...)} metódusokat.
+		A \textit{jest.mock(path, impl)} a paraméterként megadott modult fogja mockolni vagy automatikusan, vagy az opcionálisan megadott implementácoó szerint.
+		A \textit{jest.fn()} egy mock (ál) metódust hoz létre, mellyel lehet befolyásolni a metódus működését, illetve ellenőrizni a használatát.
+		A \textit{mock.clear()} a mockban tárolt adatokat törli ki, mint például a függvény hívások száma és a beadott paraméterek értéke.
+		A \textit{mock.reset()} az előzőhöz hasonlóan működik, annyi plusszal, hogy a mock implementációját is visszaállítja az eredetileg megadottra.
+		Az \textit{expect(...)}-el lehet különböző értékeket vizsgálni, az egyszerű változó egyenlőségtől, egészen a mock függvények meghívásainak ellenőrzéséig rengeteg mindent.
+		
+		A keretrendszer miatt alapjában véve szinte lehetetlen volt mindent lefedni a tesztekkel, mert bizonyos dolgok tesztelését határozottan megnehezíti.
 		Gondolok itt például arra, hogy a Phasert lényegében nem lehet automatikusan mockolni, mert ilyen esetben hibára fut a Jest, tehát ekkor csak manuálisan van erre lehetőségünk, a keretrendszer minden szükséges részét megfelelően implementálva.
 		
-		További problémát jelentett még, hogy a Phaser alapvetően csak egyetlen helyen volt beimportálva, konkrétan a main osztályban, így a Jest csak ott tudta volna kicserélni az implementációját, ez viszont lehetetlenné tette volna a többi osztálynak a main-től független tesztelését. Ez, hogy csak egy helyen legyen beimportálva a Phaser, a weboldalukon \cite{phaser_official_website} található tutoriálokban, példakódokban, dokumentumokban, valamint a \url{https://blog.ourcade.co/} blogon lévő leírásokban kifejezetten fel volt tüntetve, mert problémákat okozhat, ha véletlenül kétszer is importálásra kerül a framework. Ezt megoldandó, készítettem egy úgy nevezett wrapper osztályt, ami pontosan egyszer importálja be a Phaser-t, amit így akár több helyen is biztonsággal lehet használni a Phaser használatára.
+		További problémát jelentett még, hogy a Phaser alapvetően csak egyetlen helyen volt beimportálva, konkrétan a main osztályban, így a Jest csak ott tudta volna kicserélni az implementációját, ez viszont lehetetlenné tette volna a többi osztálynak a main-től független tesztelését. Ez, hogy csak egy helyen legyen beimportálva a Phaser, a weboldalukon \cite{phaser_official_website} található tutoriálokban, példakódokban, dokumentumokban, valamint a \url{https://blog.ourcade.co/} blogon lévő leírásokban kifejezetten fel volt tüntetve, mert problémákat okozhat, ha véletlenül kétszer is importálásra kerül a framework. Ezt megoldandó, készítettem egy úgynevezett wrapper osztályt, ami pontosan egyszer importálja be a Phaser-t, amit így akár több helyen is biztonsággal lehet használni a Phaser használatára.
 		
-		% TODO jest issue: functions which are modifies input parameters cannot be tested properly, the original input valueas are not kept during tests
+		Egy feltehető bug-ot (hibát) is találtam a Jest-ben: azoknál a metódusoknál melyek az input paramétereiket módosítják, nem lehet helyesen ellenőrizni mivel lettek meghívva, mert a Jest nem tárolja el az eredeti értékét a paramétereknek. Ez esetemben kiküszöbölhető volt a metódus módosításával, de ez nem minden esetben lenne megtehető.
 			
-		Nehézség volt még, hogy az ES6-os osztályok mockolása kicsit problémás a Jest-tel, ezért készítettem egy \texttt{MockHelper} nevezetű osztályt, ami ezt orvosolja. A probléma abból fakadt, hogy a \texttt{jest.mock(...)} metódusba jelen állás szerint nem lehet külső váltózokat használni, tehát itt előre meg kell adni az osztály implementációját, viszont valamiért utólag (a konkrét teszt során) már nem lehet módosítani ezt az implementációt. Ezt úgy tudtam megkerülni, hogy közvetlenül az osztály prototype-ját módosítom ideiglenesen, és ennek az egyszerű és biztonságos kezelésére készült el az említett helper osztály.		
-		% TODO helper osztály használata bemutat, konstruktor, setup, reset
-			% boot.scene.test egész jó hozzá, onnan vegyél ki pár sort hogyan kell használni
+		Nehézség volt még, hogy az ES6-os (ECMAScript 6) osztályok mockolása kicsit problémás a Jest-tel, ezért készítettem egy \texttt{MockHelper} nevezetű osztályt, ami ezt orvosolja. A probléma abból fakadt, hogy a \texttt{jest.mock(...)} metódusba jelen állás szerint nem lehet külső váltózokat használni, tehát itt előre meg kell adni az osztály implementációját, viszont valamiért utólag (a konkrét teszt során) már nem lehet módosítani ezt az implementációt. Ezt úgy tudtam megkerülni, hogy közvetlenül az osztály prototype-ját módosítom ideiglenesen, és ennek az egyszerű és biztonságos kezelésére készült el az említett helper osztály.	
 
-		% TODO hogyan teszteltél leírni
-			% -(itt csak akkor teszteltem ha a bonyolultsága miatt szükségesnek érződött, a tesztek nagy része a játék elkészülte után íródott) és integráltam a már kész kódhoz.
+		% hogyan teszteltél leírni
 			% - manuális teszelés: vagyis hogy kipróbáltam kézzel hogy jól működnek a funkciók, ez volt nagyrészt a fejlesztés folyamán
-			% inkább a fontosabb, több gondolkodost igénylő részek lefedése volt a cél, például pályagenerálás, hogy helyesen működik-e a UI-t/megjelenítést mivel könnyen módosíthatónak kellene lennie a jövőben így nincs értelme pixelre pontosan letesztelni, ahol érdemesnek tartottam ott nagyvonalakban néhány dolgot lefedtem, épp ezért nem túl tökéletes a tesz lefedettség de ez nem is volt cél.
-			A lefedés tekintetében inkább a lényegesebb, több gondolkodást igénylő részek lefedése volt a célom.
-			Ezalatt értem például a pályagenerálást, pontosabban azt, hogy az helyesen működik-e. 
-			%	
-			A felhasználói felület (User Interface röviden: UI), illetve a megjelenítés viszont könnyen módosítható kell, hogy legyen a jövőben is, ezért nem feltétlenül lett volna értelme részletesen, akár pixelre pontosan letesztelni. 
-			Ebből kifolyólag a teljesség igénye nélkül, ahol érdemesebbnek tartottam, ott nagyvonalakban néhány dolgot lefedtem, ezáltal tehát nem teljesen tökéletes a teszt lefedettség, de nem is feltétlenül ez volt a cél. 
+		A lefedés tekintetében inkább a lényegesebb, több gondolkodást igénylő részek lefedése volt a célom. A fejlesztés során nagyrészt manuálisan teszteltem, azaz kipróbáltam kézzel, hogy jól működnek-e a funkciók. Tehát elsődlegesen csak akkor írtam tesztet, ha a bonyolultság miatt szükségesnek érződött, a tesztek nagy része azonban csak a játék elkészülte után íródott, akkor integráltam a kész kódhoz.
+		Az előbb említett bonyolultabb részek alatt értem például a pályagenerálást, pontosabban azt, hogy az helyesen működik-e, melyről alább látható egy kódrészlet.
+		\begin{javascript}
+§\color{jsMethod}test§('Test seed same generated map', () => { //...
+§\color{jsMethod}test§('Test seed different generated map', () => { //...
+§\color{jsMethod}test§('Test proper dimensions', () => { //...
+§\color{jsMethod}test§('Test proper map values', () => { //...
+§\color{jsMethod}test§('Test proper path start & end', () => { //...
+§\color{jsMethod}test§('Test proper path values', () => { //...
+§\color{jsMethod}test§('Test path no crossings', () => { //...
+§\color{jsMethod}test§('Test path connected', () => { //...				
+		\end{javascript}
+		A kódrészletbe a tesztesetek neveit tettem bele szemléltetés képpen, hogy látható legyen milyen dolgokat vizsgáltam a pályagenerálás esetében.
+		Ez mint ahogy a \myref{fig:test:mapgen} képen is látható, hasznos volt, hiszen fény derült egy hibára az útvonal mezőinek forgatásával kapcsolatban.
 			
+ 		\begin{figure}[H]
+	 		\centering
+	 		\includegraphics[scale=0.5]{kepek/teszt/tesztRosszPelda}
+		 	\caption{A rosszul működő pályagenerálás}
+		 	\label{fig:test:mapgen}
+		\end{figure}
 	
-		% TODO példa teszt + kód + leírás
-			%- pályageneráls teszteket érdemes megemlíteni hogy miket feedett le (egyediség, azonos random-seed esetén u.a generálja-e)
-			% a rosszul működő pályagenerálásról a képet valahova ide
-			
-			% \begin{figure}[H]
-			% 	\centering
-			% 	\includegraphics[scale=0.5]{kepek/teszt/tesztPelda1}
-			% 	\caption{Rosszul működő pályagenerálás}
-			% 	\label{fig:teszt:tesztPelda1}
-			% \end{figure}
-			
-			% 
-			%\begin{javascript}
-				% TODO latex környezet
-				% TODO generate map tesz bemutat, teljes forráskóddal
-			%\end{javascript}
+		A felhasználói felület (User Interface röviden: UI), illetve a megjelenítés könnyen módosítható kell, hogy legyen a jövőben is, ezért nem feltétlenül lett volna értelme részletesen, akár pixelre pontosan letesztelni. 
+		Ebből kifolyólag a teljesség igénye nélkül, ahol érdemesebbnek tartottam, ott nagyvonalakban néhány dolgot lefedtem, ezáltal tehát nem teljesen tökéletes a teszt lefedettség, de nem is feltétlenül ez volt a cél.
 		
-		%Coverage
-			% jest teszt lefedettség belerak 1-2 kép akár az egészről, akár 1-1 részéről a programnak
-			Az összességében elért teszt lefedettség \aref{tab:teszt_lefedettseg}. táblázatban látható. Az objektumok nagyrészt nem lettek letesztelve, mert sajnos már nem jutott rá idő, így ez rontja az összességében elért eredményt, ezt az ``All files'' sorban találjuk. Éppen ezért a táblázatba belefoglaltam az objektumok tesztelési lefedettsége nélküli végeredményeket is, melyek pedig a ``Without objects'' sorban láthatóak, így lényegesen nagy különbség figyelhető meg az értékek között.
-			A ``Lines'' oszlop azt tartalmazza, hogy a programban szereplő soroknak hány százaléka lett letesztelve, a ``Functions'' a játékban használatos függvények tesztelésének lefedettségét jelzi.
-			A ``Statemens'' oszlopban a program logikailag legkisebb futtatható egységeinek teszeltségét láthatjuk.
+		Végül viszonylag sok tesztet sikerült írnom, összesen $189$-et, melyekről egy futtatás a \myref{fig:test:run} képen látható. Innen az is leolvasható, hogy sokáig, majdnem egy teljes percig futottak a tesztek. Ennek feltételezhető oka nem a program komplexitása, hanem inkább a Phaser és a Jest inkompatibilitása.
+		
+ 		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=0.75]{kepek/teszt/testFuttatas}
+			\caption{A tesztek futtatása}
+			\label{fig:test:run}
+		\end{figure}
+	
+		Az összességében elért teszt lefedettség a \myref{tab:teszt_lefedettseg} táblázatban látható. Az objektumok nagyrészt nem lettek letesztelve, mert sajnos már nem jutott rá idő, így ez rontja az összességében elért eredményt, ezt az ``All files'' sorban találjuk. Éppen ezért a táblázatba belefoglaltam az objektumok tesztelési lefedettsége nélküli végeredményeket is, melyek pedig a ``Without objects'' sorban láthatóak, így lényegesen nagy különbség figyelhető meg az értékek között.
+		A ``Lines'' oszlop azt tartalmazza, hogy a programban szereplő soroknak hány százaléka lett letesztelve, a ``Functions'' a játékban használatos függvények tesztelésének lefedettségét jelzi.
+		A ``Statemens'' oszlopban a program logikailag legkisebb futtatható egységeinek teszeltségét láthatjuk.
 			% pl fgv hívás amiben van 1 változó ami meg van szorozva 2-vel pl, több sorban lehet tagolva de egy futtatható egység, itt a szorzás pedig egy kifejezés(expression)
-			A ``Branches'' alatt pedig az elágazások ágainak lefedettségét értjük.
-			%
-			% TODO - jest teszt lefedettség - 1-2 kép  -> npm test -- --coverage
-			%
-		% összes teszt kép (npm test végeredmény kép)
-		% teszt futásidő
-			% TODO Abból is látható, hogy mennyire nem kifejezetten tesztelhetően készítették el a Phaser-t, hogy az a pár viszonylag egyszerű teszt is x /* TODO idő */ másodperc alatt futtott le.
+		A ``Branches'' alatt pedig az elágazások ágainak lefedettségét értjük.
+
 			
 		\begin{table}[h]
 			\centering
@@ -683,14 +687,14 @@ this.gameStateStore.actionChangedCallbacks.§\color{jsMethod}push§((action) => 
 				\cline{2-5}
 				& Statements & Branches & Functions & Lines \\ \hline
 				\multicolumn{1}{|l|}{All files} & 66.67\% & 48.8\% & 52.22\% & 66.89\% \\ \hline
-				\multicolumn{1}{|l|}{Without objects} & 85.89\% & 73.4\% & 72.22\% & 86.2\% \\ \hline
+				\multicolumn{1}{|l|}{Without objects module} & 85.89\% & 73.4\% & 72.22\% & 86.2\% \\ \hline
 			\end{tabular}
 			% https://www.tablesgenerator.com/
 		\end{table}
 		
 	\end{MySection}
 
-	\begin{MySection}{Végeredmény}
+	\begin{MySection}{Használat}
 		% játék/program bemutatása
 		% Felhasználói kézikönyv jellegű leírás. Kifejezetten a végfelhasználó szempontjából lehet azt bemutatni, hogy mit hogy lehet majd használni.
 		A továbbiakban az elkészült játékot fogom bemutatni, részletesen leírom a használatát a végfelhasználó szempontjából, képekkel mellékelve.
@@ -732,7 +736,7 @@ this.gameStateStore.actionChangedCallbacks.§\color{jsMethod}push§((action) => 
 		Tornyokat csak üres, füves területekre tudunk építeni. Amennyiben nincs már hely ahova tudnánk tenni, le is rombolhatunk előzőleg épülteket, vagy pedig a tájelemeket is. Ezt a jobb oldalt látható felület által tehetjük meg (lásd: \myref{fig:jatekHasznalat:game_scene} ábra jobb oldala).		
 		A játék kezdetekor az egér ikont ábrázoló gomb van kijelölve. Ez az úgynevezett ``kijelölés mód'' gomb, ha ezen a módon belül vagyunk, tehát ez a gomb van bekeretezve fehér színnel, akkor ha egy már megépült toronyra rávisszük a kurzort, látni fogjuk a hatótáv jelölő kört körülötte. Ezen a körön belüli távolságra lévő ellenfeleket képes elérni a torony. % A "kijelölés mód"-ban az egyes objektumokra kattintva a játékon belül nem történik semmi, szimplán amelyik mező felett van a kurzorunk, az lesz kijelölve.
 		Az ettől jobbra található, sárga buldózer ábrával ellátott gombra kattintva pedig az ``eltávolító mód''-ba kerülünk. Ha ebben a módban vagyunk, és odamozgatjuk a kurzort (kattintás nélkül) egy-egy tárgyra a játékfelületen belül, akkor amíg az adott tárgy fölött van az egerünk, addig az előbb említett gombok feletti rubrikában látható, hogy amennyiben le szeretnénk rombolni az adott objektumot, milyen összeggel változna a pénzünk, avagy aranyunk. Az objektum tényleges eltávolítása kattintásra történik meg.
-		Abban az esetben, ha egy korábban megépített tornyot szeretnénk megsemmisíteni, a torony eredeti értékének 60\%-át kapjuk vissza, tehát például ha egy toronyért 1000 aranyat fizettünk, amikor rávisszük a kurzort eltávolító módban, ``+600''-at fogunk látni a rubrikában, tehát 600 aranyat kapunk vissza, a rombolás után. Ellenben kráter, vagy fa eltávolításához fizetnünk kell a rombolásért, tehát egy mínusz jel után fog megjelenni az összeg, amennyibe kerül.
+		Abban az esetben, ha egy korábban megépített tornyot szeretnénk megsemmisíteni, a torony eredeti értékének 60\%-át kapjuk vissza, tehát például ha egy toronyért 1000 aranyat fizettünk, amikor rávisszük a kurzort eltávolító módban, $+600$-at fogunk látni a rubrikában, tehát 600 aranyat kapunk vissza, a rombolás után. Ellenben kráter, vagy fa eltávolításához fizetnünk kell a rombolásért, tehát egy mínusz jel után fog megjelenni az összeg, amennyibe kerül.
 		A két gomb alatti felületen különféle tornyok helyezkednek el, 5 különböző típusú toronyot tudunk építeni, és mind az 5 típusból létezik 3 különböző erősségű.
 		A tornyok balról jobbra vannak sorbarendezve, tehát adott típusú toronynak először a leggyengébb változát láthatjuk, a végén pedig a legerősebbet, de összességében szituációfüggő is, hogy épp melyik az, amit a legjobban megéri építenünk. Az azonos típusú tornyok hasonló megjelenéssel rendelkeznek, hogy látható legyen az, hogy egy ugyanazon típuson belül helyezkednek el, az áruk azonban különböző.
 		
