@@ -15,7 +15,7 @@
 		% irodalomjegyz.->
 		% https://docs.microsoft.com/en-us/archive/msdn-magazine/2015/march/game-development-a-web-game-in-an-hour
 		
-		Azonban a böngészők erőforrásai kifejezetten korlátozottak voltak, komplexebb alkalmazásokhoz már nem biztosítottak elég funkciót. Ezért a fejlesztők különböző cégek által készített plug-in-eket, programokat használtak, mint például a Microsoft Silverlight, vagy az Adobe Flash. Ezek a kiegészítések már komolyabb grafikus tartalom megjelenítésére voltak képesek, viszont az összes használónak szükséges telepítenie a megfelelő plugin-t. 
+		Azonban a böngészők erőforrásai kifejezetten korlátozottak voltak, komplexebb alkalmazásokhoz már nem biztosítottak elég funkciót. Ezért a fejlesztők különböző cégek által készített plug-in-eket, programokat használtak, mint például a Microsoft Silverlight, vagy az Adobe Flash. Ezek a kiegészítések már komolyabb grafikus tartalom megjelenítésére voltak képesek, viszont az összes használónak szükséges volt telepítenie a megfelelő plugin-t. 
 		
 		Kijelenthetjük tehát, hogy a mai modern kornak és a webes szabványoknak köszönhetően, ma már böngészőbe épülő plugin-ek nélkül is képesek vagyunk modern hardveresen gyorsított számítógépes grafika, illetve a felhasználói elvárásokat kielégítő szintű játékok készítésére.
 	\end{MySection}
@@ -84,7 +84,7 @@
 		% mi ez, miért jó
 		% kialakulása
 		A TypeScript szintén egy objektum-orientált nyelv, tulajdonképpen a JavaScript típusokkal, osztályokkal, és egyéb hasznos funkciókkal kibővített változata. Tehát minden, amit JavaScript-ben megtehetünk, az TypeScript-ben is lehetséges, továbbá egy működő JavaScript kódot átvihetünk TypeScript kódba, az ott is le fog futni, a futási időben való viselkedés pedig nem fog változni, még akkor sem, ha a TypeScript úgy érzékeli, hogy a kód típushibákat tartalmaz. Fordítás során a TypeScript fájlok JavaScripté konvertálódnak át. A nyelvet a Microsoft készítette. Érdemes észrevennünk, hogy a TypeScript-ben található típusok, osztályok, privát illetve publikus láthatóságok, stb. ellenőrzése csak fordítási időben történik meg, futásidőben nem garantált.
-		A TypeScript megjelenése előtt a JavaScript programozók gyakran követtek el típushibákat, még akár szimpla elgépelések miatt is. Ezen hibák kiküszöbölésével azonban a TypeScript hatékonyabbá teheti a JavaScript fejlesztést, nagyobb projektek esetében is.
+		A TypeScript megjelenése előtt a JavaScript programozók gyakran követtek el típushibákat, még akár szimpla elgépelések miatt is. Ezen hibák kiküszöbölésével azonban a TypeScript hatékonyabbá teheti a fejlesztést, nagyobb projektek esetében is.
 		\cite{typescript}
 		% irodalom->
 		% https://www.typescriptlang.org/
@@ -94,7 +94,7 @@
 			\item Objektum-orientált programozási nyelv.
 			\item Teljesen nyílt forráskódú.
 			\item A fordító a TypeScript forráskódból JavaScript kódot generál.
-			\item Operációsrendszer független valamint böngészőfüggetlen.
+			\item Operációsrendszer független, valamint böngészőfüggetlen.
 			\item Egy már meglévő JS kódot fel tudunk használni TypeScriptben, tehát felülről kompatibilis a JavaScript nyelvvel.
 		\end{itemize}
 		% ESLint TSLint (PMD, Chechstyle Java esetén)
@@ -109,7 +109,7 @@
 		% irodalom --->
 		% https://www.lambdatest.com/blog/best-javascript-framework-2020/
 		
-		% TODO angular, react esetleg leírni
+		% angular, react esetleg leírni
 		Néhány kimondottan elterjedt keretrendszer például a Vue.js, React és az Angular. Ezek egyébként ebben a sorrendben 2017-ben az akkori év első három leghasználtabb JS keretrendszerei voltak a weboldal alapján, melyről fentebb szó volt.
 		Az említett keretrendszerek közül az egyikről, konkrétabban a Vue.js-ről egy rövid bemutatást is olvashatunk alább.
 		
@@ -134,9 +134,8 @@
 	\end{MySection}
 
 	\begin{MySection}{Webes játékfejlesztés}
-		% TODO a címet esetleg módosítani?
 		%  szükséges egyéb dolgok pl.: grafikai pakkok (al-al-fejezetek), hangok, texturák, objektumok
-		% TODO ide még másról szükséges lenne írnom?
+		%  ide még másról szükséges lenne írnom?
 		
 		Webes játékkészítéskor szükségünk lehet bizonyos plusz elemekre a játékunk elkészítéséhez, gondolhatunk itt textúrákra, felhasználói felülethez (GUI) szükséges elemekre, animációkra, audióra, stb. Amennyiben nem saját magunk szeretnénk elkészíteni ezeket a plusz dolgokat, az interneten rengeteg megfelelő grafikai pakk, asset (magyarul: forrás) található meg, rendelkezésünkre állnak mind fizetősek, mind ingyenesek. Ezek tehát lehetnek textúrák, hangok, animációk, sprite-ok, stb., két- és három dimenziós alkalmazásokhoz egyaránt. 
 		
@@ -153,7 +152,7 @@
 		% http://higherorderfun.com/blog/2012/05/20/the-guide-to-implementing-2d-platformers/
 		\begin{figure}[H]
 			\centering
-			\includegraphics[scale=0.25]{kepek/tileMap/TileSet.png}
+			\includegraphics[scale=0.2]{kepek/tileMap/TileSet.png}
 			\caption{Platform játékhoz alkalmas tileset}
 			\label{fig:tileMap:tileSet}
 		\end{figure}
@@ -162,7 +161,7 @@
 		
 		\begin{figure}[H]
 			\centering
-			\includegraphics[scale=0.35]{kepek/tileMap/TileMapPreview.png}
+			\includegraphics[scale=0.3]{kepek/tileMap/TileMapPreview.png}
 			\caption{Példa tilesettel létrehozott platform játékra}
 			\label{fig:tileMap:tileMapPreview}
 		\end{figure}
@@ -183,7 +182,7 @@
 		A webes játékfejlesztés esetében a webböngészőben való grafikus megjelenítéshez alapvetően két API-t használhatunk: a Canvast, valamint a WebGL-t, melyekről alább láthatunk egy-egy rövid ismertetőt.
 		
 		% canvas
-		\begin{MySubSection}{Canvas-ról röviden}
+		\begin{MySubSection}{A Canvas röviden}
 			A Canvas API tehát egy grafikai rajzoló módszert biztosít JavaScript, és a html canvas elemével. Nagyrészt 2D-s grafikára fókuszál.
 			Rengeteg dologra használhatjuk, melyek között szerepelnek a következők:
 			\cite{canvas_api}
@@ -196,11 +195,10 @@
 				\item Fotószerkesztés
 				\item Valós idejű videófeldolgozás
 			\end{itemize}
-			% TODO átolvasni h a canvas jó-e így
 		\end{MySubSection}
 		
 		% webgl
-		\begin{MySubSection}{WebGL-ről röviden}
+		\begin{MySubSection}{A WebGL röviden}
 			A WebGL (Web Graphics Library, magyarul: webalapú grafikus könyvtár) tehát egy JavaScript API, amely interaktív két dimenziós (röviden: 2D), illetve három dimenziós (röviden: 3D) grafikát tud ábrázolni bármely kompatibilis webböngészőben, plugin-ek használata nélkül.
 			\cite{webgl01}
 			\cite{webgl02}
@@ -214,9 +212,7 @@
 			
 			Számos előnyt felsorolhatunk, hogy miért lehet érdemes használnunk a WebGL-t, a teljesség igénye nélkül megemlítenék párat közülük:
 			\begin{itemize}
-				\item Ingyenes a használata.
 				\item Az OpenGL szolgált alapjául, emiatt azon fejlesztőknek, akik OpenGL-t használtak már, ismerős, egyszerű lehet a WebGL alkalmazása. 
-				\item Cross-platform, avagy platformfüggetlen, többféle platformra is implementálható.
 				\item Lehetővé teszi a hardveres gyorsítós böngészős játékokat (a felhasználó eszközétől függően).
 				\item Nincs szükség plugin-ek használatára.
 				\item Egy olyan környezet, amelyben a 3D grafika ellenőrzése egyszerű, könnyen debug-olható.
@@ -254,14 +250,14 @@
 	
 		\begin{MySubSection}{ImpactJS Engine}
 			Az ImpactJS egy olyan JavaScript játékmotor, amivel mobil és számítógép böngészőjében használható alkalmazásokat készíthetünk főképp 2D-s játékokat. A legtöbb népszerű böngészőt támogatja.
-			Az motor egy saját level-editorral (magyarul: pályaszerkesztő) rendelkezik, aminek Weltmeister a neve, ennek a használatához egy saját webszerver működésére van szükség. Elsőre kissé bonyolultnak tűnt kezdőként, mert nincs nagy tapasztalatom webszerver használatával, és a funkciók nem működtek megfelelően az első pár próbálkozásnál. Pozitívum, hogy az ImpactJS oldalán és fórumain rengeteg kérdésre választ találtam. Node.js-el, valamint annak az impact-node package-ével sikerült működtetni az editort, a kisebb problémák leküzdése után, viszont ennél egyszerűbb megoldást találva, végül az EasyPHP Webszervert használtam, aminek a grafikus felülete felhasználóbarát, egyszerű. Az editor alapvetően egy üres pályát tölt be, egyetlen réteggel, amiben az entitások találhatóak (például az ellenfelek, NPC-k stb) ezután pedig új pályákat készíthetünk, és el is tudjuk menteni azokat. Az engine oldalán találhatók demo játékok, letölthető forráskódokkal, valamint tutoriál videó is, ezekben a nagyon alapokat találhatjuk meg. Emellett több olyan dokumentum is található, mely kifejezetten kezdőknek lehet segítség, egy-egy egész játék fejlesztésén vezetnek végig, azonban ezek már fizetősek. Alapvetően nem tűnik rossznak, viszont több, mint 6 éve nem volt semmilyen frissítés a keretrendszerhez, emiatt is vált pár éve ingyenessé maga a motor. Öszességében szimpatikus, és könnyen tanulhatónak tűnik, ami ellenben nem tetszik benne, hogy nem túl naprakész.
+			A motor egy saját level-editorral (magyarul: pályaszerkesztő) rendelkezik, aminek Weltmeister a neve, ennek a használatához egy saját webszerver működésére van szükség. Elsőre kissé bonyolultnak tűnt kezdőként, mert nincs nagy tapasztalatom webszerver használatával, és a funkciók nem működtek megfelelően az első pár próbálkozásnál. Pozitívum, hogy az ImpactJS oldalán és fórumain rengeteg kérdésre választ találtam. Node.js-el, valamint annak az impact-node package-ével sikerült működtetni az editort, a kisebb problémák leküzdése után, viszont ennél egyszerűbb megoldást találva, végül az EasyPHP Webszervert használtam, aminek a grafikus felülete felhasználóbarát, egyszerű. Az editor alapvetően egy üres pályát tölt be, egyetlen réteggel, amiben az entitások találhatóak (például az ellenfelek, NPC-k, stb.) ezután pedig új pályákat készíthetünk, és el is tudjuk menteni azokat. Az engine oldalán találhatók demo játékok, letölthető forráskódokkal, valamint tutoriál videó is, ezekben a nagyon alapokat találhatjuk meg. Emellett több olyan dokumentum is található, mely kifejezetten kezdőknek lehet segítség, egy-egy egész játék fejlesztésén vezetnek végig, azonban ezek már fizetősek. Alapvetően nem tűnik rossznak, viszont több, mint 6 éve nem volt semmilyen frissítés a keretrendszerhez, emiatt is vált pár éve ingyenessé maga a motor. Öszességében szimpatikus, és könnyen tanulhatónak tűnik, ami ellenben nem tetszik benne, hogy nem túl naprakész.
 			\cite{impactjs}
 			% irodalom ->
 			% https://impactjs.com/
 		\end{MySubSection}
 			
 		\begin{MySubSection}{Modd.io}
-			A következő motor a Modd.io, amely böngészőből használható, letöltés nem szükséges, csak egy regisztráció, ezáltal a saját projektekhez, valamint az editorhoz is hozzáférést nyerünk. A játékokat, amit készítünk könnyedén publikálhatjuk, vagy továbbíthatjuk másnak, mivel gyorsan készíthető egy instant link, amit megnyitva más is kipróbálhatja az alkotást, ezt a „publikálást” természetesen bármikor leállíthatjuk. Ahhoz, hogy az alapokat elsajátítsuk, viszonylag rövid, lényegre törő oktató videók vannak fent a Modd.io honlapján, melyeket egyszerű követni, és ezáltal megtanulni velük a fontosabb alapvető dolgokat, persze a komplexebb problémák megoldásához már nem feltétlenül elegendő ez. Amikor elkezdünk készíteni egy új projektet, lehetőség van kiválasztani, hogy kezdőként vagy haladóként vagyunk ott, ettől függ, hogy az editorban minden tulajdonságot elérünk-e, mert kezdőként például leegyszerűsíti a felhasználói felületet. Azt is megadhatjuk, hogy milyen típusú játékot készítünk (például PVP, Tower defense, stb.), valamint az alap pálya kinézetét, stílusát, és csak ezek után kerülünk az editorba, ott pedig már kedvünkre alakíthatjuk a dolgokat.
+			A következő motor a Modd.io, amely böngészőből használható, letöltés nem szükséges hozzá, csak egy regisztráció, ezáltal a saját projektekhez, valamint az editorhoz is hozzáférést nyerünk. A játékokat, amit készítünk könnyedén publikálhatjuk, vagy továbbíthatjuk másnak, mivel gyorsan készíthető egy instant link, amit megnyitva más is kipróbálhatja az alkotást, ezt a „publikálást” természetesen bármikor leállíthatjuk. Ahhoz, hogy az alapokat elsajátítsuk, viszonylag rövid, lényegre törő oktató videók vannak fent a Modd.io honlapján, melyeket egyszerű követni, és ezáltal megtanulni velük a fontosabb alapvető dolgokat, persze a komplexebb problémák megoldásához már nem feltétlenül elegendő ez. Amikor elkezdünk készíteni egy új projektet, lehetőség van kiválasztani, hogy kezdőként vagy haladóként vagyunk ott, ettől függ, hogy az editorban minden tulajdonságot elérünk-e, mert kezdőként például leegyszerűsíti a felhasználói felületet. Azt is megadhatjuk, hogy milyen típusú játékot készítünk (például PVP, Tower defense, stb.), valamint az alap pálya kinézetét, stílusát, és csak ezek után kerülünk az editorba, ott pedig már kedvünkre alakíthatjuk a dolgokat.
 			\cite{modd.io_official_website}
 			% irodalom ->
 			% https://www.modd.io/
@@ -293,18 +289,22 @@
 			Viszonylag gyakran frissítik, így naprakésznek tűnik, és kifejezetten népszerűnek is.
 			A dokumentációját azonban nem mondanám annyira jónak, mert csak az alapokra tér ki, bonyolultabb témákban szinte semmi útmutató nincs, és úgy általánosságban sem különösen részletezi a dolgokat. Az osztályokat leírja, hogy mire valók, de nincs összetettebb összefoglaló, hogy ha egy-egy adott dolgot szeretnénk csinálni, mit érdemes használni hozzá, illetve néhány metódus nincs is kifejtve, hogy hogyan használható, hanem csak fel van sorolva, hogy egy adott osztályban mely metódusok találhatóak. Így ha komplexebb, nehezebb dolgokat szeretnénk megvalósítani benne, más fórumokon nagyobb eséllyel találhatunk segítséget, vagy magunknak kell kikísérleteznünk a megoldást.
 			
-			% TODO ### phaser alapvető dolgait leírni: ###
-			%mi az a scene (itt lenne a logika + a ui)
-			%game
-			%config
-			%group
-			%gameobject, sprite, image, +physics enabled versions
-			%arcade / mattejs physics
-			%spritesheet/imageatlas
-			%- miért jó, miért jobb mint ha egyesével töltenénk be a képeket
-			%-  gondolj itt a 4k*4k-s videókártya buffer méretere, amibe ha betöltünk egy ilyen pont beleillő képet amin több különböző dolog is van, sokkal gyorsabb csak az adott memóriában lévő képen pozíciót ugrani, mintsem külön másik képet betölteni a memóriába, főleg animációknál fontos ez a gyorsaság miatt.
-			%fizika overlap vs collision különbség ütközés vizsgálatkor
-			%- overlap átefdést néz, nem tolja el egymástól az objektumokat, a collision igen, így nekünk érdemesebb az overlapot használni hiszen a lövedékeinknek nem kellene eltolni az ellenfelet, leglaábbis nem volt cél, ez viszotn felvet egy másik poblémát, hogy kezelni kell ha egyszerre több dologgal kerül "átfedésbe" a lövedék, illetve kezelni kell, hogy ha ugyan azzal a dologgal kerül többször is átefedésbe, pl egy lövedék ha van penetration-je ne tudja ugyan azt az ellenfelete többször is sebezni.
+			A Phaser néhány fontosabb része, osztálya, fogalma a következő felsorolásban látható:
+			\begin{itemize}
+				\item \texttt{Game} - Maga a játékmotor, ha szeretnénk további funkciókkal bővíthetjük.
+				\item \texttt{Config} - Konfiguráció a játékhoz, itt adható meg a képernyő mérete, viselkedése, a fizikai motor típusa és működése, stb.
+				\item \texttt{Scene} - A különböző képernyők osztálya, ebben kell szerepelni a képernyőn megjelenő objektumok leírásának, illetve módosítási logikájának.
+				\item \texttt{GameObject} - Minden a játékban megjelenő objektum ebből az osztályból származik.
+				\item \texttt{Image} - Olyan megjelenő objektumok osztálya melyek egy statikus képből állnak.
+				\item \texttt{Sprite} - Hasonló az \texttt{Image}-hez, viszont itt a képnek nem kell statikusnak lennie, vagyis megengedett például az animáció a képek változtatgatásával.
+				\item \texttt{Group} - Az objektumok csoportos kezelésésre ad lehetőséget. Ezentúl előnyös lehet, mivel optimalizáltan kezeli az objektumok létrehozását azáltal, hogy törlés esetén csak inaktívnak jelöli meg az objektumot, mellyel az később újra felhasználható, ezzel megspórolva a költséges objektum létrehozásokat.
+				\item \texttt{Arcade fizikai motor} - Az alapértelmezett, kevesebb funkcióval rendelkező fizikai motorja a Phasernek.
+				\item \texttt{Matter fizikai motor} - A bonyolultabb, több funkcióval rendelkező fizikai motorja a keretrendszernek.
+				\item \texttt{Overlap} - Olyan ütközésvizsgálat, mely során csak az van vizsgálva, hogy két objektum átfedésben van-e.
+				\item \texttt{Collision} - Olyan ütközésvizsgálat, mely során egy átfedés esetén az objektumok el is lesznek lökve egymástól, elkerülve ezzel az ismételt ütközések bekövetkezését.
+				\item \texttt{Image atlas / Sprite sheet} - Képek csoportosított tárolási módja, mellyel gyorsítható a játék futása.
+			\end{itemize}
+
 		\end{MySubSection}
 			
 		\begin{MySubSection}{A fejlesztéshez kiválasztott játékmotor}		
