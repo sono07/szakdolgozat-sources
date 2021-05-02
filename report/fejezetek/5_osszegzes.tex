@@ -6,7 +6,7 @@
 	A \myref{Célok meghatározása} fejezetben leírt játékkal kapcsolatos terveimet nagyrészt sikerült megvalósítanom. A játékfejlesztés folyamata egyáltalán nem volt problémamentes, azonban a végeredménnyel összességében elégedett vagyok, elvégre ez még csak az első játék volt, amit valaha készítettem.
 	Abban pedig egészen biztos vagyok, hogy a szakdolgozat elkészítése során szerzett rengeteg hasznos ismeretet alkalmazni tudom majd a jövőben is, illetve minden bizonnyal továbbfejleszteni is.
 	
-	% TODO összegzésben Phaser 3-mal kapcsolatos tapasztalatokat(általánosan h erre a célra mennyire felel meg, ajánlanám-e ezt ilyen jellegű program készítésére)
+	% összegzésben Phaser 3-mal kapcsolatos tapasztalatokat(általánosan h erre a célra mennyire felel meg, ajánlanám-e ezt ilyen jellegű program készítésére)
 	\begin{MySection}{Phaser 3-mal kapcsolatos tapasztalatok}
 		Sok szempontból szimpatikus motor, könnyű a használata, tanulhatósága, viszont szerintem kisebb projektekhez alkalmas inkább, nagyobb, komplexebb prokejtek megvalósítására nem ajánlanám.
 	\end{MySection}
@@ -18,7 +18,9 @@
 		\begin{itemize}
 			\item Elsősorban, amikor először nagyvonalakban késznek nyilvánítottam a játékot, azután tűnt fel, hogy egyáltalán nem is gondoltam a hangokra, azok pótlása segíthet egy jobb játékbeli hangulatot megteremteni a játékosok számára.
 			
-			\item Vizuális effektek hozzáadása szintén hozzájárulhat a pozitívabb felhasználói élményhez. Például slow effekt használata esetén megfagyva látszódna az enemy, nem ugyanaz a látvány, csak lassabban.
+			\item Vizuális effektek hozzáadása szintén hozzájárulhat a pozitívabb felhasználói élményhez. Például slow effekt használata esetén megfagyva látszódna az ellenség.
+			
+			\item Játékosok szemszögéből hasznos lehetne még mondjuk egy információs ablak, ami leírást adhat játékban résztvevő tornyokról és egyéb elemekről, mert jelenleg ezek nincsenek részletezve.
 			
 			\item Többféle, esetleg különböző képességekkel rendelkező ellenség bevezetése javíthana a változatosságon.
 			
@@ -28,23 +30,9 @@
 			
 			\item A konfigurálható értékeket egy külső fájlból betölthetővé lehetne tenni, így manuálisan akár a felhasználó is módosíthatná az értékeket saját kedve szerint, hogy mennyire szeretne nehéz, vagy épp könnyű játékmenetet.
 			
-			\item Mobilon is működőképes a játék, azonban például az ``egér'' kezeléssel problémák vannak, de ez javítható lehet. Elsősorban ugyebár számítógépen használhatónak terveztem a játékot, de további elérendő cél lehetne mobilalkalmazásként kiadni - hiszen a JS alapvetően bármilyen platformon futtatható.
+			\item Mobilon is működőképes a játék, de az ``egér'' kezeléssel problémák vannak, viszont ez javítható lehet. Elsősorban számítógépen használhatónak terveztem a játékot, de további elérendő cél lehetne mobilalkalmazásként is kiadni.
 		\end{itemize}
 		
 	\end{MySection}
-	
-	% TODO Továbbfejlesztése lehetoseg:	Ui-ra információs dialóg amikor a torony stb felé visszük az egeret
-	
-	% TODO ### Továbbfejlesztés ###
-	% - hangok kimaradtak
-	% - teljes tesztlefedettsége, pl az objectekre is
-	% - a konfigurálthaót értékeket egy külső fájlból betölteni így manuálisan akár a felhasználó is módosíthatja az értékeket saját kénye kedve szerint.
-	% - effektekhez vizuális részt is adni, pl a slow esetén megfagyvottként látszódjon a enemy.
-	
-	% TODO továbbfejlesztés:
-	% - Finomhangolási értékeken lehetne még módosítani, mert tapasztalat alapján elég könnyűre sikerült, de ez akár egy különálló kutatás tárgyát is képezhetné, hiszen a tökéletes egyensúly megtalálsa egy optimalizálási feladatként is felfogható.
-	% - Ha több féle, különböző képességű enemy lenne, akkor nehezebb lenne / újra kellene finomhangolni.
-	
-	% TODO Továbbfejlesztési lehetőség:
-	% Mobilon is működik, de az "egér" kezeléssel vannak problémák, ez javítható lehet -> további elérendő cél lehetne mobilalkalmazásként kiadni - hiszen a js alapvetően bármilyen platformon futtatható
+
 \end{MyChapter}
