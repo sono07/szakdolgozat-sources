@@ -1,8 +1,6 @@
 \begin{MyChapter}{Játékfejlesztés általánosan}
 	% mi lesz a fejezetben
-	
-	Ebben a fejezetben megismerkedhetünk a játékfejlesztéssel, a játékok történelmével, egészen az első játékoktól kezdve haladunk a mai kor felé, a különféle platformokra kitérve. A játékok készítéséhez szükséges technológiákat sem hagyjuk ki, sőt néhány ismertebb, népszerű keretrendszerrel kicsit részletesebben is foglalkozni fogunk.
-	% TODO ez így ide elég?
+	Ebben a fejezetben megismerkedünk a játékfejlesztéssel, a játékok történelmével, egészen az első játékoktól kezdve haladva a mai kor felé, a különféle platformokra is kitérve. A játékok készítéséhez szükséges technológiákról is szó lesz, sőt néhány ismertebb, népszerű keretrendszerrel kicsit részletesebben is foglalkozunk.
 
 	\begin{MySection}{Játékfejlesztés történelme}
 		% honnan indult a játékfejlesztés 
@@ -36,8 +34,7 @@
 		\begin{MySubSection}{Első publikus játékok}
 			Egészen az 1970-es évekig még nem értek el nagy népszerűséget a videojátékok, csak ekkor kezdtek el olyan játékokat fejleszteni, amiket a nyilvánosság számára is elérhetővé tettek. Ekkor kezdték el árulni a konzolok első generációját is, például a Magnavox Odyssey-t, valamint a Color TV-Game-t. Ezek a televízión való játszást tették lehetővé a felhasználók számára, otthon.
 			
-			Az első konzol prototípusát ``The Brown Box'' (magyarul: a barna doboz) névre keresztelték el, ez lett a későbbiekben, az 1972-ben kiadott Magnavox Odyssey. Ennek a grafikája fehér pontokból és vonalakból állt. A játékoknak nem volt háttérgrafikájuk, hanem a rendszer 2 különböző méretű (nagy és közepes), áttetsző képernyő átfedéskészletet (Overlay% TODO overlay fordítás (?) https://www.lifewire.com/magnavox-odyssey-the-first-gaming-console-729587 -> Graphics and Screen Overlays
-			) használt. Néhány játék számára nem volt szükség háttérre, míg más játékoknál kötelező volt. Tartalmazott többek között foci, kísértetház, tenisz, hoki, és egyéb átfedéseket. Itt még nem volt memória amibe eltárolhatta volna a pontszámokat a konzol, így külön ponttáblát kellett hozzá használni, illetve játékkártyákat, melyek behelyezésével indult el a rendszer. Például a ``Football'' játék két cartridge-re volt szétosztva. A cartridge egy nyomtatott áramkörből áll, melyet műanyag borítás védelmez, és egy csatlakozón keresztül kommunikál a konzollal.
+			Az első konzol prototípusát ``The Brown Box'' (magyarul: a barna doboz) névre keresztelték el, ez lett a későbbiekben, az 1972-ben kiadott Magnavox Odyssey. Ennek a grafikája fehér pontokból és vonalakból állt. A játékoknak nem volt háttérgrafikájuk, hanem a rendszer 2 különböző méretű (nagy és közepes), áttetsző képernyő átfedéskészletet (Overlay) használt. Néhány játék számára nem volt szükség háttérre, míg más játékoknál kötelező volt. Tartalmazott többek között foci, kísértetház, tenisz, hoki, és egyéb átfedéseket. Itt még nem volt memória amibe eltárolhatta volna a pontszámokat a konzol, így külön ponttáblát kellett hozzá használni, illetve játékkártyákat, melyek behelyezésével indult el a rendszer. Például a ``Football'' játék két cartridge-re volt szétosztva. A cartridge egy nyomtatott áramkörből áll, melyet műanyag borítás védelmez, és egy csatlakozón keresztül kommunikál a konzollal.
 			Ezek tulajdonképpen az első külső memóriák voltak, melyeket a házi konzolokhoz használtak. A kettőből az egyik a futás, a másik pedig a passzolás, rúgás volt. Mivel nem rendelkezett mentés funkcióval a konzol, a használónak kellett számon tartania a pontot és a pozíciókat a Magnavox Odyssey-hoz tartozó pont- és játékkártyákkal, a két cartridge cserélgetése közben. Ezeket a kiegészítőket sajnos gyakran elhagyták a használók, így manapság már egy komplett Magnavox Odyssey rendszert szinte lehetetlen lenne találni.
 			A konzol egyik játéka adott egyébként inpsirációt az egyik első árkád játéknak, a ``Pong''-nak, ami játéktermekben volt fellelhető 1972-től, célja pedig, hogy a labdát játékban tartsuk, ezzel növelve a pontjaink számát. Mára a Pong már kifejezetten népszerű lett, sok másolata, klónja is készült a sikeressége miatt, illetve több platformra is átkerült.
 			\cite{magnavox-odyssey_01}
@@ -128,8 +125,8 @@
 	\end{MySection}
 
 	\begin{MySection}{Játékfejlesztés alapjai} 
-		% TODO 	- játékfejlesztés alapjai ?
-		% TODO 	- játékfejlesztés menete ?
+		% - játékfejlesztés alapjai ?
+		% - játékfejlesztés menete ?
 		% pc
 		
 		\begin{MySubSection}{PC játékok}
@@ -224,22 +221,21 @@
 		% https://www.origo.hu/techbazis/20150826-android-tv-sony-bravia-4k-google-operacios-rendszer-alkalmazasok-uj-orulet.html
 		% https://www.cnet.com/how-to/unified-remote-turns-your-android-into-a-pc-controller/
 		
-		% TODO 	-sokan: mobil app-nak álcáznak weboldalakat (ma már számos- html5 js ts) de valójában html alapú, csak egy app-ba van becsomagolva <- ezekről pár oldal	(ionic, react native, etc) js-es alkalmazást weben/androidon ios-en akár windowson is futtathatóvá teszi PL discord
+		%  	-sokan: mobil app-nak álcáznak weboldalakat (ma már számos- html5 js ts) de valójában html alapú, csak egy app-ba van becsomagolva <- ezekről pár oldal	(ionic, react native, etc) js-es alkalmazást weben/androidon ios-en akár windowson is futtathatóvá teszi PL discord
 		\end{MySubSection}
 
 		% ->végül nem ide lesz írva -webes(általánosan, később részletezve)		
-		% TODO 	-hardveres gyorsítós böngészős játékok
-		% TODO 	-elérhető technológiák / irányok
-		% TODO 	-Jövő: a javascript mert az futtatható mindenhol (ha nem túl erőforrás igényes az alkalmazás)
+		%  	-hardveres gyorsítós böngészős játékok
+		%  	-elérhető technológiák / irányok
+		%  	-Jövő: a javascript mert az futtatható mindenhol (ha nem túl erőforrás igényes az alkalmazás)
 	\end{MySection}
 
 	\begin{MySection}{Játékfejlesztés keretrendszerek nélkül}
 		% c++, low-level 
 		Keretrendszerek nélküli fejlesztés esetén rendszerint inkább alacsonyabb szintű programozási nyelveken fejlesztenek, mint például a C++, mert általában eleve a sebesség miatt nem alkalmaznak keretrendszert, ezért feltehetően olyan programozási nyelvet használnak mellé, ami elősegíti azt, hogy gyorsan futó kódot tudjunk írni.
 		
-		Keretrendszer nélküli fejlesztéskor a megjelenítéshez használhatunk API-kat (Application Programming Interface rövidítése, ez gyakorlatilag megkönnyíti a fejlesztők munkáját azzal, hogy adott programok vagy programrendszerek szolgáltatásainak dokumentációjához, utasításkészletéhez nyújtanak hozzáférést), mint például az OpenGL (Open Graphics Library). Az OpenGL egy platformfüggetlen, alacsony szintű API, melyet 1992-ben fejlesztett ki egy amerikai cég, a Silicon Graphics. Segítségével szinte közvetlenül vezérelhetjük a grafikus kártyát, programozhatjuk a 3D-s grafikát, 3 dimenziós alakzatokat rajzolhatunk ki. 
+		Keretrendszer nélküli fejlesztéskor a megjelenítéshez API-kat (Application Programming Interface rövidítése, ez gyakorlatilag megkönnyíti a fejlesztők munkáját azzal, hogy adott programok vagy programrendszerek szolgáltatásainak dokumentációjához, utasításkészletéhez nyújtanak hozzáférést) használhatunk, mint például az OpenGL (Open Graphics Library). Az OpenGL egy platformfüggetlen, alacsony szintű API, melyet 1992-ben fejlesztett ki egy amerikai cég, a Silicon Graphics. Segítségével szinte közvetlenül vezérelhetjük a grafikus kártyát, programozhatjuk a 3D-s grafikát, 3 dimenziós alakzatokat rajzolhatunk ki. 
 		Manapság inkább tervezésben, gépészetben, valamint gyártásban használják, játékokban már kevésbé, főképp a viszonylag bonyolult használata miatt. Azonban fontosnak tartottam megemlíteni itt, mivel egy időben még ez volt az egyik legnépszerűbb megjelenítéshez használatos API játékok terén is, illetve a mai modernebb technológiák közül is rengetegnek az OpenGL szolgált alapjául.
-		% TODO - a fentebb leírt opengl-es cucc jó így??
 		% Megemlítendő az OpenGL, mert ez az egyik legrégebbi, tulajdonképpen azért fontos megemlíteni mert egy alap motor.
 		%- open-source, - platformfüggetlen, bármilyen oprendszeren működik az opengl-es alkalmazás, leginkább a videokártya határozza meg h milyen funkciókat lehet vele használni. 
 		% opengl bonyolult használat, kevésbé népszerű, már jobb és gyorsabb megoldások is vannak
@@ -250,14 +246,14 @@
 		A keretrendszerek nélküli játékfejlesztésnek a sebességen kívül is számos előnye lehet a használatukkal szemben, főleg tapasztaltabb fejlesztők számára, többek között:
 		\begin{itemize}
 			\item Itt mindent saját magának készít el a fejlesztő, ezért ez a fejlesztési módszer kevésbé kötött, nagyobb rugalmasságot ad.
-			\item Egy idő után, ha sokat fejlesztünk játékmotorok használata nélkül, kialakul egy általunk fejlesztett úgymond ``keretrendszer''. Ez persze nem biztos, hogy valóban egy komplett játékmotor, viszont azon amit tartalmaz könnyedén kiigazodhatunk, mert egyből tudjuk, mit hol kell keresnünk a kódban.
+			\item Egy idő után, ha sokat fejlesztünk játékmotorok használata nélkül, kialakul egy általunk fejlesztett úgymond ``keretrendszer''. Ez persze nem biztos, hogy valóban egy komplett játékmotor, viszont könnyedén kiigazodhatunk azon amit tartalmaz, mert egyből tudjuk, mit hol kell keresnünk a kódban.
 			\item Főleg az előző ok miatt, ha hibát ejtünk valahol, könnyebb kijavítani.
 		\end{itemize}
 	
 		% hátrány
-		Kezdő, tapasztalatlanabb játékfejlesztők számára azonban hátrány lehet, hogy ez a folyamat sokkal lassabb, időigényesebb lehet, mint egy már meglévő motor használatával elkészített alkalmazás.
+		Kezdő, tapasztalatlanabb játékfejlesztők számára azonban hátrány lehet, hogy ez a folyamat sokkal lassabb, időigényesebb lehet, mint egy már meglévő motor használatával elkészíteni egy alkalmazást.
 
-		% TODO 	- példa ilyenre
+		% - példa ilyenre
 	\end{MySection}
 
 	\begin{MySection}{Játékfejlesztés keretrendszerekkel}
@@ -301,7 +297,7 @@
 	
 		% unity
 		\begin{MySubSection}{Unity}
-			Vegyük példának az egyik népszerű, modern játékmotorra a Unity Technologies által fejlesztett Unity-t, melyet 2005-ben adtak ki először. A motor C\# nyelvet használ a programozáshoz.
+			A Unity a Unity Technologies által fejlesztett, 2005-ben kiadott, népszerű, modern játékmotor. A Unity C\# nyelvet használ a programozáshoz.
 			
 			Az előnyei közé sorolhatjuk, hogy alapvetően ingyenes, számos hasznos funkcióval, részletes, jól használható dokumentációval rendelkezik, és kimondottan sok platformot támogat. Emellett egy Asset Store-ral is rendelkezik, amelyben jó néhány hasznos dolgot találhatunk, például textúrákat, modelleket, animációkat, stb.
 			
@@ -361,13 +357,13 @@
 		% https://www.unrealengine.com/en-US/blog/a-first-look-at-unreal-engine-5
 		\end{MySubSection}
 		
-		% TODO 	- telepítésük
-		% TODO 	- használatuk
-		% TODO 	- tapasztalatok (kipróbálás ha lehet)
-		% TODO 	(- összehasonlítás, konklúzió)
-		% TODO - táblázatos formában összehasonlítás esetleg?
+		%  	- telepítésük
+		%  	- használatuk
+		%  	- tapasztalatok (kipróbálás ha lehet)
+		%  	(- összehasonlítás, konklúzió)
+		%  - táblázatos formában összehasonlítás esetleg?
 		
-		% TODO 	- statisztikák, kezelhetőség, tanulhatóság, gyorsaság stb
+		%  	- statisztikák, kezelhetőség, tanulhatóság, gyorsaság stb
 		\end{MySection}
 	
 \end{MyChapter}
