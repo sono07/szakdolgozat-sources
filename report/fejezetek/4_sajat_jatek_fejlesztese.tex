@@ -5,21 +5,21 @@
 	
 	\begin{MySection}{Célok meghatározása}
 		% vázolni mit szeretnél elérni a programmal/játékkal, miről fog szólni, tehát az elképzelés (vízió dokumentum :) )
-		A szakdolgozatomban egy HTML5 alapú játék megtervezése és fejlesztése a célom, konkrétabban egy tower defense (magyarul: toronyvédő, röviden: TD) műfajú játék elkészítése. A TD játékok lényege, hogy a játékos tornyok, vagy egyéb objektumok építésével megakadályozza, hogy az ellenfelek, vagy szörnyek egy előre meghatározott ponton túljussanak. Egy ilyen műfajú játék egy felhasználó számára egyszerűen megtanulható, azonban igényel némi stratégiát, gondolkodást, ahogy egyre nehezedik. 
+		A szakdolgozatomban egy HTML5 alapú játék megtervezése és fejlesztése a célom, konkrétabban egy Tower Defense (magyarul: toronyvédő, röviden: TD) műfajú játék elkészítése. A TD játékok lényege, hogy a játékos tornyok, vagy egyéb objektumok építésével megakadályozza, hogy az ellenfelek, vagy szörnyek egy előre meghatározott ponton túljussanak. Egy ilyen műfajú játék egy felhasználó számára egyszerűen megtanulható, azonban igényel némi stratégiát, gondolkodást, ahogy egyre nehezedik. 
 		% irodalom ->
 		% https://www.loopinsight.com/2010/03/30/understanding-tower-defense-games/
 		% https://en.wikipedia.org/wiki/Tower_defense
 		
-		Azért választottam ezt a műfajt, mert egyrészt magam is szeretem az ilyesfajta stílusú játékokat, így amikor a tervezésén gondolkodtam, például azon, hogy milyen elemek legyenek benne, vagy hogyan haladjon a játékmenet, akkor rengeteg ötlet merült fel bennem, többek között emiatt is, hogy korábban már játszottam hasonló témájú játékokkal, és a korábbi tower defensekkel kapcsolatos tapasztalataim alapján pedig sokkal könnyebb volt eldönteni, hogy melyek azok a tulajdonságok, amiket egy efféle játékban fontosnak tartok. Ugyanakkor még kifejezetten segítségemre voltak ezek a játékélmények abban, hogy jobban meg tudjam határozni, hogy összességében milyen végeredményt szeretnék látni a saját játékomban, mind grafikai, mind pedig játékmenet szempontjából. Másrészt, mint már említettem, még nem igazán volt tapasztalatom játékok készítése terén, ezért egy egyszerűbb játékon keresztül szerettem volna megismerni a játékfejlesztést.
+		Azért választottam ezt a műfajt, mert egyrészt magam is szeretem az ilyesfajta stílusú játékokat, így amikor a tervezésén gondolkodtam, például azon, hogy milyen elemek legyenek benne, vagy hogyan haladjon a játékmenet, akkor rengeteg ötlet merült fel bennem, többek között emiatt is, hogy korábban már játszottam hasonló témájú játékokkal, és a korábbi Tower Defensekkel kapcsolatos tapasztalataim alapján pedig sokkal könnyebb volt eldönteni, hogy melyek azok a tulajdonságok, amiket egy efféle játékban fontosnak tartok. Ugyanakkor még kifejezetten segítségemre voltak ezek a játékélmények abban, hogy jobban meg tudjam határozni, hogy összességében milyen végeredményt szeretnék látni a saját játékomban, mind grafikai, mind pedig játékmenet szempontjából.
 		
-		Mindezek mellett a TD egy olyan játékműfaj, amely meglehetősen illeszkedik ahhoz az elképzelésemhez, hogy egy felülnézetes, két dimenziós játékot szeretnék készíteni. Vizualizációs forma terén pedig a Tile-Map alapú megjelenítési technikára esett a választásom, amely mint korábban már írtam is, kimondottan népszerű 2D-s grafika esetén. Az oka annak, hogy a két dimenziós grafikát preferálom szintén amiatt van, amit említettem nemrégiben, hogy egy visszafogottabb, egyszerűbb program készítésén keresztül szeretnék tapasztalatokat gyűjteni a játékfejlesztésről, ehhez pedig kevésbé lett volna alkalmas a 3D-s grafika.
+		Mindezek mellett a TD egy olyan játékműfaj, amely meglehetősen illeszkedik ahhoz az elképzelésemhez, hogy egy felülnézetes, két dimenziós játékot szeretnék készíteni. Vizualizációs forma terén pedig a Tile-Map alapú megjelenítési technikára esett a választásom, amely mint korábban már írtam is, kimondottan népszerű 2D-s grafika esetén. Az oka annak, hogy a két dimenziós grafikát preferálom nagyrészt amiatt van, hogy mint nemrégiben említettem, még nem igazán volt tapasztalatom játékok készítése terén, ezért egy visszafogottabb, egyszerűbb program készítésén keresztül szeretnék tapasztalatokat gyűjteni a játékfejlesztésről, ehhez pedig kevésbé lett volna alkalmas a 3D-s grafika.
 		
 		A játék alapkoncepciója az lenne, hogy az elején a főmenüből elindítunk egy pályát. Ezután betölt a pálya, ahol van egy meghatározott útvonal, amely egyik oldalán beérkeznek ellenfelek, a másik végén pedig ha túl sokan túljutnak, tehát nem sikerül őket megállítanunk, elpusztítanunk, akkor veszítünk. Az útvonalon kívül a pálya tartalmazna még egyéb objektumokat, tájelemeket, hogy ne legyen egyhangú a játék kinézete. Az ellenségek kiiktatásához tornyokat lehetne letenni amelyek támadják a szörnyeket. Az alapja ez lenne a játéknak, picit részletesebben a célok meghatározásáról pedig a továbbiakban fogok beszélni.
 		
 		Az elérendő célok közé sorolnám azt, hogy nem csak egy toronyfajtát szeretnék elérhetővé tenni, hanem többfélét, kinézetben és sebzési módban egyaránt különbözőeket. Ez utóbbit úgy kell érteni, hogy a tornyok, amiket elhelyezhetünk, amelyek támadni fogják az ellenfeleket, ne csak például egy golyót lőjenek ki, hanem szeretnék lézert, esetleg rakétavetőt, vagy más egyéb lövedékfajtát is. Fontos lehet még, hogy némelyik torony akár több szörnyet is tudjon egyszerre sebezni, például adott területre irányuló támadással, legfőképpen a játék későbbi szakaszában, amikor már különösen sok az ellenség. Mindenképp szeretnék effekteket is tenni a játékba, mondjuk olyat, ami lassítja az ellenfelet, ez segíthet főleg a játék későbbi időszakában, hogy több ellenség legyen egy helyen, ezáltal még több szörnyet képesek lennénk támadni egyszerre, területi sebzéssel. Ezen effekteket esetleg vizuálisan is megkülönböztethetővé lehetne tenni, például lassítás esetén a szörny ami elszenvedi az effektet fagyos lenne, ha tűzzel kapcsolatos sebzést kap akkor pedig például lángolna egy darabig.
 		Úgy gondolom, hogy az is hasznos lenne, hogy ha egyszer leteszünk egy tornyot, akkor nem feltétlenül kellene ott maradnia örökre, hanem akár lerombolhatnánk, ezzel valamennyi pénzt visszakapva, majd újat építhetnénk a helyére, ami erősebb, jobban illik oda az érkező ellenfelekhez. 
 		
-		A szörnyek tömegben jönnének, bizonyos darabszám először, majd fokozatosan egyre több érkezne egy hullámmal. Minden új csoportnyi ellenség között egy kis időt szeretnék hagyni a legyőzésükre, és minden legyőzött csapat után nem csak több, de erősebb ellenfelek lennének a következő hordában. A felhasználó számára szeretném elérhetővé tenni azt, hogy éppen hanyadik hullám érkezik, valamint azt is, hogy hány szörnyből áll majd a következő csoportnyi ellenfél.
+		A szörnyek tömegben jönnének, bizonyos darabszám először, majd fokozatosan egyre több érkezne egy-egy hullámmal. Minden új csoportnyi ellenség között egy kis időt szeretnék hagyni a legyőzésükre, és minden legyőzött csapat után nem csak több, de erősebb ellenfelek lennének a következő hordában. A felhasználó számára szeretném elérhetővé tenni azt, hogy éppen hanyadik hullám érkezik, valamint azt is, hogy hány szörnyből áll majd a következő csoportnyi ellenfél.
 		Azon kívül, hogy meg tudjuk ölni az ellenséget a tornyok segítségével, lehetne mondjuk valamilyen objektumot az útjukba helyezni, ami megállítaná őket egy darabig, ez a lassítás effektű lövedéken túl szintén elősegíthetne egy területi sebzésű fegyvert.
 		
 		Mint ahogy az előző mondatból kiderülhet, szeretnék még valamiféle pénzrendszert, erőforrást vinni a játékba, amelyből megvásárolhatóak a tornyok a védekezéshez. A pénzt minden megölt szörnyeteg után kapja majd a játékos, és ide kerülne vissza az a pénz is amit visszakapnánk ha mondjuk lerombolunk egy tornyot. Bizonyos összegért esetleg el lehetne pusztítani egyes tájelemeket is, hogy ha nagyon rossz helyen vannak, a helyükre tudjunk tornyot tenni a védelem érdekében.
@@ -31,7 +31,7 @@
 		Az előző mondataimból már kiderülhet, hogy szeretném, hogy egy pályát akár többször is meg lehessen próbálni, viszont mindenképpen szükséges több pálya is, különféle útvonalakkal, mert különben hamar unalmassá, megszokássá válna főleg a játék eleje, ahogy mindig ugyanoda tehetnénk le csak a tornyokat, és folyton azonos útvonalon haladnának a szörnyek. Ezt elkerülendő tehát fontosnak tartom, hogy több pálya is legyen, például véletlenszerűen, vagy pedig a játékos által valamilyen bemenettel generálva. Ezáltal változatosabb útvonalak lehetnének, illetve a tájelemek sem mindig ugyanott helyezkednének el. A felhasználó számára feltétlenül módosíthatónak kellene lennie a generálásnak, vagy pedig a legutóbb alkotott pályát elérhetővé tenni, hogy ha ugyanazon a pályán szeretne játszani, például a magasabb pontszám elérése miatt, az megoldható legyen.
 		
 		% meddig szeretnék eljutni a játék készítésével
-		Elsődlegesen azt szeretném elérni, hogy az alap funkcionalitás meglegyen, majd amikor az kész lesz, csak azután szeretném a fentebbi tulajdonságokból a lehető legtöbbet megvalósítani, kibővíteni a játékot. Gondolok itt arra, hogy például a vizuális effektek nem élveznek annyira prioritást. Ami még a célom, hogy a továbbiakban is lehetőség legyen bővítésre, illetve hogy az esetleges továbbfejlesztési lehetőségeket viszonylag könnyen intergálni tudjuk a programba a későbbiekben.
+		Elsődlegesen azt szeretném elérni, hogy az alap funkcionalitás meglegyen, majd amikor az kész lesz, csak azután szeretném a fentebbi tulajdonságokból a lehető legtöbbet megvalósítani, kibővíteni a játékot. Gondolok itt arra, hogy például a vizuális effektek nem élveznek annyira prioritást. Ami még a célom, hogy a továbbiakban is lehetőség legyen bővítésre, illetve hogy az esetleges továbbfejlesztési lehetőségeket viszonylag könnyen integrálni tudjuk a programba a későbbiekben.
 	\end{MySection}
 		
 	\begin{MySection}{Felhasznált eszközök, technológiák}
@@ -63,7 +63,7 @@
 			Számomra a képek, assetek módosítása, vágása miatt volt rá szükség.
 			A következő linken érhetjük el: \url{https://www.photopea.com/}
 			
-			\item \texttt{Free Sprite Sheet Packer} - Az önálló képekből való sprite sheetek készítéséhez volt szükség a használatára. Azért is erre esett a választás, mert a Phaserrel kompatibilis, ezenkívül az önmagában álló képek (spriteok) kombinálása egy nagyobb képbe (sprite sheet) javítja a játék teljesítményét, hatékonyabbá teszi a memóriahasználatot, gyorsabb töltési időt eredményez.
+			\item \texttt{Free Sprite Sheet Packer} - Az önálló képekből való sprite sheetek készítéséhez volt szükség a használatára. Azért is erre esett a választásom, mert a Phaserrel kompatibilis, ezenkívül az önmagában álló képek (spriteok) kombinálása egy nagyobb képbe (sprite sheet) javítja a játék teljesítményét, hatékonyabbá teszi a memóriahasználatot, gyorsabb töltési időt eredményez.
 			\cite{spritesheet}
 			% forrás: https://www.codeandweb.com/what-is-a-sprite-sheet
 			Amit használtam, az tulajdonképpen a TexturePacker online alternatívája, a következő linken érhető el: \url{https://www.codeandweb.com/free-sprite-sheet-packer}
@@ -85,7 +85,7 @@
 			\label{fig:uml:module}
 		\end{figure}
 		
-		%TODO uml képek pozíciója, ahol van overflow az jó-e?
+		% uml képek pozíciója, ahol van overflow az jó-e?
 		% kimaradt uml képek mellékletbe
 		% \texttt{}-n belüli részeket nem engdei wrappelni, így kilógnak az oldalról
 		
@@ -95,7 +95,8 @@
 			
 			\begin{figure}[h!]
 				\centering
-				\includegraphics[scale=0.8]{kepek/uml/entry/entry.png}
+				%\includegraphics[scale=0.8]{kepek/uml/entry/entry.png}
+				\includegraphics[width=1.05\textwidth]{kepek/uml/entry/entry.png}
 				\caption{Az Entry modul osztálydiagramja}
 				\label{fig:uml:entry}
 			\end{figure}
@@ -120,14 +121,14 @@
 			
 			\begin{figure}[h!]
 				\centering
-				\includegraphics[scale=0.8]{kepek/uml/scenes/scene-pt1.png}
+				\includegraphics[scale=0.82]{kepek/uml/scenes/scene-pt1.png}
 				\caption{A Scenes modul osztálydiagramja}
 				\label{fig:uml:scene}
 			\end{figure}
 			
 			A modul osztályai az alábbi felsorolásban láthatóak:
 			\begin{itemize}
-				\item \texttt{IScene} - Interface a Scene-k átlal implementálandó metódusok megadására. A Phaser Scene implementációja megengedi ezen metódusok elhagyását, viszont az egységes kód érdekében inkább kötelezővé tettem őket.
+				\item \texttt{IScene} - Interface a Scene-ek által implementálandó metódusok megadására. A Phaser Scene implementációja megengedi ezen metódusok elhagyását, viszont az egységes kód érdekében inkább kötelezővé tettem őket.
 				
 				\item \texttt{BaseScene} - Absztrakt ősosztály melynek egyetlen feladata, hogy a konstruktorban megkapott azonosítót megfelelő formában továbbadja a Phasernek.
 				
@@ -152,7 +153,7 @@
 			
 			\begin{figure}[h!]
 				\centering
-				\includegraphics[width=1\textwidth]{kepek/uml/actions/action-pt1.png}
+				\includegraphics[width=1.12\textwidth]{kepek/uml/actions/action-pt1.png}
 				\caption{Az Actions modul osztálydiagramja}
 				\label{fig:uml:action}
 			\end{figure}
@@ -221,7 +222,7 @@
 				
 				\item \texttt{ITurretGroup} - Az \texttt{IGroup} interface kibővítése a tornyoknál egyedileg szükséges dolgokkal, melyek a torony ára és a mező értéke.
 				
-				\item \texttt{BaseTurretGroup} - Absztrakt osztály mely az \texttt{ITurretGroup} interface-t valósítja meg. A konkrét árat és mező értéket a leszármazottak fogják meghatározni.
+				\item \texttt{BaseTurretGroup} - Absztrakt osztály, mely az \texttt{ITurretGroup} interface-t valósítja meg. A konkrét árat és mező értéket a leszármazottak fogják meghatározni.
 				
 				\item \texttt{<T>Group} - A lövedékek és az ellenségek konkrét csoportjai. Az ősosztály felé a kezelendő objektum osztályát határozzák meg. Példa: \texttt{BulletGroup}
 				
@@ -238,7 +239,7 @@
 			
 			\begin{figure}[H]
 				\centering
-				\includegraphics[width=0.7\textwidth]{kepek/uml/objects/object.png}
+				\includegraphics[width=0.72\textwidth]{kepek/uml/objects/object.png}
 				\caption{Az Objects modul osztálydiagramja}
 				\label{fig:uml:object}
 			\end{figure}
@@ -258,7 +259,7 @@
 			
 			\begin{figure}[h!]
 				\centering
-				\includegraphics[width=1\textwidth]{kepek/uml/effects/effect.png}
+				\includegraphics[width=1.1\textwidth]{kepek/uml/effects/effect.png}
 				\caption{Az Effects modul osztálydiagramja}
 				\label{fig:uml:effect}
 			\end{figure}
@@ -300,7 +301,7 @@
 			\begin{figure}[h!]
 				\centering
 				%\includegraphics[width=1.1\textwidth]{kepek/uml/projectiles/projectile.png}
-				\makebox[1.05\textwidth][c]{\includegraphics[width=1.15\textwidth]{kepek/uml/projectiles/projectile.png}}
+				\makebox[1.1\textwidth][c]{\includegraphics[width=1.175\textwidth]{kepek/uml/projectiles/projectile.png}}
 				\caption{A Projectiles modul osztálydiagramja}
 				\label{fig:uml:projectile}
 			\end{figure}
@@ -309,7 +310,7 @@
 			\begin{itemize}
 				\item \texttt{IProjectile} - Interface, ami a lövedékek általános inicializáló paramétereit határozza meg. Kibővíti az \texttt{IObject} interface-t.
 
-				\item \texttt{BaseProjectile} - Abasztrakt osztály, ami az \texttt{IProjectile}-nak megfelelően implementálja a lövedékek általános funkcióit és tulajdonságait oly módon, hogy az később bővíthető legyen.
+				\item \texttt{BaseProjectile} - Absztrakt osztály, ami az \texttt{IProjectile}-nak megfelelően implementálja a lövedékek általános funkcióit és tulajdonságait oly módon, hogy az később bővíthető legyen.
 
 				\item \texttt{LaserObject} - Lézersugarat reprezentáló osztály. Ez egy nem mozgó és azonnal sebző lövedék típus, mely pontosan egy konkrét ellenfelet sebezhet csak. Megjelenítéshez animációt is tartalmaz. A \texttt{BaseProjectile}-ból származik le.
 
@@ -319,7 +320,7 @@
 
 				\item \texttt{IAOEMovingProjectile} - Interface, ami a területi sebzést okozó lövedékeknél használatos paraméterekkel bővíti ki a \texttt{IMovingProjectile}-t.
 
-				\item \texttt{RocketObject} - Rakétát megtestesítő osztály. A \texttt{BaseMovingProjectile}-ból származik le. Feladata a rakétákra jellemző területi sebzés megvalósítása, és animáció kezelése.
+				\item \texttt{RocketObject} - A rakétát megtestesítő osztály. A \texttt{BaseMovingProjectile}-ból származik le. Feladata a rakétákra jellemző területi sebzés megvalósítása, és animáció kezelése.
 
 				\item \texttt{IPenetratingMovingProjectile} - Interface, ami kibővíti a \texttt{IMovingProjectile} interface-t, az átütőképességgel rendelkező lövedékekhez szükséges paraméterekkel.
 
@@ -340,7 +341,7 @@
 			
 			\begin{figure}[h!]
 				\centering
-				\includegraphics[width=0.65\textwidth]{kepek/uml/turrets/turret-pt1.png}
+				\includegraphics[width=0.656\textwidth]{kepek/uml/turrets/turret-pt1.png}
 				\caption{A Turrets modul osztálydiagramja}
 				\label{fig:uml:turret}
 			\end{figure}
@@ -351,7 +352,7 @@
 				
 				\item \texttt{BaseTurretObject} - Absztrakt osztály, ami a tornyok logikájának nagyrészét tartalmazza. Kezeli a torony létrehozását, eltávolítását, az ellenségek kiválasztását, illetve megtámadását, valamint a hatótáv jelölő megjelenítését és eltávolítását. A konkrét lövedék típusokat az alosztályok fogják meghatározni.
 				
-				\item \texttt{Turret<T>Object} - Ezek az osztályok a konkrét torony típusokat valósítják meg. Közös ősük a \texttt{BaseTurretObject}-t. Feladatuk a torony tulajdonságainak (hatótáv, tűzgyorsaság), a megjelenítésének és a konkrét lövedék típusainak a meghatározása.
+				\item \texttt{Turret<T>Object} - A konkrét torony típusokat megvalósító osztályok. Közös ősük a \texttt{BaseTurretObject}-t. Feladatuk a torony tulajdonságainak (hatótáv, tűzgyorsaság), a megjelenítésének és a konkrét lövedék típusainak a meghatározása.
 				
 			\end{itemize}
 			
@@ -365,14 +366,14 @@
 				
 			\begin{figure}[h!]
 				\centering
-				\includegraphics[width=0.88\textwidth]{kepek/uml/enemies/enemy.png}
+				\includegraphics[width=0.906\textwidth]{kepek/uml/enemies/enemy.png}
 				\caption{Az Enemies modul osztálydiagramja}
 				\label{fig:uml:enemy}
 			\end{figure}
 			
 			A modul osztályai az alábbi felsorolásban láthatóak:
 			\begin{itemize}			
-				\item \texttt{IEnemy} - Interface, ami a többi osztály számára fontos metódusokat és tulajdonságokat definiálja az ellenségekhez. Kapcsolatban van az \texttt{Effects} modullal is.
+				\item \texttt{IEnemy} - Interface, a többi osztály számára fontos metódusokat és tulajdonságokat definiálja az ellenségekhez. Kapcsolatban van az \texttt{Effects} modullal is.
 				
 				\item \texttt{EnemyObject} - Esetünkben az egyetlen konkrét ellenfelet reprezentáló osztály. Feladatai az ellenség életének és egyéb tulajdonságainak a számontartása, az effektek kezelése, a megjelenítés és animációk meghatározása, illetve az ellenség mozgatása az útvonalon. Szoros kapcsolatban áll a \texttt{HealthBarObject} osztállyal.
 				
@@ -469,15 +470,15 @@ path = path.§\color{jsMethod}filter§(
 	(item, index, array) => array.§\color{jsMethod}indexOf§(item) === index
 );
 			\end{javascript}
-			A kódrészletben látható, ahogy a fix pontokon végighaladva páronként megkeresem a köztük lévő legrövidebb utat. Az is látható, hogy a már érintett pontokat eltávolítom a keresési gráfból, ezáltal megakadályozva a kereszteződések létrejöttét. Felmerült egy olyan probléma is, hogy ha az aktuális útszakasz pont a pálya szélén megy végig, akkor elképzelhető, hogy nem létezik útvonal a következő fix ponthoz. Ezt elkerülendő a közbenső 2 pont generálásakor a pálya szélét nem veszem figyelembe, illetve az útvonal keresésekor csak a két pont által meghatározott al-mátrixban keresesem az utat. Így már helyes eredményt kaptam, melyről 2 példa látható \myref{fig:map:generateExample} képen.
+			A kódrészletben látható, ahogy a fix pontokon végighaladva páronként megkeresem a köztük lévő legrövidebb utat. Az is látható, hogy a már érintett pontokat eltávolítom a keresési gráfból, ezáltal megakadályozva a kereszteződések létrejöttét. Felmerült egy olyan probléma is, hogy ha az aktuális útszakasz pont a pálya szélén megy végig, akkor elképzelhető, hogy nem létezik útvonal a következő fix ponthoz. Ezt elkerülendő a közbenső 2 pont generálásakor a pálya szélét nem veszem figyelembe, illetve az útvonal keresésekor csak a két pont által meghatározott al-mátrixban keresem az utat. Így már helyes eredményt kaptam, melyről 2 példa látható \myref{fig:map:generateExample} képen.
 			
 			\begin{figure}[H]
 				\centering
-				\includegraphics[width=0.31\textwidth]{kepek/map/generate-example-1.png}
+				\includegraphics[width=0.34\textwidth]{kepek/map/generate-example-2.png}
 				\hspace{5mm}
-				\includegraphics[width=0.31\textwidth]{kepek/map/generate-example-2.png}
+				\includegraphics[width=0.34\textwidth]{kepek/map/generate-example-1.png}
 				
-				\caption{Példák a seed nélkül (bal oldal) és a seed-del történő (jobb oldal) pályagenerálásra.}
+				\caption{Példák seed-del történő (bal oldal) és anélküli (jobb oldal) pályagenerálásra.}
 				\label{fig:map:generateExample}
 			\end{figure}
 			
@@ -497,7 +498,7 @@ if (§\color{jsConst}d1§ == §\color{jsConst}SIDE\_DOWN§ && §\color{jsConst}d
 	tiles[§\color{jsConst}currentPoint§[0]][§\color{jsConst}currentPoint§[1]] = §\color{jsConst}TILE\_ROAD\_2WAY\_STRAIGHT§ + §\color{jsConst}ROTATION\_90§;
 }
 			\end{javascript}
-			Két esetet különböztettem meg, amikor vízszintesnek kell lennie az útnak, és amikor függőlegesnek. A forgatás értékét a mező értékével együtt tárolom. Ez gyakorlatilag úgy valósul meg, hogy a lebegőpontos szám egész része adja meg a mező képét, a tört része pedig a forgatás értékét. Fontos megemlíteni, hogy a lebegőpontos számábrázolás következtében a törtrész csak a kettő hátványával megadható szám lehet, mert különben veszítünk a pontosságból és nem fog működni a program. Ennek a módszernek az előnye, hogy egy számként kezelve kevesebb memóriát igényel a tárolás és feltehetően gyorsítja a programot is.
+			Két esetet különböztettem meg, amikor vízszintesnek kell lennie az útnak, és amikor függőlegesnek. A forgatás értékét a mező értékével együtt tárolom. Ez gyakorlatilag úgy valósul meg, hogy a lebegőpontos szám egész része adja meg a mező képét, a tört része pedig a forgatás értékét. Fontos megemlíteni, hogy a lebegőpontos számábrázolás következtében a törtrész csak a kettő hatványával megadható szám lehet, mert különben veszítünk a pontosságból és nem fog működni a program. Ennek a módszernek az előnye, hogy egy számként kezelve kevesebb memóriát igényel a tárolás és feltehetően gyorsítja a programot is.
 		\end{MySubSection}
 		
 		\begin{MySubSection}{Az effektek}
@@ -515,7 +516,7 @@ export abstract class §\color{jsType}BaseCloneable§ implements §\color{jsType
 	}
 }
 			\end{javascript}
-			Az osztály csak a ``clone'' metódust implementálja, melyhez a ``copy'' metódust használja fel, melyet a leszármazottaknak kell majd megadniuk. Látható, hogy mennyire egyszerű is ez a kód a JavaScript környezetben implementálva. Az Object.create() metódus egy adott prototype-nak, vagy osztálynak megfelelő objektumot hoz létre (Javascriptben az osztályok gyakorlatilag prototype-ok). Ebbe az objektumba pedig belemásoljuk a ``copy'' metódussal az adott példányban található változókat, vagyis a dinamikusan változó részét.
+			Az osztály csak a ``clone'' metódust implementálja, melyhez a ``copy'' metódust használja fel, melyet a leszármazottaknak kell majd megadniuk. Látható, hogy mennyire egyszerű is ez a kód a JavaScript környezetben implementálva. Az Object.create() metódus egy adott prototype-nak, vagy osztálynak megfelelő objektumot hoz létre (JavaScriptben az osztályok gyakorlatilag prototype-ok). Ebbe az objektumba pedig belemásoljuk a ``copy'' metódussal az adott példányban található változókat, vagyis a dinamikusan változó részét.
 			A következő kódrészletben egy egyszerűbb effektet, a \texttt{FlatDamageEffect}-et láthatjuk. 
 			\begin{javascript}
 export class §\color{jsType}FlatDamageEffect§ extends §\color{jsType}BaseInstantEffect§ {
@@ -621,7 +622,7 @@ this.gameStateStore.actionChangedCallbacks.§\color{jsMethod}push§((action) => 
 		A szakdolgozatom részeként készített játékban elsődlegesen a Jest NPM package segítségével próbáltam megvalósítani a tesztelés nagy részét, azonban ez elég nehézkes volt, mert a Phaser és a Jest nem teljesen kompatibilis egymással.
 		
 		A Jest működéséhez fontos megemlíteni a \textit{jest.mock(...)}, \textit{jest.fn()}, \textit{mock.clear()}, \textit{mock.reset()} és \textit{expect(...)} metódusokat.
-		A \textit{jest.mock(path, impl)} a paraméterként megadott modult fogja mockolni vagy automatikusan, vagy az opcionálisan megadott implementácoó szerint.
+		A \textit{jest.mock(path, impl)} a paraméterként megadott modult fogja mockolni vagy automatikusan, vagy az opcionálisan megadott implementáció szerint.
 		A \textit{jest.fn()} egy mock (ál) metódust hoz létre, mellyel lehet befolyásolni a metódus működését, illetve ellenőrizni a használatát.
 		A \textit{mock.clear()} a mockban tárolt adatokat törli ki, mint például a függvény hívások száma és a beadott paraméterek értéke.
 		A \textit{mock.reset()} az előzőhöz hasonlóan működik, annyi plusszal, hogy a mock implementációját is visszaállítja az eredetileg megadottra.
@@ -672,7 +673,7 @@ this.gameStateStore.actionChangedCallbacks.§\color{jsMethod}push§((action) => 
 			\label{fig:test:run}
 		\end{figure}
 	
-		Az összességében elért teszt lefedettség a \myref{tab:teszt_lefedettseg} táblázatban látható. Az objektumok nagyrészt nem lettek letesztelve, mert sajnos már nem jutott rá idő, így ez rontja az összességében elért eredményt, ezt az ``All files'' sorban találjuk. Éppen ezért a táblázatba belefoglaltam az objektumok tesztelési lefedettsége nélküli végeredményeket is, melyek pedig a ``Without objects'' sorban láthatóak, így lényegesen nagy különbség figyelhető meg az értékek között.
+		Az összességében elért teszt lefedettség a \myref{tab:teszt_lefedettseg} táblázatban látható. Az objektumok nagyrészt nem lettek letesztelve, mert sajnos már nem jutott rá idő, így ez rontja az összességében elért eredményt, ezt az ``All files'' sorban találjuk. Éppen ezért a táblázatba belefoglaltam az objektumok tesztelési lefedettsége nélküli végeredményeket is, melyek pedig a ``Without objects module'' sorban láthatóak, így lényegesen nagy különbség figyelhető meg az értékek között.
 		A ``Lines'' oszlop azt tartalmazza, hogy a programban szereplő soroknak hány százaléka lett letesztelve, a ``Functions'' a játékban használatos függvények tesztelésének lefedettségét jelzi.
 		A ``Statemens'' oszlopban a program logikailag legkisebb futtatható egységeinek teszeltségét láthatjuk.
 			% pl fgv hívás amiben van 1 változó ami meg van szorozva 2-vel pl, több sorban lehet tagolva de egy futtatható egység, itt a szorzás pedig egy kifejezés(expression)
@@ -747,8 +748,15 @@ this.gameStateStore.actionChangedCallbacks.§\color{jsMethod}push§((action) => 
 	
 		A felső felhasználói felületen (lásd \myref{fig:jatekHasznalat:felso_ui} ábra) balról jobbra haladva, a következőket láthatjuk:
 		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=0.58]{kepek/jatekHasznalat/felso_ui}
+			\caption{A felülső felhasználói felület (UI) }
+			\label{fig:jatekHasznalat:felso_ui}
+		\end{figure}
+		
 		\begin{itemize}
-			\item Piros szív ábra: Az itt látható szám az aktuális életünket jelzi. Ez csökkenni fog, ha egy szörnyet engedünk végigmenni az egész úton. Amikor teljesen elfogy, akkor veszítünk, az adott játék véget ér.
+			\item Piros szív ábra: Az itt látható szám az aktuális életerőnket jelzi. Ez csökkenni fog, ha egy szörnyet engedünk végigmenni az egész úton. Amikor teljesen elfogy, akkor veszítünk, az adott játék véget ér.
 			
 			\item Sárga érme ``\$'' jellel: Ebben a rubrikában az aktuális aranyunk jelenik meg. Ez az érték többször is változhat a játék során. Például toronyépítéskor levonódik a torony összege, ellenben amikor megölünk egy szörnyet akkor kapunk érte adott aranymennyiséget.
 			
@@ -759,19 +767,12 @@ this.gameStateStore.actionChangedCallbacks.§\color{jsMethod}push§((action) => 
 			\item Szellem ikon: A szörnyeket jelképezi. Azt jelzi a játékos számra, hogy az adott hullámban mennyi ellenség érkezik.
 		\end{itemize}
 	
-		\begin{figure}[H]
-			\centering
-			\includegraphics[scale=0.58]{kepek/jatekHasznalat/felso_ui}
-			\caption{A felülső felhasználói felület (UI) }
-			\label{fig:jatekHasznalat:felso_ui}
-		\end{figure}
-	
 		A fentieken kívül még megemlítendő, hogy amennyiben olyan tevékenységet kívánunk tenni, amely nem lehetséges az adott mezőben, (például nincs elég pénzünk, hogy megvegyük a jobb oldali menüből kiválasztott tornyot, vagy mondjuk ha az utat próbáljuk meg eltávolítani), úgy a mező pirosas színre vált, ha pedig lehetséges az akció végrehajtása, akkor élénk zöldes árnyalatot kap. A (\myref{fig:jatekHasznalat:kijeloles_minta} ábrán bal oldalt az előbbi, jobb oldalt pedig az utóbbi látható.)
 		
 		\begin{figure}[H]
 			\centering
-			\includegraphics[scale=0.848]{kepek/jatekHasznalat/minta_rossz_kijeloles}
-			\includegraphics[scale=0.85]{kepek/jatekHasznalat/minta_jo_kijeloles}
+			\includegraphics[scale=0.858]{kepek/jatekHasznalat/minta_rossz_kijeloles}
+			\includegraphics[scale=0.86]{kepek/jatekHasznalat/minta_jo_kijeloles}
 			\caption{Minta kijelölésekre - lehetetlen, illetve teljesíthető akciók esetén}
 			\label{fig:jatekHasznalat:kijeloles_minta}
 		\end{figure}
@@ -783,7 +784,7 @@ this.gameStateStore.actionChangedCallbacks.§\color{jsMethod}push§((action) => 
 		
 		\begin{figure}[H]
 			\centering
-			\includegraphics[scale=0.45]{kepek/jatekHasznalat/game_over_scene}
+			\includegraphics[scale=0.5]{kepek/jatekHasznalat/game_over_scene}
 			\caption{Részlet a Game Over képernyőről}
 			\label{fig:jatekHasznalat:game_over_scene}
 		\end{figure}
