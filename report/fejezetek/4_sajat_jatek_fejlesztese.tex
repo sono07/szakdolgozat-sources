@@ -187,7 +187,7 @@
 				
 				\item \texttt{IEnemySpawner} - Interface, ami az ellenségek létrehozásához, és a játék köreinek kezeléséhez szükséges metódusokat definiálja. Ezeket, az \texttt{update} metódus kivételével, főként a UI használja.
 				
-				\item \texttt{EnemySpawner} - Elsődlegesen az ellenségek létrehozásáért felel, de feladata még a körök kezelése, az ellenségek számának és erejének fokozatos növelése is. Működése közvetelenül a \texttt{GameStateStore}-al van összefüggésben.
+				\item \texttt{EnemySpawner} - Elsődlegesen az ellenségek létrehozásáért felel, de feladata még a körök kezelése, az ellenségek számának és erejének fokozatos növelése is. Működése közvetlenül a \texttt{GameStateStore}-al van összefüggésben.
 				
 				\item \texttt{IGameStateStore} - Talán a legtöbbet használt interface az alkalmazásban. Számos metódust definiál a UI és a többi modul felé.
 				
@@ -330,7 +330,7 @@
 
 				\item \texttt{EnergyBallBlueObject} - A kék színű energia-lövedéket megvalósító osztály. A \texttt{Base\-Penetrating\-Moving\-Projectile}-ból származik le. Feladatai az egyedi animáció és megjelenés biztosítása.
 
-				\item \texttt{EnergyBallOrangeObject} - Az sárga színű energia-lövedéket megvalósító osztály. A \texttt{Base\-Penetrating\-Moving\-Projectile}-ból származik le. Feladatai az egyedi animáció és megjelenés biztosítása.
+				\item \texttt{EnergyBallOrangeObject} - A sárga színű energia-lövedéket megvalósító osztály. A \texttt{Base\-Penetrating\-Moving\-Projectile}-ból származik le. Feladatai az egyedi animáció és megjelenés biztosítása.
 							
 			\end{itemize}
 		\end{MySubSection}
@@ -377,7 +377,7 @@
 				
 				\item \texttt{EnemyObject} - Esetünkben az egyetlen konkrét ellenfelet reprezentáló osztály. Feladatai az ellenség életének és egyéb tulajdonságainak a számontartása, az effektek kezelése, a megjelenítés és animációk meghatározása, illetve az ellenség mozgatása az útvonalon. Szoros kapcsolatban áll a \texttt{HealthBarObject} osztállyal.
 				
-				\item \texttt{HealthBarObject} - Az ellenségek életerejét megjelenítő osztály. Létrehozása után követnie szükséges az adott ellenfelet, mely az egyik feladata. Feldata még az életerő megfelelő megjelenítése, melyet kívülről testreszabható módon végez.
+				\item \texttt{HealthBarObject} - Az ellenségek életerejét megjelenítő osztály. Létrehozása után követnie szükséges az adott ellenfelet, mely az egyik feladata. Feladata még az életerő megfelelő megjelenítése, melyet kívülről testreszabható módon végez.
 				
 			\end{itemize}
 		\end{MySubSection}
@@ -406,7 +406,7 @@
 					
 					\item \texttt{\_\_test\_\_} - A tesztállományok helye.
 					
-					\item \texttt{api} - Az alkalmzásban felhasznált interface-ek, illetve TypeScript típusok helye.
+					\item \texttt{api} - Az alkalmazásban felhasznált interface-ek, illetve TypeScript típusok helye.
 					
 					\item \texttt{impl} - A tényleges implementáció helye. Tartalma az absztrakt és a konkrét osztályok.
 				\end{itemize}
@@ -414,14 +414,14 @@
 		\end{MySubSection}
 		
 		\begin{MySubSection}{Az assetek}
-			Az assetek alatt a játékoknál minden olyan fájlt értünk, ami bekerül a termékbe, de nem kifejezetten forrásfájl. Ilyenek például a képek, animációk, hangeffektek, térképek, satöbbi. \cite{game_development_terms} Esetemben ezek meglepően nagy fejtörést jelentettek, több időt kellett rájuk szánnom, mint reméltem. Ennek oka, hogy sok idő volt megfelelő képeket, animációkat találni a játékhoz, mivel kevés ingyenes és egyben jól használható található az interneten. Legtöbbjük vagy nem ingyenes, vagy hiányzik belőlük néhány rész (pl.: lövedékhez animáció), vagy egyszerűen nem kompatibilis másokkal. Éppen ezért végül amellett döntöttem, hogy több forrásból összeillesztve készítem el az alkalmazást. Ehhez természetesen elkerülhetetlen volt, hogy módosításokat kelljen végeznem a fájlokon, illetve néhány esetben még bizonyos részeket nekem kellett létrehoznom is (a rakétavető lövedékét). Az így elvégzett módosítások a következőek voltak: egységesíteni kellett a képek méreteit, formátumát, a sprite sheetek elrendezését, kombinálni különböző részeket, a képen belül megfelelően pozicionálni az objektumokat, illetve közel egységessé tenni a különböző elemek színvilágát, stílusát. Ezekben nagy segítségemre voltak a \myref{Felhasznált eszközök, technológiák} fejezetben már említett ``\texttt{Photopea}'', ``\texttt{Free Sprite Sheet Packer}'' és a ``\texttt{Sprite sheet cutter}'' alkalmazások.
+			Az assetek alatt a játékoknál minden olyan fájlt értünk, ami bekerül a termékbe, de nem kifejezetten forrásfájl. Ilyenek például a képek, animációk, hangeffektek, térképek, satöbbi. \cite{game_development_terms} Esetemben ezek meglepően nagy fejtörést jelentettek, több időt kellett rájuk szánnom, mint reméltem. Ennek oka, hogy sok idő volt megfelelő képeket, animációkat találni a játékhoz, mivel kevés ingyenes és egyben jól használható található az interneten. Legtöbbjük vagy nem ingyenes, vagy hiányzik belőlük néhány rész (pl.: lövedékhez animáció), vagy egyszerűen nem kompatibilis másokkal. Éppen ezért végül amellett döntöttem, hogy több forrásból összeillesztve készítem el az alkalmazást. Ehhez természetesen elkerülhetetlen volt, hogy módosításokat kelljen végeznem a fájlokon, illetve néhány esetben még bizonyos részeket nekem kellett létrehoznom is (a rakétavető lövedékét). Az így elvégzett módosítások a következőek voltak: egységesíteni kellett a képek méreteit, formátumát, a sprite sheetek elrendezését, kombinálni különböző részeket, a képen belül megfelelően pozícionálni az objektumokat, illetve közel egységessé tenni a különböző elemek színvilágát, stílusát. Ezekben nagy segítségemre voltak a \myref{Felhasznált eszközök, technológiák} fejezetben már említett ``\texttt{Photopea}'', ``\texttt{Free Sprite Sheet Packer}'' és a ``\texttt{Sprite sheet cutter}'' alkalmazások.
 			% cite https://unity.com/how-to/beginner/game-development-terms
 		\end{MySubSection}
 		
 		\begin{MySubSection}{A Phaser fizikai motorjai}
 			A Phaser-ben két különböző fizikai motorból lehet választani, név szerint az \textit{Arcade} és a \textit{Matter} közül. A Phaser ajánlása szerint az \textit{Arcade} motort érdemes használni mindaddig, amíg valami miatt nincs szükségünk a másikra, mivel az állítólag sokkal gyorsabb és egyszerűbb kezelni. Ennek megfelelően én is az \textit{Arcade} motort használtam és tényleg egyszerűnek tűnt a kezelése mindaddig, amíg nem futottam bele egy komoly hiányosságba. Lényegében arról volt szó, hogy az \textit{Arcade} motor azért gyorsabb (és egyszerűbb) mint a másik, mivel ez csak az úgynevezett AABB (koordináta tengelyekkel párhuzamos) befoglaló testekkel tud számolni. Ebből kifolyólag kiderült számomra, hogy a lövedékek kezelése ily módon nem fog működni, mivel ez azt jelentené, hogy nem lehetne elforgatni semmit, tehát a lövedékek nem mehetnének átlósan, vagy más koordináta tengelyekkel nem párhuzamos irányba. Ez elég sajnálatos volt, mivel ekkorra már a játék nagyrésze elkészült, és ezeket a részeket mind át kellett írni az új motor használatának megfelelően.
 			
-			További probléma volt, hogy a Phaser egyik frissen kiadott veziójába belekerült egy olyan hiba a \textit{Matter} motorral kapcsolatban, ami problémássá tette a használatát a csoportokkal (group-okkal). Itt arról volt szó, hogy optimalizáció gyanánt a fizikai motor számon tartotta az előző ütközéseket az adott objektumok között, és ezeket az előzményeket használta mindaddig, amíg bizonyos feltételek miatt mindenképp újra nem kellett számolni az értékeket. A probléma a csoportokban kezelt objektumoknál jelentkezett, mivel ezek az objektumok nem törlődnek ténylegesen, csak inaktív állapotba kerülnek egy esetleges eltávolítás esetén, és ebben az inaktív állapotban nem törölődnek az előzményeik, így amikor újra aktiválva lett az adott objektum, immár új pozícióval és értékekkel, akkor az ütközésvizsgálat esetén a motor felhasználta ezeket az előzményeket, mely így könnyedén futásidejű hibát eredményezett a teljes alkalmazás összeomlásával egyetemben. Szerencsére miután fényt derítettem a hiba okára, megoldást is találtam rá: az aktiválás során a fizikai motor által használt testet újra létrehozom ezáltal törölve annak előzményeit. Remélhetőleg egy jövőbeni kiadásában a Phaser-nek ezt javítani fogják, de addig is ezzel az javítással megkerülhető a probléma.
+			További probléma volt, hogy a Phaser egyik frissen kiadott verziójába belekerült egy olyan hiba a \textit{Matter} motorral kapcsolatban, ami problémássá tette a használatát a csoportokkal (group-okkal). Itt arról volt szó, hogy optimalizáció gyanánt a fizikai motor számon tartotta az előző ütközéseket az adott objektumok között, és ezeket az előzményeket használta mindaddig, amíg bizonyos feltételek miatt mindenképp újra nem kellett számolni az értékeket. A probléma a csoportokban kezelt objektumoknál jelentkezett, mivel ezek az objektumok nem törlődnek ténylegesen, csak inaktív állapotba kerülnek egy esetleges eltávolítás esetén, és ebben az inaktív állapotban nem törlődnek az előzményeik, így amikor újra aktiválva lett az adott objektum, immár új pozícióval és értékekkel, akkor az ütközésvizsgálat esetén a motor felhasználta ezeket az előzményeket, mely így könnyedén futásidejű hibát eredményezett a teljes alkalmazás összeomlásával egyetemben. Szerencsére miután fényt derítettem a hiba okára, megoldást is találtam rá: az aktiválás során a fizikai motor által használt testet újra létrehozom ezáltal törölve annak előzményeit. Remélhetőleg egy jövőbeni kiadásában a Phaser-nek ezt javítani fogják, de addig is ezzel az javítással megkerülhető a probléma.
 		\end{MySubSection}
 		
 		\begin{MySubSection}{A pályagenerálás}
@@ -448,7 +448,7 @@ for (let i = 0; i < gridWidth; i++) {
 				\item Ne legyenek kereszteződések.
 				\item Lehetőség szerint legyen elegendő hely az útvonal mentén tornyok lerakására.
 			\end{itemize}
-			A megvalósítás során az alábbi ötletet használtam fel: a kigenerált pálya értékeit (még a konvertálás előtt) fel lehetne használni súlyokként valamilyen útkereső algoritmushoz. Így is tettem és a Dijkstra algoritmust \cite{dijkstra} felhasználva kerestem a legrövidebb utat a pálya bal felső sarkából a bal alsóba. Egy adott él súlyát a két mezőérték különbsége határozta meg. Az algoritmust nem én implementáltam, helyette egy külső csomagot használtam mely ``node-dijkstra'' néven fut. Itt bele is futottam az első hibába, hiszen az algoritmus nem enged meg negatív súlyokat, ami esetünkben könnyedén előállhat, hiszen a véletlenül generált mezőértékek $0$ és $1$ közé kell esniük, így attól függően, hogy melyiket melyikből vonjuk ki legrosszabb esetben $+1$ és $-1$ lesz a végeredmény. Ezt egy túlzó $+5$-ös eltolással orvosoltam, amitől már $+4$ és $+6$ közé esett mindegyik súlyérték. Így már sikerült útvonalat generálni, de azt tapasztaltam, hogy dacára a véletlen értékeknek mégis túlságosan egysíkú az eredmény. Így hát úgy döntöttem ezt elkerülendő hozzáadok még fixen érintendő pontokat az útvonalhoz, egyet a jobb felső negyedbe, egyet pedig a bal alsó negyedbe. 
+			A megvalósítás során az alábbi ötletet használtam fel: a kigenerált pálya értékeit (még a konvertálás előtt) fel lehetne használni súlyokként valamilyen útkereső algoritmushoz. Így is tettem és a Dijkstra algoritmust \cite{dijkstra} felhasználva kerestem a legrövidebb utat a pálya bal felső sarkából a bal alsóba. Egy adott él súlyát a két mezőérték különbsége határozta meg. Az algoritmust nem én implementáltam, helyette egy külső csomagot használtam mely ``node-dijkstra'' néven fut. Itt bele is futottam az első hibába, hiszen az algoritmus nem enged meg negatív súlyokat, ami esetünkben könnyedén előállhat, hiszen a véletlenül generált mezőértékeknek $0$ és $1$ közé kell esniük, így attól függően, hogy melyiket melyikből vonjuk ki legrosszabb esetben $+1$ és $-1$ lesz a végeredmény. Ezt egy túlzó $+5$-ös eltolással orvosoltam, amitől már $+4$ és $+6$ közé esett mindegyik súlyérték. Így már sikerült útvonalat generálni, de azt tapasztaltam, hogy dacára a véletlen értékeknek mégis túlságosan egysíkú az eredmény. Így hát úgy döntöttem ezt elkerülendő hozzáadok még fixen érintendő pontokat az útvonalhoz, egyet a jobb felső negyedbe, egyet pedig a bal alsó negyedbe. 
 			\begin{javascript}
 let path: §\color{jsType}string§[] = [];
 for (let i = 0; i < §\color{jsConst}fixPoints§.length - 1; i++) {
@@ -502,8 +502,8 @@ if (§\color{jsConst}d1§ == §\color{jsConst}SIDE\_DOWN§ && §\color{jsConst}d
 		\end{MySubSection}
 		
 		\begin{MySubSection}{Az effektek}
-			Az effektek megvalósítása történt talán a leginkább az OOP elvei szerint, mivel itt nem voltam annyira korlátozva a keretrendszer által mint máshol. Működésükről annyit érdemes tudni, hogy kezdetben a tornyokon vannak létrehozva, innen továbbkerülnek a lövedékekre, azok pedig az eltalált ellenségekre teszik, ahol végül aktiválódnak is. Miután az ellenfélre kerültek, az adott ellenség minden ciklusban meghívja a rá került effektek update metódusát. Ebben az update metódusban az effekt megfelelő módon módosítja az ellenség tulajdonságait. Ezt úgy valósítottam meg, hogy a meghívott update metódust tovább bontottam egy ``init'', egy ``remove'', és egy másik ``update'' metódusra. Ezek a nevüknek megfelelően a legelső, legutolsó és az összes update ciklusban futnak le. Ezzel lehetőséget nyújtottam többféle effekt készítésére, mint például azonnali hatású, vagy tartós effektekre.
-			Implementáció szempontjából fontos volt még, hogy klónozhatóvá tegyük az effekteket, mivel ha nem így lenne, a torony a saját effekt-referenciáját adná tovább az ellenségnek. Ezzel az lenne a probléma, hogy ha több ellenségen lenne ugyanaz az effekt, akkor felülírnák egymás értékeit, illetve az eredeti effektet is felül lehet írni így, ami nem várt erdeményeket okozhatna. A klónozás megvalósítása az alábbi kódrészletben látható:
+			Az effektek megvalósítása történt talán a leginkább az OOP elvei szerint, mivel itt nem voltam annyira korlátozva a keretrendszer által, mint máshol. Működésükről annyit érdemes tudni, hogy kezdetben a tornyokon vannak létrehozva, innen továbbkerülnek a lövedékekre, azok pedig az eltalált ellenségekre teszik, ahol végül aktiválódnak is. Miután az ellenfélre kerültek, az adott ellenség minden ciklusban meghívja a rá került effektek update metódusát. Ebben az update metódusban az effekt megfelelő módon módosítja az ellenség tulajdonságait. Ezt úgy valósítottam meg, hogy a meghívott update metódust tovább bontottam egy ``init'', egy ``remove'', és egy másik ``update'' metódusra. Ezek a nevüknek megfelelően a legelső, legutolsó és az összes update ciklusban futnak le. Ezzel lehetőséget nyújtottam többféle effekt készítésére, mint például azonnali hatású, vagy tartós effektekre.
+			Implementáció szempontjából fontos volt még, hogy klónozhatóvá tegyük az effekteket, mivel ha nem így lenne, a torony a saját effekt-referenciáját adná tovább az ellenségnek. Ezzel az lenne a probléma, hogy ha több ellenségen lenne ugyanaz az effekt, akkor felülírnák egymás értékeit, illetve az eredeti effektet is felül lehet írni így, ami nem várt eredményeket okozhatna. A klónozás megvalósítása az alábbi kódrészletben látható:
 			\begin{javascript}
 export abstract class §\color{jsType}BaseCloneable§ implements §\color{jsType}ICloneable§ {
 	public abstract §\color{jsMethod}copy§(obj: §\color{jsType}this§): §\color{jsType}this§;
@@ -607,7 +607,7 @@ this.gameStateStore.actionChangedCallbacks.§\color{jsMethod}push§((action) => 
 	})
 })
 			\end{javascript}
-			Ebben a kódrészletben pedig az látható, ahogy hozzáadok a \texttt{GameStateStore}-hoz egy callback-et, ami akkor fog lefutni ha megváltozik a kiválaszott akció. Erre azért van szükség mert mindig az éppen aktuális akciónak megfelelő gombot jelenítjük meg másképp (kijelölve). Ezt a callback-es módszert egyébként is előszeretettel alkalmazzák más JavaScript alapú alkalmazásoknál, illetve weboldalak készítésénél is.
+			Ebben a kódrészletben pedig az látható, ahogy hozzáadok a \texttt{GameStateStore}-hoz egy callback-et, ami akkor fog lefutni ha megváltozik a kiválasztott akció. Erre azért van szükség mert mindig az éppen aktuális akciónak megfelelő gombot jelenítjük meg másképp (kijelölve). Ezt a callback-es módszert egyébként is előszeretettel alkalmazzák más JavaScript alapú alkalmazásoknál, illetve weboldalak készítésénél is.
 		\end{MySubSection}
 		
 		\begin{MySubSection}{A finomhangolás}
@@ -635,7 +635,7 @@ this.gameStateStore.actionChangedCallbacks.§\color{jsMethod}push§((action) => 
 		
 		Egy feltehető bug-ot (hibát) is találtam a Jest-ben: azoknál a metódusoknál melyek az input paramétereiket módosítják, nem lehet helyesen ellenőrizni mivel lettek meghívva, mert a Jest nem tárolja el az eredeti értékét a paramétereknek. Ez esetemben kiküszöbölhető volt a metódus módosításával, de ez nem minden esetben lenne megtehető.
 			
-		Nehézség volt még, hogy az ES6-os (ECMAScript 6) osztályok mockolása kicsit problémás a Jest-tel, ezért készítettem egy \texttt{MockHelper} nevezetű osztályt, ami ezt orvosolja. A probléma abból fakadt, hogy a \texttt{jest.mock(...)} metódusba jelen állás szerint nem lehet külső váltózokat használni, tehát itt előre meg kell adni az osztály implementációját, viszont valamiért utólag (a konkrét teszt során) már nem lehet módosítani ezt az implementációt. Ezt úgy tudtam megkerülni, hogy közvetlenül az osztály prototype-ját módosítom ideiglenesen, és ennek az egyszerű és biztonságos kezelésére készült el az említett helper osztály.	
+		Nehézség volt még, hogy az ES6-os (ECMAScript 6) osztályok mockolása kicsit problémás a Jest-tel, ezért készítettem egy \texttt{MockHelper} nevezetű osztályt, ami ezt orvosolja. A probléma abból fakadt, hogy a \texttt{jest.mock(...)} metódusba jelen állás szerint nem lehet külső változókat használni, tehát itt előre meg kell adni az osztály implementációját, viszont valamiért utólag (a konkrét teszt során) már nem lehet módosítani ezt az implementációt. Ezt úgy tudtam megkerülni, hogy közvetlenül az osztály prototype-ját módosítom ideiglenesen, és ennek az egyszerű és biztonságos kezelésére készült el az említett helper osztály.	
 
 		% hogyan teszteltél leírni
 			% - manuális teszelés: vagyis hogy kipróbáltam kézzel hogy jól működnek a funkciók, ez volt nagyrészt a fejlesztés folyamán
@@ -651,8 +651,8 @@ this.gameStateStore.actionChangedCallbacks.§\color{jsMethod}push§((action) => 
 §\color{jsMethod}test§('Test path no crossings', () => { //...
 §\color{jsMethod}test§('Test path connected', () => { //...				
 		\end{javascript}
-		A kódrészletbe a tesztesetek neveit tettem bele szemléltetés képpen, hogy látható legyen milyen dolgokat vizsgáltam a pályagenerálás esetében.
-		Ez mint ahogy a \myref{fig:test:mapgen} képen is látható, hasznos volt, hiszen fény derült egy hibára az útvonal mezőinek forgatásával kapcsolatban.
+		A kódrészletbe a tesztesetek neveit tettem bele szemléltetésképpen, hogy látható legyen milyen dolgokat vizsgáltam a pályagenerálás esetében.
+		Ez, mint ahogy a \myref{fig:test:mapgen} képen is látható, hasznos volt, hiszen fény derült egy hibára az útvonal mezőinek forgatásával kapcsolatban.
 			
  		\begin{figure}[H]
 	 		\centering
@@ -675,10 +675,9 @@ this.gameStateStore.actionChangedCallbacks.§\color{jsMethod}push§((action) => 
 	
 		Az összességében elért teszt lefedettség a \myref{tab:teszt_lefedettseg} táblázatban látható. Az objektumok nagyrészt nem lettek letesztelve, mert sajnos már nem jutott rá idő, így ez rontja az összességében elért eredményt, ezt az ``All files'' sorban találjuk. Éppen ezért a táblázatba belefoglaltam az objektumok tesztelési lefedettsége nélküli végeredményeket is, melyek pedig a ``Without objects module'' sorban láthatóak, így lényegesen nagy különbség figyelhető meg az értékek között.
 		A ``Lines'' oszlop azt tartalmazza, hogy a programban szereplő soroknak hány százaléka lett letesztelve, a ``Functions'' a játékban használatos függvények tesztelésének lefedettségét jelzi.
-		A ``Statemens'' oszlopban a program logikailag legkisebb futtatható egységeinek teszeltségét láthatjuk.
+		A ``Statemens'' oszlopban a program logikailag legkisebb futtatható egységeinek teszteltségét láthatjuk.
 			% pl fgv hívás amiben van 1 változó ami meg van szorozva 2-vel pl, több sorban lehet tagolva de egy futtatható egység, itt a szorzás pedig egy kifejezés(expression)
 		A ``Branches'' alatt pedig az elágazások ágainak lefedettségét értjük.
-
 			
 		\begin{table}[h]
 			\centering
@@ -737,9 +736,9 @@ this.gameStateStore.actionChangedCallbacks.§\color{jsMethod}push§((action) => 
 		Tornyokat csak üres, füves területekre tudunk építeni. Amennyiben nincs már hely ahova tudnánk tenni, le is rombolhatunk előzőleg épülteket, vagy pedig a tájelemeket is. Ezt a jobb oldalt látható felület által tehetjük meg (lásd: \myref{fig:jatekHasznalat:game_scene} ábra jobb oldala).		
 		A játék kezdetekor az egér ikont ábrázoló gomb van kijelölve. Ez az úgynevezett ``kijelölés mód'' gomb, ha ezen a módon belül vagyunk, tehát ez a gomb van bekeretezve fehér színnel, akkor ha egy már megépült toronyra rávisszük a kurzort, látni fogjuk a hatótáv jelölő kört körülötte. Ezen a körön belüli távolságra lévő ellenfeleket képes elérni a torony. % A "kijelölés mód"-ban az egyes objektumokra kattintva a játékon belül nem történik semmi, szimplán amelyik mező felett van a kurzorunk, az lesz kijelölve.
 		Az ettől jobbra található, sárga buldózer ábrával ellátott gombra kattintva pedig az ``eltávolító mód''-ba kerülünk. Ha ebben a módban vagyunk, és odamozgatjuk a kurzort (kattintás nélkül) egy-egy tárgyra a játékfelületen belül, akkor amíg az adott tárgy fölött van az egerünk, addig az előbb említett gombok feletti rubrikában látható, hogy amennyiben le szeretnénk rombolni az adott objektumot, milyen összeggel változna a pénzünk, avagy aranyunk. Az objektum tényleges eltávolítása kattintásra történik meg.
-		Abban az esetben, ha egy korábban megépített tornyot szeretnénk megsemmisíteni, a torony eredeti értékének 60\%-át kapjuk vissza, tehát például ha egy toronyért 1000 aranyat fizettünk, amikor rávisszük a kurzort eltávolító módban, $+600$-at fogunk látni a rubrikában, tehát 600 aranyat kapunk vissza, a rombolás után. Ellenben kráter, vagy fa eltávolításához fizetnünk kell a rombolásért, tehát egy mínusz jel után fog megjelenni az összeg, amennyibe kerül.
-		A két gomb alatti felületen különféle tornyok helyezkednek el, 5 különböző típusú toronyot tudunk építeni, és mind az 5 típusból létezik 3 különböző erősségű.
-		A tornyok balról jobbra vannak sorbarendezve, tehát adott típusú toronynak először a leggyengébb változát láthatjuk, a végén pedig a legerősebbet, de összességében szituációfüggő is, hogy épp melyik az, amit a legjobban megéri építenünk. Az azonos típusú tornyok hasonló megjelenéssel rendelkeznek, hogy látható legyen az, hogy egy ugyanazon típuson belül helyezkednek el, az áruk azonban különböző.
+		Abban az esetben, ha egy korábban megépített tornyot szeretnénk megsemmisíteni, a torony eredeti értékének 60\%-át kapjuk vissza, tehát például ha egy toronyért 1000 aranyat fizettünk, amikor rávisszük a kurzort eltávolító módban, $+600$-at fogunk látni a rubrikában, tehát 600 aranyat kapunk vissza, a rombolás után. Ellenben kráter, vagy fa eltávolításához fizetnünk kell a rombolásért, tehát egy mínuszjel után fog megjelenni az összeg, amennyibe kerül.
+		A két gomb alatti felületen különféle tornyok helyezkednek el, 5 különböző típusú tornyot tudunk építeni, és mind az 5 típusból létezik 3 különböző erősségű.
+		A tornyok balról jobbra vannak sorba rendezve, tehát adott típusú toronynak először a leggyengébb változatát láthatjuk, a végén pedig a legerősebbet, de összességében szituációfüggő is, hogy épp melyik az, amit a legjobban megéri építenünk. Az azonos típusú tornyok hasonló megjelenéssel rendelkeznek, hogy látható legyen az, hogy egy ugyanazon típuson belül helyezkednek el, az áruk azonban különböző.
 		
 		Az egyes tornyok tulajdonságairól részletesebb leírás alább, a fejezet végén lévő táblázatokban olvasható (lásd: \myref{tab:torony_tipus_0}, \myref{tab:torony_tipus_1}, \myref{tab:torony_tipus_2}, \myref{tab:torony_tipus_3}, \myref{tab:torony_tipus_4} táblázatok).
 		
@@ -760,7 +759,7 @@ this.gameStateStore.actionChangedCallbacks.§\color{jsMethod}push§((action) => 
 			
 			\item Sárga érme ``\$'' jellel: Ebben a rubrikában az aktuális aranyunk jelenik meg. Ez az érték többször is változhat a játék során. Például toronyépítéskor levonódik a torony összege, ellenben amikor megölünk egy szörnyet akkor kapunk érte adott aranymennyiséget.
 			
-			\item Csillag ikon: A pillanatnyi összpontszámunkat mutatja. Minden ellenfél megölése után kapunk adott mennyiségű pontot. A végeredményként elért összpontszámot a játék vége után is megtekinthetjuk, mielőtt visszalépünk a főmenübe.
+			\item Csillag ikon: A pillanatnyi összpontszámunkat mutatja. Minden ellenfél megölése után kapunk adott mennyiségű pontot. A végeredményként elért összpontszámot a játék vége után is megtekinthetjük, mielőtt visszalépünk a főmenübe.
 			
 			\item Hullám: Azt jelzi, hogy hányadik beérkező hordánál, szörnyhullámnál tartunk éppen.
 			
@@ -780,7 +779,7 @@ this.gameStateStore.actionChangedCallbacks.§\color{jsMethod}push§((action) => 
 		% game over scene
 		
 		Most, hogy elolvastuk az előbbieket, már mindent tudunk a játékmenetről. Ami tehát még hátravan, az az, hogy mi történik akkor, amikor esetlegesen elveszítjük az összes életünket, ezáltal a játékot is.
-		Ekkor egy új felület jelenik meg előttünk (lásd: \myref{fig:jatekHasznalat:game_over_scene} ábra), amelyen egy ``Game Over'' felirat taláható, emellett itt megtekinthetjük a játék során elért összpontszámunkat, valamint a ``Back to Main Menu'' gombra kattintva pedig újra a főmenübe navigálhatjuk magunkat, hogy belekezdhessünk egy új játékmenetbe.
+		Ekkor egy új felület jelenik meg előttünk (lásd: \myref{fig:jatekHasznalat:game_over_scene} ábra), amelyen egy ``Game Over'' felirat található, emellett itt megtekinthetjük a játék során elért összpontszámunkat, valamint a ``Back to Main Menu'' gombra kattintva pedig újra a főmenübe navigálhatjuk magunkat, hogy belekezdhessünk egy új játékmenetbe.
 		
 		\begin{figure}[H]
 			\centering

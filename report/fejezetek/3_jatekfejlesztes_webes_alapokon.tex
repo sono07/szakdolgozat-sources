@@ -1,7 +1,7 @@
 \begin{MyChapter}{Játékfejlesztés webes alapokon}	
 	% leírni mi lesz a fejezetben
 	% először szót kell ejteni néhány témáról: html5, stb: melyek a webes környezet miatt kapcsolódnak a játékfejlesztéshez is.
-	Az alábbi fejezetben a webes fejlesztés témakörével fogunk foglalkozni, általánosságban, és játékfejlesztés terén egyaránt. Szót fogok ejteni a webes fejlesztéshez használatos népszerű technológiákról, például a HTML5-ről, vagy a webes projektekhez leggyakrabban használt programnyelvekről, mint a JavaScript illetve a TypeScript.
+	Az alábbi fejezetben a webes fejlesztés témakörével fogunk foglalkozni, általánosságban, és játékfejlesztés terén egyaránt. Szót fogok ejteni a webes fejlesztéshez használatos népszerű technológiákról, például a HTML5-ről, vagy a webes projektekhez leggyakrabban használt programnyelvekről, mint a JavaScript, illetve a TypeScript.
 	Miután röviden ismertetem a JavaScript programnyelvet, írni fogok a JavaScriptet támogató keretrendszerekről is, ezenkívül olvashatunk majd a keretrendszer nélküli játékfejlesztésről, az ahhoz használatos API-kat is beleértve. A fejezet végén pedig a játékmotorok közül néhányat picit részletesebben ismertetni fogok.
 
 	\begin{MySection}{Webes fejlesztés}
@@ -33,11 +33,11 @@
 		\begin{itemize}
 			\item Plugin-ektől való függetlenséget nyújt, így a felhasználók számára sokkal könnyebben hozzáférhető.
 			\item Reszponzív, hasonló felhasználói élményt nyújt különböző típusú eszközökön.
-			\item Mobilokon kevesebb sávszélesség használat szükséges hozzá, mint a sima HTML-hez, ezáltal a mobilok akkumlátora is tovább tarthat.
+			\item Mobilokon kevesebb sávszélesség használat szükséges hozzá, mint a sima HTML-hez, ezáltal a mobilok akkumulátora is tovább tarthat.
 			\item Egyéb különféle technológiák is könnyedén használhatóak együtt a HTML5-tel. (Például: PHP, MySQL)
 		\end{itemize}
 
-		A HTML5 és JavaScript alapú technológiák előkelő helyet foglalnak el platformfüggetlenség terén, viszont fontosnak tartom megjegyezni, hogy ezzel a technológiával egy összetettebb, nagyobb adattartalommal rendelkező játékot (ma még legalábbis) nem feltétlenül érdemes elkészíteni, mert könnyedén megizzaszthatja nem csak az átalgos felhasználók számítógépeit, hanem akár a modernebb gépeket is.
+		A HTML5 és JavaScript alapú technológiák előkelő helyet foglalnak el platformfüggetlenség terén, viszont fontosnak tartom megjegyezni, hogy ezzel a technológiával egy összetettebb, nagyobb adattartalommal rendelkező játékot (ma még legalábbis) nem feltétlenül érdemes elkészíteni, mert könnyedén megizzaszthatja nem csak az átlagos felhasználók számítógépeit, hanem akár a modernebb gépeket is.
 		\cite{html5_future}
 		\cite{html5}
 		% irodalom ->
@@ -74,7 +74,7 @@
 	
 		A játékipar tekintetében egyik legnépszerűbb alkalmazása, az összepárosítása a HTML5 canvas elemével. Rengeteg játékmotor készült ennek a segítségével.
 		
-		Összességében elmondhatjuk, hogy a JavaScript szinte mindenhol futtatható, rengeteg helyen alkalmazzák, és ezalatt a front-end valamint a backend mellett a mobil, az asztali, illetve a hibrid alkalmazásokat is érthetjük. A nyelv kifejezetten népszerű, folyamatosan fejlődik, a webfejlesztés egyik vezető programnyelve és ez feltehetőleg még hosszú ideig így is marad.
+		Összességében elmondhatjuk, hogy a JavaScript szinte mindenhol futtatható, rengeteg helyen alkalmazzák, és ezalatt a front-end, valamint a backend mellett a mobil, az asztali, illetve a hibrid alkalmazásokat is érthetjük. A nyelv kifejezetten népszerű, folyamatosan fejlődik, a webfejlesztés egyik vezető programnyelve és ez feltehetőleg még hosszú ideig így is marad.
 		\cite{javascript_future}
 		% irodalomjegyzék ->
 		% https://www.creative-tim.com/blog/web-development/javascript-future-learn-javascript/
@@ -119,8 +119,8 @@
 			\cite{js_framework}
 			% irodalom --->
 			% https://skillcrush.com/blog/what-is-a-javascript-framework/
-			A keretrendszert Vue-ként is emlegetik, kiejtésének hangzása az angol ``view'', azaz magyarul ``nézet'' szóra hasonlít, ez akár utalhat is arra, hogy MVVM (modell-nézet-nézetmodell) mintát követ, tehát lényegében szétválasztja a grafikus felhaszálói felületet (vagy rövidebben a megjelenítést), valamint az üzleti logikát.
-			A Vue képességei közül érdemes megjegyeznünk az újrafelhasználható komponensek építését, illeve azoknak a kommunikációját.
+			A keretrendszert Vue-ként is emlegetik, kiejtésének hangzása az angol ``view'', azaz magyarul ``nézet'' szóra hasonlít, ez akár utalhat is arra, hogy MVVM (modell-nézet-nézetmodell) mintát követ, tehát lényegében szétválasztja a grafikus felhasználói felületet (vagy rövidebben a megjelenítést), valamint az üzleti logikát.
+			A Vue képességei közül érdemes megjegyeznünk az újrafelhasználható komponensek építését, illetve azoknak a kommunikációját.
 			\cite{vue_bevezetes}
 			\cite{vue_pros_cons}
 			% irodalom ->
@@ -178,7 +178,7 @@
 	\begin{MySection}{Webes játékfejlesztés keretrendszerek nélkül}
 		% "pure js"-ben
 		A \myref{Játékfejlesztés keretrendszerek nélkül} fejezetben leírt előnyök és hátrányok természetesen webes fejlesztésnél is érvényesek.
-		Alapvetően keretrendszerek nélküli játékfeljesztés alatt az úgynevezett ``pure JavaScript''-et értjük. (A pure angol szó jelentése magyarul: tiszta.)
+		Alapvetően keretrendszerek nélküli játékfejlesztés alatt az úgynevezett ``pure JavaScript''-et értjük. (A pure angol szó jelentése magyarul: tiszta.)
 		Tehát ideértendő az, amikor csak JavaScriptet használunk a fejlesztéshez. 
 		A webes játékfejlesztés esetében a webböngészőben való grafikus megjelenítéshez alapvetően két API-t használhatunk: a Canvast, valamint a WebGL-t, melyekről alább láthatunk egy-egy rövid ismertetőt.
 		
@@ -251,14 +251,14 @@
 	
 		\begin{MySubSection}{ImpactJS Engine}
 			Az ImpactJS egy olyan JavaScript játékmotor, amivel mobil és számítógép böngészőjében használható alkalmazásokat készíthetünk, főképp 2D-s játékokat. A legtöbb népszerű böngészőt támogatja.
-			A motor egy saját level-editorral (magyarul: pályaszerkesztő) rendelkezik, aminek Weltmeister a neve, ennek a használatához egy saját webszerver működésére van szükség. Elsőre kissé bonyolultnak tűnt kezdőként, mert nincs nagy tapasztalatom webszerver használatával, és a funkciók nem működtek megfelelően az első pár próbálkozásnál. Pozitívum, hogy az ImpactJS oldalán és fórumain rengeteg kérdésre választ találtam. Node.js-el, valamint annak az impact-node package-ével sikerült működtetni az editort, a kisebb problémák leküzdése után, viszont ennél egyszerűbb megoldást találva, végül az EasyPHP Webszervert használtam, aminek a grafikus felülete felhasználóbarát, egyszerű. Az editor alapvetően egy üres pályát tölt be, egyetlen réteggel, amiben az entitások találhatóak (például az ellenfelek, NPC-k, stb.) ezután pedig új pályákat készíthetünk, és el is tudjuk menteni azokat. Az engine oldalán találhatók demo játékok, letölthető forráskódokkal, valamint tutoriál videó is, ezekben a nagyon alapokat találhatjuk meg. Emellett több olyan dokumentum is található, mely kifejezetten kezdőknek lehet segítség, egy-egy egész játék fejlesztésén vezetnek végig, azonban ezek már fizetősek. Alapvetően nem tűnik rossznak, viszont több, mint 6 éve nem volt semmilyen frissítés a keretrendszerhez, emiatt is vált pár éve ingyenessé maga a motor. Öszességében szimpatikus, és könnyen tanulhatónak tűnik, ami ellenben nem tetszik benne, hogy nem túl naprakész.
+			A motor egy saját level-editorral (magyarul: pályaszerkesztő) rendelkezik, aminek Weltmeister a neve, ennek a használatához egy saját webszerver működésére van szükség. Elsőre kissé bonyolultnak tűnt kezdőként, mert nincs nagy tapasztalatom webszerver használatával, és a funkciók nem működtek megfelelően az első pár próbálkozásnál. Pozitívum, hogy az ImpactJS oldalán és fórumain rengeteg kérdésre választ találtam. Node.js-el, valamint annak az impact-node package-ével sikerült működtetni az editort, a kisebb problémák leküzdése után, viszont ennél egyszerűbb megoldást találva, végül az EasyPHP Webszervert használtam, aminek a grafikus felülete felhasználóbarát, egyszerű. Az editor alapvetően egy üres pályát tölt be, egyetlen réteggel, amiben az entitások találhatóak (például az ellenfelek, NPC-k, stb.) ezután pedig új pályákat készíthetünk, és el is tudjuk menteni azokat. Az engine oldalán találhatók demo játékok, letölthető forráskódokkal, valamint tutoriál videó is, ezekben a nagyon alapokat találhatjuk meg. Emellett több olyan dokumentum is található, mely kifejezetten kezdőknek lehet segítség, egy-egy egész játék fejlesztésén vezetnek végig, azonban ezek már fizetősek. Alapvetően nem tűnik rossznak, viszont több, mint 6 éve nem volt semmilyen frissítés a keretrendszerhez, emiatt is vált pár éve ingyenessé maga a motor. Összességében szimpatikus, és könnyen tanulhatónak tűnik, ami ellenben nem tetszik benne, hogy nem túl naprakész.
 			\cite{impactjs}
 			% irodalom ->
 			% https://impactjs.com/
 		\end{MySubSection}
 			
 		\begin{MySubSection}{Modd.io}
-			A következő motor a Modd.io, amely böngészőből használható, letöltés nem szükséges hozzá, csak egy regisztráció, ezáltal a saját projektekhez, valamint az editorhoz is hozzáférést nyerünk. A játékokat, amiket készítünk, könnyedén publikálhatjuk, vagy továbbíthatjuk másnak, mivel gyorsan készíthető egy instant link, amit megnyitva más is kipróbálhatja az alkotást, ezt a „publikálást” természetesen bármikor leállíthatjuk. Ahhoz, hogy az alapokat elsajátítsuk, viszonylag rövid, lényegre törő oktató videók vannak fent a Modd.io honlapján, melyeket egyszerű követni, és ezáltal megtanulni velük a fontosabb alapvető dolgokat, persze a komplexebb problémák megoldásához már nem feltétlenül elegendő ez. Amikor elkezdünk készíteni egy új projektet, lehetőség van kiválasztani, hogy kezdőként vagy haladóként vagyunk ott, ettől függ, hogy az editorban minden tulajdonságot elérünk-e, mert kezdőként például leegyszerűsíti a felhasználói felületet. Azt is megadhatjuk, hogy milyen típusú játékot készítünk (például PVP, Tower defense, stb.), valamint az alap pálya kinézetét, stílusát, és csak ezek után kerülünk az editorba, ott pedig már kedvünkre alakíthatjuk a dolgokat.
+			A következő motor a Modd.io, amely böngészőből használható, letöltés nem szükséges hozzá, csak egy regisztráció, ezáltal a saját projektekhez, valamint az editorhoz is hozzáférést nyerünk. A játékokat, amiket készítünk, könnyedén publikálhatjuk, vagy továbbíthatjuk másnak, mivel gyorsan készíthető egy instant link, amit megnyitva más is kipróbálhatja az alkotást, ezt a „publikálást” természetesen bármikor leállíthatjuk. Ahhoz, hogy az alapokat elsajátítsuk, viszonylag rövid, lényegre törő oktató videók vannak fent a Modd.io honlapján, melyeket egyszerű követni, és ezáltal megtanulni velük a fontosabb alapvető dolgokat, persze a komplexebb problémák megoldásához már nem feltétlenül elegendő ez. Amikor elkezdünk készíteni egy új projektet, lehetőség van kiválasztani, hogy kezdőként vagy haladóként vagyunk ott, ettől függ, hogy az editorban minden tulajdonságot elérünk-e, mert kezdőként például leegyszerűsíti a felhasználói felületet. Azt is megadhatjuk, hogy milyen típusú játékot készítünk (például PVP, Tower Defense, stb.), valamint az alap pálya kinézetét, stílusát, és csak ezek után kerülünk az editorba, ott pedig már kedvünkre alakíthatjuk a dolgokat.
 			\cite{modd.io_official_website}
 			% irodalom ->
 			% https://www.modd.io/
@@ -280,7 +280,7 @@
 			
 		\begin{MySubSection}{Phaser}
 			A Phaser 3 egy teljesen ingyenesen használható cross-platform játékmotor, nyílt forráskódú, kifejezetten két dimenziós játékok készítésére alkalmas. A fejlesztés JavaScripttel és TypeScripttel is kivitelezhető a motorral. Számomra ez azért lényeges, mert amennyiben lehetséges, TypeScriptet támogató keretrendszert szeretnék használni, mivel a típusok használata sok esetben megkönnyítheti a fejlesztést.
-			A felhasználói vélemények nagyrészt pozitívak róla, amivel azok alapján kivetnivalók lehetnek, hogy bár a plugin támogatottsága nagyon jó, egyes pluginok fizetősek az ingyenes motor mellé. Ezzel szemben, eddig számomra úgy tűnik, hogy a fontosabbakat tartalmazza az ingyenes verzió is, így lehetségesnek tartom, hogy a pluginokkal kapcsolatos negatív vélemények oka az, hogy egy régebbi verzióhoz íródhattak.
+			A felhasználói vélemények nagyrészt pozitívok róla, amivel azok alapján kivetnivalók lehetnek, hogy bár a plugin támogatottsága nagyon jó, egyes pluginok fizetősek az ingyenes motor mellé. Ezzel szemben, eddig számomra úgy tűnik, hogy a fontosabbakat tartalmazza az ingyenes verzió is, így lehetségesnek tartom, hogy a pluginokkal kapcsolatos negatív vélemények oka az, hogy egy régebbi verzióhoz íródhattak.
 			Egyszerűen tanulhatónak tűnik első benyomás alapján, rengeteg tutorial, útmutató van hozzá, apróbb példák, és egy-egy komplett játék fejlesztésén végigvezető könyvszerű dokumentumok egyaránt, magyarázatokkal. Azonban komplexebb példákat nem igazán mellékeltek hozzá.
 			A hivatalos honlapjukon szereplő tutorialok közül kettőt elolvastam, illetve végigcsináltam, egyet JavaScriptben, egyet pedig TypeScriptben (ez gyakorlatilag 2 könyv: 69 és 102 oldalakkal). \cite{infinite_jumper} \cite{infinite_runner}
 			% http://assets.ourcade.co/books/Infinite_Jumper_Phaser3_Modern_JavaScript.pdf
@@ -310,7 +310,7 @@
 			
 		\begin{MySubSection}{A fejlesztéshez kiválasztott játékmotor}		
 			Összességében a fentebb felsorolt keretrendszereket összevetve számomra a Phaser tűnik a legszimpatikusabbnak, ezért a szakdolgozatom részeként elkészítendő alkalmazást ennek a játékmotornak a segítségével fogom elkészíteni. Természetesen ezzel nem azt szeretném mondani, hogy a többi motort nem is érdemes használni, hiszen csak felületesen próbáltam ki őket. Ha mindegyikkel egy egész, hasonló projekt fejlesztését végigcsináltam volna, meglehet, hogy más eredményre jutottam volna, azonban sajnos erre most nem volt idő.
-			Az esetlegesen felmerülő problémákat, negatív vagy épp pozitív véleményeket melyek a fejlesztés során felmerülnek, megfogalmazódnak bennem, a későbbiekben részletezni fogom. Ezenkívül a játék elkészülte után azt is leírom, hogy javasolnám-e másnak ilyen jellegű projekthez a válaszott motort, vagy sem.
+			Az esetlegesen felmerülő problémákat, negatív vagy épp pozitív véleményeket melyek a fejlesztés során felmerülnek, megfogalmazódnak bennem, a későbbiekben részletezni fogom. Ezenkívül a játék elkészülte után azt is leírom, hogy javasolnám-e másnak ilyen jellegű projekthez a választott motort, vagy sem.
 		\end{MySubSection}
 
 	\end{MySection}
